@@ -15,16 +15,34 @@ As a new visitor to the site I want to find some new recipes that other people l
 I want to be able to see all recipes on the site, be able to add new recipes and potentially download a recipe or share it with a friend. If I decide to close my account I want the option to be able to delete the recipes I have contributed to the site.
 
 ### *Strategy*
-initial idea - why
-what are we aming to achieve in the first place and for whom?
+A site where recipes can be loaded and shared by individuals creating a central repository where anyone can try something new or bake something that brings back child hood memories of being in Grandma's kitchen. The site will help remove the need for a book shelf full of cookery books. Thereby saving space, reducing clutter and creating a quick easy way to find something tastey to bake.
 
 ### *Scope*
-[Project Design Mind Map]()
-what features based on the information from the strategy do we want to include in our design?
-What's on the table and what's not, at least for now?
+[Project Design Mind Map](recipes_mindmap.png)
+The features to be included are
+* The ability to select recipes by category
+* The ability to create a profile which will allow the user to add/update their own recipes and contribute to the site
+* The ability to download a recipe and/or email a recipe but only if the user has an existing profile
+* If a user with a profile wishes to delete their account, the ability to decide if they want to delete their contribution
 
 ### *Structure*
 How is the information structured, and is it logically grouped?
+The navigation bar will change depending on the type of user visiting the site. 
+Someone who does not have a profile will only be able to view the recipes and have the ability to register and login.
+Someone who is already registered will 
+* have the ability to see all the recipes they have created on a profile page
+* have the abiltiy to add, change or delete any of the recipes they have contributed 
+* have the abiltiy to delete their account 
+* be able to print and/or email any of the recipes on the site
+
+There will be the ability to select the recipes by category or for all categories. 
+The categories will include 
+* Fun with the children
+* Tea time treat
+* Special occasion
+* What's for dinner
+Recipes will be displayed in a card with an image of the final product. Clicking on the card will display all the ingredients, method, times, equipment etc and if the user is a registered user, the ability to download and/or email the recipes
+
 
 ### *Skeleton*
 #### Wireframes
@@ -33,6 +51,8 @@ How is the information structured, and is it logically grouped?
 [Desktop Wireframes]()
 ### *Surface*
 finished product
+styling, balance, consistency
+
 ### Features
 
 ### Media
