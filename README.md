@@ -1,45 +1,51 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# My Favourite Recipes
 
-Welcome USER_NAME,
+## Project Outline
+The purpose of this project is to build a full-stack site that allows users to manage a set of data using HTML, CSS, JavaScript, Python+Flask, MongoDB and external API's. This site is a personal recipe site where favourite recipes can be uploaded and shared with other site visitors. These recipes can be family heirlomes handed down throught the generations or new favourites found in a magazine, book, online or even recommended by a friend or family. A database will be used to hold the recipes with a search function. To be able to add recipes to the site a user will need to register and create login credentials.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+ ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/ami_responsivedesign.png)
 
-## Gitpod Reminders
+[View the live project here](https://siobhanbaines.github.io/MS3-My-Favourite-Recipes/)
+## Design Phase
+### User Experience
+1. **A new visitor to the site**
+As a new visitor to the site I want to find some new recipes that other people love. I want the site to be easy to navigate, information to be easy to find and the site to be intuative. I would like to be able to create my own profile so that I can share my favourite recipes and store them in a convenient location.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+2. **A regular visitor to the site**
+I want to be able to see all recipes on the site, be able to add new recipes and potentially download a recipe or share it with a friend. If I decide to close my account I want the option to be able to delete the recipes I have contributed to the site.
 
-`python3 -m http.server`
+### *Strategy*
+initial idea - why
+what are we aming to achieve in the first place and for whom?
 
-A blue button should appear to click: *Make Public*,
+### *Scope*
+[Project Design Mind Map]()
+what features based on the information from the strategy do we want to include in our design?
+What's on the table and what's not, at least for now?
 
-Another blue button should appear to click: *Open Browser*.
+### *Structure*
+How is the information structured, and is it logically grouped?
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### *Skeleton*
+#### Wireframes
+[Mobile Wireframs]()
+[Tablet Wireframs]()
+[Desktop Wireframes]()
+### *Surface*
+finished product
+### Features
 
-A blue button should appear to click: *Make Public*,
+### Media
 
-Another blue button should appear to click: *Open Browser*.
+### Technologies Used
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Credits
 
-## Updates Since The Instructional Video
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+## Development Phase
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## Testing and Deployment Phase
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+[Test Evidence]()
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
