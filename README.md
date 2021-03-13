@@ -60,7 +60,7 @@ styling, balance, consistency
 ### Technologies Used
 
 ### Credits
-
+[baking icon](https://www.shutterstock.com/image-vector/whisk-mixer-icon-vector-illustration-1721148097) Whisk mixer icon vector illustration By BaharRzayeva
 
 ## Development Phase
 
