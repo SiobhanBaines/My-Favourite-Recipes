@@ -18,7 +18,7 @@ I want to be able to see all recipes on the site, be able to add new recipes and
 A site where recipes can be loaded and shared by individuals creating a central repository where anyone can try something new or bake something that brings back child hood memories of being in Grandma's kitchen. The site will help remove the need for a book shelf full of cookery books. Thereby saving space, reducing clutter and creating a quick easy way to find something tastey to bake.
 
 ### *Scope*
-[Project Design Mind Map](recipes_mindmap.png)
+[Project Design Mind Map](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/9f177456735fc658c3f85831a10604892c91f5da/documentation_files/recipes_mindmap.jpg)
 The features to be included are
 * The ability to select recipes by category
 * The ability to create a profile which will allow the user to add/update their own recipes and contribute to the site
@@ -46,9 +46,9 @@ Recipes will be displayed in a card with an image of the final product. Clicking
 
 ### *Skeleton*
 #### Wireframes
-[Mobile Wireframs]()
-[Tablet Wireframs]()
-[Desktop Wireframes]()
+[Mobile Wireframs](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/9f177456735fc658c3f85831a10604892c91f5da/documentation_files/mobile.pdf)
+[Tablet Wireframs](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/9f177456735fc658c3f85831a10604892c91f5da/documentation_files/tablet.pdf)
+[Desktop Wireframes](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/9f177456735fc658c3f85831a10604892c91f5da/documentation_files/desktop.pdf)
 ### *Surface*
 finished product
 styling, balance, consistency
