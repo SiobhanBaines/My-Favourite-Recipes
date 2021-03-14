@@ -19,6 +19,7 @@ A site where recipes can be loaded and shared by individuals creating a central 
 
 ### *Scope*
 [Project Design Mind Map](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/9f177456735fc658c3f85831a10604892c91f5da/documentation_files/recipes_mindmap.jpg)
+
 The features to be included are
 * The ability to select recipes by category
 * The ability to create a profile which will allow the user to add/update their own recipes and contribute to the site
@@ -47,8 +48,12 @@ Recipes will be displayed in a card with an image of the final product. Clicking
 ### *Skeleton*
 #### Wireframes
 [Mobile Wireframs](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/9f177456735fc658c3f85831a10604892c91f5da/documentation_files/mobile.pdf)
+
 [Tablet Wireframs](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/9f177456735fc658c3f85831a10604892c91f5da/documentation_files/tablet.pdf)
+
 [Desktop Wireframes](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/9f177456735fc658c3f85831a10604892c91f5da/documentation_files/desktop.pdf)
+
+[Database Schema](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/2bdec29915a3584ea1cab3a8fb8fda801c5596a0/documentation_files/recipe_db.png)
 ### *Surface*
 finished product
 styling, balance, consistency
@@ -60,7 +65,7 @@ styling, balance, consistency
 ### Technologies Used
 
 ### Credits
-[baking icon](https://www.shutterstock.com/image-vector/whisk-mixer-icon-vector-illustration-1721148097) Whisk mixer icon vector illustration By BaharRzayeva
+![image](https://www.shutterstock.com/image-vector/whisk-mixer-icon-vector-illustration-1721148097) Whisk mixer icon vector illustration By BaharRzayeva
 
 ## Development Phase
 
