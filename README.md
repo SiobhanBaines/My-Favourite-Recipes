@@ -74,3 +74,23 @@ styling, balance, consistency
 
 [Test Evidence]()
 
+### How to deploy to Heroku
+1. create the requirements.txt document in GitPod using the command `<pip3 freeze --local > requirements.txt>`
+2. create the *Procfile* which Heroku needs to know which file runs the app and how to run it using the command `<echo web: python app.py > Procfile">`. Remember to open the Procfile and remove the blank line at the bottom if one exists because it can interfere with Heroku running the app.
+![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/master/documentation_files/images/blank_line.png)
+3. In Heroku, 
+    1. click on **New** and **Create new app**. 
+    ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/master/documentation_files/images/create_new_app.png)
+    2. Create the app using lowercase letters, numbers and hyphans instead of spaces (NO special characters). Select the nearest region and click **Create app**
+    ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/master/documentation_files/images/create_new_app_details.png)
+    3. Go to the **Deploy** tab to link Heroku to the correct GitHub repository
+    ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/master/documentation_files/images/link_heroku_to_github_repo.png) and click **connect**
+4. Set up the configuration variables that exist in `<env.py>` by clicking on the **settings** tab, scroll down to **Config vars** and click on the button.
+![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/master/documentation_files/images/config_vars.png).
+
+
+
+
+
+
+
