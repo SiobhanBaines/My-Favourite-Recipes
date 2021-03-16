@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
 
@@ -25,7 +25,8 @@
         <!-- Main Nav Bar-->
         <nav class="nav-extended text-shadow brown darken-1">
             <div class="nav-wrapper">
-                <a href="" class="brand-logo"><img src="{{ url_for('static', filename='images/icon.jpeg') }}" alt=""></a>
+                <a href="" class="brand-logo"><img src="{{ url_for('static', filename='images/icon.jpeg') }}"
+                        alt=""></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="sass.html">Sass</a></li>
@@ -43,33 +44,39 @@
             <li><a href="mobile.html">Mobile</a></li>
         </ul>
     </header>
-    {% block content %}
-    {% endblock %}
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
     <footer class="page-footer text-shadow brown darken-1">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
-                        content.</p>
+                    <h5 class="amber-text text-lighten-5">My Favourite Bakes and Cakes</h5>
                 </div>
                 <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                        <li class=" inline-block"><a href="https://github.com/SiobhanBaines"
+                                target="_blank"><i class="fab fa-github amber-text text-lighten-5"></i></a></li>
+                        <li class="inline-block"><a
+                                href="https://www.linkedin.com/in/siobhan-baines-9b296a22/" target="_blank"><i
+                                    class="fab fa-linkedin amber-text text-lighten-5"></i></a></li>
+                        <li class="inline-block"><a href="https://www.facebook.com/siobhan.baines/"
+                                target="_blank"><i class="fab fa-facebook amber-text text-lighten-5"></i></a></li>
+                        <li class="inline-block"><a href="https://www.instagram.com/siobhan.baines/"
+                                target="_blank"><i class="fab fa-instagram amber-text text-lighten-5"></i></a></li>
+                        <li class="inline-block"><a href="https://twitter.com/BainesSiobhan"
+                                target="_blank"><i class="fab fa-twitter amber-text text-lighten-5"></i></a></li>
                     </ul>
+                </div>
+                <div class="footer-copyright col 16 s12">
+                    <div class="container">
+                        © 2021 Copyright Text
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
+
     </footer>
 
 

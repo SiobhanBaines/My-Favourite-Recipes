@@ -1,13 +1,13 @@
-  body {
+body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: amber lighten-5;
-  }
+    background-color: #fff8e1;
+}
 
-  main {
+main {
     flex: 1 0 auto;
-  }
+}
 h2 {
     font-family: 'Rouge Script', cursive;
     font-weight: 900, lighter;
@@ -22,9 +22,9 @@ h2 {
 
 .brand-logo>img {
     position: absolute;
-    width: 5rem;
+    width: 4.5rem;
     height: auto;
-    transform: translateY(10%);
+    transform: translateY(3%);
 }
   /*---  Recipe List Page  ---*/
   .card {
@@ -36,3 +36,9 @@ h2 {
 .card .card-title {
     font-weight: 500;
 }
+
+/*--- footer ---*/
+.inline-block {
+    display: inline-block;
+}
+
