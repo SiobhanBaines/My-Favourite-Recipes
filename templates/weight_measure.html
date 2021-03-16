@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Recipes{% endblock %}
+{% block title %}Weights & Measures{% endblock %}
 {% block content %}
 
 <div class="parallax-container">
@@ -24,9 +24,9 @@
                 <tbody>
                     {% for measure in measures %}
                     <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>$0.87</td>
+                        <td>{{ measure.metric }}{{ measure.metric_unit }}</td>
+                        <td>{{ measure.imperial }}{{ measure.imperial_unit }}</td>
+                        <td>{{ measure.american }}{{ measure.american_unit }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -39,18 +39,18 @@
                 <thead>
                     <h6 class="center-align">Temparature</h6>
                     <tr>
-                        <th>Fahrenheit</th>
-                        <th>Centigrade</th>
                         <th>Gas</th>
+                        <th>Celsius</th>
+                        <th>Fahrenheit</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     {% for temparature in temparatures %}
                     <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>$0.87</td>
+                        <td>{{ temparature.gas }}</td>
+                        <td>{{ temparature.celcius }}</td>
+                        <td>{{ temparature.fahrenheit }}</td>
                     </tr>
                    {% endfor %}
                 </tbody>
