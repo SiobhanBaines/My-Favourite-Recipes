@@ -8,17 +8,13 @@
   main {
     flex: 1 0 auto;
   }
-/*-- Navebar --*/
-/*.brand-logo {
-    display: inline-block;
-    height: 100%;
+h2 {
+    font-family: 'Rouge Script', cursive;
+    font-weight: 900, lighter;
+    justify-content: center;
+    text-align: center;
 }
-.brand-logo>img{
-        vertical-align: middle;
-		position: relative; 
-    top:1px; 
-
-}*/
+/*-- Navbar --*/
 .brand-logo {
     display: inline-block;
     height: 100%;
