@@ -55,6 +55,8 @@ Recipes will be displayed in a card with an image of the final product. Clicking
 
 [Database Schema](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/2bdec29915a3584ea1cab3a8fb8fda801c5596a0/documentation_files/recipe_db.png)
 ### *Surface*
+I used Materialize to assist in the design of the website [Materialize](https://materializecss.com/)
+I created a colour palette using the [background image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/45776b725d8040182b7cc2d0b5f8311cd1807e4f/static/images/background.jpeg) and [icolorpalette](https://icolorpalette.com/)
 finished product
 styling, balance, consistency
 
@@ -65,10 +67,17 @@ styling, balance, consistency
 ### Technologies Used
 
 ### Credits
-![image](https://www.shutterstock.com/image-vector/whisk-mixer-icon-vector-illustration-1721148097) Whisk mixer icon vector illustration By BaharRzayeva
+**icon**
+![image](https://stock.adobe.com/uk/search/free?load_type=search&native_visual_search=&similar_content_id=&is_recent_search=&search_type=autosuggest&k=baking&acp=0&aco=baking&asset_id=273670969&content_id=273670969) Let's Bake motivational slogan or phrase handwritten with calligraphic font or script and decorated by mixer
+By Good Studio 
+**background**
+![image](https://stock.adobe.com/uk/search/free?load_type=search&native_visual_search=&similar_content_id=&is_recent_search=&search_type=autosuggest&k=baking&acp=0&aco=baking&asset_id=178084081)baking ingredients
+By Rawpixel.com
 
 ## Development Phase
-
+### Logo image in Navbar
+I want to use the image ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/45776b725d8040182b7cc2d0b5f8311cd1807e4f/static/images/icon.jpeg) in the Navbar as a logo. When I added the image `<a href="" class="brand-logo"><img src="{{ url_for('static', filename='images/icon.jpeg') }}" alt=""></a>` it appears to cover the whole page ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/45776b725d8040182b7cc2d0b5f8311cd1807e4f/documentation_files/images/navbarlogo.png) I googled *add image for icon navbar materialize* and found some code in [stackoverflow](https://stackoverflow.com/questions/51412303/materializecss-navbar-logo-image-position)which still didn't give me what I wanted but after some playing in dev tools I got the icon where I wanted it.![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/45776b725d8040182b7cc2d0b5f8311cd1807e4f/documentation_files/images/aftericon.PNG)
+ 
 
 ## Testing and Deployment Phase
 

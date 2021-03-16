@@ -24,6 +24,28 @@ def get_recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
+@app.route('/like/<recipe_id>', methods=["GET", "POST"])
+def like(recipe_id):
+    recipe = mongo.db.recipe.update_one(
+        {"_id": ObjectId(recipe_id)},
+        {'$inc': {'likes': 1}},
+        upsert=True
+        )
+    recipes = list(mongo.db.recipe.find())
+    return render_template("recipe.html", recipes=recipes)
+
+
+@app.route('/dislike/<recipe_id>', methods=["GET", "POST"])
+def dislike(recipe_id):
+    recipe = mongo.db.recipe.update_one(
+        {"_id": ObjectId(recipe_id)},
+        {'$inc': {'dislikes': 1}},
+        upsert=True
+    )
+    recipes = list(mongo.db.recipe.find())
+    return render_template("recipe.html", recipes=recipes)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

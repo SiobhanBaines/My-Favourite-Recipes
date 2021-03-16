@@ -1,0 +1,42 @@
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: amber lighten-5;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+/*-- Navebar --*/
+/*.brand-logo {
+    display: inline-block;
+    height: 100%;
+}
+.brand-logo>img{
+        vertical-align: middle;
+		position: relative; 
+    top:1px; 
+
+}*/
+.brand-logo {
+    display: inline-block;
+    height: 100%;
+}
+
+.brand-logo>img {
+    position: absolute;
+    width: 5rem;
+    height: auto;
+    transform: translateY(10%);
+}
+  /*---  Recipe List Page  ---*/
+  .card {
+      box-shadow: 0 10px 10px 0 rgba(109,76,65,0.5);
+  }
+  .card-image {
+       box-shadow: 0 10px 10px 0 rgba(109,76,65,0.5);
+  }
+.card .card-title {
+    font-weight: 500;
+}
