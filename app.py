@@ -51,6 +51,11 @@ def dislike(recipe_id):
     return render_template("recipe.html", recipes=recipes)
 
 
+@app.route("/get_weight_measure")
+def get_weight_measure():
+    return render_template("weight_measure.html")
+    
+    
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

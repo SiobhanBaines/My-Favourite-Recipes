@@ -31,7 +31,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home')  }}">Home</a></li>
                     <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
-                    <li><a href="#">Weights & Measures</a></li>
+                    <li><a href="{{ url_for('get_weight_measure') }}">Weights & Measures</a></li>
                     <li><a href="#">Register</a></li>
                     <li><a href="#">Login</a></li>
                 </ul>
@@ -41,7 +41,7 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home')  }}">Home</a></li>
             <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
-            <li><a href="#">Weights & Measures</a></li>
+            <li><a href="{{ url_for('get_weight_measure') }}">Weights & Measures</a></li>
             <li><a href="#">Register</a></li>
             <li><a href="#">Login</a></li>
         </ul>
@@ -56,8 +56,8 @@
                 <div class="col l6 s12">
                     <h5 class="amber-text text-lighten-5">My Favourite Bakes and Cakes</h5>
                 </div>
-                <div class="col l4 offset-l2 s12">
-                    <ul>
+                <div class="col l4 offset-12 s12">
+                    <ul class="social-media">
                         <li class=" inline-block"><a href="https://github.com/SiobhanBaines"
                                 target="_blank"><i class="fab fa-github amber-text text-lighten-5"></i></a></li>
                         <li class="inline-block"><a

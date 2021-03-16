@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Recipes{% endblock %}
+{% block content %}
+
+<div class="parallax-container">
+    <div class="parallax"><img src="../static/images/background.jpeg"></div>
+    <h1 class="brown-text text-darken-3">Weights and Measure Conversion Charts</h1>
+
+
+    <div class="row">
+        <div class="col l6 s12">
+            <div class="card weight_measure_card">
+            <table class="striped responsive-table centered ">
+                <thead>
+                    <h6 class="center-align">Weights and Measures</h6>
+
+                    <tr>
+                        <th>Metric</th>
+                        <th>Imperial</th>
+                        <th>Cups</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for measure in measures %}
+                    <tr>
+                        <td>Alvin</td>
+                        <td>Eclair</td>
+                        <td>$0.87</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        </div>
+        <div class="col l6 s12">
+            <div class="card weight_measure_card">
+            <table class="striped responsive-table centered w_m_table">
+                <thead>
+                    <h6 class="center-align">Temparature</h6>
+                    <tr>
+                        <th>Fahrenheit</th>
+                        <th>Centigrade</th>
+                        <th>Gas</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for temparature in temparatures %}
+                    <tr>
+                        <td>Alvin</td>
+                        <td>Eclair</td>
+                        <td>$0.87</td>
+                    </tr>
+                   {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% endblock %}
