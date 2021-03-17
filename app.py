@@ -53,19 +53,10 @@ def dislike(recipe_id):
 
 @app.route("/get_weight_measure")
 def get_weight_measure():
-    get_measure()
-    get_temperature()
-    return render_template("weight_measure.html")
-
-
-def get_measure():
     measures = mongo.db.measures.find()
-    return render_template("weight_measure.html", measures=measures)
-
-
-def get_temperature():
     temperatures = mongo.db.temperatures.find()
-    return render_template("weight_measure.html", temperatures=temperatures)
+    return render_template(
+        "weight_measure.html", measures=measures, temperatures=temperatures)
 
 
 if __name__ == "__main__":
