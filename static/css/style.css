@@ -16,7 +16,10 @@ h6 {
     font-weight: bold;
 }
 .row {margin-bottom: 10px;}
-
+.flashes h4 {
+    line-height: 1;
+    z-index: 2;
+}
 /*-- Navbar --*/
 .brand-logo {
     display: inline-block;
@@ -69,7 +72,8 @@ h6 {
     box-shadow: 0 10px 10px 0 rgba(109,76,65,0.5);
 }
 .card-image {
-    box-shadow: 0 10px 10px 0 rgba(109,76,65,0.5);
+    /* box-shadow: 0 10px 10px 0 rgba(109,76,65,0.5); */
+    box-shadow: 0 10px 10px 0 rgba(249,168,37,0.5); 
 }
 .card .card-title {
     font-weight: 500;
@@ -86,7 +90,9 @@ h6 {
 td, th {
     padding: 3px;
 }
-
+table.striped>tbody>tr:nth-child(odd) {
+  background-color: rgb(249, 168, 37, 0.1);
+}
 /*--- Register ---*/
 .card-panel {
     padding: 15px;

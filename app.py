@@ -94,6 +94,32 @@ def register():
 
     return render_template("register.html")
 
+@app.route('/login', methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # check user already exists
+        user_exists = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+        print(user_exists)
+
+        if user_exists:
+            flash("Username Already Exists")
+            print("Username Already Exists")
+            return redirect(url_for("register"))
+
+        # check passwords match
+
+        login = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(register)
+
+        # put new user into 'session cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Successful Registration. You can now add your own recipes")
+
+    return render_template("login.html")
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
