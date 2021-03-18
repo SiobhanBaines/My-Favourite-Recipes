@@ -25,7 +25,7 @@
                 <!-- Username -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-user-plus prefix"></i>
+                        <i class="fas fa-user-cog prefix"></i>
                         <input id="username" name="username" type="text" class="validate">
                         <label for="username">Username</label>
                     </div>
@@ -46,6 +46,14 @@
                 </div>
             </div>
         </form>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <p class="center-align">
+                Don't have a login?  
+                <a href="{{ url_for('register') }}" class="brown-text text-darken-3">Register</a>
+            </p>
+        </div>
     </div>
 </main>
 {% endblock %}

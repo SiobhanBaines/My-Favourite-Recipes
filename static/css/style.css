@@ -72,7 +72,6 @@ h6 {
     box-shadow: 0 10px 10px 0 rgba(109,76,65,0.5);
 }
 .card-image {
-    /* box-shadow: 0 10px 10px 0 rgba(109,76,65,0.5); */
     box-shadow: 0 10px 10px 0 rgba(249,168,37,0.5); 
 }
 .card .card-title {
@@ -103,4 +102,7 @@ table.striped>tbody>tr:nth-child(odd) {
 }
 .register-btn {
     align-content: center;
+}
+p a {
+    font-weight: bold;
 }
