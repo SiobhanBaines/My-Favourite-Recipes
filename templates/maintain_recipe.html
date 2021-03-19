@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Recipes{% endblock %}
+{% block content %}
+<main class="parallax-container">
+    <div class="parallax "><img src="../static/images/background.jpeg"></div>
+    <div class="container">
+        <h3 class="brown-text text-darken-3 center-left">Maintain Recipes</h3>
+
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col m3 s12 ">
+                    <input placeholder="title" name="title" id="title" type="text" class="validate">
+                    <label for="title">Recipe Title</label>
+                    <input placeholder="servings" name="servings" id="servings" type="text" class="validate">
+                    <label for="servings">Servings</label>
+                    <input placeholder="prep_time" name="prep_time" id="prep_time" type="text" class="validate">
+                    <label for="prep_time">Prep Time</label>
+                    <input placeholder="cook_time" name="cook_time" id="cook_time" type="text" class="validate">
+                    <label for="cook_time">Cooking Time</label>
+                    <textarea id="ingredients" name="ingredients" class="materialize-textarea"></textarea>
+                    <label for="ingredients">Ingredients</label>
+                </div>
+                <div class="input-field col m3 s12 ">
+                    <input placeholder="category" name="category" id="category" type="text" class="validate">
+                    <label for="category">category</label>
+                    <input placeholder="temperature" name="temperature" id="temperature" type="temperature"
+                        class="validate">
+                    <label for="temperature">Temperature</label>
+                    <textarea id="notes" name="notes" class="materialize-textarea"></textarea>
+                    <label for="notes">Notes</label>
+                    <textarea id="method" name="method" class="materialize-textarea"></textarea>
+                    <label for="method">Method</label>
+                </div>
+                <div class="col m4 s12">
+                    <img class="recipe_image" src="#" alt="image">
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a class="waves-effect waves-light btn"><i class="fas fa-upload right"></i>Upload</a>
+                    </div>
+                    <div class="col">
+                        <a class="waves-effect waves-light btn"><i class="fas fa-trash-alt"></i>Delete</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</main>
+
+{% endblock %}
