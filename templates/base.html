@@ -32,9 +32,13 @@
                     <li><a href="{{ url_for('home')  }}">Home</a></li>
                     <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
                     <li><a href="{{ url_for('get_weight_measure') }}">Weights & Measures</a></li>
-                    <li><a href="{{ url_for('profile')  }}">Profile</a></li>
+                    {% if session.user %}
+                    <li><a href="{{ url_for('logout')  }}">Log Out</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                    {% else %}
                     <li><a href="{{ url_for('register')  }}">Register</a></li>
-                    <li><a href="{{ url_for('login')  }}">Login</a></li>
+                    <li><a href="{{ url_for('login')  }}">Log In</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -43,44 +47,47 @@
             <li><a href="{{ url_for('home')  }}">Home</a></li>
             <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
             <li><a href="{{ url_for('get_weight_measure') }}">Weights & Measures</a></li>
-            <li><a href="{{ url_for('profile')  }}">Profile</a></li>
+            {% if session.user %}
+            <li><a href="{{ url_for('logout')  }}">Log Out</a></li>
+            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+            {% else %}
             <li><a href="{{ url_for('register')  }}">Register</a></li>
-            <li><a href="{{ url_for('login')  }}">Login</a></li>
+            <li><a href="{{ url_for('login')  }}">Log In</a></li>
+            {% endif %}
         </ul>
     </header>
 
-        {% block content %}
-        {% endblock %}
+    {% block content %}
+    {% endblock %}
 
 
     <!-- </main> -->
     <footer class="page-footer text-shadow brown darken-1">
         <!--<div class="container">-->
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="amber-text text-lighten-5">My Favourite Bakes and Cakes</h5>
-                </div>
-                <div class="col l3 offset-12 s6">
-                    <ul class="social-media">
-                        <li class=" inline-block"><a href="https://github.com/SiobhanBaines"
-                                target="_blank"><i class="fab fa-github amber-text text-lighten-5"></i></a></li>
-                        <li class="inline-block"><a
-                                href="https://www.linkedin.com/in/siobhan-baines-9b296a22/" target="_blank"><i
-                                    class="fab fa-linkedin amber-text text-lighten-5"></i></a></li>
-                        <li class="inline-block"><a href="https://www.facebook.com/siobhan.baines/"
-                                target="_blank"><i class="fab fa-facebook amber-text text-lighten-5"></i></a></li>
-                        <li class="inline-block"><a href="https://www.instagram.com/siobhan.baines/"
-                                target="_blank"><i class="fab fa-instagram amber-text text-lighten-5"></i></a></li>
-                        <li class="inline-block"><a href="https://twitter.com/BainesSiobhan"
-                                target="_blank"><i class="fab fa-twitter amber-text text-lighten-5"></i></a></li>
-                    </ul>
-                </div>
-                <div id="copy" class="footer-copyright col 13 s3 ">
-                    <!--<div class="container">-->
-                        © 2021 Copyright Text
-                    <!--</div>-->
-                </div>
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="amber-text text-lighten-5">My Favourite Bakes and Cakes</h5>
             </div>
+            <div class="col l3 offset-12 s6">
+                <ul class="social-media">
+                    <li class=" inline-block"><a href="https://github.com/SiobhanBaines" target="_blank"><i
+                                class="fab fa-github amber-text text-lighten-5"></i></a></li>
+                    <li class="inline-block"><a href="https://www.linkedin.com/in/siobhan-baines-9b296a22/"
+                            target="_blank"><i class="fab fa-linkedin amber-text text-lighten-5"></i></a></li>
+                    <li class="inline-block"><a href="https://www.facebook.com/siobhan.baines/" target="_blank"><i
+                                class="fab fa-facebook amber-text text-lighten-5"></i></a></li>
+                    <li class="inline-block"><a href="https://www.instagram.com/siobhan.baines/" target="_blank"><i
+                                class="fab fa-instagram amber-text text-lighten-5"></i></a></li>
+                    <li class="inline-block"><a href="https://twitter.com/BainesSiobhan" target="_blank"><i
+                                class="fab fa-twitter amber-text text-lighten-5"></i></a></li>
+                </ul>
+            </div>
+            <div id="copy" class="footer-copyright col 13 s3 ">
+                <!--<div class="container">-->
+                © 2021 Copyright Text
+                <!--</div>-->
+            </div>
+        </div>
         <!--</div>-->
 
     </footer>

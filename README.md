@@ -81,6 +81,9 @@ By Rawpixel.com
 ### Logo image in Navbar
 I want to use the image ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/45776b725d8040182b7cc2d0b5f8311cd1807e4f/static/images/icon.jpeg) in the Navbar as a logo. When I added the image `<a href="" class="brand-logo"><img src="{{ url_for('static', filename='images/icon.jpeg') }}" alt=""></a>` it appears to cover the whole page ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/45776b725d8040182b7cc2d0b5f8311cd1807e4f/documentation_files/images/navbarlogo.png) I googled *add image for icon navbar materialize* and found some code in [stackoverflow](https://stackoverflow.com/questions/51412303/materializecss-navbar-logo-image-position)which still didn't give me what I wanted but after some playing in dev tools I got the icon where I wanted it.![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/45776b725d8040182b7cc2d0b5f8311cd1807e4f/documentation_files/images/aftericon.PNG)
  
+### Error when trying to run app from Heroku
+![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/7a636739f6d6bd29e1e3bdd71fee70e520f5d6dc/documentation_files/images/heroku_deployed_issue.png)
+I had a look on Google for the error code but found nothing. I then looked on Slack and couldn't find anything to help. In the end I contacted Tutor Support who asked me to look at my Procfile which was fine and then asked me about how it was deployed. I'm using the automatic deployment through GitHub. He then had a look and found the app wouldn't run on GitPod either and informed me there is a syntax issue in my Python code. I did do a quick commit and push last night before I could finish what I was doing because I had an online yoga class and was running out of time. The error was a missing 's' of methods.
 
 ## Testing and Deployment Phase
 

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Recipes{% endblock %}
+{% block content %}
+<div class="container">
+    <h3 class="brown-text text-darken-3 center-left">{{ recipe.title }}</h3>
+
+    <div class="row">
+        <div class="col m2 s6">
+            <p class="brown-text text-darken-3">Servings</p>
+            <p class="brown-text text-darken-3">Duration</p>
+            <br>
+            <h6 class="brown-text text-darken-3">Ingredients</h6>
+
+        </div>
+        <div class="col m2 s6">
+            <p class="brown-text text-darken-3">{{ recipe.servings }}</p>
+            <p class="brown-text text-darken-3">{{ recipe.prep_time }} mins Prep</p>
+            <p class="brown-text text-darken-3">{{ recipe.cook_time }} mins Cook</p>
+            
+        </div>
+        <div class="col m4 s12">
+            <h5 class="brown-text text-darken-3">{{ recipe.category }}</h5>
+            <p class="brown-text text-darken-3">Cooking Temperature {{ recipe.temperature }}</p>
+            <p class="brown-text text-darken-3">Notes {{ recipe.note }}</p>
+            <h6 class="brown-text text-darken-3">Method</h6>
+
+        </div>
+        <div class="col m4 s12">
+            <img class="recipe_image" src="{{ recipe.image }}" alt="{{ recipe.title }}">
+
+        </div>
+        <div class="row">
+            <div class="col m2 s6">
+                <p class="brown-text text-darken-3">{{ recipe.ingredients }} </p>
+            </div>
+            <div class="col m2 s6"></div>
+            <div class="col m2 s6">
+                
+                <p class="brown-text text-darken-3">{{ recipe.method }} </p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
