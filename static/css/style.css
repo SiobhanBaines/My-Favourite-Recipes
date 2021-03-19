@@ -21,6 +21,9 @@ h6 {
     line-height: 1;
     z-index: 2;
 }
+.inline-block {
+    display: inline-block;
+}
 /*-- Navbar --*/
 .brand-logo {
     display: inline-block;
@@ -34,9 +37,7 @@ h6 {
 }
 
 /*--- footer ---*/
-.inline-block {
-    display: inline-block;
-}
+
 .page-footer {
     padding: 0;
     bottom: 0;
@@ -78,7 +79,27 @@ h6 {
 .card .card-title {
     font-weight: 500;
 }
-
+.score-card {
+    text-align: center;
+    padding-top: 0%;
+}
+.score {
+    padding-top: 5%;
+    margin: 3%;
+    display: inline-block;
+    vertical-align: middle;
+    align-items: center;
+    font-size: 20px;
+    color: #000;
+}
+i.rating {
+    color: var(--main-green);
+    font-size: 24px;
+    margin: 3%; 
+    display: inline-block;
+    align-items: center;
+   
+}
 /*---  Weights and Measures Page  ---*/
 .weight_measure_tables {
     overflow: auto; 
@@ -119,4 +140,16 @@ p.brown-text.text-darken-3 {
 h5.brown-text.text-darken-3 {
     margin-top: 0rem;
     margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+.recipe_headline {
+    margin-top: 5%;
+}
+li.ingredient{
+    margin: 0px;
+    list-style: none;
+    display: inline-block;
+}
+li.method {
+    list-style: decimal;
 }

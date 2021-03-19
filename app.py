@@ -34,7 +34,10 @@ def get_recipes():
 @app.route('/recipe_detail/<recipe_id>')
 def recipe_detail(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("recipe_detail.html", recipe=recipe)
+    ingredients = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)}, {"ingredients"})
+    method = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)}, {"method"})
+    return render_template(
+        "recipe_detail.html", recipe=recipe, method_list=method, ingredient_list=ingredients)
 
 
 @app.route('/like/<recipe_id>', methods=["GET", "POST"])
