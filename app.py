@@ -139,11 +139,24 @@ def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
+    user_id = mongo.db.users.find_one(
+        {"username": session["user"]})["_id"]
+    print(username)
+    print(user_id)
+    print(session["user"])
     if session["user"]:
-        return render_template("profile.html", username=username.capitalize())
+        recipes = mongo.db.recipes.find({"user": ObjectId(user_id)})
+        print(recipes)
+
+        return render_template(
+            "profile.html", username=username.capitalize(), recipes=recipes)
 
     return redirect(url_for("login"))
+
+
+@app.route("/maintain_recipe/<recipe_id>", methods=["GET", "POST"])
+def maintain_recipe(recipe_id):
+    return render_template("maintain_recipe.html")
 
 
 @app.route("/logout")

@@ -85,6 +85,7 @@ h6 {
 }
 .score {
     padding-top: 5%;
+    padding-left: 5%;
     margin: 3%;
     display: inline-block;
     vertical-align: middle;
@@ -93,7 +94,6 @@ h6 {
     color: #000;
 }
 i.rating {
-    color: var(--main-green);
     font-size: 24px;
     margin: 3%; 
     display: inline-block;
@@ -152,4 +152,11 @@ li.ingredient{
 }
 li.method {
     list-style: decimal;
+}
+/* --- Profile Page --- */
+.profile-recipe {
+    font-size: 20px;
+}
+i.profile-rating {
+    font-size: 18px;
 }
