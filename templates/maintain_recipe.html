@@ -1,51 +1,86 @@
 {% extends "base.html" %}
-{% block title %}Recipes{% endblock %}
+{% block title %}Maintain Recipe{% endblock %}
 {% block content %}
 <main class="parallax-container">
     <div class="parallax "><img src="../static/images/background.jpeg"></div>
-    <div class="container">
-        <h3 class="brown-text text-darken-3 center-left">Maintain Recipes</h3>
-
-        <form class="col s12">
+    
+        <form class="container maintain-recipe">
             <div class="row">
-                <div class="input-field col m3 s12 ">
-                    <input placeholder="title" name="title" id="title" type="text" class="validate">
-                    <label for="title">Recipe Title</label>
-                    <input placeholder="servings" name="servings" id="servings" type="text" class="validate">
-                    <label for="servings">Servings</label>
-                    <input placeholder="prep_time" name="prep_time" id="prep_time" type="text" class="validate">
-                    <label for="prep_time">Prep Time</label>
-                    <input placeholder="cook_time" name="cook_time" id="cook_time" type="text" class="validate">
-                    <label for="cook_time">Cooking Time</label>
-                    <textarea id="ingredients" name="ingredients" class="materialize-textarea"></textarea>
-                    <label for="ingredients">Ingredients</label>
-                </div>
-                <div class="input-field col m3 s12 ">
-                    <input placeholder="category" name="category" id="category" type="text" class="validate">
-                    <label for="category">category</label>
-                    <input placeholder="temperature" name="temperature" id="temperature" type="temperature"
-                        class="validate">
-                    <label for="temperature">Temperature</label>
-                    <textarea id="notes" name="notes" class="materialize-textarea"></textarea>
-                    <label for="notes">Notes</label>
-                    <textarea id="method" name="method" class="materialize-textarea"></textarea>
-                    <label for="method">Method</label>
-                </div>
-                <div class="col m4 s12">
-                    <img class="recipe_image" src="#" alt="image">
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <a class="waves-effect waves-light btn"><i class="fas fa-upload right"></i>Upload</a>
+                <!-- Recipe Title -->
+                <div class="col m5 s12">
+                    <div class="col s4">
+                        <label class="brown-text text-darken-3" for="title">Title</label>
                     </div>
-                    <div class="col">
-                        <a class="waves-effect waves-light btn"><i class="fas fa-trash-alt"></i>Delete</a>
+                    <div class="col s8">
+                        <input type="text" id="title" name="title" value="{{ recipe.title }}"> 
                     </div>
+                </div>
+                <!-- Category -->
+                <div class="col m5 s12">
+                    <div class="col s4">
+                        <label class="brown-text text-darken-3" for="category">Category</label>
+                    </div>
+                    <div class="col s8">
+                        <select id="category" name="category" value="{{ recipe.category }}">
+                            <option value="cat1">Tea Time Treats</option>
+                            <option value="cat2">Fun with the Kids</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Image -->
+                <div class="col m2 s12">
+                    <img class="recipe_image" src="{{ recipe.image }}" alt="{{ recipe.title }}">
                 </div>
             </div>
-        </form>
 
-    </div>
+            <div class="row">
+                <!-- Important Information about Recipe -->
+                <div class="col m8 s12 recipe_headline">
+                    <div class="col m2 s4">
+                        <h6 class="brown-text text-darken-3">Servings</h6>
+                        <h6 class="brown-text text-darken-3">Duration</h6>
+                    </div>
+                    <div class="col m4 s8">
+                        <p class="brown-text text-darken-3">{{ recipe.servings }}</p>
+                        <p class="brown-text text-darken-3">{{ recipe.prep_time }} mins Prep</p>
+                        <p class="brown-text text-darken-3">{{ recipe.cook_time }} mins Cook</p>
+                    </div>
+                    <div class="col m2 s4">
+                        <h6 class="brown-text text-darken-3">Cooking Temperature</h6>
+                        <h6 class="brown-text text-darken-3">Notes</h6>
+                        <p class="brown-text text-darken-3">{{ recipe.note }}</p>
+                    </div>
+                    <div class="col m4 s8">
+                        <p class="brown-text text-darken-3">{{ recipe.temperature }}</p>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- Ingredients -->
+            <div class="row">
+                <div class="col m4 s12">
+                    <h6 class="brown-text text-darken-3">Ingredients</h6>
+                    {% for ingredient in ingredient_list.ingredients %}
+                    {% for item in ingredient %}
+                    <li class="ingredient inline_block">{{ item }}</li>
+                    {% endfor %}
+                    <br>
+                    {% endfor %}
+                </div>
+                <!-- Method -->
+                <div class="col m4 s12">
+                    <h6 class="brown-text text-darken-3">Method</h6>
+                    {% for step in method_list.method %}
+                    {% if step != "" %}
+                    <li class="method brown-text text-darken-3"> {{ step.capitalize() }} </li>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+    </form>
+
+
 </main>
 
 {% endblock %}

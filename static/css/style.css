@@ -160,3 +160,37 @@ li.method {
 i.profile-rating {
     font-size: 18px;
 }
+/* --- Maintain Recipes --- */
+
+.maintain-recipe {
+    margin: 0;
+    padding: 10%;
+    width: 90%;
+    align-content: center;
+    max-width: 100vw;
+}
+
+input[type=text]:not(.browser-default), select, textarea {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(109,76,65);
+    width: 100%;
+    padding: 0;
+    border: 1px solid rgba(109,76,65, 0.8);
+    border-radius: 4px;
+    background-color: rgb(250, 250, 250);
+    resize: vertical;
+}
+title {
+    width: 100%;
+    padding: 0;
+}
+.maintain-recipe label {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 0 12px 0;
+    display: inline-block; 
+}
+select {
+    display: block;
+}

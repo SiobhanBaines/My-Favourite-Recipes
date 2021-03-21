@@ -155,8 +155,13 @@ def profile(username):
 
 
 @app.route("/maintain_recipe/<recipe_id>", methods=["GET", "POST"])
-def maintain_recipe(recipe_id):
-    return render_template("maintain_recipe.html")
+def maintain_recipe(recipe_id):   
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    ingredients = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)}, {"ingredients"})
+    method = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)}, {"method"})
+    return render_template(
+        "maintain_recipe.html", recipe=recipe, method_list=method, ingredient_list=ingredients)
+
 
 
 @app.route("/logout")

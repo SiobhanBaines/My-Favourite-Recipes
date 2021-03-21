@@ -18,54 +18,47 @@
                     <p class="brown-text text-darken-3">{{ recipe.prep_time }} mins Prep</p>
                     <p class="brown-text text-darken-3">{{ recipe.cook_time }} mins Cook</p>
                 </div>
-                <div class="col m6 s12">
-                    <div class="row">
-                        <div class="col m8 s10">
-                            <h6 class="brown-text text-darken-3">Cooking Temperature</h6>
-                        </div>
-                        <div class="col m4 s2">
-                            <p class="brown-text text-darken-3">{{ recipe.temperature }}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <h6 class="brown-text text-darken-3">Notes</h6>
-                            <p class="brown-text text-darken-3">{{ recipe.note }}</p>
-                        </div>
-                    </div>
+                <div class="col m2 s4">
+                    <h6 class="brown-text text-darken-3">Cooking Temperature</h6>
+                    <h6 class="brown-text text-darken-3">Notes</h6>
+                    <p class="brown-text text-darken-3">{{ recipe.note }}</p>
+                </div>
+                <div class="col m4 s8">
+                    <p class="brown-text text-darken-3">{{ recipe.temperature }}</p>
                 </div>
             </div>
-            <!-- Image of finished product -->
-            <div class="col m4 s12">
-                <img class="recipe_image" src="{{ recipe.image }}" alt="{{ recipe.title }}">
-            </div>
+        <!-- </div> -->
+        <!-- Image of finished product -->
+        <div class="col m4 s12">
+            <img class="recipe_image" src="{{ recipe.image }}" alt="{{ recipe.title }}">
         </div>
-        <!-- Ingredients -->
-        <div class="row">
-            <div class="col m4 s12">
-                <h6 class="brown-text text-darken-3">Ingredients</h6>
-                {% for ingredient in ingredient_list.ingredients %}
-                {% for item in ingredient %}
-                <li class="ingredient inline_block">{{ item }}</li>
-                {% endfor %}
-                <br>
-                {% endfor %}
-            </div>
-            <!-- Method -->
-            <div class="col m4 s12">
-                <h6 class="brown-text text-darken-3">Method</h6>
-                {% for step in method_list.method %}
-                {% if step != "" %}
-                <li class="method brown-text text-darken-3"> {{ step.capitalize() }} </li>
-                {% endif %}
-                {% endfor %}
-            </div>
-            <!-- Likes and Dislikes Scores -->
-            <div class="col m4 s12 score-card">
-                <i class="rating fas fa-thumbs-up"></i><span class="score">{{ recipe.likes }}</span>
-                <i class="rating fas fa-thumbs-down"></i><span class="score">{{ recipe.dislikes }}</span>
-            </div>
+    </div>
+    <!-- Ingredients -->
+    <div class="row">
+        <div class="col m4 s12">
+            <h6 class="brown-text text-darken-3">Ingredients</h6>
+            {% for ingredient in ingredient_list.ingredients %}
+            {% for item in ingredient %}
+            <li class="ingredient inline_block">{{ item }}</li>
+            {% endfor %}
+            <br>
+            {% endfor %}
         </div>
+        <!-- Method -->
+        <div class="col m4 s12">
+            <h6 class="brown-text text-darken-3">Method</h6>
+            {% for step in method_list.method %}
+            {% if step != "" %}
+            <li class="method brown-text text-darken-3"> {{ step.capitalize() }} </li>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <!-- Likes and Dislikes Scores -->
+        <div class="col m4 s12 score-card">
+            <i class="rating fas fa-thumbs-up"></i><span class="score">{{ recipe.likes }}</span>
+            <i class="rating fas fa-thumbs-down"></i><span class="score">{{ recipe.dislikes }}</span>
+        </div>
+    </div>
     </div>
 </main>
 
