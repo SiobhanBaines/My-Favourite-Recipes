@@ -128,7 +128,9 @@ table.striped>tbody>tr:nth-child(odd) {
 p a {
     font-weight: bold;
 }
-
+p {
+    font-size: larger;
+}
 /*--- recipe detail page ---*/
 .recipe_image {
     width: 300px;
@@ -154,11 +156,18 @@ li.method {
     list-style: decimal;
 }
 /* --- Profile Page --- */
+.profile-username {
+    font-weight: bold;
+    background-color: #fff8e1;
+}
 .profile-recipe {
     font-size: 20px;
 }
 i.profile-rating {
     font-size: 18px;
+}
+.new-recipe{
+    margin-top: 3rem;
 }
 /* --- Maintain Recipes --- */
 
@@ -170,7 +179,7 @@ i.profile-rating {
     max-width: 100vw;
 }
 
-input[type=text]:not(.browser-default), select, textarea {
+input[type=text]:not(.browser-default).recipe, select {
     font-size: 16px;
     font-weight: bold;
     color: rgb(109,76,65);
@@ -193,4 +202,14 @@ title {
 }
 select {
     display: block;
+}
+/* #temperature { */
+    /* width: 50px; */
+/* } */
+/* #temp_unit { */
+     /* width: 100px; */
+/* } */
+#prep-time,
+#cook-time {
+    margin-bottom: 2rem;
 }
