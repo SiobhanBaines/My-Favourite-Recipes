@@ -9,8 +9,8 @@
             <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
                 <div class="row">
                     <div class="col s8">
-                        <div class="row">
 
+                        <div class="row">
                             <!-- Title -->
                             <div class="input-field col s6">
                                 <input id="title" name="title" minlength="3" maxlength="25" type="text" class="validate"
@@ -30,7 +30,6 @@
                         </div>
                                 
                         <div class="row">
-
                             <!-- Servings -->
                             <div class="input-field col s6">
                                 <input id="servings" name="servings" minlength="3" maxlength="25" type="text"
@@ -39,7 +38,12 @@
                             </div>
 
                             <!-- Cooking Temperature -->
-                            <div class="input-field col s6">
+                            <div class="input-field col s3">
+                                <input id="temperature" name="temperature" minlength="3" maxlength="25" type="text"
+                                    class="validate" required>
+                                <label for="temperature">Temperature</label>
+                            </div>
+                                <div class="input-field col s3">
                                 <select class="browser-default">
                                     <option value="" disabled selected>Temperature Unit</option>
                                     <option value="Celsius">Celsius</option>
@@ -50,7 +54,6 @@
                         </div>
 
                         <div class="row">
-
                             <!-- Preparation Time -->
                             <div class="input-field col s5">
                                 <input id="prep_time" name="prep_time" minlength="3" maxlength="25" type="text"
@@ -60,17 +63,6 @@
                             <div class="input-field col s1">
                                 <p>mins</p>
                             </div>
-
-                            <!-- Notes -->
-                            <div class="input-field col s6">
-                                <input id="notes" name="notes" minlength="3" maxlength="25" type="text" class="validate"
-                                    required>
-                                <label for="notes">Notes</label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-
                             <!-- Cooking Time -->
                             <div class="input-field col s5">
                                 <input id="cook_time" name="cook_time" minlength="3" maxlength="25" type="text"
@@ -81,41 +73,37 @@
                                 <p>mins</p>
                             </div>
                         </div>
-
+                        
                         <div class="row">
-
                             <!-- Ingredients -->
-                            <div class="col s6">
-                                <table class="responsive-table centered ">
-                                    <thead>
-                                        <h6>Ingredients</h6>
-                                        <tr>
-                                            <th>Ingredient</th>
-                                            <th>Quantity</th>
-                                            <th>Unit</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <form method="GET, POST" id="ingredient-form">
-                                            <tr>
-                                                <td><input type="text" name="item" id="item">item</td>
-                                                <td><input type="text" name="qty" id="qty">quantity</td>
-                                                <td><input type="text" name="unit" id="unit">unit</td>
-                                            </tr>
-                                        </form>
-                                    </tbody>
-                                </table>
-                            </div>
+                           <form class="col s12" method="post" action="">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="ingredients" class="materialize-textarea"></textarea>
+                                        <label for="ingredients">Ingredients</label>
+                                    </div>
+                                </div>
+                           </form>
 
                             <!-- Method -->
-                            <form class="col s6">
+                            <form class="col s12" method="post" action="">
                                 <div class="row">
-                                    <div class="input-field col s6">
+                                    <div class="input-field col s12">
                                         <textarea id="method" class="materialize-textarea"></textarea>
                                         <label for="method">Method</label>
                                     </div>
                                 </div>
                             </form>
+                            
+                            <!-- Notes -->
+                            <form class="col s12" method="post" action="">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="notes" class="materialize-textarea"></textarea>
+                                        <label for="notes">notes</label>
+                                    </div>
+                                </div>
+                           </form>
                         </div>
                     </div>
 
