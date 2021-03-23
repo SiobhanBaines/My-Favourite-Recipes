@@ -1,14 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka:wght@400;500;600;700&family=Lato&display=swap');
+
+/* Added a root for colours */
+:root {
+    --main-brown: #4e342e;
+    --main-cream: #fffde7;
+    /* --main-cream: #f9fbe7; */
+    --main-yellow: #ffff8d;
+    --main-red: #e53935;
+    --main-green:#43a047;
+    --main-shadow: rgba(109,76,65,0.5);
+    --card-offwhite: rgba(250, 250, 250, 0.4);
+    --image-shadow: rgba(249,168,37,0.5);
+}
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: #fff8e1;
+    background-color: var(--main-cream);
     font-family: 'Lato', sans-serif;
-    color: #4e342e;
+    color: var(--main-brown);
+    overflow: auto; 
 }
 main {
     flex: 1 0 auto;
+}
+.container {
+    min-height: 80;
 }
 h3 {
     font-family: 'Akaya Kanadaka', cursive;
@@ -16,7 +33,11 @@ h3 {
 h6 {
     font-weight: bold;
 }
-.row {margin-bottom: 10px;}
+h1, h2, h3, h4, h5, h6, p {
+    color: var(--main-brown);
+    text-align: center;
+}
+.row {margin-bottom: 10px;} 
 .flashes h4 {
     line-height: 1;
     z-index: 2;
@@ -25,6 +46,10 @@ h6 {
     display: inline-block;
 }
 /*-- Navbar --*/
+nav,
+nav ul a {
+    color: var(--main-brown);
+}
 .brand-logo {
     display: inline-block;
     height: 100%;
@@ -39,10 +64,10 @@ h6 {
 /*--- footer ---*/
 
 .page-footer {
+    position: fixed;
     padding: 0;
     bottom: 0;
     width: 100vw;
-    position: fixed;
 }
 .social-media {
     font-size: 25px;
@@ -52,29 +77,38 @@ h6 {
 }
 #copy {
     padding-top: 1.5%;
+    color: var(--main-brown)
+}
+li a i.fab {
+    color: var(--main-brown);
 }
 
 /*--- background image ---*/
-.parallax-container {
+.parallax-container { 
     background-size: cover; 
     top: 0;
     left: 0;
-    background-color: rgba(250, 250, 250, 0.8);
+    background-color: rgba(250, 250, 250, 0.9);
 }
 
 /*--- Home Page ---*/
-.home {
+h3.home {  
     justify-content: center;
     align-items: center;
-    font-size: 80px;
+    margin-top: 10%;
+    font-size: 60px;
 }
 
+/* ---  icons and button text --- */
+.btn.amber.accent-2{
+    color: var(--main-brown);
+}
 /*---  Recipes Page  ---*/
 .card {
-    box-shadow: 0 10px 10px 0 rgba(109,76,65,0.5);
+    box-shadow: 0 10px 10px 0 var(--main-shadow);
 }
 .card-image {
-    box-shadow: 0 10px 10px 0 rgba(249,168,37,0.5); 
+    box-shadow: 0 10px 10px 0 var(--image-shadow); 
 }
 .card .card-title {
     font-weight: 500;
@@ -91,7 +125,7 @@ h6 {
     vertical-align: middle;
     align-items: center;
     font-size: 20px;
-    color: #000;
+    color: var(--main-brown);
 }
 i.rating {
     font-size: 24px;
@@ -105,14 +139,14 @@ i.rating {
     overflow: auto; 
 }
 .weight_measure_card{
-    border: rgb(109,76,65);
-    background-color: rgba(250, 250, 250, 0.4);
+    border: var(--main-brown);
+    background-color: var(--main-cream);
 }
 td, th {
     padding: 3px;
 }
 table.striped>tbody>tr:nth-child(odd) {
-  background-color: rgb(249, 168, 37, 0.1);
+  background-color: var(--image-shadow);
 }
 /*--- Register ---*/
 .card-panel {
@@ -158,7 +192,7 @@ li.method {
 /* --- Profile Page --- */
 .profile-username {
     font-weight: bold;
-    background-color: #fff8e1;
+    background-color: var(--main-cream);
 }
 .profile-recipe {
     font-size: 20px;
@@ -182,12 +216,12 @@ i.profile-rating {
 input[type=text]:not(.browser-default).recipe, select {
     font-size: 16px;
     font-weight: bold;
-    color: rgb(109,76,65);
+    color: var(--main-brown);
     width: 100%;
     padding: 0;
-    border: 1px solid rgba(109,76,65, 0.8);
+    border: 1px solid var(--main-shadow);
     border-radius: 4px;
-    background-color: rgb(250, 250, 250);
+    background-color: var(--card-offwhite);
     resize: vertical;
 }
 title {
@@ -203,12 +237,6 @@ title {
 select {
     display: block;
 }
-/* #temperature { */
-    /* width: 50px; */
-/* } */
-/* #temp_unit { */
-     /* width: 100px; */
-/* } */
 #prep-time,
 #cook-time {
     margin-bottom: 2rem;

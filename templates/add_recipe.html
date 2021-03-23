@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="parallax-container">
+    <div class="parallax "><img src="../static/images/background.jpeg"></div>
+    <div class="container">
+        <h3>Add Recipe</h3>
+
+        <div class="row card-panel">
+            <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+                <div class="row">
+                    <div class="col s8">
+                        <div class="row">
+
+                            <!-- Title -->
+                            <div class="input-field col s6">
+                                <input id="title" name="title" minlength="3" maxlength="25" type="text" class="validate"
+                                    required>
+                                <label for="title">Title</label>
+                            </div>
+
+                            <!-- Category -->
+                            <div class="input-field col s6">
+                                <select class="browser-default">
+                                    <option value="" disabled selected>Category</option>
+                                    {% for category in categories %}
+                                    <option value="{{ Category }}">{{ Category }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                                
+                        <div class="row">
+
+                            <!-- Servings -->
+                            <div class="input-field col s6">
+                                <input id="servings" name="servings" minlength="3" maxlength="25" type="text"
+                                    class="validate" required>
+                                <label for="servings">Servings</label>
+                            </div>
+
+                            <!-- Cooking Temperature -->
+                            <div class="input-field col s6">
+                                <select class="browser-default">
+                                    <option value="" disabled selected>Temperature Unit</option>
+                                    <option value="Celsius">Celsius</option>
+                                    <option value="Fahrenheit">Fahrenheit</option>
+                                    <option value="Gas">Gas</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Preparation Time -->
+                            <div class="input-field col s5">
+                                <input id="prep_time" name="prep_time" minlength="3" maxlength="25" type="text"
+                                    class="validate" required>
+                                <label for="prep_time">Prep_time</label>
+                            </div>
+                            <div class="input-field col s1">
+                                <p>mins</p>
+                            </div>
+
+                            <!-- Notes -->
+                            <div class="input-field col s6">
+                                <input id="notes" name="notes" minlength="3" maxlength="25" type="text" class="validate"
+                                    required>
+                                <label for="notes">Notes</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Cooking Time -->
+                            <div class="input-field col s5">
+                                <input id="cook_time" name="cook_time" minlength="3" maxlength="25" type="text"
+                                    class="validate" required>
+                                <label for="cook_time">Cook_time</label>
+                            </div>
+                            <div class="input-field col s1">
+                                <p>mins</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Ingredients -->
+                            <div class="col s6">
+                                <table class="responsive-table centered ">
+                                    <thead>
+                                        <h6>Ingredients</h6>
+                                        <tr>
+                                            <th>Ingredient</th>
+                                            <th>Quantity</th>
+                                            <th>Unit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <form method="GET, POST" id="ingredient-form">
+                                            <tr>
+                                                <td><input type="text" name="item" id="item">item</td>
+                                                <td><input type="text" name="qty" id="qty">quantity</td>
+                                                <td><input type="text" name="unit" id="unit">unit</td>
+                                            </tr>
+                                        </form>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Method -->
+                            <form class="col s6">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <textarea id="method" class="materialize-textarea"></textarea>
+                                        <label for="method">Method</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="col s4">
+                        <div class="card-panel image-panel grey lighten-5 z-depth-1 center-align">
+                            <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Profile Image"
+                                class="circle responsive-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- submit button -->
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button type="submit" class="btn amber accent-2">
+                            Add Recipe <i class="fas fa-plus-square right"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

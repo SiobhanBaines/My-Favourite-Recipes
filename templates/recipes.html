@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Recipes{% endblock %}
 {% block content %}
+
+<main class="parallax-container">
+    <div class="parallax "><img src="../static/images/background.jpeg"></div>
 <div class="container">
-<h3 class="brown-text text-darken-3 center-align">Recipes</h3>
+<h3>Recipes</h3>
 
 {% for recipe in recipes %}
 <div class="row">
@@ -29,9 +32,8 @@
         </div>
     </div>
 </div>
+{% endfor %}
 </div>
 
-
-{% endfor %}
-
+</main>
 {% endblock %}

@@ -1,114 +1,103 @@
 {% extends "base.html" %}
 {% block title %}Maintain Recipe{% endblock %}
 {% block content %}
-<main class="parallax-container">
-    <div class="parallax "><img src="../static/images/background.jpeg"></div>
 
-    <form class="container maintain-recipe">
-        <div class="row">
-            <!-- Recipe Title -->
-            <div class="col m4 s12">
-                <div class="col s4">
-                    <label class="brown-text text-darken-3" for="title">Title</label>
-                    <label class="brown-text text-darken-3" for="servings">Servings</label>
-                    <label class="brown-text text-darken-3" for="prep-time">Prep Time</label>
-                    <label class="brown-text text-darken-3" for="cook-time">Cook Time</label>
-                </div>
-                <div class="col s8">
-                    <input type="text" id="title" name="title" value="{{ recipe.title }}">
-                    <input type="text" id="servings" name="servings" value="{{ recipe.servings }}">
-                    <div class="col m4">
-                        <input type="text" id="prep-time" name="prep-time" value="{{ recipe.prep_time }}">
-                        <br>
-                        <input type="text" id="cook-time" name="cook-time" value="{{ recipe.cook_time }}">
-                    </div>
-                    <div class="col m8">
-                        <p>mins</p>
-                        <br>
-                        <p>mins</p>
-                    </div>
-                </div>
-                <!-- Ingredients -->
-                <!-- <div class="row"> -->
-                <!-- <div class="col m4 s12"> -->
-                <!-- <div class="card weight_measure_card"> -->
-
-                    <table class="striped responsive-table centered ">
-                        <thead>
-                            <h6 class="center-align">Ingredients</h6>
-                            <tr>
-                                <th>Ingredient</th>
-                                <th>Quantity</th>
-                                <th>Unit</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <form method="GET, POST" id="ingredient-form">
-                            {% for ingredient in ingredient_list.ingredients %}
-                            <tr>
-                                <td><input type="text" name="item" id="item" value="{{ ingredient[0] }}"> </td>
-                                <td><input type="text" name="qty" id="qty" value="{{ ingredient[1] }}"></td>
-                                <td><input type="text" name="unit" id="unit" value="{{ ingredient[2] }}"></td>
-                            </tr>
-                            {% endfor %}
-                            </form>
-                        </tbody>
-                    </table>
-                <!-- </div> -->
-
-                <!-- </div> -->
-                <!-- </div> -->
+<form class="container maintain-recipe">
+    <div class="row">
+        <!-- Recipe Title -->
+        <div class="col m4 s12">
+            <div class="col s4">
+                <label class="brown-text text-darken-3" for="title">Title</label>
+                <label class="brown-text text-darken-3" for="servings">Servings</label>
+                <label class="brown-text text-darken-3" for="prep-time">Prep Time</label>
+                <label class="brown-text text-darken-3" for="cook-time">Cook Time</label>
             </div>
-            <!-- Category -->
-            <div class="col m4 s12">
-                <div class="col s4">
-                    <label class="brown-text text-darken-3" for="category">Category</label>
-                    <label class="brown-text text-darken-3" for="temperature">Cooking Temperature</label>
-                    <label class="brown-text text-darken-3" for="notes">Notes</label>
+            <div class="col s8">
+                <input type="text" id="title" name="title" value="{{ recipe.title }}">
+                <input type="text" id="servings" name="servings" value="{{ recipe.servings }}">
+                <div class="col m4">
+                    <input type="text" id="prep-time" name="prep-time" value="{{ recipe.prep_time }}">
+                    <br>
+                    <input type="text" id="cook-time" name="cook-time" value="{{ recipe.cook_time }}">
                 </div>
-                <div class="col s8">
-                    <select id="category" name="category" value="{{ recipe.category }}">
-                        <option value="cat1">Tea Time Treats</option>
-                        <option value="cat2">Fun with the Kids</option>
+                <div class="col m8">
+                    <p>mins</p>
+                    <br>
+                    <p>mins</p>
+                </div>
+            </div>
+            <!-- Ingredients -->
+            <!-- <div class="row"> -->
+            <!-- <div class="col m4 s12"> -->
+            <!-- <div class="card weight_measure_card"> -->
+
+            <table class="striped responsive-table centered ">
+                <thead>
+                    <h6 class="center-align">Ingredients</h6>
+                    <tr>
+                        <th>Ingredient</th>
+                        <th>Quantity</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <form method="GET, POST" id="ingredient-form">
+                        {% for ingredient in ingredient_list.ingredients %}
+                        <tr>
+                            <td><input type="text" name="item" id="item" value="{{ ingredient[0] }}"> </td>
+                            <td><input type="text" name="qty" id="qty" value="{{ ingredient[1] }}"></td>
+                            <td><input type="text" name="unit" id="unit" value="{{ ingredient[2] }}"></td>
+                        </tr>
+                        {% endfor %}
+                    </form>
+                </tbody>
+            </table>
+            <!-- </div> -->
+
+            <!-- </div> -->
+            <!-- </div> -->
+        </div>
+        <!-- Category -->
+        <div class="col m4 s12">
+            <div class="col s4">
+                <label class="brown-text text-darken-3" for="category">Category</label>
+                <label class="brown-text text-darken-3" for="temperature">Cooking Temperature</label>
+                <label class="brown-text text-darken-3" for="notes">Notes</label>
+            </div>
+            <div class="col s8">
+                <select id="category" name="category" value="{{ recipe.category }}">
+                    <option value="cat1">Tea Time Treats</option>
+                    <option value="cat2">Fun with the Kids</option>
+                </select>
+                <div class="col m4">
+                    <input type="text" id="temperature" name="temperature" value="{{ recipe.temperature }}">
+                </div>
+                <div class="col m8">
+                    <select id="temp_unit" name="temp_unit" value="Celsius">
+                        <option value="Celsius">Celsius</option>
+                        <option value="Fahrenheit">Fahrenheit</option>
+                        <option value="Gas">Gas</option>
                     </select>
-                    <div class="col m4">
-                        <input type="text" id="temperature" name="temperature" value="{{ recipe.temperature }}">
-                    </div>
-                    <div class="col m8">
-                        <select id="temp_unit" name="temp_unit" value="Celsius">
-                            <option value="Celsius">Celsius</option>
-                            <option value="Fahrenheit">Fahrenheit</option>
-                            <option value="Gas">Gas</option>
-                        </select>
-                    </div>
-                    <input type="text" id="notes" name="notes" value="{{ recipe.note }}">
                 </div>
-
-                <!-- Method -->
-                <!-- <div class=" row"> -->
-                <div class="col m4 s12">
-                    <h6 class="brown-text text-darken-3">Method</h6>
-                    {% for step in method_list.method %}
-                    {% if step != "" %}
-                    <li class="method brown-text text-darken-3"> {{ step.capitalize() }} </li>
-                    {% endif %}
-                    {% endfor %}
-                </div>
-                <!-- </div> -->
+                <input type="text" id="notes" name="notes" value="{{ recipe.note }}">
             </div>
-            <!-- Image -->
-            <div class="col m2 s12">
-                <img class="recipe_image" src="{{ recipe.image }}" alt="{{ recipe.title }}">
+
+            <!-- Method -->
+            <div class="col m4 s12">
+                <h6 class="brown-text text-darken-3">Method</h6>
+                {% for step in method_list.method %}
+                {% if step != "" %}
+                <li class="method brown-text text-darken-3"> {{ step.capitalize() }} </li>
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
-
-
-
-
+        <!-- Image -->
+        <div class="col m2 s12">
+            <img class="recipe_image" src="{{ recipe.image }}" alt="{{ recipe.title }}">
         </div>
-    </form>
+    </div>
 
-
-</main>
+</form>
 
 {% endblock %}

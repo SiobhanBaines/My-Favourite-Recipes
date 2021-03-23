@@ -5,6 +5,8 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
+
 if os.path.exists("env.py"):
     import env
 
@@ -171,7 +173,7 @@ def delete_account(username):
         user_recipes = user.get("recipes")
         for recipe in user_recipes:
             mongo.db.recipes.remove({"_id": recipe})
-      
+
         # remove user from database,clear session and redirect to the home page
         flash("Your account has been deleted.")
         session.pop("username", None)
@@ -198,6 +200,29 @@ def maintain_recipe(recipe_id):
 def get_categories():
     categories = list(mongo.db.categories.find().sort("category", 1))
     return render_template("categories.html", categories=categories)
+
+
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    if request.method == "POST":
+        category = {
+            "category": request.form.get("category"),
+            "user": session["user"],
+            "date": datetime.now()
+            }
+ 
+        mongo.db.categories.insert_one(category)
+        flash("New Category Added")
+        return redirect(url_for("get_categories"))
+
+    return render_template("add_category.html")
+
+
+@app.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
+    categories = list(mongo.db.categories.find().sort("category", 1))
+
+    return render_template("add_recipe.html")
 
 
 @app.route("/logout")
