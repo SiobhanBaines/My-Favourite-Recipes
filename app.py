@@ -194,6 +194,12 @@ def maintain_recipe(recipe_id):
         method_list=method, ingredient_list=ingredients)
 
 
+@app.route("/get_categories")
+def get_categories():
+    categories = list(mongo.db.categories.find().sort("category", 1))
+    return render_template("categories.html", categories=categories)
+
+
 @app.route("/logout")
 def logout():
     # log user out by removing user from session cookies
