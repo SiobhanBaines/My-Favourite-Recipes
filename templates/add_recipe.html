@@ -1,25 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 <main class="parallax-container">
-    <div class="parallax "><img src="../static/images/background.jpeg"></div>
+    <div class="parallax "><img src="../static/images/scales.jpeg"></div>
     <div class="container">
         <h3>Add Recipe</h3>
 
         <div class="row card-panel">
             <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
                 <div class="row">
-                    <div class="col s8">
+                    <div class="col s6">
 
                         <div class="row">
                             <!-- Title -->
-                            <div class="input-field col s6">
+                            <div class="input-field col s12">
                                 <input id="title" name="title" minlength="3" maxlength="25" type="text" class="validate"
                                     required>
                                 <label for="title">Title</label>
                             </div>
-
+                        </div>
+                        <div class="row">
                             <!-- Category -->
-                            <div class="input-field col s6">
+                            <div class="input-field col s12">
                                 <select class="browser-default">
                                     <option value="" disabled selected>Category</option>
                                     {% for category in categories %}
@@ -28,7 +29,7 @@
                                 </select>
                             </div>
                         </div>
-                                
+
                         <div class="row">
                             <!-- Servings -->
                             <div class="input-field col s6">
@@ -36,14 +37,16 @@
                                     class="validate" required>
                                 <label for="servings">Servings</label>
                             </div>
+                        </div> 
 
+                        <div class="row">
                             <!-- Cooking Temperature -->
-                            <div class="input-field col s3">
+                            <div class="input-field col s6">
                                 <input id="temperature" name="temperature" minlength="3" maxlength="25" type="text"
                                     class="validate" required>
                                 <label for="temperature">Temperature</label>
                             </div>
-                                <div class="input-field col s3">
+                            <div class="input-field col s6">
                                 <select class="browser-default">
                                     <option value="" disabled selected>Temperature Unit</option>
                                     <option value="Celsius">Celsius</option>
@@ -58,62 +61,65 @@
                             <div class="input-field col s5">
                                 <input id="prep_time" name="prep_time" minlength="3" maxlength="25" type="text"
                                     class="validate" required>
-                                <label for="prep_time">Prep_time</label>
+                                <label for="prep_time">Preparation_time</label>
                             </div>
                             <div class="input-field col s1">
                                 <p>mins</p>
                             </div>
+                        </div> 
+
+                        <div class="row">
                             <!-- Cooking Time -->
                             <div class="input-field col s5">
                                 <input id="cook_time" name="cook_time" minlength="3" maxlength="25" type="text"
                                     class="validate" required>
-                                <label for="cook_time">Cook_time</label>
+                                <label for="cook_time">Cooking_time</label>
                             </div>
                             <div class="input-field col s1">
                                 <p>mins</p>
                             </div>
                         </div>
-                        
-                        <div class="row">
-                            <!-- Ingredients -->
-                           <form class="col s12" method="post" action="">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <textarea id="ingredients" class="materialize-textarea"></textarea>
-                                        <label for="ingredients">Ingredients</label>
-                                    </div>
-                                </div>
-                           </form>
 
-                            <!-- Method -->
-                            <form class="col s12" method="post" action="">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <textarea id="method" class="materialize-textarea"></textarea>
-                                        <label for="method">Method</label>
-                                    </div>
-                                </div>
-                            </form>
-                            
-                            <!-- Notes -->
-                            <form class="col s12" method="post" action="">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <textarea id="notes" class="materialize-textarea"></textarea>
-                                        <label for="notes">notes</label>
-                                    </div>
-                                </div>
-                           </form>
-                        </div>
                     </div>
 
                     <!-- Image -->
-                    <div class="col s4">
+                    <div class="col s6">
                         <div class="card-panel image-panel grey lighten-5 z-depth-1 center-align">
                             <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Profile Image"
                                 class="circle responsive-img">
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <!-- Ingredients -->
+                    <form class="col s12" method="post" action="">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="ingredients" class="materialize-textarea"></textarea>
+                                <label for="ingredients">Ingredients</label>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Method -->
+                    <form class="col s12" method="post" action="">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="method" class="materialize-textarea"></textarea>
+                                <label for="method">Method</label>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Notes -->
+                    <form class="col s12" method="post" action="">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="notes" class="materialize-textarea"></textarea>
+                                <label for="notes">notes</label>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
                 <!-- submit button -->

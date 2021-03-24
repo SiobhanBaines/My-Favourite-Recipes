@@ -10,7 +10,6 @@ from datetime import datetime
 if os.path.exists("env.py"):
     import env
 
-
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -144,6 +143,7 @@ def profile(username):
         {"username": session["user"]})["_id"]
     image = mongo.db.users.find_one(
         {"username": session["user"]})["image"]
+
     if session["user"]:
         recipes = mongo.db.recipes.find({"user": ObjectId(user_id)})
 

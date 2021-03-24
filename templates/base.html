@@ -23,7 +23,7 @@
 <body>
     <header>
         <!-- Main Nav Bar-->
-        <nav class="nav-extended brown lighten-4">
+        <nav class="nav-extended">
             <div class="nav-wrapper">
                 <a href="" class="brand-logo"><img src="{{ url_for('static', filename='images/icon.jpeg') }}"
                         alt=""></a>
@@ -60,13 +60,17 @@
     {% block content %}
     {% endblock %}
 
-    <footer class="page-footer transparent">
+    <footer class="page-footer">
         <div class="row">
+            
             <div class="col l6 s12">
                 <h5>My Favourite Bakes and Cakes</h5>
             </div>
-            <div class="col l3 offset-12 s6">
-                <ul class="social-media">
+            <div id="copy" class="col m3 s6">
+                © 2021 Copyright Text
+            </div>
+            <div  class="col m3  s6">
+                <ul class="social-media align-right">
                     <li class=" inline-block"><a href="https://github.com/SiobhanBaines" target="_blank"><i
                                 class="fab fa-github"></i></a></li>
                     <li class="inline-block"><a href="https://www.linkedin.com/in/siobhan-baines-9b296a22/"
@@ -79,9 +83,10 @@
                                 class="fab fa-twitter"></i></a></li>
                 </ul>
             </div>
-            <div id="copy" class="footer-copyright col 13 s3 transparent">
-                © 2021 Copyright Text
-            </div>
+        </div>
+
+
+
         </div>
     </footer>
 

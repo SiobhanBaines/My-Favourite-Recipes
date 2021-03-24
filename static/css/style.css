@@ -3,6 +3,7 @@
 /* Added a root for colours */
 :root {
     --main-brown: #4e342e;
+    --head-foot: #d3cfc1;
     --main-cream: #fffde7;
     /* --main-cream: #f9fbe7; */
     --main-yellow: #ffff8d;
@@ -33,6 +34,7 @@ h3 {
 h1, h2, h3, h4, h5, h6, p {
     color: var(--main-brown);
     text-align: center;
+    vertical-align: middle;
 }
 .row {margin-bottom: 10px;} 
 .flashes h4 {
@@ -42,10 +44,15 @@ h1, h2, h3, h4, h5, h6, p {
 .inline-block {
     display: inline-block;
 }
+hr {
+    width: 60%;
+}
+
 /*-- Navbar --*/
 nav,
 nav ul a {
     color: var(--main-brown);
+    background-color: var(--head-foot);
 }
 .brand-logo {
     display: inline-block;
@@ -59,14 +66,16 @@ nav ul a {
 }
 
 /*--- footer ---*/
-
 .page-footer {
+    background-color: var(--head-foot);
+    float: right;
     position: fixed;
     padding: 0;
     bottom: 0;
     width: 100vw;
 }
 .social-media {
+    text-align: right;
     font-size: 25px;
     font-weight: bold;
     margin-top: 4.5%;
@@ -74,7 +83,7 @@ nav ul a {
 }
 #copy {
     padding-top: 1.5%;
-    color: var(--main-brown)
+    color: var(--main-brown);
 }
 li a i.fab {
     color: var(--main-brown);
@@ -82,10 +91,11 @@ li a i.fab {
 
 /*--- background image ---*/
 .parallax-container { 
+    overflow: auto;
     background-size: cover; 
     top: 0;
     left: 0;
-    background-color: rgba(250, 250, 250, 0.9);
+    background-color: rgba(250, 250, 250, 0.7);
 }
 
 /*--- Home Page ---*/
@@ -130,6 +140,15 @@ i.rating {
     display: inline-block;
     align-items: center;
    
+}
+/* --- Recipe Details --- */
+.recipe-panel {
+    margin-bottom: 20%;
+}
+ 
+p.sundries {
+    padding-top: 40%;
+
 }
 /*---  Weights and Measures Page  ---*/
 .weight_measure_tables {

@@ -1,85 +1,62 @@
 {% extends "base.html" %}
 {% block content %}
 <main class="parallax-container">
-    <div class="parallax"><img src=".. /static/images/background.jpeg"></div>
+    <div class="parallax"><img src=".. /static/images/scales.jpeg"></div>
     <div class="container">
         <h3>{{ recipe.title }}</h3>
-        <div class="row card-panel">
+        <div class="row card-panel recipe-panel">
             <div class="row">
                 <div class="col m8 s12">
+
                     <div class="row">
                         <!-- Category -->
                         <div class="col s12">
                             <h4>{{ recipe.category }}</h4>
                         </div>
                     </div>
-                    <!-- Servings -->
-                    <div class="row">
-                        <div class="col s4">
-                            <h5 class="left-align">Servings</h5>
-                        </div>
-                        <div class="col s1">
-                            <p class="left-align">{{ recipe.servings }}</p>
-                        </div>
-                    </div>
-                    <!-- Servings -->
-                    <div class="row">
-                        <div class="col s4">
-                            <h5 class="left-align">Temperature</h5>
-                        </div>
-                        <div class="col s1">
-                            <p class="left-align">{{ recipe.temperature }}</p>
-                        </div>
-                        <div class="col s1">
-                            <p class="left-align">{{ recipe.temp_unit }}</p>
-                        </div>
-                    </div>
-                    <!-- Cooking Temperature -->
-                    <div class="row">
-                        <div class="col s4">
-                            <h5 class="left-align">Duration</h5>
-                        </div>
-                        <div class="col s3">
-                            <h6 class="left-align">Preparation Time</h6>
-                        </div>
-                        <div class="col s3">
-                            <h6 class="left-align">Cooking Time</h6>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s3 offset-s4">
-                            <p>{{ recipe.prep_time }} mins</p>
-                        </div>
-                        <div class="col s3">
-                            <p>{{ recipe.cook_time }} mins</p>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <!-- Ingredients -->
-                        <div class="col s4">
-                            <h5 class="left-align">Ingredients</h5>
-                        </div>
-                        <div class="col s8">
-                            <p class="left-align">{{ recipe.ingredients }}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- Method -->
-                        <div class="col s4">
-                            <h5 class="left-align">Method</h5>
-                        </div>
-                        <div class="col s8">
-                            <p class="left-align">{{ recipe.method }}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- Notes -->
-                        <div class="col s4">
-                            <h5 class="left-align">Notes</h5>
-                        </div>
-                        <div class="col s8">
-                            <p class="left-align">{{ recipe.note }}</p>
+                    <div class="card">
+                        <div class="card-content">
+                            <!-- Servings -->
+                            <div class="row">
+                                <div class="col s6">
+                                    <h5 class="left-align">Servings</h5>
+                                </div>
+                                <div class="col s2">
+                                    <p class="sundries left-align">{{ recipe.servings }}</p>
+                                </div>
+                            </div>
+                            <!-- Servings -->
+                            <div class="row">
+                                <div class="col s6">
+                                    <h5 class="left-align">Temperature</h5>
+                                </div>
+                                <div class="col s2">
+                                    <p class="sundries left-align">{{ recipe.temperature }}</p>
+                                </div>
+                                <div class="col s2">
+                                    <p class="sundries left-align">{{ recipe.temp_unit }}</p>
+                                </div>
+                            </div>
+                            <!-- Cooking Temperature -->
+                            <div class="row">
+                                <div class="col s6">
+                                    <h5 class="left-align">Duration</h5>
+                                </div>
+                                <div class="col s3">
+                                    <h6 class="left-align">Preparation Time</h6>
+                                </div>
+                                <div class="col s3">
+                                    <h6 class="left-align">Cooking Time</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="sundries col s3 offset-s6">
+                                    <p>{{ recipe.prep_time }} mins</p>
+                                </div>
+                                <div class="sundries col s3">
+                                    <p>{{ recipe.cook_time }} mins</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,11 +75,42 @@
                         <i class="rating fas fa-thumbs-down"></i>
                         <span class="score">{{ recipe.dislikes }}</span>
                     </div>
+                </div>
+            </div>
 
-
+            <div class="row">
+                <!-- Ingredients -->
+                <div class="col s4">
+                    <h5 class="left-align">Ingredients</h5>
+                </div>
+                <div class="col s8">
+                    <p class="left-align">{{ recipe.ingredients }}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <!-- Method -->
+                <div class="col s4">
+                    <h5 class="left-align">Method</h5>
+                </div>
+                <div class="col s8">
+                    <p class="left-align">{{ recipe.method }}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <!-- Notes -->
+                <div class="col s4">
+                    <h5 class="left-align">Notes</h5>
+                </div>
+                <div class="col s8">
+                    <p class="left-align">{{ recipe.note }}</p>
                 </div>
             </div>
         </div>
+
+    </div>
+    </div>
     </div>
 </main>
 {% endblock %}

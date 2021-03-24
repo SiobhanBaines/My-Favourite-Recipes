@@ -24,114 +24,104 @@
         <div class="row center-align ">
             <div class="col s12 l6 ">
                 <div class="card-panel ">
-                    <h5 class="brown-text text-darken-3 center-align">
-                        <i class="fas fa-user-cog mr-1"></i>&nbsp;My&nbsp;Details
-                    </h5>
-                    <div class="col s12 m8 offset-m2 l6 offset-l3">
-                        <div class="card-panel image-panel grey lighten-5 z-depth-1 center-align">
-                            {% if image %}
-                            <img id="user-image" src="{{ image }}" alt="Profile Image" class="circle responsive-img">
-                            {% else %}
-                            <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Profile Image"
-                                class="circle responsive-img">
-                            {% endif %}
-                        </div>
-                    </div>
+                    <h5><i class="fas fa-user-cog mr-1"></i> My Details</h5>
                     <div class="row">
                         <div class="col s12 ">
-                            <p class="brown-text text-darken-3 center-align">Username:<span class=" profile-username">
-                                    {{ username }}</span></p>
+                            <p>Username:<span class=" profile-username"> {{ username }}</span></p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col s6">
+                        <div class="col s12">
                             <a href="{{ url_for('change_password', username = session.username) }}"
-                                class="waves-effect waves-light btn yellow darken-3 align-center">
-                                <i class="fas fa-lock"></i> Change Password</a>
+                                class="btn yellow darken-3 center-align">
+                                <i class="fas fa-lock"></i>Change Password</a>
                         </div>
-                        <div class="col s6">
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
                             <!-- Modal Trigger -->
-                            <a class="red darken-1 btn modal-trigger" href="#delete-account"><i
+                            <a class="red darken-1 btn modal-trigger " href="#delete-account"><i
                                     class="fas fa-trash-alt"></i> Delete Account</a>
-
-                            <!-- Modal Structure -->
-                            <div class="modal" id="delete-account">
-                                <div class="modal-content">
-                                    <h4 class="red-text text-darken-1"> Delete {{ username }}'s Account</h4>
-                                    <div class="modal-body  align-center">
-                                        <p class="red-text text-darken-1">
-                                            <i class="fas fa-exclamation-circle red-text text-darken-1"></i>
-                                            Are you sure you want to delete your account?
-                                        </p>
-                                        <p class="text-grey text-lighten-2 ">
-                                            <span class="font-weight-bold">Note:</span>
-                                            Plese note deleting your account will delete all your recipes.</p>
-                                    </div>
-                                    <form action="{{ url_for('delete_account', username = session.username) }}"
-                                        method="POST">
-                                        <div class="">
-                                            <label for="confirm_password_to_delete">Confirm password</label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text"><i class="fas fa-user"></i></div>
-                                                </div>
-                                                <input placeholder="Enter password" id="confirm_password_to_delete"
-                                                    name="confirm_password_to_delete" type="password"
-                                                    class="validate form-control" required />
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <a href="#!"
-                                                class="modal-close waves-effect btn yellow darken-1 align-center">Cancel</a>
-                                            <a href="{ url_for('delete_account', username = session.username) }}"
-                                                method="POST"><button type="submit"
-                                                    class="waves-effect waves-light btn red darken-1 align-center">
-                                                    Delete Account
-                                                </button></a>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="row"> -->
-            <div class="col l6 s12 ">
-                <div class="card ">
-                    <table class="striped responsive-table centered ">
-                        <thead>
-                            <h5 class="brown-text text-darken-3 center-align">My Recipes</h5>
-                        </thead>
-                        <tbody>
-                            {% for recipe in recipes %}
-                            <tr>
-                                <td><a class="brown-text text-darken-3 profile-recipe"
-                                        href="{{ url_for('recipe_detail', recipe_id= recipe._id) }}">{{ recipe.title }}</a>
-                                </td>
-                                <td><i class="profile-rating fas fa-thumbs-up"></i><span
-                                        class="score">{{ recipe.likes }}</span>
-                                </td>
-                                <td><i class="profile-rating fas fa-thumbs-down"></i><span
-                                        class="score">{{ recipe.dislikes }}</span>
-                                </td>
-                                <td>
-                                    <a href="{{ url_for('maintain_recipe', recipe_id= recipe._id) }}"
-                                        class="waves-effect waves-light btn yellow darken-3 text-center">Change</a>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+        
+        <!-- <div class="row"> -->
+        <div class="col l6 s12 ">
+            <div class="card ">
+                <table class="striped responsive-table centered ">
+                    <thead>
+                        <h5 class="brown-text text-darken-3 center-align">My Recipes</h5>
+                    </thead>
+                    <tbody>
+                        {% for recipe in recipes %}
+                        <tr>
+                            <td><a class="brown-text text-darken-3 profile-recipe"
+                                    href="{{ url_for('recipe_detail', recipe_id= recipe._id) }}">{{ recipe.title }}</a>
+                            </td>
+                            <td><i class="profile-rating fas fa-thumbs-up"></i><span
+                                    class="score">{{ recipe.likes }}</span>
+                            </td>
+                            <td><i class="profile-rating fas fa-thumbs-down"></i><span
+                                    class="score">{{ recipe.dislikes }}</span>
+                            </td>
+                            <td>
+                                <a href="{{ url_for('maintain_recipe', recipe_id= recipe._id) }}"
+                                    class="btn yellow darken-3 text-center">Change</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="co l8 offset-l2 center-align new-recipe">
-            <a class="waves-effect waves-light btn-large green darken-3" href="{{ url_for('get_categories') }}">
-                <i class="fas fa-upload"></i> Maintain Categories</a>
-            <a class="waves-effect waves-light btn-large green darken-3" href="{{ url_for('add_recipe') }}">
-                <i class="fas fa-upload"></i> Add A New Recipe</a>
-        </div>
+    </div>
+    <div class="co l8 offset-l2 center-align new-recipe">
+        <a class="btn-large green darken-3" href="{{ url_for('get_categories') }}">
+            <i class="fas fa-upload"></i> Maintain Categories</a>
+        <a class="btn-large green darken-3" href="{{ url_for('add_recipe') }}">
+            <i class="fas fa-upload"></i> Add A New Recipe</a>
+    </div>
     </div>
 </main>
+
+<!-- Delete Account Modal Structure -->
+<div class="modal" id="delete-account">
+    <div class="modal-content">
+        <h4 class="red-text text-darken-1"> Delete {{ username }}'s Account</h4>
+        <div class="modal-body  align-center">
+            <button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="red-text text-darken-1">
+                <i class="fas fa-exclamation-circle red-text text-darken-1"></i>
+                Are you sure you want to delete your account?
+            </p>
+            <p class="text-grey text-lighten-2 ">
+                <span class="font-weight-bold">Note:</span>
+                Plese note deleting your account will delete all your recipes.</p>
+        </div>
+        <form action="{{ url_for('delete_account', username=username) }}" method="POST">
+            <div class="">
+                <label for="confirm_password_to_delete">Confirm password</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-user"></i></div>
+                    </div>
+                    <input placeholder="Enter password" id="confirm_password_to_delete"
+                        name="confirm_password_to_delete" type="password" class="validate form-control" required />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close btn yellow darken-1 align-center">Cancel</a>
+                <a href="{ url_for('delete_account', username = session.username) }}" method="POST"><button
+                        type="submit" class="btn red darken-1 align-center">
+                        Delete Account
+                    </button></a>
+            </div>
+        </form>
+    </div>
+</div>
+
 {% endblock %}
