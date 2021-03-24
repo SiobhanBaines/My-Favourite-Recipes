@@ -3,7 +3,7 @@
 {% block content %}
 
 <main class="parallax-container">
-    <div class="parallax "><img src="../static/images/background.jpeg"></div>
+    <div class="parallax "><img src="../static/images/scales.jpeg"></div>
     <!-- <div class="container"> -->
     <h3>
         {{ username }}'s Profile
@@ -32,9 +32,9 @@
                     </div>
                     <div class="row">
                         <div class="col s12">
-                            <a href="{{ url_for('change_password', username = session.username) }}"
-                                class="btn yellow darken-3 center-align">
-                                <i class="fas fa-lock"></i>Change Password</a>
+                            <a href="#edit-password"
+                                class="btn green darken-3 center-align">
+                                <i class="fas fa-lock"></i> Change Password</a>
                         </div>
                     </div>
                     <div class="row">
@@ -46,43 +46,43 @@
                     </div>
                 </div>
             </div>
-        
-        <!-- <div class="row"> -->
-        <div class="col l6 s12 ">
-            <div class="card ">
-                <table class="striped responsive-table centered ">
-                    <thead>
-                        <h5 class="brown-text text-darken-3 center-align">My Recipes</h5>
-                    </thead>
-                    <tbody>
-                        {% for recipe in recipes %}
-                        <tr>
-                            <td><a class="brown-text text-darken-3 profile-recipe"
-                                    href="{{ url_for('recipe_detail', recipe_id= recipe._id) }}">{{ recipe.title }}</a>
-                            </td>
-                            <td><i class="profile-rating fas fa-thumbs-up"></i><span
-                                    class="score">{{ recipe.likes }}</span>
-                            </td>
-                            <td><i class="profile-rating fas fa-thumbs-down"></i><span
-                                    class="score">{{ recipe.dislikes }}</span>
-                            </td>
-                            <td>
-                                <a href="{{ url_for('maintain_recipe', recipe_id= recipe._id) }}"
-                                    class="btn yellow darken-3 text-center">Change</a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+
+            <!-- <div class="row"> -->
+            <div class="col l6 s12 ">
+                <div class="card ">
+                    <table class="striped responsive-table centered ">
+                        <thead>
+                            <h5 class="brown-text text-darken-3 center-align">My Recipes</h5>
+                        </thead>
+                        <tbody>
+                            {% for recipe in recipes %}
+                            <tr>
+                                <td><a class="brown-text text-darken-3 profile-recipe"
+                                        href="{{ url_for('recipe_detail', recipe_id= recipe._id) }}">{{ recipe.title }}</a>
+                                </td>
+                                <td><i class="profile-rating fas fa-thumbs-up"></i><span
+                                        class="score">{{ recipe.likes }}</span>
+                                </td>
+                                <td><i class="profile-rating fas fa-thumbs-down"></i><span
+                                        class="score">{{ recipe.dislikes }}</span>
+                                </td>
+                                <td>
+                                    <a href="#"
+                                        class="btn green darken-3 text-center"> Change</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="co l8 offset-l2 center-align new-recipe">
-        <a class="btn-large green darken-3" href="{{ url_for('get_categories') }}">
-            <i class="fas fa-upload"></i> Maintain Categories</a>
-        <a class="btn-large green darken-3" href="{{ url_for('add_recipe') }}">
-            <i class="fas fa-upload"></i> Add A New Recipe</a>
-    </div>
+        <div class="col s12 center-align new-recipe">
+                <a class="maint-btn btn yellow darken-1" href="{{ url_for('get_categories') }}">
+                    <i class="fas fa-upload"></i> Maintain Categories</a>
+                <a class="maint-btn btn yellow darken-1" href="{{ url_for('add_recipe', username=username) }}">
+                    <i class="fas fa-upload"></i> Add A New Recipe</a>
+        </div>
     </div>
 </main>
 
@@ -114,7 +114,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="modal-close btn yellow darken-1 align-center">Cancel</a>
+                <a href="#!" class="modal-close btn green darken-3 align-center">Cancel</a>
                 <a href="{ url_for('delete_account', username = session.username) }}" method="POST"><button
                         type="submit" class="btn red darken-1 align-center">
                         Delete Account

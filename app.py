@@ -44,24 +44,72 @@ def recipe_detail(recipe_id):
         method_list=method, ingredient_list=ingredients)
 
 
+@app.route("/add_recipe/<username>", methods=["GET", "POST"])
+def add_recipe(username):
+    user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
+    print(user_id)
+    print(username)
+    if request.method == "POST":
+
+        recipe = {
+            "user": "user_id",
+            "category": request.form.get("category"),
+            "title": request.form.get("title"),
+            "image": request.form.get("image_url"),
+            "servings": request.form.get("servings"),
+            "prep_time": request.form.get("prep_time"),
+            "cook_time": request.form.get("cook_time"),
+            "temperature": request.form.get("temperature"),
+            "temp_unit": request.form.get("temp_unit"),
+            "ingredients": request.form.get("ingredients"),
+            "method": request.form.get("method"),
+            "note": request.form.get("notes"),
+            "likes": 0,
+            "dislikes": 0,
+            "name": session["user"],
+            "date": datetime.now()
+            }
+
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe Successfully Added")
+        return redirect(url_for("profile", user_id=user_id))
+
+    categories = mongo.db.categoriess.find()
+    
+    return render_template("add_recipe.html", categories=categories)
+
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    user_id = mongo.db.recipes.find_one({"username": session["user"]})["_id"]
+
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash("Recipe Successfully Deleted")
+    return redirect(url_for("profile", user_id=user_id))
+
+
 @app.route('/like/<recipe_id>', methods=["GET", "POST"])
 def like(recipe_id):
-    recipe = mongo.db.recipes.update_one(
-        {"_id": ObjectId(recipe_id)},
-        {'$inc': {'likes': 1}},
-        upsert=True
-        )
+    if request.method == "POST":
+        recipe = mongo.db.recipes.update_one(
+            {"_id": ObjectId(recipe_id)},
+            {'$inc': {'likes': 1}},
+            upsert=True
+            )
+
     recipes = list(mongo.db.recipe.find())
     return render_template("recipe.html", recipes=recipes)
 
 
 @app.route('/dislike/<recipe_id>', methods=["GET", "POST"])
 def dislike(recipe_id):
-    recipe = mongo.db.recipes.update_one(
-        {"_id": ObjectId(recipe_id)},
-        {'$inc': {'dislikes': 1}},
-        upsert=True
-    )
+    if request.method == "POST":
+        recipe = mongo.db.recipes.update_one(
+            {"_id": ObjectId(recipe_id)},
+            {'$inc': {'dislikes': 1}},
+            upsert=True
+        )
+
     recipes = list(mongo.db.recipe.find())
     return render_template("recipe.html", recipes=recipes)
 
@@ -184,18 +232,6 @@ def delete_account(username):
         return redirect(url_for("profile", username=username))
 
 
-@app.route("/maintain_recipe/<recipe_id>", methods=["GET", "POST"])
-def maintain_recipe(recipe_id):
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    ingredients = mongo.db.recipes.find_one(
-        {"_id": ObjectId(recipe_id)}, {"ingredients"})
-    method = mongo.db.recipes.find_one(
-        {"_id": ObjectId(recipe_id)}, {"method"})
-    return render_template(
-        "maintain_recipe.html", recipe=recipe,
-        method_list=method, ingredient_list=ingredients)
-
-
 @app.route("/get_categories")
 def get_categories():
     categories = list(mongo.db.categories.find().sort("category", 1))
@@ -207,7 +243,7 @@ def add_category():
     if request.method == "POST":
         category = {
             "category": request.form.get("category"),
-            "user": session["user"],
+            "name": session["user"],
             "date": datetime.now()
             }
  
@@ -224,7 +260,7 @@ def edit_category(category_id):
 
         submit = {
             "category": request.form.get("category"),
-            "user": session["user"],
+            "name": session["user"],
             "date": datetime.now()
             }
 
@@ -242,14 +278,6 @@ def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("get_categories"))
-
-
-
-@app.route("/add_recipe", methods=["GET", "POST"])
-def add_recipe():
-    categories = list(mongo.db.categories.find().sort("category", 1))
-
-    return render_template("add_recipe.html")
 
 
 @app.route("/logout")

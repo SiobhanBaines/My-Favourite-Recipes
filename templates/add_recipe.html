@@ -6,7 +6,7 @@
         <h3>Add Recipe</h3>
 
         <div class="row card-panel">
-            <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+            <form class="col s12" method="POST" action="{{ url_for('add_recipe', username=username) }}">
                 <div class="row">
                     <div class="col s6">
 
@@ -88,6 +88,16 @@
                             <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Profile Image"
                                 class="circle responsive-img">
                         </div>
+                    </div>
+                    <div class="row">
+                    <div class="input-field col s12">
+                                <input id="image_url" name="image_url" type="text"
+                                    class="validate" required>
+                                <label for="image_url">The cloud address of your image</label>
+                            </div>
+                            <div class="input-field col s1">
+                                <p>mins</p>
+                            </div>
                     </div>
                 </div>
                 <div class="row">

@@ -219,6 +219,9 @@ i.profile-rating {
 .new-recipe{
     margin-top: 3rem;
 }
+.maint-btn {
+    color: var(--main-brown);
+}
 /* --- Maintain Recipes --- */
 
 .maintain-recipe {
