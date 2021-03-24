@@ -46,11 +46,9 @@ def recipe_detail(recipe_id):
 
 @app.route("/add_recipe/<username>", methods=["GET", "POST"])
 def add_recipe(username):
-    user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
-    print(user_id)
     print(username)
+    user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     if request.method == "POST":
-
         recipe = {
             "user": "user_id",
             "category": request.form.get("category"),
@@ -70,13 +68,16 @@ def add_recipe(username):
             "date": datetime.now()
             }
 
+        print(recipe)
         mongo.db.recipes.insert_one(recipe)
+        print(recipe)
         flash("Recipe Successfully Added")
         return redirect(url_for("profile", user_id=user_id))
 
-    categories = mongo.db.categoriess.find()
+    categories = list(mongo.db.categories.find().sort("category", 1))
+    print(categories)
     
-    return render_template("add_recipe.html", categories=categories)
+    return render_template("add_recipe.html", username=username, categories=categories)
 
 
 @app.route("/delete_recipe/<recipe_id>")

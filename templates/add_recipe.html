@@ -3,7 +3,7 @@
 <main class="parallax-container">
     <div class="parallax "><img src="../static/images/scales.jpeg"></div>
     <div class="container">
-        <h3>Add Recipe</h3>
+        <h3>Please Add Recipe {{ username }}</h3>
 
         <div class="row card-panel">
             <form class="col s12" method="POST" action="{{ url_for('add_recipe', username=username) }}">
@@ -24,7 +24,7 @@
                                 <select class="browser-default">
                                     <option value="" disabled selected>Category</option>
                                     {% for category in categories %}
-                                    <option value="{{ Category }}">{{ Category }}</option>
+                                    <option value="{{ category.category }}">{{ category.category }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -33,7 +33,7 @@
                         <div class="row">
                             <!-- Servings -->
                             <div class="input-field col s6">
-                                <input id="servings" name="servings" minlength="3" maxlength="25" type="text"
+                                <input id="servings" name="servings" minlength="0" maxlength="5" type="text"
                                     class="validate" required>
                                 <label for="servings">Servings</label>
                             </div>
@@ -42,7 +42,7 @@
                         <div class="row">
                             <!-- Cooking Temperature -->
                             <div class="input-field col s6">
-                                <input id="temperature" name="temperature" minlength="3" maxlength="25" type="text"
+                                <input id="temperature" name="temperature" minlength="1" maxlength="3" type="text"
                                     class="validate" required>
                                 <label for="temperature">Temperature</label>
                             </div>
@@ -59,7 +59,7 @@
                         <div class="row">
                             <!-- Preparation Time -->
                             <div class="input-field col s5">
-                                <input id="prep_time" name="prep_time" minlength="3" maxlength="25" type="text"
+                                <input id="prep_time" name="prep_time" minlength="0" maxlength="5" type="text"
                                     class="validate" required>
                                 <label for="prep_time">Preparation_time</label>
                             </div>
@@ -71,7 +71,7 @@
                         <div class="row">
                             <!-- Cooking Time -->
                             <div class="input-field col s5">
-                                <input id="cook_time" name="cook_time" minlength="3" maxlength="25" type="text"
+                                <input id="cook_time" name="cook_time" minlength="0" maxlength="5" type="text"
                                     class="validate" required>
                                 <label for="cook_time">Cooking_time</label>
                             </div>
@@ -90,14 +90,13 @@
                         </div>
                     </div>
                     <div class="row">
-                    <div class="input-field col s12">
-                                <input id="image_url" name="image_url" type="text"
-                                    class="validate" required>
-                                <label for="image_url">The cloud address of your image</label>
-                            </div>
-                            <div class="input-field col s1">
-                                <p>mins</p>
-                            </div>
+                        <div class="input-field col s12">
+                            <input id="image_url" name="image_url" type="text" class="validate" required>
+                            <label for="image_url">The cloud address of your image</label>
+                        </div>
+                        <div class="input-field col s1">
+                            <p>mins</p>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
