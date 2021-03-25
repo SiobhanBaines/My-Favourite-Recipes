@@ -79,6 +79,11 @@ By Rawpixel.com
 ** Default Profile Image **
 ![image](https://www.vectorstock.com/royalty-free-vector/abstract-chef-cooky-food-bakery-logo-design-icon-vector-24016199) Image Id 24016199
 ARTIST [adhevaart](https://www.vectorstock.com/royalty-free-vectors/vectors-by_adhevaart) 
+*** Recipe Images ***
+Although I may have some photographs of the cakes and bakes created by the recipes I decided it would be more time efficient to use some that are available on the internet. None of the images loaded are my own but I have often baked all the recipes.
+*** Chocolate Chip Cookies ***
+![image](https://www.google.com/search?q=chocolate-chip+cookies&rlz=1C1CHBF_en-GBGB927GB927&sxsrf=ALeKk00CvGruX48K4p1I096wLH3I9PnZvA:1616684868489&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjPxbK63MvvAhUOQxUIHYBSCmYQ_AUoAXoECAEQAw&biw=1280&bih=554&dpr=1.25#imgrc=RCL0CE6FPWbCyM)
+(c)Handle the Heat with Tessa Arias. 
 
 ## Development Phase
 ### Logo image in Navbar
@@ -91,14 +96,20 @@ I had a look on Google for the error code but found nothing. I then looked on Sl
 ### Recipe would not Add when Add button clicked
 ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/edf1454c0f2963693e20ddf36d0624fbdce3fbed/documentation_files/images/recipe_not_loading_into_mongodb_collection.png)
 When I created the Add Recipe page I based it on the Recipe Details page for the layout and copied the functionality from the Add Category page. After some digging I decided to put the code through the HTML validator [http://validator.w3.org/](http://validator.w3.org/) I had checked all my opening and closing tags so was surprised by the ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/edf1454c0f2963693e20ddf36d0624fbdce3fbed/documentation_files/images/form_tag.png) The words **Ignoring the tag.** made me realise I cannot have forms within a form. I had used the Materialzecss TextArea code for 3 of the elements that needed to be entered. I changed the TextArea's to standart input elements of the type text. This time the recipe was added to the recipes collection in Mongodb.
-![image](Recipe Added message to be loaded)
-![image](MongoDB image to be loaded)
+![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/8e9e6fb090cdc751d4b972c3605b69604f6f263e/documentation_files/images/recipe_added.png)
+![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/8e9e6fb090cdc751d4b972c3605b69604f6f263e/documentation_files/images/recipe_in_mongodb.png)
 
 ## Code Verification
 
 ## Testing and Deployment Phase
 
 [Test Evidence]()
+
+### How to run the application from GitPod
+Once the application has been opened in a GidPod workspace there are a couple of tasks that need to be performed to be able to run the application during development.
+1. An **env.py** file needs to be created which needs to contain the configuration variables stored in Heroku.
+2. The command >pip3 install -r requirements.txt` needs to be run to install all the external API's the application needs to be able to run.
+3. To run the application use the command >python3 app.py` and then click the **Open Browser** button on port 8080. The application will appear in a separate browser tab.
 
 ### How to deploy to Heroku
 1. create the requirements.txt document in GitPod using the command `pip3 freeze --local > requirements.txt`

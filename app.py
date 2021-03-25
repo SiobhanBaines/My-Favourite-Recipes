@@ -52,7 +52,7 @@ def add_recipe(username, categories):
     user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     if request.method == "POST":
         recipe = {
-            "user": "user_id",
+            "user": user_id,
             "category": request.form.get("category"),
             "title": request.form.get("title"),
             "image": request.form.get("image_url"),
@@ -83,13 +83,43 @@ def add_recipe(username, categories):
         "add_recipe.html", username=username, categories=categories)
 
 
+@app.route("/edit_recipe/<recipe><recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe, recipe_id):
+    if request.method == "POST":
+
+        submit_recipe = {
+            "category": request.form.get("category"),
+            "title": request.form.get("title"),
+            "image": request.form.get("image_url"),
+            "servings": request.form.get("servings"),
+            "prep_time": request.form.get("prep_time"),
+            "cook_time": request.form.get("cook_time"),
+            "temperature": request.form.get("temperature"),
+            "temp_unit": request.form.get("temp_unit"),
+            "ingredients": request.form.get("ingredients"),
+            "method": request.form.get("method"),
+            "note": request.form.get("notes"),
+            "likes": 0,
+            "dislikes": 0,
+            "name": session["user"],
+            "date": datetime.now()
+            }
+
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit_recipe)
+        flash("Recipe Successfully Updated")
+        return redirect(url_for("recipe_detail", recipe_id=recipe_id))
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template(
+        "update_recipe.html", recipe=recipe, recipe_id=recipe_id)
+
+
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
-    user_id = mongo.db.recipes.find_one({"username": session["user"]})["_id"]
 
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
-    return redirect(url_for("profile", username=username))
+    return redirect(url_for("recipe_detail", recipe_id=recipe_id))
 
 
 @app.route('/like/<recipe_id>', methods=["GET", "POST"])

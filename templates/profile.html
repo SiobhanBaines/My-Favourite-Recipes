@@ -67,7 +67,7 @@
                                         class="score">{{ recipe.dislikes }}</span>
                                 </td>
                                 <td>
-                                    <a href="#"
+                                    <a href="{{ url_for('edit_recipe', recipe=recipe, recipe_id=recipe._id) }}"
                                         class="btn green darken-3 text-center"> Change</a>
                                 </td>
                             </tr>
