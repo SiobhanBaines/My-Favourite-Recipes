@@ -88,6 +88,14 @@ I want to use the image ![image](https://github.com/SiobhanBaines/MS3-My-Favouri
 ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/7a636739f6d6bd29e1e3bdd71fee70e520f5d6dc/documentation_files/images/heroku_deployed_issue.png)
 I had a look on Google for the error code but found nothing. I then looked on Slack and couldn't find anything to help. In the end I contacted Tutor Support who asked me to look at my Procfile which was fine and then asked me about how it was deployed. I'm using the automatic deployment through GitHub. He then had a look and found the app wouldn't run on GitPod either and informed me there is a syntax issue in my Python code. I did do a quick commit and push last night before I could finish what I was doing because I had an online yoga class and was running out of time. The error was a missing 's' of methods.
 
+### Recipe would not Add when Add button clicked
+![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/edf1454c0f2963693e20ddf36d0624fbdce3fbed/documentation_files/images/recipe_not_loading_into_mongodb_collection.png)
+When I created the Add Recipe page I based it on the Recipe Details page for the layout and copied the functionality from the Add Category page. After some digging I decided to put the code through the HTML validator [http://validator.w3.org/](http://validator.w3.org/) I had checked all my opening and closing tags so was surprised by the ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/edf1454c0f2963693e20ddf36d0624fbdce3fbed/documentation_files/images/form_tag.png) The words **Ignoring the tag.** made me realise I cannot have forms within a form. I had used the Materialzecss TextArea code for 3 of the elements that needed to be entered. I changed the TextArea's to standart input elements of the type text. This time the recipe was added to the recipes collection in Mongodb.
+![image](Recipe Added message to be loaded)
+![image](MongoDB image to be loaded)
+
+## Code Verification
+
 ## Testing and Deployment Phase
 
 [Test Evidence]()
@@ -108,9 +116,9 @@ I had a look on Google for the error code but found nothing. I then looked on Sl
 5. Before clicking the deploy button make sure the `Procfile` and the `requirements.txt` files are deployed to Github
 6. In Heroku click on **deploy** tab and click on **Enabled Automatic Deployment** and **Deploy**. 
 7. Once it has deployed use the standard method of deploying to GitHub and this will be automatically replicated through to Heroku. 
-    >git add .`    
+    >git add .`
     >git commit -m"message"`   
-    >git push
+    >git push`
     
 
 

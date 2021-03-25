@@ -44,9 +44,11 @@ def recipe_detail(recipe_id):
         method_list=method, ingredient_list=ingredients)
 
 
-@app.route("/add_recipe/<username>", methods=["GET", "POST"])
-def add_recipe(username):
-    print(username)
+@app.route("/add_recipe/<username><categories>", methods=["GET", "POST"])
+def add_recipe(username, categories):
+    print("49", username)
+    print("50", categories)
+    print("51", request.method)
     user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     if request.method == "POST":
         recipe = {
@@ -68,16 +70,17 @@ def add_recipe(username):
             "date": datetime.now()
             }
 
-        print(recipe)
+        print("72", recipe)
         mongo.db.recipes.insert_one(recipe)
-        print(recipe)
+        print("74", recipe)
         flash("Recipe Successfully Added")
-        return redirect(url_for("profile", user_id=user_id))
+        return redirect(url_for("profile", username=username))
 
     categories = list(mongo.db.categories.find().sort("category", 1))
-    print(categories)
-    
-    return render_template("add_recipe.html", username=username, categories=categories)
+    print("79", categories)
+
+    return render_template(
+        "add_recipe.html", username=username, categories=categories)
 
 
 @app.route("/delete_recipe/<recipe_id>")
@@ -86,7 +89,7 @@ def delete_recipe(recipe_id):
 
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
-    return redirect(url_for("profile", user_id=user_id))
+    return redirect(url_for("profile", username=username))
 
 
 @app.route('/like/<recipe_id>', methods=["GET", "POST"])

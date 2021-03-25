@@ -80,7 +80,7 @@
         <div class="col s12 center-align new-recipe">
                 <a class="maint-btn btn yellow darken-1" href="{{ url_for('get_categories') }}">
                     <i class="fas fa-upload"></i> Maintain Categories</a>
-                <a class="maint-btn btn yellow darken-1" href="{{ url_for('add_recipe', username=username) }}">
+                <a class="maint-btn btn yellow darken-1" href="{{ url_for('add_recipe', username=username, categories=categories) }}">
                     <i class="fas fa-upload"></i> Add A New Recipe</a>
         </div>
     </div>
