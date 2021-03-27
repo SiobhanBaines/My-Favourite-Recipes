@@ -4,10 +4,15 @@ $(document).ready(function () {
     $('.carousel').carousel();
     $('.modal').modal();
     $('select').formSelect();
-    $('#ingredients').val('');
-    $('#method').val('');
-    $('#notes').val('');
+   // $('#ingredients').val('');
+   // M.textareaAutoResize($('#ingredients'));
+   // $('#method').val('');
+   // M.textareaAutoResize($('#method'));
+   // $('#notes').val('');
+   // M.textareaAutoResize($('#notes'));
+   // M.updateTextFields();
 });
-//M.textareaAutoResize($('#ingredients'));
-//M.textareaAutoResize($('#method'));
-//M.textareaAutoResize($('#notes'));
+
+//
+//
+//

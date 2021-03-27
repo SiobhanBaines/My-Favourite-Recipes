@@ -23,7 +23,7 @@
                         <div class="row">
                             <!-- Category -->
                             <div class="input-field col s12">
-                                <select class="browser-default">
+                                <select class="browser-default" name="category">
                                     <option value="" disabled selected>Category</option>
                                     {% for category in categories %}
                                     <option value="{{ category.category }}">{{ category.category }}</option>
@@ -49,7 +49,7 @@
                                 <label for="temperature">Temperature</label>
                             </div>
                             <div class="input-field col s6">
-                                <select class="browser-default">
+                                <select class="browser-default" name="temp_unit">
                                     <option value="" disabled selected>Temperature Unit</option>
                                     <option value="Celsius">Celsius</option>
                                     <option value="Fahrenheit">Fahrenheit</option>
