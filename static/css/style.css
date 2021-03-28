@@ -113,9 +113,14 @@ h3.home {
 /*---  Recipes Page  ---*/
 .card {
     box-shadow: 0 10px 10px 0 var(--main-shadow);
+    /* width: 25rem;
+    height: 30rem; */
 }
 .card-image {
     box-shadow: 0 10px 10px 0 var(--image-shadow); 
+}
+.recipes_image{
+    height: 217px
 }
 .card .card-title {
     font-weight: 500;

@@ -2,19 +2,17 @@
 {% block title %}Recipes{% endblock %}
 {% block content %}
 
-<main class="parallax-container">
-    <div class="parallax "><img src="../static/images/background.jpeg"></div>
 <div class="container">
 <h3>Recipes</h3>
-
-{% for recipe in recipes %}
 <div class="row">
-    <div class="col s12 m7 l4">
+{% for recipe in recipes %}
+
+    <div class="col l4 m6 s12">
         <div class="card ">
             <a class="brown-text text-darken-3" href="{{ url_for('recipe_detail', recipe_id=recipe._id) }}">
                 <div class="card-image">
-                    <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
-                    <span class="card-title card-name">{{ recipe.title }}</span>
+                    <img src="{{ recipe.image }}" class="recipes_image" alt="{{ recipe.title }}">
+                    <span class="card-title card-name ">{{ recipe.title }}</span>
                 </div>
                 <div class="card-content">
                     <h5>{{recipe.category }}</h5>
@@ -31,9 +29,10 @@
             </a>
         </div>
     </div>
-</div>
-{% endfor %}
+    {% endfor %}
 </div>
 
-</main>
+</div>
+
+
 {% endblock %}
