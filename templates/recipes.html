@@ -2,37 +2,32 @@
 {% block title %}Recipes{% endblock %}
 {% block content %}
 
-<div class="container">
-<h3>Recipes</h3>
-<div class="row">
-{% for recipe in recipes %}
-
-    <div class="col l4 m6 s12">
-        <div class="card ">
-            <a class="brown-text text-darken-3" href="{{ url_for('recipe_detail', recipe_id=recipe._id) }}">
-                <div class="card-image">
-                    <img src="{{ recipe.image }}" class="recipes_image" alt="{{ recipe.title }}">
-                    <span class="card-title card-name ">{{ recipe.title }}</span>
-                </div>
-                <div class="card-content">
-                    <h5>{{recipe.category }}</h5>
-                    <p>Duration {{ recipe.prep_time + recipe.cook_time }} mins</p>
-                    <div class="col-4">
-                        <a class="brown-text text-darken-3" href="{{ url_for('like', recipe_id=recipe._id) }}">
-                            <i class="rating fas fa-thumbs-up"></i>
-                            <span class="score">{{ recipe.likes }}</span></a>
-                        <a class="brown-text text-darken-3" href="{{ url_for('dislike', recipe_id=recipe._id) }}">
-                            <i class="rating fas fa-thumbs-down"></i>
-                            <span class="score">{{ recipe.dislikes }}</span></a>
+    <div class="container">
+        <h3>Recipes</h3>
+        <div class="row">
+            {% for recipe in recipes %}
+                <div class="col l4 m6 s12">
+                    <div class="card ">
+                        <a class="brown-text text-darken-3" href="{{ url_for('recipe_detail', recipe_id=recipe._id) }}">
+                            <div class="card-image">
+                                <img src="{{ recipe.image }}" class="recipes_image" alt="{{ recipe.title }}">
+                                <span class="card-title card-name ">{{ recipe.title }}</span>
+                            </div>
+                            <div class="card-content">
+                                <h5>{{recipe.category }}</h5>
+                                <p>Duration {{ recipe.prep_time + recipe.cook_time }} mins</p>
+                                <div class="col-4 center-align">
+                                    <a class="brown-text text-darken-3" href="{{ url_for('like', recipe_id=recipe._id) }}"><i class="rating fas fa-thumbs-up"></i>
+                                        <span class="score">{{ recipe.likes }}</span></a>
+                                    <a class="brown-text text-darken-3" href="{{ url_for('dislike', recipe_id=recipe._id) }}"><i class="rating fas fa-thumbs-down"></i>
+                                        <span class="score">{{ recipe.dislikes }}</span></a>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
-            </a>
+            {% endfor %}
         </div>
     </div>
-    {% endfor %}
-</div>
-
-</div>
-
 
 {% endblock %}

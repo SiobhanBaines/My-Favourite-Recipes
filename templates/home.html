@@ -2,17 +2,49 @@
 {% block title %}Recipes{% endblock %}
 {% block content %}
 
-<main class="parallax-container">
-    <div class="parallax "><img src="../static/images/background.jpeg"></div>
-
-    <div class="container ">
-        <h3 class="home">My Favourite Cakes and Bakes</h3>
+    <!-- Home page with carousel of currently loaded recipes -->
+    <div class="container home">
+        <h3 class="home">Family Favourite Recipes</h3>
         <div class="carousel">
             {% for recipe in recipes %}
-            <a class="carousel-item" href="#"><img src="{{ recipe.image }}"></a>
+                <a class="carousel-item" href="{{ url_for('recipe_detail', recipe_id=recipe._id) }}"><img src="{{ recipe.image }}"></a>
             {% endfor %}
         </div>
     </div>
-</main>
+    <!-- About Page  -->
+    <div class="container about">
+        <h4>About Our Favourite Recipes</h4>
+        <br>
+        <div class="row">
+            <div class="col s8 offset-s2">
+                <p>Every family has a "Grandma's odd recipe book", full of family favourites that have been handed down and cooked by many generations</p>
+                <br>
+                <p>What better way to bring the family together than to bake a tea time treat that brings back memories of your childhood. We all have our favourite treats we love to bake. </p>
+                <br>
+                <p>Get the children involved. There's always something easy for them to make, eat and have fun in the kitchen.</p>
+                <br>
+                <p>You can create your own profile and add your favourite recipes to share with others or just have a look around and see what other people love.</p>
+                <br>
+                <p>We know Grandma's recipe will have old measurements and not everyone has the same time of cooker so we've created a helpful weights and measure page to help. </p>
+            </div>
+        </div>
+    </div>
+    <!-- How to get started -->
+    <div class="container getting-started">
+        <h4>Ready to join Our Family Favourties?</h4>
+        <br>
+        <p>Click the register button and set up your username.</p>
+        <br>
+        <p>Decide which of your favourite recipes to add.</p>
+        <br>
+        <p>Click the add recipe button to begin adding your recipe. If you have a photograph of the finished product please upload it. We love to see home cooking. If not, don't worry you can always add a description of it in the Notes section.</p>
+        <br>
+        <p>If you make a mistake, you can always change it later</p>
+        <br>
+        <p>None of the categories that are set up relate to your recipe? We have a page to add new categories.</p>
+        <br>
+        <p>Not ready to join the fun? That's ok too. Click on the recipes tab or one of the images on the carousel and enjoy.</p>
+        <br>
+    </div>
 
 {% endblock %}

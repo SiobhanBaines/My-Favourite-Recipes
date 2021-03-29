@@ -68,14 +68,14 @@ nav ul a {
 /*--- footer ---*/
 .page-footer {
     background-color: var(--head-foot);
-    float: right;
+    /* float: right;
     position: fixed;
     padding: 0;
     bottom: 0;
-    width: 100vw;
+    width: 100vw; */
 }
 .social-media {
-    text-align: right;
+    text-align: center;
     font-size: 25px;
     font-weight: bold;
     margin-top: 4.5%;
@@ -87,6 +87,9 @@ nav ul a {
 }
 li a i.fab {
     color: var(--main-brown);
+}
+li a {
+   color: var(--main-brown); 
 }
 
 /*--- background image ---*/
@@ -105,6 +108,10 @@ h3.home {
     margin-top: 10%;
     font-size: 60px;
 }
+.container.about {
+    background-color: #e4dcdd;
+    width: 100vw;
+}
 
 /* ---  icons and button text --- */
 .btn.amber.accent-2{
@@ -113,17 +120,18 @@ h3.home {
 /*---  Recipes Page  ---*/
 .card {
     box-shadow: 0 10px 10px 0 var(--main-shadow);
-    /* width: 25rem;
-    height: 30rem; */
 }
 .card-image {
     box-shadow: 0 10px 10px 0 var(--image-shadow); 
 }
 .recipes_image{
-    height: 217px
+    height: 12rem;
 }
 .card .card-title {
     font-weight: 500;
+}
+.card-content {
+    height: 12rem;
 }
 .score-card {
     text-align: center;
@@ -154,7 +162,7 @@ i.rating {
     display: none;
 } */
 p.sundries {
-    padding-top: 35%;
+    /* padding-top: 35%; */
 
 }
 /*---  Weights and Measures Page  ---*/

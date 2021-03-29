@@ -57,8 +57,8 @@ def add_recipe(username, categories):
             "title": request.form.get("title"),
             "image": request.form.get("image_url"),
             "servings": request.form.get("servings"),
-            "prep_time": request.form.get("prep_time"),
-            "cook_time": request.form.get("cook_time"),
+            "prep_time": (int)(request.form.get("prep_time")),
+            "cook_time": (int)(request.form.get("cook_time")),
             "temperature": request.form.get("temperature"),
             "temp_unit": request.form.get("temp_unit"),
             "ingredients": request.form.get("ingredients"),
@@ -89,8 +89,8 @@ def edit_recipe(recipe_id):
     if request.method == "POST":
         user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
 
-        submit_recipe = {
-            "user":user_id,
+        submit_recipe = { 
+            "user": user_id, 
             "category": request.form.get("category"),
             "title": request.form.get("title"),
             "image": request.form.get("image_url"),

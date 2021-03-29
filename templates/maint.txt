@@ -1,8 +1,0 @@
-                        <!-- {% for ingredient in ingredient_list.ingredients %} -->
-                        <!-- {% for item in ingredient %} -->
-                            <!-- <li class="ingredient inline_block">{{ item }}</li> -->
-                        <!-- {% endfor %} -->
-                            <!-- <br> -->
-                        <!-- {% endfor %} -->
-
-                      

@@ -9,7 +9,6 @@
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Akaya Kanadaka&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
 
@@ -33,11 +32,11 @@
                     <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
                     <li><a href="{{ url_for('get_weight_measure') }}">Weights & Measures</a></li>
                     {% if session.user %}
-                    <li><a href="{{ url_for('logout')  }}">Log Out</a></li>
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        <li><a href="{{ url_for('logout')  }}">Log Out</a></li>
+                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                     {% else %}
-                    <li><a href="{{ url_for('register')  }}">Register</a></li>
-                    <li><a href="{{ url_for('login')  }}">Log In</a></li>
+                        <li><a href="{{ url_for('register')  }}">Register</a></li>
+                        <li><a href="{{ url_for('login')  }}">Log In</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -48,11 +47,11 @@
             <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
             <li><a href="{{ url_for('get_weight_measure') }}">Weights & Measures</a></li>
             {% if session.user %}
-            <li><a href="{{ url_for('logout')  }}">Log Out</a></li>
-            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                <li><a href="{{ url_for('logout')  }}">Log Out</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
             {% else %}
-            <li><a href="{{ url_for('register')  }}">Register</a></li>
-            <li><a href="{{ url_for('login')  }}">Log In</a></li>
+                <li><a href="{{ url_for('register')  }}">Register</a></li>
+                <li><a href="{{ url_for('login')  }}">Log In</a></li>
             {% endif %}
         </ul>
     </header>
@@ -61,32 +60,44 @@
     {% endblock %}
 
     <footer class="page-footer">
-        <div class="row">
-            
-            <div class="col l6 s12">
-                <h5>My Favourite Bakes and Cakes</h5>
-            </div>
-            <div id="copy" class="col m3 s6">
-                © 2021 Copyright Text
-            </div>
-            <div  class="col m3  s6">
-                <ul class="social-media align-right">
-                    <li class=" inline-block"><a href="https://github.com/SiobhanBaines" target="_blank"><i
-                                class="fab fa-github"></i></a></li>
-                    <li class="inline-block"><a href="https://www.linkedin.com/in/siobhan-baines-9b296a22/"
-                            target="_blank"><i class="fab fa-linkedin "></i></a></li>
-                    <li class="inline-block"><a href="https://www.facebook.com/siobhan.baines/" target="_blank"><i
-                                class="fab fa-facebook"></i></a></li>
-                    <li class="inline-block"><a href="https://www.instagram.com/siobhan.baines/" target="_blank"><i
-                                class="fab fa-instagram"></i></a></li>
-                    <li class="inline-block"><a href="https://twitter.com/BainesSiobhan" target="_blank"><i
-                                class="fab fa-twitter"></i></a></li>
-                </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5>Our Family Favourites</h5>
+                    <ul class="social-media align-right">
+                        <li class=" inline-block"><a href="https://github.com/SiobhanBaines" target="_blank"><i
+                                    class="fab fa-github"></i></a></li>
+                        <li class="inline-block"><a href="https://www.linkedin.com/in/siobhan-baines-9b296a22/"
+                                target="_blank"><i class="fab fa-linkedin "></i></a></li>
+                        <li class="inline-block"><a href="https://www.facebook.com/siobhan.baines/" target="_blank"><i
+                                    class="fab fa-facebook"></i></a></li>
+                        <li class="inline-block"><a href="https://www.instagram.com/siobhan.baines/" target="_blank"><i
+                                    class="fab fa-instagram"></i></a></li>
+                        <li class="inline-block"><a href="https://twitter.com/BainesSiobhan" target="_blank"><i
+                                    class="fab fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5>Links</h5>
+                    <ul>
+                        <li><a class="text-brown darken-4" href="{{ url_for('home')  }}">Home</a></li>
+                        <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        {% if session.user %}
+                            <li><a href="{{ url_for('logout')  }}">Log Out</a></li>
+                            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        {% else %}
+                            <li><a href="{{ url_for('register')  }}">Register</a></li>
+                            <li><a href="{{ url_for('login')  }}">Log In</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
         </div>
-
-
-
+        <div class="footer-copyright">
+            <div id="copy" class="container">
+                © 2021 Copyright Siobhán Baines
+            </div>
         </div>
     </footer>
 
@@ -94,8 +105,10 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
     {% block scripts %}
     {% endblock %}
+    
 </body>
 
 </html>
