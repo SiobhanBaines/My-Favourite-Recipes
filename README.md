@@ -5,7 +5,7 @@ The purpose of this project is to build a full-stack site that allows users to m
 
  ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/ami_responsivedesign.png)
 
-[View the live project here](https://siobhanbaines.github.io/MS3-My-Favourite-Recipes/)
+[View the live project here](https://our-family-favourites.herokuapp.com/)
 ## Design Phase
 ### User Experience
 1. **A new visitor to the site**
@@ -98,6 +98,16 @@ I had a look on Google for the error code but found nothing. I then looked on Sl
 When I created the Add Recipe page I based it on the Recipe Details page for the layout and copied the functionality from the Add Category page. After some digging I decided to put the code through the HTML validator [http://validator.w3.org/](http://validator.w3.org/) I had checked all my opening and closing tags so was surprised by the ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/edf1454c0f2963693e20ddf36d0624fbdce3fbed/documentation_files/images/form_tag.png) The words **Ignoring the tag.** made me realise I cannot have forms within a form. I had used the Materialzecss TextArea code for 3 of the elements that needed to be entered. I changed the TextArea's to standart input elements of the type text. This time the recipe was added to the recipes collection in Mongodb.
 ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/8e9e6fb090cdc751d4b972c3605b69604f6f263e/documentation_files/images/recipe_added.png)
 ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/8e9e6fb090cdc751d4b972c3605b69604f6f263e/documentation_files/images/recipe_in_mongodb.png)
+
+### Ingredients, Method and Notes not showing on Update page
+These 3 fields load fine on the recipe detail page but do not appear on the update recipe page. I can see the cooking time which is currently a string value but not the ingredients, also a string value.
+![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/8a7e1778d122da5366b4b7accee10d803b75ed10/documentation_files/images/edit_recipe_page_issue.PNG)
+I checked the HTML and changed these fields to a materialize textarea. No change. I then checked the rows and column divs lined up properly. I checked the database to make sure there was nothing odd about the collection elements.
+![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/8a7e1778d122da5366b4b7accee10d803b75ed10/documentation_files/images/recipe_in_mongodb.png)
+I asked for help on Slack and acted on the advice given. Eventually I gave up for the night. The next day I contacted tutor support and had another dig around Slack to see if there was anything that might point me in the right direction. This made me review the code I had copied from Materialize
+In the end it was a rookie mistake. I had copied some JavaScript code from Materializecss and initialised the value with blanks. When I commented out the JavaScript the ingredients, method and notes all reappeared. At this time regression testing has not brought up an related issues.
+
+
 
 ## Code Verification
 

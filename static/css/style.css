@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6, p {
     display: inline-block;
 }
 hr {
-    width: 60%;
+    width: 80%;
 }
 
 /*-- Navbar --*/
@@ -133,26 +133,15 @@ h3.home {
 .card-content {
     height: 12rem;
 }
-.score-card {
-    text-align: center;
-    padding-top: 0%;
-}
 .score {
-    padding-top: 5%;
-    padding-left: 5%;
-    margin: 3%;
     display: inline-block;
-    vertical-align: middle;
-    align-items: center;
-    font-size: 20px;
-    color: var(--main-brown);
+    font-size: 24px;
 }
 i.rating {
     font-size: 24px;
     margin: 3%; 
     display: inline-block;
     align-items: center;
-   
 }
 /* --- Recipe Details --- */
 .recipe-panel {

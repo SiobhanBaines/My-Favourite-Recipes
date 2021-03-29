@@ -2,6 +2,8 @@ import os
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
+
+
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -34,6 +36,48 @@ def get_recipes():
 
 @app.route('/recipe_detail/<recipe_id>')
 def recipe_detail(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    ingredients = mongo.db.recipes.find_one(
+        {"_id": ObjectId(recipe_id)}, {"ingredients"})
+    method = mongo.db.recipes.find_one(
+        {"_id": ObjectId(recipe_id)}, {"method"})
+    return render_template(
+        "recipe_detail.html", recipe=recipe,
+        method_list=method, ingredient_list=ingredients)
+
+
+@app.route('/like/<recipe_id>', methods=["GET", "POST"])
+def like(recipe_id):
+    print("line 51", request.method)
+    if request.method == "POST":
+        rec = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        print("line 54", rec)
+        recipe_update = mongo.db.recipes.update_one(
+                {"_id": ObjectId(recipe_id)},
+                {'$inc': {'likes': 1}},
+                upsert=True
+                )
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    ingredients = mongo.db.recipes.find_one(
+        {"_id": ObjectId(recipe_id)}, {"ingredients"})
+    method = mongo.db.recipes.find_one(
+        {"_id": ObjectId(recipe_id)}, {"method"})
+    return render_template(
+        "recipe_detail.html", recipe=recipe,
+        method_list=method, ingredient_list=ingredients)
+
+
+@app.route('/dislike/<recipe_id>', methods=["GET", "POST"])
+def dislike(recipe_id):
+    print("line 75", request.method)
+    if request.method == "POST":
+        recipe = mongo.db.recipes.update_one(
+                {"_id": ObjectId(recipe_id)},
+                {'$inc': {'dislikes': 1}},
+                upsert=True
+                )
+
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     ingredients = mongo.db.recipes.find_one(
         {"_id": ObjectId(recipe_id)}, {"ingredients"})
@@ -89,8 +133,8 @@ def edit_recipe(recipe_id):
     if request.method == "POST":
         user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
 
-        submit_recipe = { 
-            "user": user_id, 
+        submit_recipe = {
+            "user": user_id,
             "category": request.form.get("category"),
             "title": request.form.get("title"),
             "image": request.form.get("image_url"),
@@ -124,32 +168,6 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
     return redirect(url_for("recipe_detail", recipe_id=recipe_id))
-
-
-@app.route('/like/<recipe_id>', methods=["GET", "POST"])
-def like(recipe_id):
-    if request.method == "POST":
-        recipe = mongo.db.recipes.update_one(
-            {"_id": ObjectId(recipe_id)},
-            {'$inc': {'likes': 1}},
-            upsert=True
-            )
-
-    recipes = list(mongo.db.recipe.find())
-    return render_template("recipe.html", recipes=recipes)
-
-
-@app.route('/dislike/<recipe_id>', methods=["GET", "POST"])
-def dislike(recipe_id):
-    if request.method == "POST":
-        recipe = mongo.db.recipes.update_one(
-            {"_id": ObjectId(recipe_id)},
-            {'$inc': {'dislikes': 1}},
-            upsert=True
-        )
-
-    recipes = list(mongo.db.recipe.find())
-    return render_template("recipe.html", recipes=recipes)
 
 
 @app.route("/get_weight_measure")
@@ -284,7 +302,7 @@ def add_category():
             "name": session["user"],
             "date": datetime.now()
             }
- 
+
         mongo.db.categories.insert_one(category)
         flash("New Category Added")
         return redirect(url_for("get_categories"))
