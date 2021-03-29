@@ -1,33 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
-<main class="parallax-container">
-    <div class="parallax "><img src="../static/images/background.jpeg"></div>
-    <div class="container">
-        <h3>Add Category</h3>
 
-        <div class="row card-panel grey lighten-5">
-            <form class="col s12" method="POST" action="{{ url_for('add_category') }}">
-                <!-- Category Name -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fas fa-folder-open prefix brown-text text-darken-3"></i>
-                        <input id="category" name="category" minlength="3" maxlength="25" type="text" class="validate"
-                            required>
-                        <label for="category">Category Name</label>
+    <main class="parallax-container">
+        <div class="parallax "><img src="../static/images/background.jpeg"></div>
+        <div class="container">
+            <h3>Add Category</h3>
+            <!-- Code taken from Code Institute Flask Task Manager 
+                    Project and altered to fit this website -->
+            <div class="row card-panel grey lighten-5">
+                <form class="col s12" method="POST" action="{{ url_for('add_category') }}">
+                    <!-- Category Name -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="fas fa-folder-open prefix brown-text text-darken-3"></i>
+                            <input id="category" name="category" minlength="3" maxlength="25" type="text" class="validate"
+                                required>
+                            <label for="category">Category Name</label>
+                        </div>
                     </div>
-                </div>
-
-                <!-- submit button -->
-                <div class="row">
-                    <div class="col s12 center-align">
-                        <button type="submit" class="btn amber accent-2">
-                            Add Category <i class="fas fa-plus-square right"></i>
-                        </button>
+                    <!-- submit button -->
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <button type="submit" class="btn amber accent-2">
+                                Add Category <i class="fas fa-plus-square right"></i>
+                            </button>
+                        </div>
                     </div>
-
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-</main>
+    </main>
 {% endblock %}

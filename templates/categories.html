@@ -1,29 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
-<main class="parallax-container">
-    <div class="parallax "><img src="../static/images/background.jpeg"></div>
-    <div class="container">
-        <h3>Manage Categories</h3>
-        <div class="row">
-            <div class="col s12 center-align">
-                <a href="{{ url_for('add_category') }}" class="btn amber accent-2">Add Category <i class="fas fa-plus-square right"></i></a>    
-            </div>
-        </div>
-        <div class="row">
-            {% for category in categories %}
-            <div class="col s12 m4">
-                <div class="card white center-align">
-                    <div class="card-content brown-text text-darken-3">
-                        <span class="card-title">{{ category.category }}</span>
-                    </div>
-                    <div class="card-action">
-                        <a href="{{ url_for('edit_category', category_id=category._id) }}" class="btn green darken-1">Edit</a>
-                        <a href="{{ url_for('delete_category', category_id=category._id) }}" class="btn red darken-1">Delete</a>
-                    </div>
+    <main class="parallax-container">
+        <div class="parallax "><img src="../static/images/background.jpeg"></div>
+        <div class="container">
+            <h3>Manage Categories</h3>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <a href="{{ url_for('add_category') }}" class="btn amber accent-2">Add Category 
+                        <i class="fas fa-plus-square right"></i></a>
                 </div>
             </div>
-            {% endfor %}
+            <!-- Code taken from Code Institute Flask Task Manager 
+                Project and altered to fit this website -->
+            <div class="row">
+                <!-- Category Cards -->
+                {% for category in categories %}
+                    <div class="col s12 m4">
+                        <div class="card white center-align">
+                            <div class="card-content brown-text text-darken-3">
+                                <span class="card-title">{{ category.category }}</span>
+                            </div>
+                            <div class="card-action">
+                                <!-- Edit Category -->
+                                <a href="{{ url_for('edit_category', category_id=category._id) }}"
+                                    class="btn green darken-1">Edit</a>
+                                <!-- Delete Category -->
+                                <a href="{{ url_for('delete_category', category_id=category._id) }}"
+                                    class="btn red darken-1">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-    </div>
-</main>
+    </main>
 {% endblock %}

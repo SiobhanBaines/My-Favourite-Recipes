@@ -1,125 +1,133 @@
 {% extends "base.html" %}
 {% block content %}
-<main class="parallax-container">
-    <div class="parallax"><img src=".. /static/images/scales.jpeg"></div>
-    <div class="container">
-        <div class="row card-panel recipe-panel">
-            <div class="row">
-                <div class="col m8 s12">
-                    <h3>{{ recipe.title }}</h3>
-                    <div class="row">
+
+    <main class="parallax-container">
+        <div class="parallax"><img src=".. /static/images/scales.jpeg"></div>
+        <div class="container">
+            <div class="row card-panel recipe-panel">
+                <div class="row">
+                    <div class="col m8 s12">
+                        <h3>{{ recipe.title }}</h3>
                         <!-- Category -->
-                        <div class="col s12">
-                            <h4>{{ recipe.category }}</h4>
-                        </div>
-                    </div>
-                    <!-- Servings -->
-                    <div class="row">
-                        <div class="col s6">
-                            <h5 class="left-align">Servings</h5>
-                        </div>
-                        <div class="col s2">
-                            <p class="sundries left-align">{{ recipe.servings }}</p>
-                        </div>
-                    </div>
-                    <!-- Servings -->
-                    <div class="row">
-                        <div class="col s6">
-                            <h5 class="left-align">Temperature</h5>
-                        </div>
-                        <div class="col s2">
-                            <p class="sundries left-align">{{ recipe.temperature }}</p>
-                        </div>
-                        <div class="col s2">
-                            <p class="sundries left-align">{{ recipe.temp_unit }}</p>
-                        </div>
-                    </div>
-                    <!-- Cooking Temperature -->
-                    <div class="row">
-                        <div class="col s6">
-                            <h5 class="left-align">Duration</h5>
-                        </div>
-                        <div class="col s3">
-                            <h6 class="left-align">Preparation Time</h6>
-                        </div>
-                        <div class="col s3">
-                            <h6 class="left-align">Cooking Time</h6>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="sundries col s3 offset-s6">
-                            <p>{{ recipe.prep_time }} mins</p>
-                        </div>
-                        <div class="sundries col s3">
-                            <p>{{ recipe.cook_time }} mins</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Image -->
-                <div class="col m4 s12">
-                    <div class="card-panel image-panel grey lighten-5 z-depth-1 center-align">
-                        <img src="{{ recipe.image }}" alt="Profile Image" class="responsive-img">
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                            <!-- Likes and Dislikes Scores -->
-                            <div class="col s6">
-                                <form class="col s12" method="POST"
-                                    action="{{ url_for('like', recipe_id=recipe._id) }}">
-                                    <button type="submit" class="btn green darken-1 score">
-                                        <i class="fas fa-thumbs-up"></i>
-                                        {{ recipe.likes }} 
-                                    </button>
-                                </form>
+                        <div class="row">
+                            <div class="col s12">
+                                <h4>{{ recipe.category }}</h4>
                             </div>
+                        </div>
+                        <!-- Servings -->
+                        <div class="row">
                             <div class="col s6">
-                                <form class="col s12" method="POST"
-                                    action="{{ url_for('dislike', recipe_id=recipe._id) }}">
-                                    <button type="submit" class="btn red darken-1 score">
-                                        <i class="fas fa-thumbs-down"></i>
-                                         {{ recipe.dislikes }}
-                                    </button>
-                                </form>
+                                <h5 class="left-align">Servings</h5>
+                            </div>
+                            <div class="col s2">
+                                <p class="sundries left-align">{{ recipe.servings }}</p>
+                            </div>
+                        </div>
+                        <!-- Temperature -->
+                        <div class="row">
+                            <div class="col s6">
+                                <h5 class="left-align">Temperature</h5>
+                            </div>
+                            <div class="col s2">
+                                <p class="sundries left-align">{{ recipe.temperature }}</p>
+                            </div>
+                            <div class="col s2">
+                                <p class="sundries left-align">{{ recipe.temp_unit }}</p>
+                            </div>
+                        </div>
+                        <!-- Duration - Preparation time and Cooking time -->
+                        <div class="row">
+                            <div class="col s6">
+                                <h5 class="left-align">Duration</h5>
+                            </div>
+                            <!-- Preparation Time -->
+                            <div class="col s3">
+                                <h6 class="left-align">Preparation Time</h6>
+                            </div>
+                            <!-- Cooking Time -->
+                            <div class="col s3">
+                                <h6 class="left-align">Cooking Time</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- Preparation Time -->
+                            <div class="sundries col s3 offset-s6">
+                                <p>{{ recipe.prep_time }} mins</p>
+                            </div>
+                            <!-- Cooking Time -->
+                            <div class="sundries col s3">
+                                <p>{{ recipe.cook_time }} mins</p>
                             </div>
                         </div>
                     </div>
-                </div>
 
-            </div>
-            <hr>
-            <div class="row">
+                    <!-- Image -->
+                    <div class="col m4 s12">
+                        <div class="card-panel image-panel grey lighten-5 z-depth-1 center-align">
+                            {% if recipe.image %} 
+                                <img src="{{ recipe.image }}" alt="Recipe Image" class="responsive-img">
+                            {% else %}
+                                <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image" class="responsive-img">
+                            {% endif %}
+                        </div>
+                        <!-- Likes and Dislikes Scores -->
+                        <div class="row">
+                            <div class="col s12">
+                                <!-- Likes -->
+                                <div class="col s6">  
+                                    <form class="col s12" method="POST"
+                                        action="{{ url_for('like', recipe_id=recipe._id) }}">
+                                        <button type="submit" class="btn green darken-1 score">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            {{ recipe.likes }} 
+                                        </button>
+                                    </form>
+                                </div>
+                                <!-- Dislikes -->
+                                <div class="col s6">
+                                    <form class="col s12" method="POST"
+                                        action="{{ url_for('dislike', recipe_id=recipe._id) }}">
+                                        <button type="submit" class="btn red darken-1 score">
+                                            <i class="fas fa-thumbs-down"></i>
+                                            {{ recipe.dislikes }}
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
                 <!-- Ingredients -->
-                <div class="col s3">
-                    <h5 class="left-align">Ingredients</h5>
+                <div class="row">    
+                    <div class="col s3">
+                        <h5 class="left-align">Ingredients</h5>
+                    </div>
+                    <div class="col s9">
+                        <p class="left-align">{{ recipe.ingredients }}</p>
+                    </div>
                 </div>
-                <div class="col s9">
-                    <p class="left-align">{{ recipe.ingredients }}</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
+                <hr>
                 <!-- Method -->
-                <div class="col s3">
-                    <h5 class="left-align">Method</h5>
+                <div class="row">
+                    <div class="col s3">
+                        <h5 class="left-align">Method</h5>
+                    </div>
+                    <div class="col s9">
+                        <p class="left-align">{{ recipe.method }}</p>
+                    </div>
                 </div>
-                <div class="col s9">
-                    <p class="left-align">{{ recipe.method }}</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
+                <hr>
                 <!-- Notes -->
-                <div class="col s3">
-                    <h5 class="left-align">Notes</h5>
-                </div>
-                <div class="col s9">
-                    <p class="left-align">{{ recipe.note }}</p>
+                <div class="row">  
+                    <div class="col s3">
+                        <h5 class="left-align">Notes</h5>
+                    </div>
+                    <div class="col s9">
+                        <p class="left-align">{{ recipe.note }}</p>
+                    </div>
                 </div>
             </div>
         </div>
-
-    </div>
-
-</main>
+    </main>
 {% endblock %}

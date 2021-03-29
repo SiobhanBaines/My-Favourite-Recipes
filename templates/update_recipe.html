@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
+
     <div class="container">
         <h3>Change Recipe</h3>
-        
         <div class="row card-panel recipe-panel">
             <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe_id) }}">
                 <div class="row">
                     <div class="col s6">
-                        <div class="row">
-                            <!-- Title -->
+                        <!-- Title -->
+                        <div class="row"> 
                             <div class="input-field col s12">
                                 <input id="title" name="title" minlength="3" maxlength="25" type="text" value="{{ recipe.title }}" class="validate" required>
                                 <label for="title">Title</label>
                             </div>
                         </div>
-                        <div class="row">
-                            <!-- Category -->
+                        <!-- Category -->
+                        <div class="row"> 
                              <div class="input-field col s12">
                                 <div class="input-field col s12">
                                     <select class="browser-default" name="category">
@@ -27,15 +27,15 @@
                                 </div>
                             </div>
                         </div>
+                         <!-- Servings -->
                         <div class="row">
-                            <!-- Servings -->
-                            <div class="input-field col s6">
+                           <div class="input-field col s6">
                                 <input id="servings" name="servings" minlength="0" maxlength="5" value="{{ recipe.servings }}" type="text" class="validate" required>
                                 <label for="servings">Servings</label>
                             </div>
                         </div>
-                        <div class="row">
                             <!-- Cooking Temperature -->
+                        <div class="row">
                             <div class="input-field col s6">
                                 <input id="temperature" name="temperature" minlength="1" maxlength="3" value="{{ recipe.temperature }}" type="text" class="validate" required>
                                 <label for="temperature">Temperature</label>
@@ -49,9 +49,8 @@
                                 </select>
                             </div>
                         </div>
-
-                        <div class="row">
                             <!-- Preparation Time -->
+                        <div class="row">
                             <div class="input-field col s5">
                                 <input id="prep_time" name="prep_time" minlength="0" maxlength="5" value="{{ recipe.prep_time }}" type="text" class="validate" required>
                                 <label for="prep_time">Preparation_time</label>
@@ -60,8 +59,8 @@
                                 <p>mins</p>
                             </div>
                         </div>
-                        <div class="row">
                             <!-- Cooking Time -->
+                        <div class="row">
                             <div class="input-field col s5">
                                 <input id="cook_time" name="cook_time" minlength="0" maxlength="5" value="{{ recipe.cook_time }}" type="text" class="validate" required>
                                 <label for="cook_time">Cooking_time</label>
@@ -74,41 +73,49 @@
                     <!-- Image -->
                     <div class="col s6">
                         <div class="card-panel image-panel grey lighten-5 z-depth-1 center-align">
-                            <img src="{{ recipe.image }}" alt="Recipe Image" class="circle responsive-img">
+                            {% if recipe.image %} 
+                                <img src="{{ recipe.image }}" alt="Recipe Image" class="circle responsive-img">
+                            {% else %}
+                                <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image" class="circle responsive-img">
+                            {% endif %}
                             <input id="image_url" name="image_url" minlength="5" value="{{ recipe.image }}" type="text" class="validate" required>
                         </div>
                     </div>
                 </div>
-                <div class="row">
                     <!-- Ingredients -->
+                <div class="row">
                     <div class="input-field col s12">
                         <textarea id="ingredients" name="ingredients" minlength="5" maxlength="1000" class="materialize-textarea active" required>{{ recipe.ingredients }}</textarea>
                         <label for="ingredients">Ingredients</label>
                     </div>
                 </div>
-                <div class="row">
                     <!-- Method -->
+                <div class="row">
                     <div class="input-field active col s12">
                         <textarea id="method" name="method" minlength="5" maxlength="1000" class="materialize-textarea active" required>{{ recipe.method }}</textarea>
                         <label for="method">Method</label>
                     </div>
                 </div>
-                <div class="row">
                     <!-- Notes -->
+                <div class="row">
                     <div class="input-field col s12">
                         <textarea id="notes" name="notes" minlength="5" maxlength="300" class="materialize-textarea active" required>{{ recipe.note }}</textarea>
                     </div>
                 </div>
-                <!-- submit button -->
+                <!-- Buttons -->
                 <div class="row">
                     <div class="col s12 center-align">
+                        <!-- Cancel Any Changes -->
                         <a href="{{ url_for('profile', username=session['user']) }}" class="btn teal lighten-4" > Cancel <i class="fas fa-times-circle right"></i></a>
+                        <!-- Submit the Changes -->
                         <button type="submit" class="btn amber accent-2">Edit Recipe <i class="fas fa-edit right"></i>
                         </button>
+                        <!-- Delete the Recipe -->
                         <a href="{{ url_for('delete_recipe', recipe_id=recipe_id) }}" class="btn red darken-1">Delete Recipe</a>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
 {% endblock %}
