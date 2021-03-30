@@ -3,7 +3,9 @@
 /* Added a root for colours */
 :root {
     --main-brown: #4e342e;
-    --head-foot: #d3cfc1;
+    /* --main-brown: #fffde7; */
+    /* --head-foot: #d3cfc1; */
+    --head-foot: #00796b;
     --main-cream: #fffde7;
     --main-yellow: #ffff8d;
     --main-red: #e53935;
@@ -35,6 +37,11 @@ h1, h2, h3, h4, h5, h6, p {
     text-align: center;
     vertical-align: middle;
 }
+h5 {
+    color: var(--main-cream);
+    /* text-align: center;
+    vertical-align: middle; */
+}
 .row {margin-bottom: 10px;} 
 .flashes h4 {
     line-height: 1;
@@ -54,18 +61,19 @@ hr {
 /* --- Navbar --- */
 nav,
 nav ul a {
-    color: var(--main-brown);
+    color: var(--main-cream);
     background-color: var(--head-foot);
 }
 .brand-logo {
     display: inline-block;
-    height: 100%;
+    height: 100%;  
 }
 .brand-logo>img {
     position: absolute;
     width: 4.5rem;
     height: auto;
     transform: translateY(3%);
+    border-radius: 50%;
 }
 
 /*--- footer ---*/
@@ -81,13 +89,13 @@ nav ul a {
 }
 #copy {
     padding-top: 1.5%;
-    color: var(--main-brown);
+    color: var(--main-cream);
 }
 li a i.fab {
-    color: var(--main-brown);
+    color: var(--main-cream);
 }
 li a {
-   color: var(--main-brown); 
+   color: var(--main-cream); 
 }
 
 /*--- background image ---*/
@@ -107,19 +115,32 @@ h3.home {
     font-size: 60px;
 }
 .container.about {
-    background-color: #e4dcdd;
+    background-color: #b2dfdb;
     width: 100vw;
 }
-
+/* --- Home Page --- */
+/* .carousel-item>img { */
+img {
+    /* position: absolute;
+    width: 4.5rem;
+    height: auto;
+    transform: translateY(3%); */
+    border-radius: 5%;
+}
 
 /*---  Recipes Page  ---*/
-.card {
+.recipe-card {
     box-shadow: 0 10px 10px 0 var(--main-shadow);
+    border-radius: 5%;
 }
 .card-image {
     box-shadow: 0 10px 10px 0 var(--image-shadow); 
+
 }
-.recipes_image{
+.card .card-image img {
+  border-radius: 5% 5% 0 0;
+}
+img.recipes_image{
     height: 12rem;
 }
 .card .card-title {

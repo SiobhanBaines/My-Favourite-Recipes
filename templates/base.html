@@ -15,7 +15,7 @@
     {% block styles %}
     {% endblock %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.jpeg') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.jpg') }}" type="image/x-icon" />
     <title>{% block title %}{% endblock %}</title>
 </head>
 
@@ -24,7 +24,7 @@
         <!-- Main Nav Bar-->
         <nav class="nav-extended">
             <div class="nav-wrapper">
-                <a href="" class="brand-logo"><img src="{{ url_for('static', filename='images/icon.jpeg') }}"
+                <a href="" class="brand-logo"><img class="image-circle" src="{{ url_for('static', filename='images/icon.jpg') }}"
                         alt=""></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
