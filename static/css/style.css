@@ -37,9 +37,7 @@ h1, h2, h3, h4, h5, h6, p {
     text-align: center;
     vertical-align: middle;
 }
-h5 {
-    color: var(--main-cream);
-}
+
 .row {margin-bottom: 10px;} 
 .flashes h4 {
     line-height: 1;
@@ -77,6 +75,9 @@ nav ul a {
 /*--- footer ---*/
 .page-footer {
     background-color: var(--head-foot);
+}
+h5.footer {
+    color: var(--main-cream);
 }
 .social-media {
     text-align: center;
@@ -129,8 +130,17 @@ h3.home {
     background-color: #b2dfdb;
     width: 100vw;
 }
-/* --- Home Page --- */
 
+element.style {
+  z-index: 0;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(318.5px) translateY(100px) translateX(0px) translateX(0px) translateZ(0px);
+}
+.carousel .carousel-item {
+    width: 300px;
+    height: 300px;
+}
 img {
     border-radius: 5%;
 } 
@@ -149,10 +159,7 @@ i.rating {
     display: inline-block;
     align-items: center;
 }
-/* --- Recipe Details --- */
-.recipe-panel {
-    margin-bottom: 20%;
-}
+
 /*---  Weights and Measures Page  ---*/
 .weight_measure_tables {
     overflow: auto; 
@@ -163,9 +170,6 @@ i.rating {
 }
 td, th {
     padding: 3px;
-}
-table.striped>tbody>tr:nth-child(odd) {
-  background-color: var(--image-shadow);
 }
 /*--- Register ---*/
 .card-panel {
@@ -184,7 +188,10 @@ p a {
 p {
     font-size: larger;
 }
-/*--- recipe detail page ---*/
+/* --- Recipe Details --- */
+.recipe-panel {
+    margin-bottom: 20%;
+}
 .recipe_image {
     width: 300px;
     height: auto;
@@ -242,16 +249,21 @@ li.method {
 .profile-card_body{
   margin-top: 60px;
 }
-
 /* ------------------------------------------------------------------ */
-
+.norecipes {
+    margin: 5rem 0 5rem 0;
+}
 .profile-recipe {
     font-size: 20px;
 }
 i.profile-rating {
     font-size: 18px;
 }
-
+.profile-recipes {
+    margin: 3rem;
+    border: 1px solid var(--main-brown);
+    font-size: 22px;
+}
 table.striped>tbody>tr:nth-child(odd) {
     background-color: var(--image-shadow);
 }

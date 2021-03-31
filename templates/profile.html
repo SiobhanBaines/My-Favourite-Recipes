@@ -54,11 +54,22 @@
 
             <div class="col m6 s12 ">
                 <!-- Recipes Added by User -->
-                <div class="card ">
-                    {% if recipes %}
+                <!-- <div class="card "> -->
+                    
+                    {% if recipes.count() == 0 %}
+                    <div class="norecipes">
+                    <h5>You currently have no recipes.</h5>
+                    <h5>To add your first recipe, please click the add recipe button below.</h5>
+                    </div>
+{% else %}
                     <table class="striped responsive-table profile-recipes">
                         <thead>
                             <h5 class="brown-text text-darken-3 center-align">My Recipes</h5>
+                            <tr>
+                                <!-- Recipe Name -->
+                                <th>Recipe Name</th>
+                                <th class="center-align">Action</th>
+                            </tr>
                         </thead>
                         <tbody class="profile-recipes">
                             {% for recipe in recipes %}
@@ -78,17 +89,16 @@
                                 <!-- Change recipe  -->
                                 <td>
                                     <a href="{{ url_for('edit_recipe', recipe_id= recipe._id) }}"
-                                        class="btn green darken-3 text-center"> Change</a>
+                                        class="btn green darken-3 text-center"><i class="fas fa-edit"></i> Change</a>
                                 </td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
-                    {% else %}
-                    <h4>You currently have no recipes.</h4>
-                    <h4>To add your first recipe, please click the add recipe button below.</h4>
+                    
+                    
                     {% endif %}
-                </div>
+                <!-- </div> -->
             <!-- Category and Recipe Maintenance -->
             <div class="row">
         <div class="col s12 new-recipe">
