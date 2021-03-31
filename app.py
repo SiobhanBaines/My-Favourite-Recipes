@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -294,6 +295,31 @@ def delete_account(username):
     else:
         flash("Password is incorrect! Please try again")
         return redirect(url_for("profile", username=username))
+
+
+# Upload an image   Copied from Double Shamrock Hackathon and modified
+@app.route("/upload_image/<username>", methods=["GET", "POST"])
+def upload_image(username):
+    user = mongo.db.users.find_one({"username": username})
+
+    if request.method == 'POST':
+        for item in request.files.getlist("image"):
+            filename = secure_filename(item.filename)
+            filename, file_extension = os.path.splitext(filename)
+            public_id_image = (username + '/' + filename)
+            cloudinary.uploader.unsigned_upload(
+                item, "image", cloud_name='dyxuve4pr',
+                folder='/my_favourite_recipes_images/',
+                public_id=public_id_image)
+            image_url = (
+                "https://res.cloudinary.com/dyxuve4pr/image/uploadv1616943087/My_favourite_recipes_images/" 
+                + public_id_image + file_extension)
+            mongo.db.users.update(
+                {"username": username},
+                {"$set": {"image": image_url}})
+
+        return redirect(url_for('profile', username=session['username']))
+    return render_template("profile.html", username=session['username'])
 
 
 @app.route("/get_categories")
