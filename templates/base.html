@@ -13,10 +13,11 @@
         type="text/css">
 
     {% block styles %}
-    {% endblock %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.jpg') }}" type="image/x-icon" />
-    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+    
+    <title>{% block title %}Our Favourite Recipes{% endblock %}</title>
 </head>
 
 <body>

@@ -84,6 +84,9 @@ Although I may have some photographs of the cakes and bakes created by the recip
 *** Chocolate Chip Cookies ***
 ![image](https://www.google.com/search?q=chocolate-chip+cookies&rlz=1C1CHBF_en-GBGB927GB927&sxsrf=ALeKk00CvGruX48K4p1I096wLH3I9PnZvA:1616684868489&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjPxbK63MvvAhUOQxUIHYBSCmYQ_AUoAXoECAEQAw&biw=1280&bih=554&dpr=1.25#imgrc=RCL0CE6FPWbCyM)
 (c)Handle the Heat with Tessa Arias. 
+### Profile card
+My mentor, Arnold Keyza, suggested looking at the profile cards on [codepen](https://codepen.io/). I copied the code for [Randome Doodle2](https://codepen.io/thefeldkircher/pen/mdReELp) by [thefeldkircher](https://codepen.io/thefeldkircher) and modified it to be how I wanted it to look. 
+
 
 ## Development Phase
 ### Logo image in Navbar

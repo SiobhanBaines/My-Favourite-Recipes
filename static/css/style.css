@@ -39,8 +39,6 @@ h1, h2, h3, h4, h5, h6, p {
 }
 h5 {
     color: var(--main-cream);
-    /* text-align: center;
-    vertical-align: middle; */
 }
 .row {margin-bottom: 10px;} 
 .flashes h4 {
@@ -107,6 +105,19 @@ li a {
     background-color: rgba(250, 250, 250, 0.7);
 }
 
+/* --- card format --- */
+.card {
+    border-radius: 25px;
+}
+.card .card-image img {
+  border-radius: 25px 25px 0 0;
+}
+.card .card-title {
+    font-weight: 500;
+}
+.card-content {
+    height: 12rem;
+}
 /*--- Home Page ---*/
 h3.home {  
     justify-content: center;
@@ -119,36 +130,15 @@ h3.home {
     width: 100vw;
 }
 /* --- Home Page --- */
-/* .carousel-item>img { */
+
 img {
-    /* position: absolute;
-    width: 4.5rem;
-    height: auto;
-    transform: translateY(3%); */
     border-radius: 5%;
-}
+} 
 
 /*---  Recipes Page  ---*/
-.recipe-card {
-    box-shadow: 0 10px 10px 0 var(--main-shadow);
-    border-radius: 5%;
-}
-.card-image {
-    box-shadow: 0 10px 10px 0 var(--image-shadow); 
-
-}
-.card .card-image img {
-  border-radius: 5% 5% 0 0;
-}
-img.recipes_image{
+img.recipes-image{
     height: 12rem;
-}
-.card .card-title {
-    font-weight: 500;
-}
-.card-content {
-    height: 12rem;
-}
+} 
 .score {
     display: inline-block;
     font-size: 24px;
@@ -219,21 +209,59 @@ li.method {
     list-style: decimal;
 }
 /* --- Profile Page --- */
-.profile-username {
-    font-weight: bold;
-    background-color: var(--main-cream);
+/* Original code for profile card by thefeldkircher - Copied and modified */
+.profile-card{
+  width: 350px;
+  max-width: 100%;
+  text-align: center;
+  border-radius: 12px;  
+  background: white;
+  border: 1px solid #d4d4d4;
 }
+.profile-card section {
+  background-image: url("../images/cake.jpg");
+  background-size: cover;
+  height: 175px;
+  border-radius: 12px 12px 0 0;
+  margin-bottom: 140px;
+}
+.profile-card section img {
+  margin: 90px 40px 0px 40px;
+  border-radius: 50%;
+  height: 180px;
+  width: 180px;
+  border: 6px solid white;
+}
+.profile-card section p {
+  color: #444;
+  font-size: 18px;
+  color: var(--main-brown);
+  font-weight: 300;
+  margin-top: 0;
+}
+.profile-card_body{
+  margin-top: 60px;
+}
+
+/* ------------------------------------------------------------------ */
+
 .profile-recipe {
     font-size: 20px;
 }
 i.profile-rating {
     font-size: 18px;
 }
-.new-recipe{
-    margin-top: 3rem;
+
+table.striped>tbody>tr:nth-child(odd) {
+    background-color: var(--image-shadow);
 }
+table.striped.profile-recipes tr {
+    border-bottom: none;
+    border-radius: 0 0 25px 25px;
+}
+
 .maint-btn {
-    color: var(--main-brown);
+    margin: 0 15px 0 15px;
 }
 /* --- Maintain Recipes --- */
 
