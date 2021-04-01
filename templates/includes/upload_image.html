@@ -1,14 +1,14 @@
 <!-- Upload an image Modal Structure -->
 
 <div id="uploadImageModal" class="modal">
-    <div class="modal-content">
-        <h4>Upload Image</h4>
-        <form action="{{ url_for('upload_image', username=username) }}" method="POST" class="center-align upload-image">
+    <form action="{{ url_for('upload_image', username=username) }}" method="POST" enctype="multipart/form-data" class="center-align upload-image">
+        <div class="modal-content">
+            <h4>Upload Image</h4>
             <input type="file" name="user_image" class="image-selection center-align" />
-        </form>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-        <button type="submit" class="btn ">Upload</button>
-    </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            <button type="submit" class="btn ">Upload</button>
+        </div>
+    </form>
 </div>

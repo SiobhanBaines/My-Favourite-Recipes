@@ -261,11 +261,10 @@ def profile(username):
         recipes = mongo.db.recipes.find({"user": ObjectId(user_id)})
 
         return render_template(
-            "profile.html", username=username.capitalize(),
+            "profile.html", username=username,
             image=image, recipes=recipes)
 
     return redirect(url_for("login"))
-
 
 @app.route("/change_password/<username>", methods=['GET', 'POST'])
 def change_password(username):
@@ -301,25 +300,29 @@ def delete_account(username):
 @app.route("/upload_image/<username>", methods=["GET", "POST"])
 def upload_image(username):
     user = mongo.db.users.find_one({"username": username})
-
     if request.method == 'POST':
-        for item in request.files.getlist("image"):
-            filename = secure_filename(item.filename)
+        for user_image in request.files.getlist("user_image"):
+            filename = secure_filename(user_image.filename)
             filename, file_extension = os.path.splitext(filename)
-            public_id_image = (username + '/' + filename)
+            public_id_image = (username + '_' + filename)
+           
             cloudinary.uploader.unsigned_upload(
-                item, "image", cloud_name='dyxuve4pr',
-                folder='/my_favourite_recipes_images/',
+                user_image, "profile_images",
+                cloud_name='dyxuve4pr',
+                folder='favourite_recipes/profile_images/',
                 public_id=public_id_image)
+
             image_url = (
-                "https://res.cloudinary.com/dyxuve4pr/image/uploadv1616943087/My_favourite_recipes_images/" 
+                "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/profile_images/"
                 + public_id_image + file_extension)
+
+            print("image_url", image_url, "username", username)                
             mongo.db.users.update(
                 {"username": username},
                 {"$set": {"image": image_url}})
 
-        return redirect(url_for('profile', username=session['username']))
-    return render_template("profile.html", username=session['username'])
+        return redirect(url_for('profile', username=session["user"]))
+    return render_template("profile.html", username=session["user"])
 
 
 @app.route("/get_categories")
