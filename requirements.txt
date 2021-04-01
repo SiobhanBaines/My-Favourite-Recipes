@@ -9,3 +9,4 @@ pymongo==3.11.3
 pytz==2021.1
 Werkzeug==1.0.1
 zope.interface==5.3.0
+PyMongo==3.11.3
