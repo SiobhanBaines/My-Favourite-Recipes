@@ -312,3 +312,13 @@ select {
 #cook-time {
     margin-bottom: 2rem;
 }
+/* --- Modals --- */
+input.image-selection {
+    border: 1px solid var(--main-brown);
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    line-height: 1.5;
+}
+.upload-image {
+    margin-top: 2rem;
+}

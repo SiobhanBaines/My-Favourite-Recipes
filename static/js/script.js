@@ -13,7 +13,6 @@ $(document).ready(function () {
    // M.updateTextFields();
 });
 
-
 // fetch("https://congen-temperature-converter-v1.p.rapidapi.com/fahrenheit?to=celsius&value=104&decimal=2", {
 // 	"method": "GET",
 // 	"headers": {

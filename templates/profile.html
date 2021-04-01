@@ -29,20 +29,15 @@
                     <section>
                         {% if image %}
                         <img src="{{ image }}" alt="">
-                        <!-- <button type="button" data-toggle="modal" data-target="#uploadImageModal" class="btn modal-trigger edit-image">
-                                    <i class="fas fa-edit mr-1"></i>&nbsp;Edit an image
-                                </button> -->
-                        <button data-target="#uploadImageModal" class="btn modal-trigger"><i
-                                class="fas fa-edit mr-1"></i>&nbsp;Edit an image</button>
+                        <a class="waves-effect waves-light btn modal-trigger" href="#uploadImageModal"><i
+                                class="fas fa-edit"></i> Edit image</a>
                         {% else %}
                         <img src="../static/images/profile_image.jpg" alt="">
-                        <button type="button" data-toggle="modal" data-target="#uploadImageModal" class="edit-image">
-                            <i class="fas fa-edit mr-1"></i>&nbsp;Upload an image
-                        </button>
+                        <a class="waves-effect waves-light btn modal-trigger" href="#uploadImageModal"><i
+                                class="fas fa-edit"></i> Upload an image</a>
                         {% endif %}
                     </section>
                     <div class="profile-card_body">
-
                         <p>Username:<span class=" profile-username"> {{ username }}</span></p>
                         <!-- Change Password-->
                         <div class="row">
@@ -53,7 +48,6 @@
                         </div>
                         <!-- Delete Account -->
                         <div class="row">
-                            <!-- Code copied and modified from Double Shamrock Hackathorn entry. Delete Profile was written by Irina Pozdeeva -->
                             <div class="col s12">
                                 <!-- Modal Trigger to Delete Account-->
                                 <a class="red darken-1 btn modal-trigger " href="#delete-account"><i
@@ -131,65 +125,8 @@
     </div>
 </main>
 
-<!-- Delete Account Modal Structure -->
-<div class="modal" id="delete-account">
-    <div class="modal-content">
-        <h4 class="red-text text-darken-1"> Delete {{ username }}'s Account</h4>
-        <div class="modal-body  align-center">
-            <button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <p class="red-text text-darken-1">
-                <i class="fas fa-exclamation-circle red-text text-darken-1"></i>
-                Are you sure you want to delete your account?
-            </p>
-            <p class="text-grey text-lighten-2 ">
-                <span class="font-weight-bold">Note:</span>
-                Please note deleting your account will delete all your recipes.</p>
-        </div>
-        <form action="{{ url_for('delete_account', username=username) }}" method="POST">
-            <div class="">
-                <label for="confirm_password_to_delete">Confirm password</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-user"></i></div>
-                    </div>
-                    <input placeholder="Enter password" id="confirm_password_to_delete"
-                        name="confirm_password_to_delete" type="password" class="validate form-control" required />
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close btn green darken-3 align-center">Cancel</a>
-                <a href="{{ url_for('delete_account', username = session.username) }}" method="POST"><button
-                        type="submit" class="btn red darken-1 align-center">
-                        Delete Account
-                    </button></a>
-            </div>
-        </form>
-    </div>
-</div>
+<!-- Copied this idea from the Double Shamrocks-->
+{% include "includes/delete_account.html" %} 
+{% include "includes/upload_image.html" %} 
 
-<!-- Upload an image modal   Copied from Double Shamrock Hackathon -->
-<div class="modal" id="uploadImageModal">
-
-    <!-- </div>tabindex="-1" role="dialog" aria-labelledby="uploadImageModalLabel" aria-hidden="true"> -->
-    <!-- <div class="modal-dialog modal-dialog-centered" role="document"> -->
-    <div class="modal-content">
-        <!-- <div class="modal-header"> -->
-        <h5 id="uploadImageModalLabel">Upload Image</h5>
-        <button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <form action="{{ url_for('upload_image', username=username) }}" method="POST" enctype="multipart/form-data">
-        <div class="modal-body">
-            <input type="file" name="user_image" class="form-control" />
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn " data-dismiss="modal">Close</button>
-            <button type="submit" class="btn ">Upload</button>
-        </div>
-    </form>
-    <!-- </div> -->
-</div>
 {% endblock %}
