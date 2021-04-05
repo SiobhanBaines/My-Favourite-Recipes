@@ -29,11 +29,11 @@
                     <section>
                         {% if image %}
                         <img src="{{ image }}" alt="">
-                        <a class="waves-effect waves-light btn modal-trigger" href="#uploadImageModal"><i
+                        <a class="waves-effect waves-light btn modal-trigger" href="#uploadProfileImageModal"><i
                                 class="fas fa-edit"></i> Edit image</a>
                         {% else %}
                         <img src="../static/images/profile_image.jpg" alt="">
-                        <a class="waves-effect waves-light btn modal-trigger" href="#uploadImageModal"><i
+                        <a class="waves-effect waves-light btn modal-trigger" href="#uploadProfileImageModal"><i
                                 class="fas fa-edit"></i> Upload an image</a>
                         {% endif %}
                     </section>
@@ -58,13 +58,13 @@
                 </div>
             </div>
 
-            <div class="col m6 s12 ">
+            <div class="col s12 m6 ">
                 <!-- Display messages when user has no recipes -->
                 {% if recipes.count() == 0 %}
-                <div class="norecipes">
-                    <h5>You currently have no recipes.</h5>
-                    <h5>To add your first recipe, please click the add recipe button below.</h5>
-                </div>
+                    <div class="norecipes">
+                        <h5>You currently have no recipes.</h5>
+                        <h5>To add your first recipe, please click the add recipe button below.</h5>
+                    </div>
                 {% else %}
                 <!-- Recipes Added by User -->
                 <table class="striped responsive-table profile-recipes">
@@ -114,7 +114,7 @@
                         <div class="row">
                             <!-- Add a Recipe -->
                             <a class="maint-btn btn yellow-text text-lighten-5 teal darken-2"
-                                href="{{ url_for('add_recipe', username=username, categories=categories) }}">
+                                href="{{ url_for('add_recipe', username=username, categories=categories, image_url=image_url) }}">
                                 <i class="fas fa-upload"></i> Add A New Recipe</a>
                         </div>
                     </div>
@@ -127,6 +127,6 @@
 
 <!-- Copied this idea from the Double Shamrocks-->
 {% include "includes/delete_account.html" %} 
-{% include "includes/upload_image.html" %} 
+{% include "includes/upload_profile_image.html" %} 
 
 {% endblock %}

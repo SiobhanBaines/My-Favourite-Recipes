@@ -5,46 +5,52 @@
     <div class="parallax "><img src="../static/images/scales.jpeg"></div>
     <div class="container">
         <h3>Please Add Recipe {{ username }}</h3>
-        <!-- Code taken from Code Institute Flask Task Manager      
-                    Project for Categories and altered to fit this website -->
-        <div class="row card-panel">
-            <form class="col s12" method="POST"
-                action="{{ url_for('add_recipe', username=username, categories=categories) }}">
+        <!-- Code taken from Code Institute Flask Task Manager
+            Project for Categories and altered to fit this website -->
+        <div class="row card-panel maintain-recipe">
+            <form class="col s12" method="POST" action="{{ url_for('add_recipe', username=username, categories=categories, image_url=image_url) }}">
                 <div class="row">
-                    <div class="col s6">
+                    <!-- Image -->
+                    <div class="col s12 m6 recipe-row">
+                        <div class="card-panel image-panel grey lighten-5 z-depth-1 center-align">
+                            {% if image_url %}
+                                <img src="{{ image_url }}" alt="">
+                            {% else %}
+                                <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image" class="circle responsive-img">
+                            {% endif %}
+                        </div>
+                        <a class="waves-effect waves-light btn modal-trigger recipe-row" href="#uploadRecipeImageModal"><i class="fas fa-edit"></i> Upload an image</a>
+                    </div>
+                    <div class="col s12 m6">
                         <!-- Title -->
-                        <div class="row">
+                        <div class="row recipe-row">
                             <div class="input-field col s12">
-                                <input id="title" name="title" minlength="3" maxlength="25" type="text"
-                                    pattern="([^\s][A-z0-9À-ž&\s]+)" class="validate" required>
+                                <input id="title" name="title" minlength="3" maxlength="25" type="text" pattern="([^\s][A-z0-9À-ž&\s]+)" class="validate" required>
                                 <label for="title">Title</label>
                             </div>
                         </div>
                         <!-- Category -->
-                        <div class="row">
+                        <div class="row recipe-row">
                             <div class="input-field col s12">
                                 <select class="browser-default" name="category">
                                     <option value="" disabled selected>Category</option>
                                     {% for category in categories %}
-                                    <option value="{{ category.category }}">{{ category.category }}
-                                    </option>
+                                        <option value="{{ category.category }}">{{ category.category }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
                         </div>
                         <!-- Servings -->
-                        <div class="row">
+                        <div class="row recipe-row">
                             <div class="input-field col s6">
-                                <input id="servings" name="servings" minlength="0" maxlength="5" type="text"
-                                    pattern="^[0-9]{0,5}$" class="validate" required>
+                                <input id="servings" name="servings" minlength="0" maxlength="5" type="text" pattern="^[0-9]{0,5}$" class="validate" required>
                                 <label for="servings">Servings</label>
                             </div>
-                        </div> 
+                        </div>
                         <!-- Cooking Temperature -->
-                        <div class="row">
+                        <div class="row recipe-row">
                             <div class="input-field col s6">
-                                <input id="temperature" name="temperature" minlength="1" maxlength="3" type="text"
-                                    pattern="^[0-9]{0,5}$" class="validate" required>
+                                <input id="temperature" name="temperature" minlength="1" maxlength="3" type="text" pattern="^[0-9]{0,5}$" class="validate" required>
                                 <label for="temperature">Temperature</label>
                             </div>
                             <div class="input-field col s6">
@@ -57,67 +63,44 @@
                             </div>
                         </div>
                         <!-- Preparation Time -->
-                        <div class="row">
+                        <div class="row recipe-row">
                             <div class="input-field col s5">
                                 <input id="prep_time" name="prep_time" minlength="0" maxlength="5" type="text"
                                     pattern="^[0-9]{0,5}$" class="validate" required>
                                 <label for="prep_time">Preparation_time</label>
                             </div>
-                            <div class="input-field col s1">
+                            <div class="col s1">
                                 <p>mins</p>
                             </div>
-                        </div> 
+                        </div>
                         <!-- Cooking Time -->
-                        <div class="row">
+                        <div class="row recipe-row">
                             <div class="input-field col s5">
-                                <input id="cook_time" name="cook_time" minlength="0" maxlength="5" type="text"
-                                    pattern="^[0-9]{0,5}$" class="validate" required>
+                                <input id="cook_time" name="cook_time" minlength="0" maxlength="5" type="text" pattern="^[0-9]{0,5}$" class="validate" required>
                                 <label for="cook_time">Cooking_time</label>
                             </div>
-                            <div class="input-field col s1">
+                            <div class="col s1">
                                 <p>mins</p>
                             </div>
                         </div>
                     </div>
-                    <!-- Image -->
-                    <div class="col s6">
-                        <div class="card-panel image-panel grey lighten-5 z-depth-1 center-align">
-                            {% if image %}
-                            <img src="{{ image }}" alt="">
-                            {% else %}
-                            <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image"
-                                class="circle responsive-img">
-                            {% endif %}
-                        </div>
-                        <a class="waves-effect waves-light btn modal-trigger" href="#uploadImageModal"><i
-                                class="fas fa-edit"></i> Upload an image</a>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="image_url" name="image_url" type="text" pattern="([^\s][A-z0-9À-ž&\s]+)"
-                                class="validate" required>
-                            <label for="image_url">The cloud address of your image</label>
-                        </div>
-                    </div>
+
                 </div>
                 <!-- Ingredients, Method and Notes -->
-                <div class="row">
+                <div class="row recipe-row-imn">
                     <!-- Ingredients -->
                     <div class="input-field col s12">
-                        <input id="ingredients" name="ingredients" minlength="5" type="text"
-                            pattern="([^\s][A-z0-9À-ž&\s]+)" class="validate" required>
+                        <input id="ingredients" name="ingredients" minlength="5" type="text" pattern="([^\s][A-z0-9À-ž&\s]+)" class="validate" required>
                         <label for="ingredients">Ingredients</label>
                     </div>
                     <!-- Method -->
                     <div class="input-field col s12">
-                        <input id="method" name="method" minlength="5" type="text" pattern="([^\s][A-z0-9À-ž&\s]+)"
-                            class="validate" required>
+                        <input id="method" name="method" minlength="5" type="text" pattern="([^\s][A-z0-9À-ž&\s]+)" class="validate" required>
                         <label for="method">Method</label>
                     </div>
                     <!-- Notes -->
                     <div class="input-field col s12">
-                        <input id="notes" name="notes" minlength="5" type="text" pattern="([^\s][A-z0-9À-ž&\s]+)"
-                            class="validate" required>
+                        <input id="notes" name="notes" minlength="5" type="text" pattern="([^\s][A-z0-9À-ž&\s]+)" class="validate" required>
                         <label for="notes">Notes</label>
                     </div>
                 </div>
@@ -135,6 +118,6 @@
 </main>
 
 <!-- Copied this idea from the Double Shamrocks-->
-{% include "includes/upload_image.html" %}
+{% include "includes/upload_recipe_image.html" %}
 
 {% endblock %}

@@ -61,7 +61,7 @@ def like(recipe_id):
     if request.method == "POST":
         rec = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
         print("line 54", rec)
-        recipe_update = mongo.db.recipes.update_one(
+        recipe = mongo.db.recipes.update_one(
                 {"_id": ObjectId(recipe_id)},
                 {'$inc': {'likes': 1}},
                 upsert=True
@@ -97,12 +97,15 @@ def dislike(recipe_id):
         method_list=method, ingredient_list=ingredients)
 
 
-@app.route("/add_recipe/<username><categories>", methods=["GET", "POST"])
-def add_recipe(username, categories):
-    print("49", username)
-    print("50", categories)
+@app.route("/add_recipe/<username><categories><image_url>",
+    methods=["GET", "POST"])
+def add_recipe(username, categories, image_url):
+    print("102", username, session["user"])
+    print("103", categories)
+    print("line 104", image_url)
     print("51", request.method)
     user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
+    print("line 107", user_id, username, session["user"])
     if request.method == "POST":
         recipe = {
             "user": user_id,
@@ -123,17 +126,21 @@ def add_recipe(username, categories):
             "date": datetime.now()
             }
 
-        print("72", recipe)
         mongo.db.recipes.insert_one(recipe)
-        print("74", recipe)
         flash("Recipe Successfully Added")
         return redirect(url_for("profile", username=session["user"]))
 
     categories = list(mongo.db.categories.find().sort("category", 1))
-    print("79", categories)
+    print("line 133", categories)
+
+    if image_url[0:4] != 'http':
+        image_url = False
+
+    print(image_url)
 
     return render_template(
-        "add_recipe.html", username=session["user"], categories=categories)
+        "add_recipe.html", username=session["user"],
+        categories=categories, image_url=image_url)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -266,6 +273,7 @@ def profile(username):
 
     return redirect(url_for("login"))
 
+
 @app.route("/change_password/<username>", methods=['GET', 'POST'])
 def change_password(username):
     return render_template("profile", username=session["user"])
@@ -297,32 +305,67 @@ def delete_account(username):
 
 
 # Upload an image   Copied from Double Shamrock Hackathon and modified
-@app.route("/upload_image/<username>", methods=["GET", "POST"])
-def upload_image(username):
+@app.route("/upload_profile_image/<username>", methods=["GET", "POST"])
+def upload_profile_image(username):
     user = mongo.db.users.find_one({"username": username})
     if request.method == 'POST':
         for user_image in request.files.getlist("user_image"):
             filename = secure_filename(user_image.filename)
             filename, file_extension = os.path.splitext(filename)
             public_id_image = (username + '_' + filename)
-           
+
             cloudinary.uploader.unsigned_upload(
-                user_image, "favourite_recipes_images",
+                user_image, "profile_images",
                 cloud_name='dyxuve4pr',
-                folder='favourite_recipes/',
+                folder='favourite_recipes/profile_images/',
                 public_id=public_id_image)
 
             image_url = (
-                "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/"
-                + public_id_image + file_extension)
+                "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/profile_images/" + public_id_image + file_extension)
 
-            print("image_url", image_url, "username", username)                
+            print("image_url", image_url, "username", username)
             mongo.db.users.update(
                 {"username": username},
                 {"$set": {"image": image_url}})
 
         return redirect(url_for('profile', username=session["user"]))
     return render_template("profile.html", username=session["user"])
+
+
+# Upload an image   Copied from Double Shamrock Hackathon and modified
+@app.route("/upload_recipe_image/<username>", methods=["GET", "POST"])
+def upload_recipe_image(username):
+    user = mongo.db.users.find_one({"username": username})
+    if request.method == 'POST':
+        for recipe_image in request.files.getlist("recipe_image"):
+            filename = secure_filename(recipe_image.filename)
+            filename, file_extension = os.path.splitext(filename)
+            public_id_image = (username + '_' + filename)
+
+            cloudinary.uploader.unsigned_upload(
+                recipe_image, "recipe_images",
+                cloud_name='dyxuve4pr',
+                folder='favourite_recipes/recipe_images/',
+                public_id=public_id_image)
+
+            image_url = (
+                "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/recipe_images/" + public_id_image + file_extension)
+
+            print("image_url", image_url, "username", username)
+            # mongo.db.users.update(
+            #     {"username": username},
+            #     {"$set": {"image": image_url}})
+        categories = list(mongo.db.categories.find().sort("category", 1))
+        print("line 353", categories)
+        print("line 354", username, session["user"])
+        print("line 355", "image_url", image_url, "username", username)
+
+        return redirect(url_for(
+            'add_recipe', username=session["user"],
+            categories=categories, image_url=image_url))
+    return render_template(
+        'add_recipe.html', username=session["user"],
+        categories=categories, image_url=image_url)
 
 
 @app.route("/get_categories")
