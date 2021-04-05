@@ -127,13 +127,13 @@ def add_recipe(username, categories):
         mongo.db.recipes.insert_one(recipe)
         print("74", recipe)
         flash("Recipe Successfully Added")
-        return redirect(url_for("profile", username=username))
+        return redirect(url_for("profile", username=session["user"]))
 
     categories = list(mongo.db.categories.find().sort("category", 1))
     print("79", categories)
 
     return render_template(
-        "add_recipe.html", username=username, categories=categories)
+        "add_recipe.html", username=session["user"], categories=categories)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -261,14 +261,14 @@ def profile(username):
         recipes = mongo.db.recipes.find({"user": ObjectId(user_id)})
 
         return render_template(
-            "profile.html", username=username,
+            "profile.html", username=session["user"],
             image=image, recipes=recipes)
 
     return redirect(url_for("login"))
 
 @app.route("/change_password/<username>", methods=['GET', 'POST'])
 def change_password(username):
-    return render_template("profile", username=username)
+    return render_template("profile", username=session["user"])
 
 
 @app.route("/delete_account/<username>", methods=['GET', 'POST'])
@@ -293,7 +293,7 @@ def delete_account(username):
         return redirect(url_for("homepage"))
     else:
         flash("Password is incorrect! Please try again")
-        return redirect(url_for("profile", username=username))
+        return redirect(url_for("profile", username=session["user"]))
 
 
 # Upload an image   Copied from Double Shamrock Hackathon and modified
