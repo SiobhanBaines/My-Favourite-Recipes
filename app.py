@@ -307,13 +307,13 @@ def upload_image(username):
             public_id_image = (username + '_' + filename)
            
             cloudinary.uploader.unsigned_upload(
-                user_image, "profile_images",
+                user_image, "favourite_recipes_images",
                 cloud_name='dyxuve4pr',
-                folder='favourite_recipes/profile_images/',
+                folder='favourite_recipes/',
                 public_id=public_id_image)
 
             image_url = (
-                "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/profile_images/"
+                "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/"
                 + public_id_image + file_extension)
 
             print("image_url", image_url, "username", username)                
