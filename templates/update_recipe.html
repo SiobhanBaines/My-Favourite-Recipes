@@ -6,7 +6,7 @@
         <div class="row card-panel recipe-panel maintain-recipe">
             <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe_id) }}">
                 <div class="row">
-                                        <!-- Image -->
+                    <!-- Image -->
                     <div class="col s12 m6">
                         <div class="card-panel image-panel grey lighten-5 z-depth-1 center-align">
                             {% if recipe.image %} 
@@ -14,7 +14,7 @@
                             {% else %}
                                 <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image" class="circle responsive-img">
                             {% endif %}
-                            <a class="waves-effect waves-light btn modal-trigger" href="#uploadRecipeImageModal"><i class="fas fa-edit"></i> Upload an image</a>
+                            <a class="waves-effect waves-light btn modal-trigger" href="#uploadRecipeImageModal"><i class="fas fa-edit"></i> Upload image</a>
                         </div>
                     </div>
                     <div class="col s12 m6">
@@ -32,7 +32,7 @@
                                     <select class="browser-default" name="category">
                                         <option value="{{ recipe.category }}" active selected>{{ recipe.category }}</option>
                                         {% for category in categories %}
-                                        <option value="{{ category.category }}">{{ category.category }}</option>
+                                            <option value="{{ category.category }}">{{ category.category }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -40,18 +40,18 @@
                         </div>
                          <!-- Servings -->
                         <div class="row recipe-row">
-                           <div class="input-field col s6">
+                           <div class="input-field col s12 m6">
                                 <input id="servings" name="servings" minlength="0" maxlength="5" value="{{ recipe.servings }}" type="text" class="validate" required>
                                 <label for="servings">Servings</label>
                             </div>
                         </div>
                             <!-- Cooking Temperature -->
                         <div class="row recipe-row">
-                            <div class="input-field col s6">
+                            <div class="input-field col s12 m6">
                                 <input id="temperature" name="temperature" minlength="1" maxlength="3" value="{{ recipe.temperature }}" type="text" class="validate" required>
                                 <label for="temperature">Temperature</label>
                             </div>
-                            <div class="input-field col s6">
+                            <div class="input-field col s12 m6">
                                 <select class="browser-default" name="temp_unit">
                                     <option value="{{ recipe.temp_unit }}" active selected>{{ recipe.temp_unit }}</option>
                                     <option value="Celsius">Celsius</option>
@@ -62,21 +62,21 @@
                         </div>
                             <!-- Preparation Time -->
                         <div class="row recipe-row">
-                            <div class="input-field col s5">
+                            <div class="input-field col s10 m5">
                                 <input id="prep_time" name="prep_time" minlength="0" maxlength="5" value="{{ recipe.prep_time }}" type="text" class="validate" required>
                                 <label for="prep_time">Preparation_time</label>
                             </div>
-                            <div class="input-field col s1">
+                            <div class="input-field col s2 m1">
                                 <p>mins</p>
                             </div>
                         </div>
                             <!-- Cooking Time -->
                         <div class="row recipe-row">
-                            <div class="input-field col s5">
+                            <div class="input-field col s10 m5">
                                 <input id="cook_time" name="cook_time" minlength="0" maxlength="5" value="{{ recipe.cook_time }}" type="text" class="validate" required>
                                 <label for="cook_time">Cooking_time</label>
                             </div>
-                            <div class="input-field col s1">
+                            <div class="input-field col s2 m1">
                                 <p>mins</p>
                             </div>
                         </div>
@@ -108,12 +108,12 @@
                 <div class="row recipe-row">
                     <div class="col s12 center-align">
                         <!-- Cancel Any Changes -->
-                        <a href="{{ url_for('profile', username=session['user']) }}" class="btn teal lighten-4" > Cancel <i class="fas fa-times-circle right"></i></a>
+                        <a href="{{ url_for('profile', username=session['user']) }}" class="btn teal lighten-4" > Cancel <i class="fas fa-times-circle left"></i></a>
                         <!-- Submit the Changes -->
-                        <button type="submit" class="btn  teal darken-2">Edit Recipe <i class="fas fa-edit right"></i>
+                        <button type="submit" class="btn  teal darken-2">Edit Recipe <i class="fas fa-edit left"></i>
                         </button>
                         <!-- Delete the Recipe -->
-                        <a href="{{ url_for('delete_recipe', recipe_id=recipe_id) }}" class="btn red darken-1">Delete Recipe</a>
+                        <a href="{{ url_for('delete_recipe', recipe_id=recipe_id) }}" class="btn red    darken-1">Delete Recipe<i class="fas fa-trash-alt left"></i></a>
                     </div>
                 </div>
             </form>

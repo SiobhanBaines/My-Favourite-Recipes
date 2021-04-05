@@ -4,22 +4,22 @@
 <main class="parallax-container">
     <div class="parallax "><img src="../static/images/scales.jpeg"></div>
     <div class="container">
-        <h3>Please Add Recipe {{ username }}</h3>
+        <h3>Please Add A Recipe </h3>
         <!-- Code taken from Code Institute Flask Task Manager
             Project for Categories and altered to fit this website -->
         <div class="row card-panel maintain-recipe">
             <form class="col s12" method="POST" action="{{ url_for('add_recipe', username=username, categories=categories, image_url=image_url) }}">
                 <div class="row">
                     <!-- Image -->
-                    <div class="col s12 m6 recipe-row">
+                    <div class="col s12 m6">
                         <div class="card-panel image-panel grey lighten-5 z-depth-1 center-align">
-                            {% if image_url %}
-                                <img src="{{ image_url }}" alt="">
+                            {% if image_url %} 
+                                <img src="{{ image_url }}" alt="Recipe Image" class="circle responsive-img">
                             {% else %}
                                 <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image" class="circle responsive-img">
                             {% endif %}
+                            <a class="waves-effect waves-light btn modal-trigger" href="#uploadRecipeImageModal"><i class="fas fa-edit"></i> Upload image</a>
                         </div>
-                        <a class="waves-effect waves-light btn modal-trigger recipe-row" href="#uploadRecipeImageModal"><i class="fas fa-edit"></i> Upload an image</a>
                     </div>
                     <div class="col s12 m6">
                         <!-- Title -->
@@ -49,11 +49,11 @@
                         </div>
                         <!-- Cooking Temperature -->
                         <div class="row recipe-row">
-                            <div class="input-field col s6">
+                            <div class="input-field col s12 m6">
                                 <input id="temperature" name="temperature" minlength="1" maxlength="3" type="text" pattern="^[0-9]{0,5}$" class="validate" required>
                                 <label for="temperature">Temperature</label>
                             </div>
-                            <div class="input-field col s6">
+                            <div class="input-field col s12 m6">
                                 <select class="browser-default" name="temp_unit">
                                     <option value="" disabled selected>Temperature Unit</option>
                                     <option value="Celsius">Celsius</option>
@@ -64,22 +64,22 @@
                         </div>
                         <!-- Preparation Time -->
                         <div class="row recipe-row">
-                            <div class="input-field col s5">
+                            <div class="input-field col s10 m5">
                                 <input id="prep_time" name="prep_time" minlength="0" maxlength="5" type="text"
                                     pattern="^[0-9]{0,5}$" class="validate" required>
                                 <label for="prep_time">Preparation_time</label>
                             </div>
-                            <div class="col s1">
+                            <div class="col s2 m1">
                                 <p>mins</p>
                             </div>
                         </div>
                         <!-- Cooking Time -->
                         <div class="row recipe-row">
-                            <div class="input-field col s5">
+                            <div class="input-field col s10 m5">
                                 <input id="cook_time" name="cook_time" minlength="0" maxlength="5" type="text" pattern="^[0-9]{0,5}$" class="validate" required>
                                 <label for="cook_time">Cooking_time</label>
                             </div>
-                            <div class="col s1">
+                            <div class="col s2 m1">
                                 <p>mins</p>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                 <div class="row">
                     <div class="col s12 center-align">
                         <button type="submit" class="btn teal darken-2">
-                            Add Recipe <i class="fas fa-plus-square right"></i>
+                            Add Recipe <i class="fas fa-plus-square left"></i>
                         </button>
                     </div>
                 </div>
