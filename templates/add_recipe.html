@@ -8,13 +8,13 @@
         <!-- Code taken from Code Institute Flask Task Manager
             Project for Categories and altered to fit this website -->
         <div class="row card-panel maintain-recipe">
-            <form class="col s12" method="POST" action="{{ url_for('add_recipe', username=username, categories=categories, image_url=image_url) }}">
+            <form class="col s12" method="POST" action="{{ url_for('add_recipe', username=username, categories=categories, recipe=recipe) }}">
                 <div class="row">
                     <!-- Image -->
                     <div class="col s12 m6">
                         <div class="card-panel image-panel grey lighten-5 z-depth-1 center-align">
-                            {% if image_url %} 
-                                <img src="{{ image_url }}" alt="Recipe Image" class="circle responsive-img">
+                            {% if recipe.image %} 
+                                <img src="{{ recipe.image }}" alt="Recipe Image" class="circle responsive-img">
                             {% else %}
                                 <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image" class="circle responsive-img">
                             {% endif %}
