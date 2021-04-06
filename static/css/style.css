@@ -31,13 +31,23 @@ main {
 }
 h3 {
     font-family: 'Akaya Kanadaka', cursive;
-}
-h1, h2, h3, h4, h5, h6, p {
     color: var(--main-brown);
     text-align: center;
     vertical-align: middle;
 }
-
+h1, h2, h4, h5, h6{
+    font-family: 'Roboto Condensed', sans-serif;
+     color: var(--main-brown);
+    text-align: center;
+    vertical-align: middle;   
+} p {
+    color: var(--main-brown);
+    text-align: center;
+    vertical-align: middle;
+}
+h5,h6,p {
+    margin: 0.5rem;
+}
 .row {margin-bottom: 10px;} 
 .flashes h4 {
     line-height: 1;
@@ -214,6 +224,13 @@ li.ingredient{
 }
 li.method {
     list-style: decimal;
+}
+.time-row {
+    padding-left: 0.75rem;
+}
+.row.recipe-row.recipe-title {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
 }
 /* --- Profile Page --- */
 /* Original code for profile card by thefeldkircher - Copied and modified */

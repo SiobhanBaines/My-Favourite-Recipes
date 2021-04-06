@@ -410,10 +410,8 @@ def upload_new_recipe_image():
         # print("397 ", recipe)
         # print("398 ", categories)
 
-    categories = mongo.db.categories.find()
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    print("409", recipe)
-    print("410 ", categories)
+    # categories = mongo.db.categories.find()
+    # recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template('add_recipe.html', recipe=recipe, categories=categories)
 
 
