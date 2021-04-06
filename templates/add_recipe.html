@@ -15,6 +15,7 @@
                         <div class="card-panel image-panel grey lighten-5 z-depth-1 center-align">
                             {% if recipe.image %} 
                                 <img src="{{ recipe.image }}" alt="Recipe Image" class="circle responsive-img">
+                                <input type="hidden" id="image_url" name="image_url" value="{{ recipe.image }}" >
                             {% else %}
                                 <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image" class="circle responsive-img">
                             {% endif %}

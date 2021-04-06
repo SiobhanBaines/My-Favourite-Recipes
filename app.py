@@ -105,6 +105,7 @@ def add_recipe(username, categories, recipe):
     print("51", request.method)
     user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     print("line 107", user_id, username, session["user"])
+    print("line 108", image_url)
     if request.method == "POST":
         recipe = {
             "user": user_id,
@@ -140,9 +141,10 @@ def add_recipe(username, categories, recipe):
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     print(request.method)
+   
     if request.method == "POST":
         user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
-
+        print(user_id)
         submit_recipe = {
             "user": user_id,
             "category": request.form.get("category"),
@@ -159,10 +161,13 @@ def edit_recipe(recipe_id):
             "name": session["user"],
             "date": datetime.now()
         }
+        print(request.form.get("image_url"))
+        print("164", submit_recipe)
+        mongo.db.recipes.update(
+            {"_id": ObjectId(recipe_id)}, submit_recipe, upsert=True)
 
-        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit_recipe)
         flash("Recipe Successfully Updated")
-        return redirect(url_for("recipe_detail", recipe_id=recipe_id))
+        return redirect(url_for("profile", username=session["user"]))
 
     recipe = (mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)}))
     categories = mongo.db.categories.find()
@@ -330,7 +335,7 @@ def upload_profile_image(username):
 
 # Upload an image   Copied from Double Shamrock Hackathon and modified
 @app.route("/upload_recipe_image/<recipe_id>",
-        methods=["GET", "POST"])
+            methods=["GET", "POST"])
 def upload_recipe_image(recipe_id):
     print("line 339 recipe_id", recipe_id)
     print(request.method)
