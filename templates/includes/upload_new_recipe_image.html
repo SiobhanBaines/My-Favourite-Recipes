@@ -1,0 +1,14 @@
+<!-- Upload an image Modal Structure -->
+
+<div id="uploadNewRecipeImageModal" class="modal">
+    <form action="{{ url_for('upload_new_recipe_image') }}" method="POST" enctype="multipart/form-data" class="center-align upload-image">
+        <div class="modal-content">
+            <h4>Upload Image</h4>
+            <input type="file" name="recipe_image" class="image-selection center-align" />
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            <button type="submit" class="btn ">Upload</button>
+        </div>
+    </form>
+</div>

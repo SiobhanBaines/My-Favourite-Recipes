@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <main class="parallax-container">
-        <div class="parallax "><img src="../static/images/background.jpeg"></div>
+        <div class="parallax "><img src="{{ url_for('static', filename='images/background.jpeg') }}"></div>
         <div class="container">
             <h3>Manage Categories</h3>
             <div class="row">

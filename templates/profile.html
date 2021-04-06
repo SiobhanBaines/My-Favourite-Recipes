@@ -3,7 +3,7 @@
 {% block content %}
 
 <main class="parallax-container">
-    <div class="parallax "><img src="../static/images/scales.jpeg"></div>
+    <div class="parallax "><img src="{{ url_for('static', filename='images/scales.jpeg') }}"></div>
     <h3>
         {{ username }}'s Profile
     </h3>
@@ -83,14 +83,6 @@
                             <td><a class="brown-text text-darken-3 profile-recipe"
                                     href="{{ url_for('recipe_detail', recipe_id= recipe._id) }}">{{ recipe.title }}</a>
                             </td>
-                            <!-- Number of likes -->
-                            <!-- <td><i class="profile-rating fas fa-thumbs-up"></i><span
-                                                    class="score">{{ recipe.likes }}</span>
-                                            </td> -->
-                            <!-- Number of dislikes -->
-                            <!-- <td><i class="profile-rating fas fa-thumbs-down"></i><span
-                                                    class="score">{{ recipe.dislikes }}</span>
-                                            </td> -->
                             <!-- Change recipe  -->
                             <td>
                                 <a href="{{ url_for('edit_recipe', recipe_id= recipe._id) }}"
@@ -114,7 +106,7 @@
                         <div class="row">
                             <!-- Add a Recipe -->
                             <a class="maint-btn btn yellow-text text-lighten-5 teal darken-2"
-                                href="{{ url_for('add_recipe', username=username, categories=categories, recipe=recipe) }}">
+                                href="{{ url_for('add_recipe') }}">
                                 <i class="fas fa-upload"></i> Add A New Recipe</a>
                         </div>
                     </div>
