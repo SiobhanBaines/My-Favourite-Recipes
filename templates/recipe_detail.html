@@ -31,27 +31,23 @@
                         {% endif %}
                     </div>
                 </div>
-                <div class="col m6 s12">
+                <div class="col s12 m6">
                     <h3>{{ recipe.title }}</h3>
                     <!-- Likes and Dislikes Scores -->
                     <div class="row">
-                        <!-- Likes -->
-                        <div class="col s6">
-                            <form class="col s12" method="POST" action="{{ url_for('like', recipe_id=recipe._id) }}">
-                                <button type="submit" class="btn green darken-1 score">
-                                    <i class="fas fa-thumbs-up left"></i>
-                                    {{ recipe.likes }}
-                                </button>
-                            </form>
-                        </div>
-                        <!-- Dislikes -->
-                        <div class="col s6">
-                            <form class="col s12" method="POST" action="{{ url_for('dislike', recipe_id=recipe._id) }}">
-                                <button type="submit" class="btn red darken-1 score">
-                                    <i class="fas fa-thumbs-down left"></i>
-                                    {{ recipe.dislikes }}
-                                </button>
-                            </form>
+                        <div class="col s12 center-align">
+                            <!-- Likes -->
+                            <div class="col s6">
+                                <a href="{{ url_for('like', recipe_id=recipe_id) }}" class="btn grey lighten-5 score"><i
+                                        class="rating fas fa-thumbs-up left"></i><span>{{ recipe.likes }}</span></a>
+                            </div>
+                            <!-- Dislikes -->
+                            <div class="col s6">
+                                <a href="{{ url_for('dislike', recipe_id=recipe_id) }}"
+                                    class="btn grey lighten-5 score"><i
+                                        class="rating fas fa-thumbs-down left"></i><span>{{ recipe.dislikes
+                                        }}</span></a>
+                            </div>
                         </div>
                     </div>
                 </div>

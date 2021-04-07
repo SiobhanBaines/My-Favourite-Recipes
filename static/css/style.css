@@ -107,8 +107,8 @@ li a {
    color: var(--main-cream); 
 }
 i.fas{
-    padding: 3%;
     vertical-align: middle;
+    padding: 0 1rem;
 }
 /*--- background image ---*/
 .parallax-container { 
@@ -161,19 +161,33 @@ img {
 /*---  Recipes Page  ---*/
 img.recipes-image{
     height: 12rem;
-} 
-.score {
-    display: inline-block;
-    font-size: 24px;
-    width: 80%;
-}
-i.rating {
-    font-size: 24px;
-    margin: 3%; 
-    display: inline-block;
-    align-items: center;
 }
 
+a.btn.score {
+    display: inline-block;
+    font-size: 20px; 
+    width: 100%;
+}
+i.rating, .rating {
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    align-items: center;
+    width: 50%; 
+}
+i.recipe-rating{
+    font-size: 16px;
+    padding: 0;
+    display: inline-block;
+    align-items: center;
+    /* width: 50%;  */
+}
+a.score,
+.ratings {
+    margin-top: 5%;
+    color: var(--main-brown);
+}
 /*---  Weights and Measures Page  ---*/
 .weight_measure_tables {
     overflow: auto; 
@@ -277,9 +291,9 @@ li.method {
 .profile-recipe {
     font-size: 20px;
 }
-i.profile-rating {
+/* i.profile-rating {
     font-size: 18px;
-}
+} */
 .profile-recipes {
     margin: 3rem;
     border: 1px solid var(--main-brown);

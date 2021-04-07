@@ -2,38 +2,60 @@
 {% block title %}Recipes{% endblock %}
 {% block content %}
 
-    <div class="container">
-        <h3>Recipes</h3>
-        <div class="row">
-            <!-- Used the Materialize Cards with an image for each recipe -->
-            {% for recipe in recipes %}
-                <div class="col l4 m6 s12">
-                    <div class="card">
-                        <a class="brown-text text-darken-3" 
-                            href="{{ url_for('recipe_detail', recipe_id=recipe._id) }}">
-                            <!-- Recipe Image -->
-                            <div class="card-image">
-                                <img src="{{ recipe.image }}" class="recipes-image" alt="{{ recipe.title }}">
-                                <span class="card-title card-name ">{{ recipe.title }}</span>
-                            </div>
-                            <div class="card-content">
-                                <!-- Recipe Category -->
-                                <h5>{{recipe.category }}</h5>
-                                <!-- Preparation and Cooking Time summed to give total time needed -->
-                                <!-- <p>Duration {{ recipe.prep_time + recipe.cook_time }} mins</p> -->
-                                <!-- Number of likes and dislikes -->
-                                <div class="col-4 center-align">
-                                    <i class="rating fas fa-thumbs-up"></i>
-                                    <span class="score">{{ recipe.likes }}</span>
-                                    <i class="rating fas fa-thumbs-down"></i>
-                                    <span class="score">{{ recipe.dislikes }}</span>
+<div class="container">
+    <h3>Recipes</h3>
+    <!-- Flash messages code taken from Code Institute Flask Task Manager 
+                            Project and altered to fit this website -->
+    <section>
+        <!-- flash messages  -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flashes">
+                        <h4 class="yellow-text text-lighten-5 teal darken-2">{{ message }}</h4>
+                    </div>
+                {% endfor%}
+            {% endif %}
+        {% endwith %}
+    </section>
+    <div class="row">
+        <!-- Used the Materialize Cards with an image for each recipe -->
+        {% for recipe in recipes %}
+        <div class="col l4 m6 s12">
+            <div class="card">
+                <a class="brown-text text-darken-3" href="{{ url_for('recipe_detail', recipe_id=recipe._id) }}">
+                    <!-- Recipe Image -->
+                    <div class="card-image">
+                        <img src="{{ recipe.image }}" class="recipes-image" alt="{{ recipe.title }}">
+                        <span class="card-title card-name ">{{ recipe.title }}</span>
+                    </div>
+                    <div class="card-content">
+                        <!-- Recipe Category -->
+                        <h5>{{recipe.category }}</h5>
+                        <!-- Preparation and Cooking Time summed to give total time needed -->
+
+                        <!-- Likes and Dislikes Scores -->
+                        <div class="row">
+                            <div class="ratings col s12 center-align">
+                                <!-- Likes -->
+                                <div class="col s4 offset-s1">
+                                    <a href="{{ url_for('like', recipe_id=recipe._id) }}"
+                                        class="score"><i class="rating fas fa-thumbs-up left"></i><span>{{ recipe.likes }}</span></a>
+                                </div>
+                                <!-- Dislikes -->
+                                <div class="col s4 offset-s1">
+                                    <a href="{{ url_for('dislike', recipe_id=recipe._id) }}"
+                                    class="score"><i class="rating fas fa-thumbs-down left"></i><span>{{ recipe.dislikes
+                                            }}</span></a>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
+                </a>
+            </div>
         </div>
+        {% endfor %}
     </div>
+</div>
 
 {% endblock %}
