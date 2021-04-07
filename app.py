@@ -58,12 +58,24 @@ def recipe_detail(recipe_id):
 @app.route('/like/<recipe_id>', methods=["GET", "POST"])
 def like(recipe_id):
     if request.method == "POST":
-        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-        recipe = mongo.db.recipes.update_one(
-            {"_id": ObjectId(recipe_id)},
-            {'$inc': {'likes': 1}},
-            upsert=True
-        )
+        liked = mongo.db.likedRecipes.find_one(
+            {"recipe_id": ObjectId(recipe_id), "username": session["user"]})
+
+        if liked:
+            flash("Sorry, you have already liked this recipe.")
+            return redirect(url_for("recipe_detail", recipe_id=recipe_id))
+        else:
+            recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+            recipe = mongo.db.recipes.update_one(
+                {"_id": ObjectId(recipe_id)},
+                {'$inc': {'likes': 1}},
+                upsert=True
+            )
+            likedRecipe = {
+                "recipe_id": ObjectId(recipe_id),
+                "username": session["user"]
+                }
+            mongo.db.likedRecipes.insert_one(likedRecipe)
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     ingredients = mongo.db.recipes.find_one(
@@ -78,11 +90,22 @@ def like(recipe_id):
 @app.route('/dislike/<recipe_id>', methods=["GET", "POST"])
 def dislike(recipe_id):
     if request.method == "POST":
-        recipe = mongo.db.recipes.update_one(
-            {"_id": ObjectId(recipe_id)},
-            {'$inc': {'dislikes': 1}},
-            upsert=True
-        )
+        disliked = mongo.db.dislikedRecipes.find_one(
+            {"recipe_id": ObjectId(recipe_id), "username": session["user"]})
+        if disliked:
+            flash("Sorry, you have already disliked this recipe.")
+            return redirect(url_for("recipe_detail", recipe_id=recipe_id))
+        else:
+            recipe = mongo.db.recipes.update_one(
+                {"_id": ObjectId(recipe_id)},
+                {'$inc': {'dislikes': 1}},
+                upsert=True
+            )
+            dislikedRecipe = {
+                "recipe_id": ObjectId(recipe_id),
+                "username": session["user"]
+                }
+            mongo.db.dislikedRecipes.insert_one(dislikedRecipe)
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     ingredients = mongo.db.recipes.find_one(
@@ -125,7 +148,7 @@ def add_recipe():
 
         if recipe:
             mongo.db.recipes.update(
-            {"_id": ObjectId(recipe_id)}, submit_recipe, upsert=True)
+                {"_id": ObjectId(recipe_id)}, submit_recipe, upsert=True)
         else:
             mongo.db.recipes.insert_one(submit_recipe)
 
@@ -138,7 +161,8 @@ def add_recipe():
     # print("135", cursor)
     # recipe = mongo.db.recipes.find_one()
     # print("135 ", recipe)
-    return render_template("add_recipe.html", recipe=recipe, categories=categories)
+    return render_template(
+        "add_recipe.html", recipe=recipe, categories=categories)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -325,8 +349,6 @@ def upload_profile_image(username):
             image_url = (
                 "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/profile_images/" + public_id_image + file_extension)
 
-            print("image_url", image_url, "username", username)
-
             mongo.db.users.update(
                 {"username": username},
                 {"$set": {"image": image_url}})
@@ -340,7 +362,6 @@ def upload_profile_image(username):
 def upload_recipe_image(recipe_id):
 
     if request.method == 'POST':
-        # user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
         for recipe_image in request.files.getlist("recipe_image"):
             filename = secure_filename(recipe_image.filename)
             filename, file_extension = os.path.splitext(filename)
@@ -374,13 +395,11 @@ def upload_recipe_image(recipe_id):
         recipe=recipe, categories=categories)
 
 
-
 # Upload an image   Copied from Double Shamrock Hackathon and modified
 @app.route("/upload_new_recipe_image", methods=["GET", "POST"])
 def upload_new_recipe_image():
     categories = list(mongo.db.categories.find().sort("category", 1))
     if request.method == 'POST':
-        # user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
         for recipe_image in request.files.getlist("recipe_image"):
             filename = secure_filename(recipe_image.filename)
             filename, file_extension = os.path.splitext(filename)
@@ -396,7 +415,6 @@ def upload_new_recipe_image():
                 "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/recipe_images/" + public_id_image + file_extension)
 
         print("398", image_url)
-        
         categories = mongo.db.categories.find()
         print("402", categories)
         recipe_image = {"image": image_url}
@@ -412,7 +430,8 @@ def upload_new_recipe_image():
 
     # categories = mongo.db.categories.find()
     # recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template('add_recipe.html', recipe=recipe, categories=categories)
+    return render_template(
+        'add_recipe.html', recipe=recipe, categories=categories)
 
 
 @app.route("/get_categories")

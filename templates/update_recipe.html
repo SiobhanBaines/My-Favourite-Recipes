@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <!-- Category -->
-                        <div class="row recipe-row">
+                        <div class="row recipe-row recipe-title">
                             <div class="input-field col s12">
                                 <select class="browser-default" name="category">
                                     <option value="{{ recipe.category }}" active selected>{{ recipe.category }}</option>
@@ -42,15 +42,14 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
-
                     <!-- Servings -->
-                    <div class="row recipe-row">
+                    <div class="row recipe-row recipe-title">
                         <div class="input-field col s12 m6">
                             <input id="servings" name="servings" minlength="0" maxlength="5"
                                 value="{{ recipe.servings }}" type="text" pattern="^[0-9]{0,5}$"  class="validate"
                                 required>
                             <label for="servings">Servings</label>
+                            </div>
                         </div>
                     </div>
                     <div class="col s12">
