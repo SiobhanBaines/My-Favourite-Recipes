@@ -2,20 +2,20 @@
 {% block title %}Recipes{% endblock %}
 {% block content %}
 
-    <main class="parallax-container">
+    <main class="home parallax-container">
         <div class="parallax "><img src="{{ url_for('static', filename='images/background.jpeg') }}"></div>
         <!-- Code taken from Code Institute Flask Task Manager 
                             Project and altered to fit this website -->
         <section>
             <!-- flash messages  -->
             {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            {% for message in messages %}
-            <div class="row flashes">
-                <h4 class="yellow-text text-lighten-5 teal darken-2">{{ message }}</h4>
-            </div>
-            {% endfor%}
-            {% endif %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="row flashes">
+                            <h4 class="pink-text text-darken-4">{{ message }}</h4>
+                        </div>
+                    {% endfor%}
+                {% endif %}
             {% endwith %}
         </section>
 <div class="container">
@@ -26,33 +26,33 @@
                     <!-- Username -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <i class="fas fa-user-plus prefix"></i>
+                            <i class="login fas fa-user-plus prefix left-align"></i>
                             <input id="username" name="username" type="text" minlength="5" maxlength="15"
                                 pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                            <label for="username">Username</label>
+                            <label for="username" class="username">Username</label>
                         </div>
                     </div>
                     <!-- Password -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <i class="fas fa-user-lock prefix"></i>
+                            <i class="login fas fa-user-lock prefix"></i>
                             <input id="password" name="password" type="password" minlength="5" maxlength="15"
                                 pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                            <label for="password">Password</label>
+                            <label for="password" class="password">Password</label>
                         </div>
                     </div>
                     <!-- Confirm Password -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <i class="fas fa-user-lock prefix"></i>
+                            <i class="login fas fa-user-lock prefix"></i>
                             <input id="confirm-password" name="confirm-password" type="password" minlength="5"
                                 maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                            <label for="confirm-password">Confirm Password</label>
+                            <label for="confirm-password" class="confirm-password">Confirm Password</label>
                         </div>
                     </div>
                     <!-- Register Button -->
                     <div class="row">
-                        <button type="submit" class="col s12 btn  teal darken-2">Register<i class="fas fa-sign-in-alt"></i></button>
+                        <button type="submit" class="col s12 btn  pink darken-4">Register<i class="login fas fa-sign-in-alt"></i></button>
                     </div>
                 </div>
             </form>

@@ -106,9 +106,21 @@ li a i.fab {
 li a {
    color: var(--main-cream); 
 }
-#text {
-    padding-right: 1rem;
+i.login.fas {
+    color: #880e4f;
+
 }
+input#username,
+input#password,
+input#confirm-password {
+    margin-left: 3.5rem;
+}
+label.username,
+label.password,
+label.confirm-password {
+    padding-left: 1rem;
+}
+
 i.fas{
     vertical-align: middle;
     padding: 0 0.5rem 0 0.5rem;
@@ -140,10 +152,6 @@ i.fas{
 .home.parallax-container {
     overflow: hidden;
 }
-    /* height: 175px; */
-    /* border-radius: 12px 12px 0 0; */
-    /* margin-bottom: 140px; */
-
 h3.home {  
     justify-content: center;
     align-items: center;
