@@ -17,7 +17,7 @@
                             <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image"
                                 class="circle responsive-img">
                             {% endif %}
-                            <a class="waves-effect waves-light btn modal-trigger" href="#uploadRecipeImageModal"><i
+                            <a class="pink darken-4 btn modal-trigger" href="#uploadRecipeImageModal"><i
                                     class="fas fa-edit"></i> Upload image</a>
                         </div>
                     </div>
@@ -129,10 +129,10 @@
                         <a href="{{ url_for('profile', username=session['user']) }}" class="btn teal lighten-4"> Cancel
                             <i class="fas fa-times-circle left"></i></a>
                         <!-- Submit the Changes -->
-                        <button type="submit" class="btn  teal darken-2">Edit Recipe <i
+                        <button type="submit" class="btn pink darken-4">Edit Recipe <i
                                 class="fas fa-edit left"></i></button>
                         <!-- Delete the Recipe -->
-                        <a href="{{ url_for('delete_recipe', recipe_id=recipe_id) }}" class="btn red    darken-1">Delete
+                        <a href="{{ url_for('delete_recipe', recipe_id=recipe_id) }}" class="btn red darken-1">Delete
                             Recipe<i class="fas fa-trash-alt left"></i></a>
                     </div>
                 </div>

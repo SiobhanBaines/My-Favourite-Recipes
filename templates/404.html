@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Recipes{% endblock %}
+{% block content %}
+
+<div class="container page404_container">
+    <div class="card ">
+        <h1 class="center-align">Oh no! No More Cake</h1>
+        <p>Something has gone wrong and brought you to a 404 page. Please click the link below</p>
+        <p class="center-align"><a href="{{ url_for('home') }}">Back to Homepage </a></p>
+        <img src="{{ url_for('static', filename='images/404_no_more_cake.jpg') }}" alt="image of lady of sofa and cake"
+            class="page404">
+    </div>
+</div>
+
+
+{% endblock %}

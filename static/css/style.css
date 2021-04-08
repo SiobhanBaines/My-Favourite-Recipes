@@ -26,8 +26,9 @@ body {
 main {
     flex: 1 0 auto;
 }
+
 .container {
-    min-height: 80;
+    min-height: 80vh;
 }
 h2 {
     font-family: 'Akaya Kanadaka', cursive;
@@ -167,7 +168,7 @@ h2.home {
     background-color: #e1bee7;
     width: 100vw;
 }
-
+/* --- Materialize Caousel CSS --- */
 element.style {
   z-index: 0;
   opacity: 1;
@@ -188,12 +189,14 @@ img.recipes-image{
     height: 12rem;
 }
 
-a.btn.score {
+button.btn.score {
+    color: var(--main-brown);
     display: inline-block;
     font-size: 20px; 
     width: 100%;
 }
 i.rating, .rating {
+    /* color: var(--main-brown); */
     font-size: 20px;
     padding: 0;
     margin: 0;
@@ -244,6 +247,8 @@ p {
 /* --- Recipe Details --- */
 .recipe-panel {
     margin-bottom: 20%;
+    background-color: #faf2f1;
+    border-radius: 2.5%;
 }
 .recipe_image {
     width: 300px;
@@ -291,13 +296,14 @@ li.method {
 .profile-card section {
   background-image: url("../images/cake.jpg");
   background-size: cover;
+  border-radius: 5px 5px 0 0;
   height: 175px;
   /* border-radius: 12px 12px 0 0; */
   margin-bottom: 140px;
 }
 .profile-card section img {
   margin: 90px 40px 0px 40px;
-  border-radius: 50%;
+  border-radius: 5px 5px 0 0;
   height: 180px;
   width: 180px;
   border: 6px solid white;
@@ -321,7 +327,8 @@ li.method {
 }
 .responsive-table {
     display: block; 
-    border: 1px solid var(--main-brown); 
+    border: 2px solid var(--main-brown); 
+    border-radius: 5px;
     height: 300px; 
     overflow-y: scroll;
 }
@@ -330,11 +337,6 @@ li.method {
     border: 1px solid var(--main-brown);
     font-size: 22px;
 }
-/* table.striped.profile-recipes tr {
-    border-bottom: none;
-    border-radius: 0 0 25px 25px;
-} */
-
 .maint-btn {
     margin: 0 15px 0 15px;
 }
@@ -393,7 +395,23 @@ input.image-selection {
 .upload-image {
     margin-top: 2rem;
 }
+/* --- Page 404  --- */
+.container.page404_container{
+    overflow: auto;
+    align-items: center;
+    padding: 1.5%;
+    padding-bottom: 5%;;
+}
+.page404 {
+    padding-left: 25%;
+    height: 75%;
+    width:75%;
+}
+
+/* --- Media --- */
+
 @media (max-width: 1024px){
+
     table.striped.responsive-table.profile-recipes {
         margin-left: 0;
         border-radius: 2.5%;
@@ -424,6 +442,12 @@ input.image-selection {
         margin-bottom: 0;
     }
 }
+@media (max-width: 992px){
+    .responsive-table {
+        height: auto; 
+    }
+}
+
 @media (max-width: 414px){
     .row.recipe-row.recipe-title {
         margin-top: 0;

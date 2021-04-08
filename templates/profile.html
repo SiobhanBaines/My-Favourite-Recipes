@@ -2,8 +2,8 @@
 {% block title %}Recipes{% endblock %}
 {% block content %}
 
-<main class="profile parallax-container">
-    <div class="parallax "><img src="{{ url_for('static', filename='images/scales.jpeg') }}"></div>
+<!-- <main class="profile parallax-container">
+    <div class="parallax "><img src="{{ url_for('static', filename='images/scales.jpeg') }}"></div> -->
     <!-- <h3>
         {{ username }}'s Profile
     </h3> -->
@@ -29,7 +29,7 @@
                     <section>
                         {% if image %}
                         <img src="{{ image }}" alt="">
-                        <a class="waves-effect waves-light btn modal-trigger" href="#uploadProfileImageModal"><i
+                        <a class="pink darken-4 btn modal-trigger" href="#uploadProfileImageModal"><i
                                 class="fas fa-edit"></i> Edit image</a>
                         {% else %}
                         <img src="../static/images/profile_image.jpg" alt="">
@@ -115,7 +115,7 @@
         </div>
 
     </div>
-</main>
+<!-- </main> -->
 
 <!-- Copied this idea from the Double Shamrocks-->
 {% include "includes/delete_account.html" %} 

@@ -57,10 +57,12 @@ def recipe_detail(recipe_id):
 
 @app.route('/like/<recipe_id>', methods=["GET", "POST"])
 def like(recipe_id):
+    print("line 60 recipe_id", recipe_id)
+    print(request.method)
     if request.method == "POST":
         liked = mongo.db.likedRecipes.find_one(
             {"recipe_id": ObjectId(recipe_id), "username": session["user"]})
-
+        print("line 64 liked", liked)
         if liked:
             flash("Sorry, you have already liked this recipe.")
             return redirect(url_for("recipe_detail", recipe_id=recipe_id))
@@ -488,6 +490,12 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
 
 
 if __name__ == "__main__":

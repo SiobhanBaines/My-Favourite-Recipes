@@ -8,13 +8,13 @@
     <section>
         <!-- flash messages  -->
         {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="pink-text text-darken-4">{{ message }}</h4>
-                    </div>
-                {% endfor%}
-            {% endif %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <h4 class="pink-text text-darken-4">{{ message }}</h4>
+        </div>
+        {% endfor%}
+        {% endif %}
         {% endwith %}
     </section>
     <div class="container">
@@ -38,15 +38,17 @@
                         <div class="col s12 center-align">
                             <!-- Likes -->
                             <div class="col s6">
-                                <a href="{{ url_for('like', recipe_id=recipe_id) }}" class="btn grey lighten-5 score"><i
-                                        class="rating fas fa-thumbs-up left"></i><span>{{ recipe.likes }}</span></a>
+                                <form action="{{ url_for('like', recipe_id=recipe._id) }}" method="POST">
+                                    <button type="submit" class="btn score text-brown grey lighten-5">{{ recipe.likes
+                                        }}<i class="rating fas fa-thumbs-up  left"></i></button>
+                                </form>
                             </div>
                             <!-- Dislikes -->
                             <div class="col s6">
-                                <a href="{{ url_for('dislike', recipe_id=recipe_id) }}"
-                                    class="btn grey lighten-5 score"><i
-                                        class="rating fas fa-thumbs-down left"></i><span>{{ recipe.dislikes
-                                        }}</span></a>
+                                <form action="{{ url_for('dislike', recipe_id=recipe._id) }}" method="POST">
+                                    <button type="submit" class="btn score text-brown grey lighten-5">{{ recipe.dislikes
+                                        }}<i class="rating fas fa-thumbs-down  left"></i></button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -134,6 +136,19 @@
                     <p class="left-align">{{ recipe.note }}</p>
                 </div>
             </div>
+            <!-- Buttons -->
+            {% if recipe.name == session["user"] %}
+            <form class="row recipe-row">
+                <div class="col s12 center-align">
+                    <!-- Submit the Changes -->
+                    <a href="{{ url_for('edit_recipe', recipe_id= recipe._id) }}"
+                        class="btn pink darken-4 text-center"><i class="fas fa-edit"></i> Edit Recipe</a>
+                    <!-- Delete the Recipe -->
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe_id) }}" class="btn red darken-1">Delete
+                        Recipe<i class="fas fa-trash-alt left"></i></a>
+                </div>
+            </form>
+            {% endif %}
         </div>
     </div>
 </main>
