@@ -29,13 +29,13 @@ main {
 .container {
     min-height: 80;
 }
-h3 {
+h2 {
     font-family: 'Akaya Kanadaka', cursive;
     color: var(--main-brown);
     text-align: center;
     vertical-align: middle;
 }
-h1, h2, h4, h5, h6{
+h1, h3, h4, h5, h6{
     font-family: 'Roboto Condensed', sans-serif;
      color: var(--main-brown);
     text-align: center;
@@ -120,7 +120,10 @@ label.password,
 label.confirm-password {
     padding-left: 1rem;
 }
-
+.input-field
+.prefix.active {
+    color:#8d8e90
+}
 i.fas{
     vertical-align: middle;
     padding: 0 0.5rem 0 0.5rem;
@@ -152,7 +155,7 @@ i.fas{
 .home.parallax-container {
     overflow: hidden;
 }
-h3.home {  
+h2.home {  
     justify-content: center;
     align-items: center;
     margin-top: 10%;
@@ -274,6 +277,9 @@ li.method {
 }
 /* --- Profile Page --- */
 /* Original code for profile card by thefeldkircher - Copied and modified */
+.profile.container {
+    padding-top: 3%;
+}
 .profile-card{
   width: 350px;
   max-width: 100%;
@@ -313,21 +319,21 @@ li.method {
 .profile-recipe {
     font-size: 20px;
 }
-/* i.profile-rating {
-    font-size: 18px;
-} */
+.responsive-table {
+    display: block; 
+    border: 1px solid var(--main-brown); 
+    height: 300px; 
+    overflow-y: scroll;
+}
 .profile-recipes {
-    margin: 3rem;
+    margin: 3%;
     border: 1px solid var(--main-brown);
     font-size: 22px;
 }
-table.striped>tbody>tr:nth-child(odd) {
-    background-color: var(--image-shadow);
-}
-table.striped.profile-recipes tr {
+/* table.striped.profile-recipes tr {
     border-bottom: none;
     border-radius: 0 0 25px 25px;
-}
+} */
 
 .maint-btn {
     margin: 0 15px 0 15px;
