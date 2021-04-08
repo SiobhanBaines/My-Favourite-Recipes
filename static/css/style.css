@@ -332,6 +332,9 @@ li.method {
     height: 300px; 
     overflow-y: scroll;
 }
+.category-table {
+    font-size: 24px;
+}
 .profile-recipes {
     margin: 3%;
     border: 1px solid var(--main-brown);

@@ -1,37 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
-    <main class="parallax-container">
-        <div class="parallax "><img src="{{ url_for('static', filename='images/background.jpeg') }}"></div>
-        <div class="container">
-            <h3>Manage Categories</h3>
-            <div class="row">
-                <div class="col s12 center-align">
-                    <a href="{{ url_for('add_category') }}" class="btn teal darken-2">Add Category 
-                        <i class="fas fa-plus-square right"></i></a>
-                </div>
-            </div>
-            <!-- Code taken from Code Institute Flask Task Manager 
-                Project and altered to fit this website -->
-            <div class="row">
-                <!-- Category Cards -->
-                {% for category in categories %}
-                    <div class="col s12 m4">
-                        <div class="card white center-align">
-                            <div class="card-content brown-text text-darken-3">
-                                <span class="card-title">{{ category.category }}</span>
-                            </div>
-                            <div class="card-action">
-                                <!-- Edit Category -->
-                                <a href="{{ url_for('edit_category', category_id=category._id) }}"
-                                    class="btn green darken-1">Edit</a>
-                                <!-- Delete Category -->
-                                <a href="{{ url_for('delete_category', category_id=category._id) }}"
-                                    class="btn red darken-1">Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
+<main class="parallax-container">
+    <div class="parallax "><img src="{{ url_for('static', filename='images/background.jpeg') }}"></div>
+    <div class="container">
+        <h3>Manage Categories</h3>
+        <div class="row">
+            <div class="col s12 center-align">
+                <a href="{{ url_for('add_category') }}" class="btn teal darken-2">Add Category
+                    <i class="fas fa-plus-square right"></i></a>
             </div>
         </div>
-    </main>
+        <!-- Category Table --responsive-table-->
+        <table class="highlight  category-table">
+            <thead>
+                <h5 class="brown-text text-darken-3 center-align">Categories</h5>
+                <tr>
+                    <!-- Category Name -->
+                    <th>Category</th>
+                    <th class="center-align">Action</th>
+                </tr>
+            </thead>
+            <tbody class="category-table">
+                {% for category in categories %}
+                <tr>
+                    <!-- Category -->
+                    <td class="category-table">{{ category.category }}</td>
+                    <!-- Change Category  -->
+                    <td>
+                        <a href="{{ url_for('edit_category', category_id=category._id) }}"
+                            class="btn green darken-3 text-center"><i class="fas fa-edit"></i> Change</a>
+                    </td>
+                    <!-- Change Category  -->
+                    <td>
+                        <a href="{{ url_for('delete_category', category_id=category._id) }}"
+                            class="btn red darken-1 text-center"><i class="fas fa-edit"></i> Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
 {% endblock %}
