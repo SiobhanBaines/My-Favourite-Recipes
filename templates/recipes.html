@@ -22,7 +22,7 @@
         <!-- Used the Materialize Cards with an image for each recipe -->
         {% for recipe in recipes %}
         <div class="col l4 m6 s12">
-            <div class="card">
+            <div class="card grey lighten-5">
                 <a class="brown-text text-darken-3" href="{{ url_for('recipe_detail', recipe_id=recipe._id) }}">
                     <!-- Recipe Image -->
                     <div class="card-image">

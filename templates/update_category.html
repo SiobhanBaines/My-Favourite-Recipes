@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <main class="parallax-container">
+    <main class="parallax-container home">
         <div class="parallax "><img src="{{ url_for('static', filename='images/background.jpeg') }}"></div>
         <div class="container">
             <h3>Update Category</h3>
@@ -13,7 +13,7 @@
                     <!-- Category Name -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <i class="fas fa-folder-open prefix brown-text text-darken-3"></i>
+                            <i class="fas fa-folder-open prefix pink-text text-darken-4"></i>
                             <input id="category" name="category" minlength="3" maxlength="25" type="text"
                                 value="{{ category.category }}" class="validate" required>
                             <label for="category">Category Name</label>
@@ -24,10 +24,10 @@
                         <div class="col s12 center-align">
                             <!-- Cancel -->
                             <a href="{{ url_for('get_categories') }}" class="btn teal lighten-4"> Cancel <i
-                                    class="fas fa-times-circle right"></i></a>
+                                    class="fas fa-times-circle left"></i></a>
                             <!-- Edit -->
-                            <button type="submit" class="btn  teal darken-2">
-                                Edit Category <i class="fas fa-edit right"></i>
+                            <button type="submit" class="btn  pink darken-4">
+                                Edit Category <i class="fas fa-edit left"></i>
                             </button>
                         </div>
                     </div>
