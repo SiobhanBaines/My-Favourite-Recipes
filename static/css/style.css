@@ -5,7 +5,7 @@
     --main-brown: #4e342e;
     /* --main-brown: #fffde7; */
     /* --head-foot: #d3cfc1; */
-    --head-foot: #00796b;
+    --head-foot: #880e4f;
     --main-cream: #fffde7;
     --main-yellow: #ffff8d;
     --main-red: #e53935;
@@ -106,9 +106,13 @@ li a i.fab {
 li a {
    color: var(--main-cream); 
 }
+#text {
+    padding-right: 1rem;
+}
 i.fas{
     vertical-align: middle;
-    padding: 0 1rem;
+    padding: 0 0.5rem 0 0.5rem;
+    margin: 0;
 }
 /*--- background image ---*/
 .parallax-container { 
@@ -133,14 +137,23 @@ i.fas{
     height: 12rem;
 }
 /*--- Home Page ---*/
+.home.parallax-container {
+    overflow: hidden;
+}
+    /* height: 175px; */
+    /* border-radius: 12px 12px 0 0; */
+    /* margin-bottom: 140px; */
+
 h3.home {  
     justify-content: center;
     align-items: center;
     margin-top: 10%;
     font-size: 60px;
+    color: var(--main-cream);
+    -webkit-text-stroke: 2px black;
 }
 .container.about {
-    background-color: #b2dfdb;
+    background-color: #e1bee7;
     width: 100vw;
 }
 
@@ -154,8 +167,9 @@ element.style {
     width: 300px;
     height: 300px;
 }
-img {
+.carousel .carousel-item>img {
     border-radius: 5%;
+    border: solid 3px var(--main-cream);
 } 
 
 /*---  Recipes Page  ---*/
@@ -264,7 +278,7 @@ li.method {
   background-image: url("../images/cake.jpg");
   background-size: cover;
   height: 175px;
-  border-radius: 12px 12px 0 0;
+  /* border-radius: 12px 12px 0 0; */
   margin-bottom: 140px;
 }
 .profile-card section img {

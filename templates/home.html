@@ -3,7 +3,11 @@
 {% block content %}
 
 <!-- Home page with carousel of currently loaded recipes -->
-<div class="container home">
+<!-- <div class="home"> -->
+<div class="home parallax-container">
+    <div class="parallax "><img src="{{ url_for('static', filename='images/puratos_tropical_fruit_cake.jpg') }}">
+    </div>
+    <!-- <div class="container home"> -->
     <h3 class="home">Family Favourite Recipes</h3>
     <div class="carousel">
         {% for recipe in recipes %}
@@ -41,7 +45,7 @@
     <br>
     <p>Click the register button and set up your username.
         <a href="{{ url_for('register')  }}" method="POST">
-            <button type="submit" class="btn teal darken-2 align-center">Register</button>
+            <button type="submit" class="btn pink darken-4 left-align">Register <i class="fas fa-sign-in-alt left"></i></button>
         </a>
     </p>
     <br>

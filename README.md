@@ -56,7 +56,9 @@ Recipes will be displayed in a card with an image of the final product. Clicking
 [Database Schema](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/2bdec29915a3584ea1cab3a8fb8fda801c5596a0/documentation_files/recipe_db.png)
 ### *Surface*
 I used Materialize to assist in the design of the website [Materialize](https://materializecss.com/)
-I created a colour palette using the [background image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/45776b725d8040182b7cc2d0b5f8311cd1807e4f/static/images/background.jpeg) and [icolorpalette](https://icolorpalette.com/)
+I created a colour palette using the [background image](/workspace/MS3-My-Favourite-Recipes/static/images/puratos_tropical_fruit_cake.jpg) and [icolorpalette](https://icolorpalette.com/). I then used the [Materialize Colours](https://materializecss.com/color.html) to decide on the actual colours for this site.
+[Image with main colour pallet](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/image_colour_pallet.pdf)
+[Full colour pallet](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/full_colour_pallet.pdf)
 finished product
 styling, balance, consistency
 
