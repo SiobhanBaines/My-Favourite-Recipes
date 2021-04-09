@@ -28,7 +28,10 @@ main {
 }
 
 .container {
-    min-height: 80vh;
+    min-height: 90vh;
+}
+.container.delete-account {
+    min-height:auto;
 }
 h2 {
     font-family: 'Akaya Kanadaka', cursive;
@@ -120,9 +123,8 @@ li a i.fab {
 li a {
    color: var(--main-cream); 
 }
-i.login.fas {
+i.login.fas{
     color: #880e4f;
-
 }
 input#username,
 input#password,

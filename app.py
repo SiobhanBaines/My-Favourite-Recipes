@@ -308,27 +308,36 @@ def change_password(username):
 
 @app.route("/delete_account/<username>", methods=['GET', 'POST'])
 def delete_account(username):
-    # prevents guest users from viewing the form
-    print(username)
-    if 'username' not in session:
-        flash('You must be logged in to delete an account!')
-    user = mongo.db.users.find_one({"username": username})
-    # checks if password matches existing password in database
-    if check_password_hash(user["password"],
-                           request.form.get("confirm_password_to_delete")):
+    if request.method == 'POST':
+        print("line 312 request", request.method)
+        # prevents guest users from viewing the form
+        print("line 314 username", username)
+        print("line 315 session user", session["user"])
+        if username == session["user"]:
+            user = mongo.db.users.find_one({"username": username})
+            print("line 318 user", user)
+                # checks if password matches existing password in database
+            if check_password_hash(user["password"],
+                                   request.form.get("confirm_password_to_delete")):
 
-        user_recipes = user.get("recipes")
-        for recipe in user_recipes:
-            mongo.db.recipes.remove({"_id": recipe})
+                user_recipes = mongo.db.recipes.find({"name": username})
+                print("line 321 user_recipes", user_recipes)
 
-        # remove user from database,clear session and redirect to the home page
-        flash("Your account has been deleted.")
-        session.pop("username", None)
-        mongo.db.users.remove({"_id": user.get("_id")})
-        return redirect(url_for("homepage"))
-    else:
-        flash("Password is incorrect! Please try again")
-        return redirect(url_for("profile", username=session["user"]))
+                for recipe in user_recipes:
+                    print("327 recipe", recipe)
+                    mongo.db.recipes.remove({"_id": recipe})
+
+                # remove user from database,clear session and redirect to the home page
+                flash("Your account has been deleted.")
+                session.pop("username", None)
+                mongo.db.users.remove({"_id": user.get("_id")})
+                return redirect(url_for("homepage"))
+            else:
+                flash("Password is incorrect! Please try again")
+                return redirect(url_for("profile", username=session["user"]))
+        else:
+            flash("You need to be logged in to delete your account!")
+            return redirect(url_for("login"))
 
 
 # Upload an image   Copied from Double Shamrock Hackathon and modified
