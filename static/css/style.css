@@ -129,12 +129,14 @@ i.login.fas{
 input#username,
 input#password,
 input#confirm-password,
+input#confirm_password_to_delete,
 input#category {
     margin-left: 3.5rem;
 }
 label.username,
 label.password,
 label.confirm-password,
+label.confirm_password_to_delete,
 label.category {
     padding-left: 1rem;
 }

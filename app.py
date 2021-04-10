@@ -309,29 +309,19 @@ def change_password(username):
 @app.route("/delete_account/<username>", methods=['GET', 'POST'])
 def delete_account(username):
     if request.method == 'POST':
-        print("line 312 request", request.method)
         # prevents guest users from viewing the form
-        print("line 314 username", username)
-        print("line 315 session user", session["user"])
         if username == session["user"]:
             user = mongo.db.users.find_one({"username": username})
             print("line 318 user", user)
-                # checks if password matches existing password in database
+            # checks if password matches existing password in database
             if check_password_hash(user["password"],
-                                   request.form.get("confirm_password_to_delete")):
-
-                user_recipes = mongo.db.recipes.find({"name": username})
-                print("line 321 user_recipes", user_recipes)
-
-                for recipe in user_recipes:
-                    print("327 recipe", recipe)
-                    mongo.db.recipes.remove({"_id": recipe})
-
-                # remove user from database,clear session and redirect to the home page
+                    request.form.get("confirm_password_to_delete")):
+                # delete all recipes created by user
+                mongo.db.recipes.delete_many({"name": username})
+                # remove user from database and redirect to the home page
+                mongo.db.users.delete_one({"username": username})
                 flash("Your account has been deleted.")
-                session.pop("username", None)
-                mongo.db.users.remove({"_id": user.get("_id")})
-                return redirect(url_for("homepage"))
+                return redirect(url_for("home"))
             else:
                 flash("Password is incorrect! Please try again")
                 return redirect(url_for("profile", username=session["user"]))
