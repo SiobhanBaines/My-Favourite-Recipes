@@ -76,7 +76,7 @@ def like(recipe_id):
             likedRecipe = {
                 "recipe_id": ObjectId(recipe_id),
                 "username": session["user"]
-                }
+            }
             mongo.db.likedRecipes.insert_one(likedRecipe)
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -106,7 +106,7 @@ def dislike(recipe_id):
             dislikedRecipe = {
                 "recipe_id": ObjectId(recipe_id),
                 "username": session["user"]
-                }
+            }
             mongo.db.dislikedRecipes.insert_one(dislikedRecipe)
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -301,11 +301,6 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-@app.route("/change_password/<username>", methods=['GET', 'POST'])
-def change_password(username):
-    return render_template("profile", username=session["user"])
-
-
 @app.route("/delete_account/<username>", methods=['GET', 'POST'])
 def delete_account(username):
     if request.method == 'POST':
@@ -314,20 +309,87 @@ def delete_account(username):
             user = mongo.db.users.find_one({"username": username})
             print("line 318 user", user)
             # checks if password matches existing password in database
-            if check_password_hash(user["password"],
-                    request.form.get("confirm_password_to_delete")):
+            if check_password_hash(
+                    user["password"], request.form.get(
+                        "confirm_password_to_delete")):
                 # delete all recipes created by user
                 mongo.db.recipes.delete_many({"name": username})
                 # remove user from database and redirect to the home page
                 mongo.db.users.delete_one({"username": username})
                 flash("Your account has been deleted.")
-                return redirect(url_for("home"))
+                return redirect(url_for('logout'))
             else:
                 flash("Password is incorrect! Please try again")
                 return redirect(url_for("profile", username=session["user"]))
         else:
             flash("You need to be logged in to delete your account!")
             return redirect(url_for("login"))
+
+
+@app.route("/change_password/<username>", methods=['GET', 'POST'])
+def change_password(username):
+    print("line 330 username ", username)
+    print("request.method ", request.method)
+    if request.method == 'POST':
+        # prevents guest users from viewing the form
+        if username == session["user"]:
+            user = mongo.db.users.find_one({"username": username})
+            # Valid old password
+            if check_password_hash(
+                user["password"], request.form.get(
+                    "old_password")):
+                request.form.get("old_password")
+
+                print("line 340 request.form.get(old_password) ",
+                    request.form.get("old_password"))
+                print("line 342 user-password ", user["password"])
+
+                if {request.form.get(
+                    "old_password").lower()} != {request.form.get(
+                        "new_password").lower()}:
+
+                    print("line 347 ne-passwords", request.form.get("new_password"))
+                    print("line 347 ne-passwords", request.form.get("confirm_new_password"))
+
+                    if {request.form.get(
+                        "new_password").lower()} == {request.form.get(
+                            "confirm_new_password").lower()}:
+            
+                        new_password = request.form.get("new_password")
+                        print("line 354 password update", new_password)
+                        file_password = generate_password_hash(
+                            request.form.get("new_password"))
+                        print("line 354 password update", file_password)
+                        mongo.db.users.update_one(
+                            {"username": username},
+                            {"$set": {"password": file_password}},
+                            upsert=True
+                        )
+                        flash("Your password has been succesfully changed!")
+                        return redirect(
+                            url_for("profile", username=session["user"]))
+                    else:
+                        flash("Passwords Do Not Match! Please try again")
+                        return redirect(
+                            url_for(
+                                "change_password", username=session["user"]))
+                else:
+                    flash("Your new password cannot match your old password!")
+
+                    print("username", username)
+                    print("session user ", session["user"])
+                    # return render_template("includes/change_password.html", username=session["user"])
+                    redirect(
+                        url_for("change_password", username=session["user"]))
+            else:
+                flash("Password is incorrect! Please try again")
+                return redirect(url_for("profile", username=session["user"]))
+        else:
+            flash("You need to be logged in to delete your account!")
+            return redirect(url_for("login"))
+
+    print("nothing caught")
+    return render_template("change_password.html", username=session["user"])
 
 
 # Upload an image   Copied from Double Shamrock Hackathon and modified
@@ -488,7 +550,7 @@ def logout():
     # log user out by removing user from session cookies
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("login"))
+    return redirect(url_for("home"))
 
 
 @app.errorhandler(404)
