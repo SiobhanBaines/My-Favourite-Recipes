@@ -212,6 +212,15 @@ def delete_recipe(recipe_id):
     return redirect(url_for("recipe_detail", recipe_id=recipe_id))
 
 
+@app.route("/get_temperature")
+def get_temperature():
+
+    temperatures = mongo.db.temperatures.find()
+    print("line 219 ", temperatures)
+    return render_template(
+        "temperature.html", temperatures=temperatures)
+
+
 @app.route("/get_weight_measure")
 def get_weight_measure():
     measures = mongo.db.measures.find()

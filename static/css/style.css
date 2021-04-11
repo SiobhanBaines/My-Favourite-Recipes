@@ -246,6 +246,9 @@ a.score,
     color: var(--main-brown);
 }
 /*---  Weights and Measures Page  ---*/
+label.temperature{
+    color: var(--head-foot);
+}
 .weight_measure_tables {
     overflow: auto; 
 }

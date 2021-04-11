@@ -5,27 +5,8 @@
 <main class="weight_measure_tables parallax-container">
     <div class="parallax "><img src="{{ url_for('static', filename='images/scales.jpeg') }}"></div>
     <div class="container">
-        <h3>Weights, Measures and Temperature Conversion Charts</h3>
-        <!-- <div class="row">
-            <div class="col s12">
-                Weights and Measures Conversion Table
-                <div class="card weight_measure_card">
-                    <table class="striped responsive-table centered ">
-                        <thead>
-                            <h5 class="center-align">Weights and Measures</h5>
-                            <tr>
-                                <th>Metric</th>
-                                <th>Imperial</th>
-                                <th>Cups</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                   
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div> -->
+        <h3>Temperature Conversion</h3>
+
         <!-- Oven Temperature Conversion Table -->
         <div class="row">
             <div class="col s12">
@@ -35,7 +16,7 @@
                         <div class="col s8 m4">
                             <label class="temperature">Recipe Oven</label>
                             <select class="browser-default">
-                                <option value="" disabled selected>Choose your option</option>
+                                <option value="recipe-temp" disabled selected>Choose your option</option>
                                 <option value="1">Gas</option>
                                 <option value="2">Celsius</option>
                                 <option value="3">Fahrenheit</option>
@@ -44,9 +25,12 @@
                         <div class="col s4 m2">
                             <label class="temperature">Oven Temp</label>
                             <select class="browser-default">
-                                <option value="" disabled selected>Choose your option</option>
-                                {% for tempurature in tempuratures%}
-                                <option value="1">{% temperature.temperature %}</option>
+                                <option value="oven-temp" disabled selected>Choose your option</option>
+                                {% for temperature in temperatures %}
+                                <a class="brown-text text-darken-3"
+                                    href="{{ url_for('get_temperature', temperatures=temperatures) }}"></a>
+                                <option value="1">gas</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="col s8 m4">
