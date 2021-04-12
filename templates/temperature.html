@@ -6,52 +6,53 @@
     <div class="parallax "><img src="{{ url_for('static', filename='images/scales.jpeg') }}"></div>
     <div class="container">
         <h3>Temperature Conversion</h3>
-
         <!-- Oven Temperature Conversion Table -->
         <div class="row">
-            <div class="col s12">
+            <form class="col s12" method="POST"
+                action="{{ url_for('get_oven', recipe_temp=recipe_temp, user_temp=user_temp, recipe_oven=recipe_oven, user_oven=user_oven) }}">
                 <div class="row card-panel recipe-panel maintain-recipe">
                     <div class="row card-panel">
                         <h5 class="card-title">Oven Temperature Conversion</h5>
-                        <div class="col s8 m4">
+                        <div class="col s6 m3">
                             <label class="temperature">Recipe Oven</label>
-                            <select class="browser-default">
-                                <option value="recipe-temp" disabled selected>Choose your option</option>
-                                <option value="1">Gas</option>
-                                <option value="2">Celsius</option>
-                                <option value="3">Fahrenheit</option>
-                            </select>
-                        </div>
-                        <div class="col s4 m2">
-                            <label class="temperature">Oven Temp</label>
-                            <select class="browser-default">
-                                <option value="oven-temp" disabled selected>Choose your option</option>
-                                {% for temperature in temperatures %}
-                                <a class="brown-text text-darken-3"
-                                    href="{{ url_for('get_temperature', temperatures=temperatures) }}"></a>
-                                <option value="1">gas</option>
+                            <select class="recipe-oven browser-default" name="recipe_oven">
+                                <option value="" disabled selected>Choose your option</option>
+                                <a href="{{ url_for('get_oven', recipe_oven=recipe_oven, user_oven=user_oven) }}"></a>
+                                {% for recipe in recipe_oven %}
+                                <option value="{{ recipe.oven }}">{{ recipe.oven }}</option>
                                 {% endfor %}
                             </select>
                         </div>
-                        <div class="col s8 m4">
+                        <div class="col s4 m2">
+                            <!-- Recipe Oven Temperature -->
+                            <label class="recipe-temp align-center" for="recipe-temp" >Recipe Temp</label>
+                            <input id="recipe-temp" name="recipe-temp" minlength="0" maxlength="5" type="text"
+                            pattern="^[0-9]{0,5}$"  class="validate" required>
+                        </div>
+                        <div class="col s6 m3">
                             <label class="temperature">Your Oven</label>
-                            <select class="browser-default">
-                                <option value="" disabled selected>Choose your option</option>
-                                <option value="1">Gas</option>
-                                <option value="2">Celsius</option>
-                                <option value="3">Fahrenheit</option>
+                            <select class="browser-default" name="user_oven">
+                                <option value="user_oven" disabled selected>Choose your option</option>
+                                <a href="{{ url_for('get_oven', recipe_oven=recipe_oven, user_oven=user_oven) }}"></a>
+                                {% for user in user_oven %}
+                                    <option value="user_oven">{{ user.oven }}</option>
+                                {% endfor %}
                             </select>
                         </div>
-                        <div class="col s4 m2">
-                            <p class="new-oven-temp">to oven</p>
+                        <div class="col s3 m2">
+                            <!-- Temperature -->
+                            <label class="temperature">Temperature</label>
+                            <p class="user-temp left-align">{{ user_temp }}</p>
+                        </div>
+                        <div class="col s3 m1">
+                            <!-- Get Temperature -->
+                            <a href="{{ url_for('get_oven', recipe_temp=recipe_temp, user_temp=user_temp, recipe_oven=recipe_oven, user_oven=user_oven) }}" class="btn get-temp pink darken-4 "> Get Temp <i class="fas fa-edit left"></i></a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
-
     </div>
-
 </main>
 
 {% endblock %}

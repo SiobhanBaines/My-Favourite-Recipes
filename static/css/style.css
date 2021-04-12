@@ -245,10 +245,42 @@ a.score,
     margin-top: 5%;
     color: var(--main-brown);
 }
-/*---  Weights and Measures Page  ---*/
+/*---  Temperatures Page  ---*/
 label.temperature{
     color: var(--head-foot);
 }
+#recipeOven {
+    display:block;
+}
+#recipe-temp {
+    margin-top: 0rem ;
+    margin-left: 1rem;
+    border: solid 2px var(--head-foot);
+    border-radius: 2.5px;
+    height: 3rem;
+    width: 5rem;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+}
+label.recipe-temp {
+    color: var(--head-foot);
+    padding-top: 0px;
+}
+.user-temp {
+    margin-top: -0.2rem ;
+    margin-left: 1rem;
+    border: solid 2px var(--head-foot);
+    border-radius: 2.5px;
+    height: 3rem;
+    width: 5rem;
+}
+a.btn.get-temp {
+    margin-top: 3.25rem;
+    margin-left: -2rem;
+}
+/*---  Weights and Measures Page  ---*/
+
 .weight_measure_tables {
     overflow: auto; 
 }

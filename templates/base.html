@@ -82,8 +82,7 @@
                         <li><a class="text-brown darken-4" href="{{ url_for('home')  }}">Home</a></li>
 
                         <li><a href="{{ url_for('get_weight_measure') }}">Weights & Measures</a></li>
-
-                        <li><a href="{{ url_for('get_temperature') }}">Oven Temperatures</a></li>
+                        <li><a href="{{ url_for('get_oven', recipe_oven=recipe_oven, user_oven=user_oven) }}">Oven Temperatures</a></li>
                         <li><a href="#">Contact Us</a></li>
                         {% if session.user %}
                         <li><a href="{{ url_for('logout')  }}">Log Out</a></li>

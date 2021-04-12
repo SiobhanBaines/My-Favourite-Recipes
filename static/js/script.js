@@ -4,6 +4,7 @@ $(document).ready(function () {
     $('.carousel').carousel();
     $('.modal').modal();
     $('select').formSelect();
+   //
    // $('#ingredients').val('');
    // M.textareaAutoResize($('#ingredients'));
    // $('#method').val('');

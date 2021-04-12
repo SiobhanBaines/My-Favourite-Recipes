@@ -212,13 +212,27 @@ def delete_recipe(recipe_id):
     return redirect(url_for("recipe_detail", recipe_id=recipe_id))
 
 
-@app.route("/get_temperature")
-def get_temperature():
+@app.route("/get_oven")
+def get_oven():
+    recipe_oven = mongo.db.temperatures.find()
+    user_oven = mongo.db.temperatures.find()
 
-    temperatures = mongo.db.temperatures.find()
-    print("line 219 ", temperatures)
     return render_template(
-        "temperature.html", temperatures=temperatures)
+        "temperature.html", recipe_oven=recipe_oven, user_oven=user_oven)
+
+@app.route("/get_temp")
+def get_temp():
+    recipeOven = request.form.get("recipeOven")
+    print("line 218 recipeOven", recipeOven)
+    if recipeOven:
+        recipe_temp = mongo.db.temperatures.find_one({"oven": recipeOven})
+
+    recipe_temp = " "
+    user_temp = " "
+    return render_template(
+        "temperature.html",
+        recipe_temp=recipe_temp,
+        user_temp=user_temp)
 
 
 @app.route("/get_weight_measure")
@@ -349,8 +363,10 @@ def change_password(username):
                     "old_password")):
                 request.form.get("old_password")
 
-                print("line 340 request.form.get(old_password) ",
+                print(
+                    "line 340 request.form.get(old_password) ",
                     request.form.get("old_password"))
+
                 print("line 342 user-password ", user["password"])
 
                 if {request.form.get(
@@ -363,7 +379,7 @@ def change_password(username):
                     if {request.form.get(
                         "new_password").lower()} == {request.form.get(
                             "confirm_new_password").lower()}:
-            
+
                         new_password = request.form.get("new_password")
                         print("line 354 password update", new_password)
                         file_password = generate_password_hash(
