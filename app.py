@@ -6,6 +6,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
+from collections import defaultdict
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -210,37 +211,6 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
     return redirect(url_for("recipe_detail", recipe_id=recipe_id))
-
-
-@app.route("/get_oven")
-def get_oven():
-    recipe_oven = mongo.db.temperatures.find()
-    user_oven = mongo.db.temperatures.find()
-
-    return render_template(
-        "temperature.html", recipe_oven=recipe_oven, user_oven=user_oven)
-
-@app.route("/get_temp")
-def get_temp():
-    recipeOven = request.form.get("recipeOven")
-    print("line 218 recipeOven", recipeOven)
-    if recipeOven:
-        recipe_temp = mongo.db.temperatures.find_one({"oven": recipeOven})
-
-    recipe_temp = " "
-    user_temp = " "
-    return render_template(
-        "temperature.html",
-        recipe_temp=recipe_temp,
-        user_temp=user_temp)
-
-
-@app.route("/get_weight_measure")
-def get_weight_measure():
-    measures = mongo.db.measures.find()
-    temperatures = mongo.db.temperatures.find()
-    return render_template(
-        "weight_measure.html", measures=measures, temperatures=temperatures)
 
 
 @app.route('/register', methods=["GET", "POST"])
@@ -568,6 +538,11 @@ def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("get_categories"))
+
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 
 
 @app.route("/logout")

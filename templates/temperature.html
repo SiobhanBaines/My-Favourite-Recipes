@@ -9,7 +9,7 @@
         <!-- Oven Temperature Conversion Table -->
         <div class="row">
             <form class="col s12" method="POST"
-                action="{{ url_for('get_oven', recipe_temp=recipe_temp, user_temp=user_temp, recipe_oven=recipe_oven, user_oven=user_oven) }}">
+                action="{{ url_for('get_temp', user_oven=user_oven) }}">
                 <div class="row card-panel recipe-panel maintain-recipe">
                     <div class="row card-panel">
                         <h5 class="card-title">Oven Temperature Conversion</h5>
@@ -26,7 +26,7 @@
                         <div class="col s4 m2">
                             <!-- Recipe Oven Temperature -->
                             <label class="recipe-temp align-center" for="recipe-temp" >Recipe Temp</label>
-                            <input id="recipe-temp" name="recipe-temp" minlength="0" maxlength="5" type="text"
+                            <input id="recipe-temp" name="recipe_temp" minlength="0" maxlength="5" type="text"
                             pattern="^[0-9]{0,5}$"  class="validate" required>
                         </div>
                         <div class="col s6 m3">
@@ -42,11 +42,12 @@
                         <div class="col s3 m2">
                             <!-- Temperature -->
                             <label class="temperature">Temperature</label>
-                            <p class="user-temp left-align">{{ user_temp }}</p>
+                            <p class="user-temp left-align" name="user_temp">{{ user_temp }}</p>
                         </div>
                         <div class="col s3 m1">
                             <!-- Get Temperature -->
-                            <a href="{{ url_for('get_oven', recipe_temp=recipe_temp, user_temp=user_temp, recipe_oven=recipe_oven, user_oven=user_oven) }}" class="btn get-temp pink darken-4 "> Get Temp <i class="fas fa-edit left"></i></a>
+                           
+                            <button type="submit" class="btn  pink darken-4">Get Temp <i class="fas fa-edit left"></i></button>
                         </div>
                     </div>
                 </div>

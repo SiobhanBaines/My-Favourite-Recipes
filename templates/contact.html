@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Recipes{% endblock %}
+{% block content %}
+<!-- A page to enable the user to contact me -->
+<main class="home parallax-container">
+    <div class="parallax "><img src="{{ url_for('static', filename='images/background.jpeg') }}"></div>
+    <div class="container">
+        <h3>Contact Form</h3>
+        <div class="row">
+            <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('contact')  }}">
+
+                <div class="card-panel brown-text text-darken-3">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="name" name="name" type="text" class="validate" required>
+                            <label for="name" class="name"><i class="login fas fa-user"></i>Name</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="icon_telephone" type="tel" class="validate">
+                            <label for="icon_telephone"><i class="login fas fa-phone"></i>Telephone</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email"><i class="login fas fa-envelope"></i>Email</label><span class="helper-text"
+                                data-error="wrong" data-success="right"></span>
+                        </div>
+                        <div class="input-field col s12">
+                            <textarea id="contact-reason" class="materialize-textarea"></textarea>
+                            <label for="contact-reason"><i class="login fas fa-file-alt"></i>Description</label>
+                        </div>
+                        <div class="col s12">
+                            <button type="submit" class="col s12 btn pink darken-4"
+                                onclick="mailto:baines.smb@gmail.com">Send Request</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}
