@@ -84,6 +84,9 @@ nav ul a {
     color: var(--main-cream);
     background-color: var(--head-foot);
 }
+/* nav {
+    width: 100vw;
+} */
 .brand-logo {
     display: inline-block;
     height: 100%;  
@@ -99,14 +102,16 @@ nav ul a {
 /*--- footer ---*/
 .container-footer{
     margin: 0 auto;
-    max-width: 1280px;
-    width: 90%;
 }
 .page-footer {
     background-color: var(--head-foot);
+    width: 100vw;
 }
 h5.footer {
     color: var(--main-cream);
+}
+.links {
+    text-align: left;
 }
 .social-media {
     text-align: center;
@@ -159,6 +164,7 @@ i.fas{
 }
 /*--- background image ---*/
 .parallax-container { 
+    /* width: 100vw; */
     overflow: auto;
     background-size: cover; 
     top: 0;
@@ -182,7 +188,9 @@ i.fas{
 }
 /*--- Home Page ---*/
 .home.parallax-container {
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 100vw;
 }
 h2.home {  
     justify-content: center;
@@ -192,7 +200,7 @@ h2.home {
     color: var(--main-cream);
     -webkit-text-stroke: 2px black;
 }
-.container.about {
+.container-about {
     background-color: #e1bee7;
     width: 100vw;
 }

@@ -23,7 +23,8 @@
 <body>
     <header>
         <!-- Main Nav Bar-->
-        <nav class="nav-extended">
+        <nav class="navbar-fixed">
+        <!-- <nav class="nav-extended"> -->
             <div class="nav-wrapper">
                 <a href="" class="brand-logo"><img class="image-circle"
                         src="{{ url_for('static', filename='images/icon.jpg') }}" alt=""></a>
@@ -61,7 +62,9 @@
     <footer class="page-footer">
         <div class="container-footer">
             <div class="row">
-                <div class="col l6 s12">
+                <div class="col s12 m6">
+                
+                <!-- <div class="col l6 s12"> -->
                     <h5 class="footer">Our Family Favourites</h5>
                     <ul class="social-media align-right">
                         <li class=" inline-block"><a href="https://github.com/SiobhanBaines" target="_blank"><i
@@ -76,8 +79,9 @@
                                     class="fab fa-twitter"></i></a></li>
                     </ul>
                 </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="footer">Links</h5>
+                <div class="col s12 m6">
+                    <div class="col s4 offset-s4">
+                    <h5 class="footer links">Links</h5>
                     <ul>
                         <li><a class="text-brown darken-4" href="{{ url_for('home')  }}">Home</a></li>
 
@@ -91,6 +95,7 @@
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
                         {% endif %}
                     </ul>
+                    </div>
                 </div>
             </div>
         </div>
