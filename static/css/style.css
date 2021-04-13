@@ -29,7 +29,7 @@ main {
 }
 
 /* .container {
-    min-height: 60vh; 
+    min-height: 90vh; 
     min-height:auto;
 } */
 /* .container.delete-account,
@@ -170,6 +170,7 @@ i.fas{
 /*--- background image ---*/
 .parallax-container { 
     background-color: rgba(250, 250, 250, 0.7);
+    overflow: auto;
 }
 
 /* --- card format --- */
@@ -180,7 +181,18 @@ i.fas{
 .card .card-image img {
   border-radius: 25px 25px 0 0;
 }
-.card .card-title {
+.card .card-title
+.card .no-image {
+    font-weight: 500;
+}
+.no-image {
+    color: var(--main-brown);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    padding: 24px;
+    font-size: 24px;
     font-weight: 500;
 }
 .card-content {

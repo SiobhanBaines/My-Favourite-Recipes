@@ -6,20 +6,26 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
-from collections import defaultdict
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 from datetime import datetime
+from PIL import Image
 
 if os.path.exists("env.py"):
     import env
 
 app = Flask(__name__)
 
+
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+
+# Flask image
+# app.secret_key = 'monkey'
+# images = Images(app)
+
 
 # Cloudinary copied from Double Shamrock Hackathon
 cloudinary.config(
@@ -210,7 +216,7 @@ def delete_recipe(recipe_id):
 
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
-    return redirect(url_for("recipe_detail", recipe_id=recipe_id))
+    return redirect(url_for('profile', username=session['user']))
 
 
 @app.route('/register', methods=["GET", "POST"])
@@ -394,6 +400,8 @@ def upload_profile_image(username):
     print(user)
     if request.method == 'POST':
         for user_image in request.files.getlist("user_image"):
+
+            # create file name for image prior to load in cloudinary
             filename = secure_filename(user_image.filename)
             filename, file_extension = os.path.splitext(filename)
             public_id_image = (username + '_' + filename)
@@ -421,6 +429,13 @@ def upload_recipe_image(recipe_id):
 
     if request.method == 'POST':
         for recipe_image in request.files.getlist("recipe_image"):
+            # resize image
+            # im = Image.open(recipe_image)
+           
+            # newsize = (300, 300)
+            # im = im.resize(newsize)
+       
+            # create file name for image prior to load in cloudinary
             filename = secure_filename(recipe_image.filename)
             filename, file_extension = os.path.splitext(filename)
             public_id_image = (session["user"] + '_' + filename)

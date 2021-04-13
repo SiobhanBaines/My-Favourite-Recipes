@@ -93,14 +93,71 @@ The getting started page has one button which allows the website user to registe
 [!image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/getting_started_small.png)
 
 ####    Recipes Page
+The recipe page will grow in length as more recipes are added. Clicking on one of the recipe cards will take the website user to the recipe detail page. Each recipe shows how many people have liked or disliked each recipe. 
+
+#####   Recipes Page Large
+[!image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/recipes_page_large.png)
+#####   Recipes Page Medium
+[!image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/recipes_page_medium.png)
+#####   Recipes Page Small
+[!image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/recipes_page_small.png)
+**Issues**
+1. When an image is uploaded it will need to be resized so that when it is displayed the image does not pull out of shape.
+2. If there is no image a default image is needed and the recipe title font colour will need to darken.
+**Resolutions**
+1. Using google to search for resizing of images using Python I found [auth0.com](https://auth0.com/blog/image-processing-in-python-with-pillow/#Resizing-Images)
+2. Added default image code to HTML and added a new class with CSS to change the recipe title from white to brown so that it can be read.
+[!image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/recipe_card_default_image.png)
 ####    Register Page
+#####   Recipes Page Large
+[!image]()
+#####   Recipes Page Medium
+[!image]()
+#####   Recipes Page Small
+[!image]()
 ####    Log-in Page
+#####   Recipes Page Large
+[!image]()
+#####   Recipes Page Medium
+[!image]()
+#####   Recipes Page Small
+[!image]()
 ####    Log-out
-####    Display Recipes Page
+####    Display Recipe Page
+#####   Recipes Page Large
+[!image]()
+#####   Recipes Page Medium
+[!image]()
+#####   Recipes Page Small
+[!image]()
 ####    Add Recipe Page
+#####   Recipes Page Large
+[!image]()
+#####   Recipes Page Medium
+[!image]()
+#####   Recipes Page Small
+[!image]()
 ####    Edit Recipe Page
+#####   Recipes Page Large
+[!image]()
+#####   Recipes Page Medium
+[!image]()
+#####   Recipes Page Small
+[!image]()
 ####    Add Category Page
+#####   Recipes Page Large
+[!image]()
+#####   Recipes Page Medium
+[!image]()
+#####   Recipes Page Small
+[!image]()
 ####    Edit Category Page
+#####   Recipes Page Large
+[!image]()
+#####   Recipes Page Medium
+[!image]()
+#####   Recipes Page Small
+[!image]()
 
 
 ## Lighthouse Testing

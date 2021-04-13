@@ -26,8 +26,13 @@
                 <a class="brown-text text-darken-3" href="{{ url_for('recipe_detail', recipe_id=recipe._id) }}">
                     <!-- Recipe Image -->
                     <div class="card-image">
+                        {% if recipe.image %}
                         <img src="{{ recipe.image }}" class="recipes-image" alt="{{ recipe.title }}">
                         <span class="card-title card-name ">{{ recipe.title }}</span>
+                        {% else %}
+                        <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" class="recipes-image no-image" alt="{{ recipe.title }}">
+                        <span class="no-image card-name">{{ recipe.title }}</span>
+                        {% endif %}
                     </div>
                     <div class="card-content">
                         <!-- Recipe Category -->

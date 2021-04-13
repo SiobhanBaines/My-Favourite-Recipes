@@ -24,10 +24,9 @@
                 <div class="col m6 s12">
                     <div class="card-panel image-panel grey lighten-5 z-depth-1 center-align">
                         {% if recipe.image %}
-                        <img src="{{ recipe.image }}" alt="Recipe Image" class="circle responsive-img">
+                        <img src="{{ recipe.image }}" alt="Recipe Image" width="255" height="144" class="circle ">
                         {% else %}
-                        <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image"
-                            class="circle responsive-img">
+                        <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image" width="255" height="144" class="circle ">
                         {% endif %}
                     </div>
                 </div>
