@@ -26,6 +26,9 @@ The features to be included are
 * The ability to download a recipe and/or email a recipe but only if the user has an existing profile
 * If a user with a profile wishes to delete their account, the ability to decide if they want to delete their contribution
 
+#### Weights and Measures
+As the site developed I decided to not create my own weights and measures page. The idea was to allow the website user to convert ounces to grams or celsius to gas marks etc,  without having to search around the internet separately. I realised what I wanted to do would be a website in it's own right and the BBC Good Food website already has a very comprehensive area for many different types of conversions so I created a link in the footer to access this information. I personally like pounds and ounces, my daughters like grams and the American cup measurements. 
+
 ### *Structure*
 How is the information structured, and is it logically grouped?
 The navigation bar will change depending on the type of user visiting the site. 
