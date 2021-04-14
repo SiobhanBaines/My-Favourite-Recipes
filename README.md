@@ -3,7 +3,7 @@
 ## Project Outline
 The purpose of this project is to build a full-stack site that allows users to manage a set of data using HTML, CSS, JavaScript, Python+Flask, MongoDB and external API's. This site is a personal recipe site where favourite recipes can be uploaded and shared with other site visitors. These recipes can be family heirlomes handed down throught the generations or new favourites found in a magazine, book, online or even recommended by a friend or family. A database will be used to hold the recipes with a search function. To be able to add recipes to the site a user will need to register and create login credentials.
 
- ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/ami_responsivedesign.png)
+ ![image](static/documentation_files/images/ami_responsivedesign.png)
 
 [View the live project here](https://our-family-favourites.herokuapp.com/)
 ## Design Phase
