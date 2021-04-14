@@ -180,6 +180,10 @@ i.fas{
 }
 .card .card-image img {
   border-radius: 25px 25px 0 0;
+  object-fit: cover;
+}
+img.circle {
+    object-fit: cover;
 }
 .card .card-title
 .card .no-image {
@@ -230,12 +234,13 @@ element.style {
 .carousel .carousel-item>img {
     border-radius: 5%;
     border: solid 3px var(--main-cream);
+    object-fit: scale-down;
 } 
 
 /*---  Recipes Page  ---*/
 img.recipes-image{
     height: 12rem;
-
+    object-fit: scale-down;
 }
 
 button.btn.score {

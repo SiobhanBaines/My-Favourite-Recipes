@@ -10,7 +10,6 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 from datetime import datetime
-from PIL import Image
 
 if os.path.exists("env.py"):
     import env
@@ -21,11 +20,6 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
-
-# Flask image
-# app.secret_key = 'monkey'
-# images = Images(app)
-
 
 # Cloudinary copied from Double Shamrock Hackathon
 cloudinary.config(
@@ -429,12 +423,7 @@ def upload_recipe_image(recipe_id):
 
     if request.method == 'POST':
         for recipe_image in request.files.getlist("recipe_image"):
-            # resize image
-            # im = Image.open(recipe_image)
-           
-            # newsize = (300, 300)
-            # im = im.resize(newsize)
-       
+
             # create file name for image prior to load in cloudinary
             filename = secure_filename(recipe_image.filename)
             filename, file_extension = os.path.splitext(filename)
