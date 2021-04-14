@@ -4,7 +4,7 @@
 ####    Navigation
 The navigation bar needs to work consistently across all pages. It needs to take the website user to where they want to go and where the label says. The layout of the navigation bar needs to be clean, easily understood and consistant across the site. On medium and small devices the inital navigation bar appears as the 'hamburger' icon which, when clicked produces the navigation down the side of the screen. When the side navigation is clicked again it will disappear.
 #####   Nav Bar on Large Devices
- ![image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/nav_bar_large.png)
+ ![image](static/documentation_files/images/unit_testing_images/nav_bar_large.png)
 #####   Nav Bar on Medium Devices
 [!image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/nav_bar_medium.png)
 #####   Nav Bar on Small Devices
