@@ -200,7 +200,9 @@ i.fas{
 }
 /*--- Home Page ---*/
 .home.parallax-container {
-    width: 100vw;
+    overflow: hidden;
+    /* width: 100vw; */
+    /* height: 500px; */
 }
 h2.home {  
     justify-content: center;

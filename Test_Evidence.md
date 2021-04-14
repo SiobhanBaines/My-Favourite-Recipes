@@ -4,7 +4,7 @@
 ####    Navigation
 The navigation bar needs to work consistently across all pages. It needs to take the website user to where they want to go and where the label says. The layout of the navigation bar needs to be clean, easily understood and consistant across the site. On medium and small devices the inital navigation bar appears as the 'hamburger' icon which, when clicked produces the navigation down the side of the screen. When the side navigation is clicked again it will disappear.
 #####   Nav Bar on Large Devices
-[!image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/nav_bar_large.png)
+ ![image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/nav_bar_large.png)
 #####   Nav Bar on Medium Devices
 [!image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/nav_bar_medium.png)
 #####   Nav Bar on Small Devices
@@ -102,19 +102,24 @@ The recipe page will grow in length as more recipes are added. Clicking on one o
 #####   Recipes Page Small
 [!image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/recipes_page_small.png)
 **Issues**
-1. When an image is uploaded it will need to be resized so that when it is displayed the image does not pull out of shape.
+1. When an image is uploaded it will need to be resized so that when it is displayed the image does not pull out of shape. (investigate)
 2. If there is no image a default image is needed and the recipe title font colour will need to darken.
 **Resolutions**
 1. Using google to search for resizing of images using Python I found [auth0.com](https://auth0.com/blog/image-processing-in-python-with-pillow/#Resizing-Images)
 2. Added default image code to HTML and added a new class with CSS to change the recipe title from white to brown so that it can be read.
 [!image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/recipe_card_default_image.png)
 ####    Register Page
-#####   Recipes Page Large
-[!image]()
-#####   Recipes Page Medium
-[!image]()
-#####   Recipes Page Small
-[!image]()
+The website user needs to register to be able to add any new recipes or categories which they will subsequently be able to read, change or delete later. (investigate - being able to stop user deleting categories used by other recipes) 
+1. The individual needs to decide on a username and password. Both can consist of upper and lowercase letters and numbers and must be between 5 and 15 characters in length. 
+
+2. Both passwords must be identical. 
+3. If a user already has an account they can click the link to take them to the log-in page.
+#####   Register Page Large
+[!image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/register_large.png)
+#####   Register Page Medium
+[!image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/register_medium.png)
+#####   Register Page Small
+[!image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/unit_testing_images/register_small.png)
 ####    Log-in Page
 #####   Recipes Page Large
 [!image]()
@@ -158,7 +163,13 @@ The recipe page will grow in length as more recipes are added. Clicking on one o
 [!image]()
 #####   Recipes Page Small
 [!image]()
-
+####    Contact Us Page
+#####   Recipes Page Large
+[!image]()
+#####   Recipes Page Medium
+[!image]()
+#####   Recipes Page Small
+[!image]()
 
 ## Lighthouse Testing
 

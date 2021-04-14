@@ -11,8 +11,7 @@
     <h3 class="home">Family Favourite Recipes</h3>
     <div class="carousel">
         {% for recipe in recipes %}
-        <a class="carousel-item" href="{{ url_for('recipe_detail', recipe_id=recipe._id) }}"><img
-                src="{{ recipe.image }}"></a>
+        <a class="carousel-item" href="{{ url_for('recipe_detail', recipe_id=recipe._id) }}"><img src="{{ recipe.image }}" height="200px"></a>
         {% endfor %}
     </div>
 </div>
