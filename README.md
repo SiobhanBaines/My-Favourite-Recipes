@@ -66,7 +66,32 @@ finished product
 styling, balance, consistency
 
 ### Features
-
+####    Header Navigation Bar
+The navigation bar changes dependant on whether the visitor is logged in or not.
+######   Not logged In
+![image](static/documentation_files/images/unit_testing_images/nav_bar_large.png)
+######  Logged In
+![image](static/documentation_files/images/unit_testing_images/nav_bar_logged_in.png)
+On smaller devices the navigation changes from individual links to the standard hamburger symbol with a dropdown side bar menu
+######  Hamburger Symbol and Side Bar Menu
+![image](static/documentation_files/images/unit_testing_images/nav_bar_small.png)
+![image](static/documentation_files/images/unit_testing_images/nav_side_bar_small.png)
+####    Footer Area
+The footer area has active links to my personal social media site.
+![image](static/documentation_files/images/unit_testing_images/footer.png)
+####    Landing Page
+The landing page is split into 3 separate areas.
+######  Home Section
+This section has a carousel of all the recipes available on the site. If a visitor selects one of the images they will be taken to the recipe detail page.
+![image](static/documentation_files/images/unit_testing_images/home_carousel_styling.png)
+######  About Section
+The about section gives some background to the reasons behind the site.
+![image](static/documentation_files/images/unit_testing_images/about_large_fixed.png)
+######  Getting Started Section
+On the getting started section a visitor is invited to join the site and start adding their own recipes.
+![image](static/documentation_files/images/unit_testing_images/getting_started_large.png)
+####    Recipes Page
+The recipes page is a list of all the recipes, each displayed on their own card. 
 ### Media
 
 ### Technologies Used

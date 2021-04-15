@@ -42,17 +42,20 @@
 
                         <!-- Likes and Dislikes Scores -->
                         <div class="row">
-                            <div class="ratings col s12 center-align">
+                            <div class="ratings col s10 offset-s1 center-align">
                                 <!-- Likes -->
                                 <div class="col s4 offset-s1">
-                                    <a href="{{ url_for('like', recipe_id=recipe._id) }}" class="score"><i
-                                            class="rating fas fa-thumbs-up left"></i><span>{{ recipe.likes
-                                            }}</span></a>
+                                    <!-- <a href="{{ url_for('like', recipe_id=recipe._id) }}" class="score"> -->
+                                        <i class="rating fas fa-thumbs-up left"></i>
+                                        <p>{{ recipe.likes }}</p>
+                                        <!-- </a> -->
                                 </div>
                                 <!-- Dislikes -->
                                 <div class="col s4 offset-s1">
-                                    <a href="{{ url_for('dislike', recipe_id=recipe._id) }}" class="score"><i
-                                            class="rating fas fa-thumbs-down left"></i><span>{{ recipe.dislikes }}</span></a>
+                                    <!-- <a href="{{ url_for('dislike', recipe_id=recipe._id) }}" class="score"> -->
+                                    <i class="rating fas fa-thumbs-down left"></i>
+                                    <p>{{ recipe.dislikes }}</p>
+                                        <!-- </a> -->
                                 </div>
                             </div>
                         </div>

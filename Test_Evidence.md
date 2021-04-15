@@ -152,6 +152,14 @@ Once the website user has an account they can log in and out whenever they need.
 ####    Log-out
 
 ###     Profile Page
+Below is an image of the profile page for a new user which shows a message saying they have not added any recipes and has a place to upload an image of themselves if they want to.
+![image](static/documentation_files/images/unit_testing_images/new_user_profile.png)
+**Issues**
+The text on the buttons on the profile card are truncated.
+**Resolution**
+I increased the button width from 12rem to 14rem.
+From this page a website user can change their password, delete their account (which will delete all the recipes they have created), add a new recipe, maintain categories. When the website user has added some recipes a table is displayed detailing the recipes they have added. Clicking on the recipe name will take them to a read-only view of the recipe or they can click on the maintain recipe button to change or delete the recipe.
+
 #####   Profile Page Large
  ![image](static/documentation_files/images/unit_testing_images/profile_large.PNG)
 #####   Profile Page Medium
