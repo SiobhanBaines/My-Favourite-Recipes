@@ -234,13 +234,13 @@ element.style {
 .carousel .carousel-item>img {
     border-radius: 5%;
     border: solid 3px var(--main-cream);
-    object-fit: scale-down;
+    object-fit: cover;
 } 
 
 /*---  Recipes Page  ---*/
 img.recipes-image{
     height: 12rem;
-    object-fit: scale-down;
+    object-fit: cover;
 }
 
 button.btn.score {
