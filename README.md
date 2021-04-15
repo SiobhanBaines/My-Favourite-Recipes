@@ -114,7 +114,11 @@ I checked the HTML and changed these fields to a materialize textarea. No change
 ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/8a7e1778d122da5366b4b7accee10d803b75ed10/documentation_files/images/recipe_in_mongodb.png)
 I asked for help on Slack and acted on the advice given. Eventually I gave up for the night. The next day I contacted tutor support and had another dig around Slack to see if there was anything that might point me in the right direction. This made me review the code I had copied from Materialize
 In the end it was a rookie mistake. I had copied some JavaScript code from Materializecss and initialised the value with blanks. When I commented out the JavaScript the ingredients, method and notes all reappeared. At this time regression testing has not brought up an related issues.
-
+##  Future Improvements
+* When a user registers or logs in better messages could be created allowing the user to know the format required for the username and password.
+* Only allowing 3 attempts to log in before requesting the user to change their password
+* Forgotten username and password facilities would be useful for users who have not been on the site for a while and have forgotten their credentials
+* A filter on category on the recipes page could help to find a specific type of recipe.
 
 
 ## Code Verification

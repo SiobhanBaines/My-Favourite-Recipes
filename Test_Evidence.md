@@ -94,7 +94,6 @@ The getting started page has one button which allows the website user to registe
 
 ####    Recipes Page
 The recipe page will grow in length as more recipes are added. Clicking on one of the recipe cards will take the website user to the recipe detail page. Each recipe shows how many people have liked or disliked each recipe. 
-
 #####   Recipes Page Large
  ![image](static/documentation_files/images/unit_testing_images/recipes_page_large.png)
 #####   Recipes Page Medium
@@ -102,7 +101,7 @@ The recipe page will grow in length as more recipes are added. Clicking on one o
 #####   Recipes Page Small
  ![image](static/documentation_files/images/unit_testing_images/recipes_page_small.png)
 **Issues**
-1. When an image is uploaded it will need to be resized so that when it is displayed the image does not pull out of shape. (investigate)
+1. When an image is uploaded it will need to be resized so that when it is displayed the image does not pull out of shape.
 2. If there is no image a default image is needed and the recipe title font colour will need to darken.
 **Resolutions**
 1. Using google to search for resizing of images using Python I found [auth0.com](https://auth0.com/blog/image-processing-in-python-with-pillow/#Resizing-Images)
@@ -111,64 +110,101 @@ The recipe page will grow in length as more recipes are added. Clicking on one o
 ####    Register Page
 The website user needs to register to be able to add any new recipes or categories which they will subsequently be able to read, change or delete later. (investigate - being able to stop user deleting categories used by other recipes) 
 1. The individual needs to decide on a username and password. Both can consist of upper and lowercase letters and numbers and must be between 5 and 15 characters in length. 
-
+If the username is too short the entry line changes to red and when the cursor is hovered over the line the message "Please match the requested format." appears. 
+* Here the username is too short
+![image](static/documentation_files/images/unit_testing_images/name_too_short.png)
+* Here the user wanted to use special characters which are not allowed.
+![image](static/documentation_files/images/unit_testing_images/name_special_chars.png.jpg)
+* The user has entered a valid username and the HTML formating has stopped the user entering more than 15 characters.
+![image](static/documentation_files/images/unit_testing_images/valid_username.png)
+* If the user selects a username that already exists the receive a flash message
+![image](static/documentation_files/images/unit_testing_images/username_already_exists.png)
 2. Both passwords must be identical. 
+* Here the passwords do not match and a flash message is displayed.
+![image](static/documentation_files/images/unit_testing_images/passwords_do_no_match.png)
 3. If a user already has an account they can click the link to take them to the log-in page.
+![image](static/documentation_files/images/unit_testing_images/login_from_registration.png)
+4. When the website visitor creates a valid username and password, the password in encrypted using Flask Werkzeug security, a record is added to the user collection in MongoDB and the user is taken to their profile page.
+* MongoDB record
+![image](static/documentation_files/images/unit_testing_images/mongodb_user.png)
+* Profile page of a new account
+![image](static/documentation_files/images/unit_testing_images/valid_registration.png)
 #####   Register Page Large
  ![image](static/documentation_files/images/unit_testing_images/register_large.png)
 #####   Register Page Medium
  ![image](static/documentation_files/images/unit_testing_images/register_medium.png)
 #####   Register Page Small
  ![image](static/documentation_files/images/unit_testing_images/register_small.png)
+
 ####    Log-in Page
-#####   Recipes Page Large
- ![image]()
-#####   Recipes Page Medium
- ![image]()
-#####   Recipes Page Small
- ![image]()
+Once the website user has an account they can log in and out whenever they need.
+1. The username and password are validated against the user collection in MongoDB to confirm the username exists and its password is correct.
+* If the user enters either an invalid username or incorrect password a flash message is displayed. The same message is displayed for both errors to help prevent hacking.
+![image](static/documentation_files/images/unit_testing_images/invalid_login.png)
+3. If a user is not register there is a link to the registration page.
+![image](static/documentation_files/images/unit_testing_images/register_from_login.PNG)
+#####   Log-in Page Large
+ ![image](static/documentation_files/images/unit_testing_images/login_large.png)
+#####   Log-in Page Medium
+ ![image](static/documentation_files/images/unit_testing_images/login_medium.png)
+#####   Log-in Page Small
+ ![image](static/documentation_files/images/unit_testing_images/login_small.png)
 ####    Log-out
+
+###     Profile Page
+#####   Profile Page Large
+ ![image](static/documentation_files/images/unit_testing_images/profile_large.PNG)
+#####   Profile Page Medium
+ ![image](static/documentation_files/images/unit_testing_images/profile_large.PNG)
+#####   Profile Page Small
+ ![image](static/documentation_files/images/unit_testing_images/profile_small.png)
+
 ####    Display Recipe Page
-#####   Recipes Page Large
+#####   Display Recipe Page Large
  ![image]()
-#####   Recipes Page Medium
+#####   Display Recipe Page Medium
  ![image]()
-#####   Recipes Page Small
+#####   Display Recipe Page Small
  ![image]()
+
 ####    Add Recipe Page
-#####   Recipes Page Large
+#####   Add Recipe Page Large
  ![image]()
-#####   Recipes Page Medium
+#####   Add Recipe Page Medium
  ![image]()
-#####   Recipes Page Small
+#####   Add Recipe Page Small
  ![image]()
+
 ####    Edit Recipe Page
-#####   Recipes Page Large
+#####   Edit Recipe Page Large
  ![image]()
-#####   Recipes Page Medium
+#####   Edit Recipe Page Medium
  ![image]()
-#####   Recipes Page Small
+#####   Edit Recipe Page Small
  ![image]()
+
 ####    Add Category Page
-#####   Recipes Page Large
+#####   Add Category Page Large
  ![image]()
-#####   Recipes Page Medium
+#####   Add Category Page Medium
  ![image]()
-#####   Recipes Page Small
+#####   Add Category Page Small
  ![image]()
+
 ####    Edit Category Page
-#####   Recipes Page Large
+#####   Edit Category Page Large
  ![image]()
-#####   Recipes Page Medium
+#####   Edit Category Page Medium
  ![image]()
-#####   Recipes Page Small
+#####   Edit Category Page Small
  ![image]()
+
 ####    Contact Us Page
-#####   Recipes Page Large
+#####   Contact Us Page Large
  ![image]()
-#####   Recipes Page Medium
+#####   Contact Us Page Medium
  ![image]()
-#####   Recipes Page Small
+#####   Contact Us Page Small
  ![image]()
 
 ## Lighthouse Testing

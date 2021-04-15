@@ -9,16 +9,16 @@
     <section>
         <!-- flash messages  -->
         {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="pink-text text-darken-4">{{ message }}</h4>
-                    </div>
-                {% endfor%}
-            {% endif %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <h4 class="pink-text text-darken-4">{{ message }}</h4>
+        </div>
+        {% endfor%}
+        {% endif %}
         {% endwith %}
     </section>
-    <div class="row">
+    <div class="row card-panel ">
         <!-- Used the Materialize Cards with an image for each recipe -->
         {% for recipe in recipes %}
         <div class="col l4 m6 s12">
@@ -30,7 +30,8 @@
                         <img src="{{ recipe.image }}" class="recipes-image" alt="{{ recipe.title }}">
                         <span class="card-title card-name ">{{ recipe.title }}</span>
                         {% else %}
-                        <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" class="recipes-image no-image" alt="{{ recipe.title }}">
+                        <img src="{{ url_for('static', filename='images/profile_image.jpg') }}"
+                            class="recipes-image no-image" alt="{{ recipe.title }}">
                         <span class="no-image card-name">{{ recipe.title }}</span>
                         {% endif %}
                     </div>
@@ -44,14 +45,14 @@
                             <div class="ratings col s12 center-align">
                                 <!-- Likes -->
                                 <div class="col s4 offset-s1">
-                                    <a href="{{ url_for('like', recipe_id=recipe._id) }}"
-                                        class="score"><i class="rating fas fa-thumbs-up left"></i><span>{{ recipe.likes }}</span></a>
+                                    <a href="{{ url_for('like', recipe_id=recipe._id) }}" class="score"><i
+                                            class="rating fas fa-thumbs-up left"></i><span>{{ recipe.likes
+                                            }}</span></a>
                                 </div>
                                 <!-- Dislikes -->
                                 <div class="col s4 offset-s1">
-                                    <a href="{{ url_for('dislike', recipe_id=recipe._id) }}"
-                                    class="score"><i class="rating fas fa-thumbs-down left"></i><span>{{ recipe.dislikes
-                                            }}</span></a>
+                                    <a href="{{ url_for('dislike', recipe_id=recipe._id) }}" class="score"><i
+                                            class="rating fas fa-thumbs-down left"></i><span>{{ recipe.dislikes }}</span></a>
                                 </div>
                             </div>
                         </div>

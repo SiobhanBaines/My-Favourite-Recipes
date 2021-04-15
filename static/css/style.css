@@ -380,8 +380,8 @@ li.method {
     padding-top: 3%;
 }
 .profile-card{
-  width: 350px;
-  max-width: 100%;
+  width: auto;
+  max-width: 80%;
   text-align: center;
   border-radius: 12px;  
   background: white;
@@ -392,6 +392,7 @@ li.method {
   background-size: cover;
   border-radius: 5px 5px 0 0;
   height: 175px;
+  width: auto;
   /* border-radius: 12px 12px 0 0; */
   margin-bottom: 140px;
 }
@@ -412,10 +413,20 @@ li.method {
 .profile-card_body{
   margin-top: 60px;
 }
-/* ------------------------------------------------------------------ */
 .norecipes {
     margin: 5rem 0 5rem 0;
 }
+.norecipes-card {
+    background-color: rgb(230, 230, 230);
+    max-width: 80%;
+    justify-self: center;
+    margin-left: 10%;
+    padding: 1rem;
+    border-radius: 2.5%;
+}
+/* ------------------------------------------------------------------ */
+
+
 .profile-recipe {
     font-size: 20px;
 }
@@ -553,4 +564,6 @@ input.image-selection {
         margin-top: 0;
         margin-bottom: 0;
     }
+    .profile-card{
+        max-width: 100%;
 }
