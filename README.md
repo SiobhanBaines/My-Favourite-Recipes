@@ -92,6 +92,12 @@ On the getting started section a visitor is invited to join the site and start a
 ![image](static/documentation_files/images/unit_testing_images/getting_started_large.png)
 ####    Recipes Page
 The recipes page is a list of all the recipes, each displayed on their own card. 
+
+
+
+
+
+
 ### Media
 
 ### Technologies Used

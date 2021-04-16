@@ -97,6 +97,7 @@ button.btn.score {
     display: inline-block;
     font-size: 20px; 
     width: 100%;
+    height: 30%;
     box-shadow: 0 4px 8px 0 var(--image-shadow), 0 6px 20px 0 var(--card-shadow);
 }
 a.btn.get-temp {
@@ -127,11 +128,14 @@ i.fas{
 }
 i.rating, .rating {
     font-size: 20px;
-    padding: 0;
-    margin: 0;
+    padding: 2% 0 0 5%;
+    margin: 4%;
     display: inline-block;
     align-items: center;
     width: 50%; 
+}
+p.rating-count {
+    margin-left: 2%;
 }
 i.recipe-rating{
     font-size: 16px;
@@ -227,7 +231,9 @@ label.category {
   object-fit: cover;
 }
 img.circle {
-    object-fit: cover;
+    object-fit: fill;
+    width: 100%;
+    object-position: center;
 }
 .card .card-title
 .card .no-image {
@@ -315,7 +321,12 @@ img.recipes-image{
 /* --- Profile Page --- */
 /* Original code for profile card by thefeldkircher - Copied and modified */
 .profile.container {
-    padding-top: 3%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    /* height: 83vh; */
 }
 .profile-card{
   width: auto;
@@ -470,6 +481,15 @@ input.image-selection {
     .btn {
         margin: 1rem;
         padding: 0;
+    }
+    .profile.container {
+        margin-top: 10%;
+        /* vertical-align: middle; */
+        position: relative;
+        height: 75vh;
+        overflow: auto;
+        /* height: 500px;
+        overflow: hidden; */
     }
 }
 @media (max-width: 992px){

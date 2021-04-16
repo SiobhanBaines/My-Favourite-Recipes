@@ -26,14 +26,20 @@
                         <section>
                             {% if image %}
                             <img src="{{ image }}" alt="">
+                            <div class="row">
                             <a class="pink darken-4 btn modal-trigger" href="#uploadProfileImageModal"><i
                                     class="fas fa-edit"></i> Edit image</a>
+                            </div>
                             {% else %}
                             <img src="../static/images/profile_image.jpg" alt="">
+                            <div class="row">
                             <a class="waves-effect waves-light btn modal-trigger" href="#uploadProfileImageModal"><i
                                     class="fas fa-edit"></i> Upload an image</a>
+                            </div>
                             {% endif %}
+                            <div class="row">
                             <p>Username:<span class="profile-username"> {{ username }}</span></p>
+                            </div>
                         </section>
                     </div>
                 </div>
@@ -121,7 +127,6 @@
     </div>
 
 </div>
-<!-- </main> -->
 
 <!-- Copied this idea from the Double Shamrocks-->
 {% include "includes/delete_account.html" %}
