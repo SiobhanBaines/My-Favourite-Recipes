@@ -2,6 +2,8 @@ import os
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
+from flask_mail import (
+    Mail, Message)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -16,6 +18,23 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
+app.config.update(dict(
+    EMAIL_HOST = "smtp.gmail.com",
+    EMAIL_HOST_USER = "siobhan.baines@gmail.com",
+    EMAIL_HOST_PASSWORD = 'Isabel95',
+    EMAIL_PORT = 587,
+    EMAIL_USE_TLS = True
+))
+#     # DEBUG = True,
+#     MAIL_SERVER = 'smtp.googlemail.com',
+#     # MAIL_PORT = 587,
+#     # MAIL_USE_TLS = True,
+#     # MAIL_USE_SSL = False,
+#     # MAIL_USERNAME = 'siobhan.baines@gmail.com',
+#     # MAIL_PASSWORD = 'Isabel95',
+# ))
+
+mail = Mail(app)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -488,12 +507,7 @@ def upload_new_recipe_image():
         recipe_id = mongo.db.recipes.find_one({"image": image_url})["_id"]
         recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
         print("400", recipe)
-        # return redirect(url_for('add_recipe'))
-        # print("397 ", recipe)
-        # print("398 ", categories)
 
-    # categories = mongo.db.categories.find()
-    # recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template(
         'add_recipe.html', recipe=recipe, categories=categories)
 
@@ -546,8 +560,20 @@ def delete_category(category_id):
     return redirect(url_for("get_categories"))
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        telephone = request.form.get("telephone")
+        enquiry = request.form.get("enquiry")
+        message = (f'Dear Siobhan\n\n{enquiry}\nkind regards\n\n{name}\nTelephone: {telephone}')
+        msg = Message(subject="Our Favourite Recipes Enquiry", body=message, sender=email, recipients=["siobhan.baines@gmail.com"])
+        print(msg)
+        mail.send(msg)
+        flash("You have been logged out")
+        return redirect(url_for("contact"))
+
     return render_template("contact.html")
 
 
