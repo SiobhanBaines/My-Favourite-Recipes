@@ -20,19 +20,10 @@ app = Flask(__name__)
 
 app.config.update(dict(
     EMAIL_HOST = "smtp.gmail.com",
-    EMAIL_HOST_USER = "siobhan.baines@gmail.com",
-    EMAIL_HOST_PASSWORD = 'Isabel95',
+
     EMAIL_PORT = 587,
     EMAIL_USE_TLS = True
 ))
-#     # DEBUG = True,
-#     MAIL_SERVER = 'smtp.googlemail.com',
-#     # MAIL_PORT = 587,
-#     # MAIL_USE_TLS = True,
-#     # MAIL_USE_SSL = False,
-#     # MAIL_USERNAME = 'siobhan.baines@gmail.com',
-#     # MAIL_PASSWORD = 'Isabel95',
-# ))
 
 mail = Mail(app)
 
