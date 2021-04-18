@@ -5,15 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocumentMy Favourite Cakes and Bakes</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
 
     {% block styles %}
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-        <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.jpg') }}" type="image/x-icon" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.jpg') }}" type="image/x-icon" />
     {% endblock %}
 
+    <!-- Email Script through EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+    </script>
+    <!-- <script type="text/javascript">
+        (function () {
+            emailjs.init("user_PUJoslyDgNEmzFRMQOg72");
+            // emailjs.send("gmail", "Recipe-Site", {name: "Siobhan", notes: "Consumer Enquiry"}, "user_PUJoslyDgNEmzFRMQOg72");
+        })();
+    </script> -->
+    
     <title>{% block title %}Our Favourite Recipes{% endblock %}</title>
 </head>
 
@@ -30,11 +42,11 @@
                     <li><a href="{{ url_for('home')  }}">Home</a></li>
                     <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
                     {% if session.user %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('logout')  }}">Log Out</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                    <li><a href="{{ url_for('logout')  }}">Log Out</a></li>
                     {% else %}
-                        <li><a href="{{ url_for('register')  }}">Register</a></li>
-                        <li><a href="{{ url_for('login')  }}">Log In</a></li>
+                    <li><a href="{{ url_for('register')  }}">Register</a></li>
+                    <li><a href="{{ url_for('login')  }}">Log In</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -44,11 +56,11 @@
             <li><a href="{{ url_for('home')  }}">Home</a></li>
             <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
             {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('logout')  }}">Log Out</a></li>
+            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+            <li><a href="{{ url_for('logout')  }}">Log Out</a></li>
             {% else %}
-                <li><a href="{{ url_for('register')  }}">Register</a></li>
-                <li><a href="{{ url_for('login')  }}">Log In</a></li>
+            <li><a href="{{ url_for('register')  }}">Register</a></li>
+            <li><a href="{{ url_for('login')  }}">Log In</a></li>
             {% endif %}
         </ul>
     </header>
@@ -91,9 +103,11 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sendemail.js') }}"></script>
 
     {% block scripts %}
     {% endblock %}

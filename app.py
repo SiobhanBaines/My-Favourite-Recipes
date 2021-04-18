@@ -2,8 +2,6 @@ import os
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
-from flask_mail import (
-    Mail, Message)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -17,15 +15,6 @@ if os.path.exists("env.py"):
     import env
 
 app = Flask(__name__)
-
-app.config.update(dict(
-    EMAIL_HOST = "smtp.gmail.com",
-
-    EMAIL_PORT = 587,
-    EMAIL_USE_TLS = True
-))
-
-mail = Mail(app)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -551,20 +540,8 @@ def delete_category(category_id):
     return redirect(url_for("get_categories"))
 
 
-@app.route("/contact", methods=["GET", "POST"])
+@app.route("/contact")
 def contact():
-    if request.method == "POST":
-        name = request.form.get("name")
-        email = request.form.get("email")
-        telephone = request.form.get("telephone")
-        enquiry = request.form.get("enquiry")
-        message = (f'Dear Siobhan\n\n{enquiry}\nkind regards\n\n{name}\nTelephone: {telephone}')
-        msg = Message(subject="Our Favourite Recipes Enquiry", body=message, sender=email, recipients=["siobhan.baines@gmail.com"])
-        print(msg)
-        mail.send(msg)
-        flash("You have been logged out")
-        return redirect(url_for("contact"))
-
     return render_template("contact.html")
 
 
