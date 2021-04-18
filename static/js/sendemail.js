@@ -1,4 +1,3 @@
-console.log("sendemail.js")
 function sendMail(contactForm) {
     emailjs.send("gmail", "Recipe-Site", {
         "from_name": contactForm.name.value,
@@ -10,16 +9,14 @@ function sendMail(contactForm) {
     .then(
         function(response) {
             console.log("SUCCESS", response);
+            document.getElementById('contact').reset();
         },
         function(error) {
             console.log("FAILED", error)
         });
-        console.log(contactForm.name.value)
-        console.log(contactForm.email.value)
-        console.log(contactForm.telephone.value)
-        console.log(contactForm.enquiry.value)
+
+
     return false;
-    
 }
 
 
