@@ -442,13 +442,30 @@ def upload_recipe_image(recipe_id):
         recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
         categories = mongo.db.categories.find()
 
-        recipe = mongo.db.recipes.update_one(
-            {"_id": ObjectId(recipe_id)},
-            {"$set": {"image": image_url}},
-            upsert=True
-        )
+        recipe_data = {
+            "title": request.form.get("title"),
+            "image": image_url,
+            "category": request.form.get("category"),
+            "servings": request.form.get("servings"),
+            "temperature": request.form.get("temperature"),
+            "temp_unit": request.form.get("temp_unit"),
+            "prep_time": request.form.get("prep_time"),
+            "cook_time": request.form.get("cook_time"),
+            "ingredients": request.form.get("ingredients"),
+            "method": request.form.get("method"),
+            "notes": request.form.get("notes")
+        }
+
+        print("line 438, recipe_data", recipe_data)
+        # recipe = mongo.db.recipes.update_one(
+        #     {"_id": ObjectId(recipe_id)},
+        #     {"$set": {"image": image_url}},
+        #     upsert=True
+        # )
+        # return redirect(
+        #     url_for('edit_recipe', recipe_id=recipe_id, recipe_data=recipe_data))
         return redirect(
-            url_for('edit_recipe', recipe_id=recipe_id))
+            url_for('edit_recipe', recipe_data=recipe_data))
 
     categories = mongo.db.categories.find()
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
