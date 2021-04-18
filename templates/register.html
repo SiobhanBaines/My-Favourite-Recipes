@@ -4,8 +4,7 @@
 
     <main class="home parallax-container">
         <div class="parallax "><img src="{{ url_for('static', filename='images/background.jpeg') }}"></div>
-        <!-- Code taken from Code Institute Flask Task Manager 
-                            Project and altered to fit this website -->
+        <!-- Code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
         <section>
             <!-- flash messages  -->
             {% with messages = get_flashed_messages() %}
@@ -18,54 +17,48 @@
                 {% endif %}
             {% endwith %}
         </section>
-<div class="container">
-        <h3>Register</h3>
-        <div class="row">
-            <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register')  }}">
-                <div class="card-panel brown-text text-darken-3">
-                    <!-- Username -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="login fas fa-user-plus prefix left-align"></i>
-                            <input id="username" name="username" type="text" minlength="5" maxlength="15"
-                                pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                            <label for="username" class="username">Username</label>
+        <div class="container">
+            <h3>Register</h3>
+            <div class="row">
+                <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register')  }}">
+                    <div class="card-panel brown-text text-darken-3">
+                        <!-- Username -->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="login fas fa-user-plus prefix left-align"></i>
+                                <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                                <label for="username" class="username">Username</label>
+                            </div>
+                        </div>
+                        <!-- Password -->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="login fas fa-user-lock prefix"></i>
+                                <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                                <label for="password" class="password">Password</label>
+                            </div>
+                        </div>
+                        <!-- Confirm Password -->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="login fas fa-user-lock prefix"></i>
+                                <input id="confirm-password" name="confirm-password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                                <label for="confirm-password" class="confirm-password">Confirm Password</label>
+                            </div>
+                        </div>
+                        <!-- Register Button -->
+                        <div class="row">
+                            <button type="submit" class="col s12 btn  pink darken-4">Register<i class="login fas fa-sign-in-alt"></i></button>
                         </div>
                     </div>
-                    <!-- Password -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="login fas fa-user-lock prefix"></i>
-                            <input id="password" name="password" type="password" minlength="5" maxlength="15"
-                                pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                            <label for="password" class="password">Password</label>
-                        </div>
-                    </div>
-                    <!-- Confirm Password -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="login fas fa-user-lock prefix"></i>
-                            <input id="confirm-password" name="confirm-password" type="password" minlength="5"
-                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                            <label for="confirm-password" class="confirm-password">Confirm Password</label>
-                        </div>
-                    </div>
-                    <!-- Register Button -->
-                    <div class="row">
-                        <button type="submit" class="col s12 btn  pink darken-4">Register<i class="login fas fa-sign-in-alt"></i></button>
-                    </div>
+                </form>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <p class="center-align">Already registered?<a href="{{ url_for('login') }}" class="brown-text text-darken-3">Log In</a></p>
                 </div>
-            </form>
-        </div>
-        <div class="row">
-            <div class="col s12">
-                <p class="center-align">
-                    Already registered?
-                    <a href="{{ url_for('login') }}" class="brown-text text-darken-3">Log In</a>
-                </p>
             </div>
         </div>
-</div>
     </main>
-  
+
 {% endblock %}

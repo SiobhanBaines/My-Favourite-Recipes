@@ -1,154 +1,149 @@
 {% extends "base.html" %}
 {% block content %}
 
-<main class="parallax-container">
-    <div class="parallax"><img src="{{ url_for('static', filename='images/scales.jpeg') }}"></div>
-    <!-- Flash messages code taken from Code Institute Flask Task Manager 
-                            Project and altered to fit this website -->
-    <section>
-        <!-- flash messages  -->
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <div class="row flashes">
-            <h4 class="pink-text text-darken-4">{{ message }}</h4>
-        </div>
-        {% endfor%}
-        {% endif %}
-        {% endwith %}
-    </section>
-    <div class="container">
-        <div class="row card-panel recipe-panel maintain-recipe">
-            <div class="row card-panel">
-                <!-- Image -->
-                <div class="col m6 s12">
-                    <div class="card card-panel grey lighten-5 z-depth-1 center-align">
-                        {% if recipe.image %}
-                        <img src="{{ recipe.image }}" alt="Recipe Image" width="255" height="144" class="circle responsive-img">
-                        {% else %}
-                        <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image" width="255" height="144" class="circle responsive-img">
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="col s12 m6">
-                    <h3>{{ recipe.title }}</h3>
-                    <!-- Likes and Dislikes Scores -->
-                    <div class="row">
-                        <div class="col s12 center-align">
-                            <!-- Likes -->
-                            <div class="col s6">
-                                <form action="{{ url_for('like', recipe_id=recipe._id) }}" method="POST">
-                                    <button type="submit" class="btn score text-brown grey lighten-5">{{ recipe.likes
-                                        }}<i class="rating fas fa-thumbs-up  left"></i></button>
-                                </form>
-                            </div>
-                            <!-- Dislikes -->
-                            <div class="col s6">
-                                <form action="{{ url_for('dislike', recipe_id=recipe._id) }}" method="POST">
-                                    <button type="submit" class="btn score text-brown grey lighten-5">{{ recipe.dislikes
-                                        }}<i class="rating fas fa-thumbs-down  left"></i></button>
-                                </form>
-                            </div>
+    <main class="parallax-container">
+        <div class="parallax"><img src="{{ url_for('static', filename='images/scales.jpeg') }}"></div>
+        <!-- Flash messages code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
+        <section>
+            <!-- flash messages  -->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="row flashes">
+                            <h4 class="pink-text text-darken-4">{{ message }}</h4>
+                        </div>
+                    {% endfor%}
+                {% endif %}
+            {% endwith %}
+        </section>
+        <div class="container">
+            <div class="row card-panel recipe-panel maintain-recipe">
+                <div class="row card-panel">
+                    <!-- Image -->
+                    <div class="col m6 s12">
+                        <div class="card card-panel grey lighten-5 z-depth-1 center-align">
+                            {% if recipe.image %}
+                                <img src="{{ recipe.image }}" alt="Recipe Image" width="255" height="144" class="circle responsive-img">
+                            {% else %}
+                                <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image" width="255" height="144" class="circle responsive-img">
+                            {% endif %}
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col s12">
-                        <!-- Category -->
-                        <div class="row recipe-row">
-                            <div class="col s12 m6">
-                                <h5 class="left-align category">{{ recipe.category }}</h5>
-                            </div>
-                        </div>
-                        <!-- Servings -->
+                    <div class="col s12 m6">
+                        <h3>{{ recipe.title }}</h3>
+                        <!-- Likes and Dislikes Scores -->
                         <div class="row">
-                            <div class="col s8 m4">
-                                <h5 class="left-align">Servings</h5>
-                            </div>
-                            <div class="col s4 m1">
-                                <p class="sundries left-align">{{ recipe.servings }}</p>
-                            </div>
-                        </div>
-                        <!-- Temperature -->
-                        <div class="row recipe-row">
-                            <div class="col s12 m4">
-                                <h5 class="left-align">Temperature</h5>
-                            </div>
-                            <div class="col s6 m1">
-                                <p class="sundries left-align">{{ recipe.temperature }}</p>
-                            </div>
-                            <div class="col s6 m1">
-                                <p class="sundries left-align">{{ recipe.temp_unit }}</p>
-                            </div>
-                        </div>
-                        <!-- Duration - Preparation time and Cooking time -->
-                        <div class="row recipe-row">
-                            <div class="col s12 m4">
-                                <h5 class="left-align">Duration</h5>
-                            </div>
-                            <!-- Preparation Time -->
-                            <div class="col s12 m4">
-                                <h6 class="left-align">Preparation Time</h6>
-                                <div class="row time-row">
-                                    <p class="left-align">{{ recipe.prep_time }} mins</p>
+                            <div class="col s12 center-align">
+                                <!-- Likes -->
+                                <div class="col s6">
+                                    <form action="{{ url_for('like', recipe_id=recipe._id) }}" method="POST">
+                                        <button type="submit" class="btn score text-brown grey lighten-5">{{ recipe.likes }}<i class="rating fas fa-thumbs-up  left"></i></button>
+                                    </form>
+                                </div>
+                                <!-- Dislikes -->
+                                <div class="col s6">
+                                    <form action="{{ url_for('dislike', recipe_id=recipe._id) }}" method="POST">
+                                        <button type="submit" class="btn score text-brown grey lighten-5">{{ recipe.dislikes }}<i class="rating fas fa-thumbs-down  left"></i></button>
+                                    </form>
                                 </div>
                             </div>
-                            <!-- Cooking Time -->
-                            <div class="col s12 m4">
-                                <h6 class="left-align">Cooking Time</h6>
-                                <div class="row time-row">
-                                    <!-- Cooking Time -->
-                                    <p class="left-align">{{ recipe.cook_time }} mins</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <!-- Category -->
+                            <div class="row recipe-row">
+                                <div class="col s12 m6">
+                                    <h5 class="left-align category">{{ recipe.category }}</h5>
+                                </div>
+                            </div>
+                            <!-- Servings -->
+                            <div class="row">
+                                <div class="col s8 m4">
+                                    <h5 class="left-align">Servings</h5>
+                                </div>
+                                <div class="col s4 m1">
+                                    <p class="sundries left-align">{{ recipe.servings }}</p>
+                                </div>
+                            </div>
+                            <!-- Temperature -->
+                            <div class="row recipe-row">
+                                <div class="col s12 m4">
+                                    <h5 class="left-align">Temperature</h5>
+                                </div>
+                                <div class="col s6 m1">
+                                    <p class="sundries left-align">{{ recipe.temperature }}</p>
+                                </div>
+                                <div class="col s6 m1">
+                                    <p class="sundries left-align">{{ recipe.temp_unit }}</p>
+                                </div>
+                            </div>
+                            <!-- Duration - Preparation time and Cooking time -->
+                            <div class="row recipe-row">
+                                <div class="col s12 m4">
+                                    <h5 class="left-align">Duration</h5>
+                                </div>
+                                <!-- Preparation Time -->
+                                <div class="col s12 m4">
+                                    <h6 class="left-align">Preparation Time</h6>
+                                    <div class="row time-row">
+                                        <p class="left-align">{{ recipe.prep_time }} mins</p>
+                                    </div>
+                                </div>
+                                <!-- Cooking Time -->
+                                <div class="col s12 m4">
+                                    <h6 class="left-align">Cooking Time</h6>
+                                    <div class="row time-row">
+                                        <!-- Cooking Time -->
+                                        <p class="left-align">{{ recipe.cook_time }} mins</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <hr>
+                <!-- Ingredients -->
+                <div class="row recipe-row-imn">
+                    <div class="col s12 m3">
+                        <h5 class="left-align">Ingredients</h5>
+                    </div>
+                    <div class="col s12 m9">
+                        <p class="left-align">{{ recipe.ingredients }}</p>
+                    </div>
+                </div>
+                <hr>
+                <!-- Method -->
+                <div class="row recipe-row-imn">
+                    <div class="col s12 m3">
+                        <h5 class="left-align">Method</h5>
+                    </div>
+                    <div class="col s12 m9">
+                        <p class="left-align">{{ recipe.method }}</p>
+                    </div>
+                </div>
+                <hr>
+                <!-- Notes -->
+                <div class="row recipe-row-imn">
+                    <div class="col s12 m3">
+                        <h5 class="left-align">Notes</h5>
+                    </div>
+                    <div class="col s12 m9">
+                        <p class="left-align">{{ recipe.note }}</p>
+                    </div>
+                </div>
+                <!-- Buttons -->
+                {% if recipe.name == session["user"] %}
+                    <form class="row recipe-row">
+                        <div class="col s12 center-align">
+                            <!-- Submit the Changes -->
+                                <a href="{{ url_for('edit_recipe', recipe_id= recipe._id) }}" class="btn pink darken-4 text-center"><i class="fas fa-edit"></i> Edit Recipe</a>
+                            <!-- Delete the Recipe -->
+                                <a href="{{ url_for('delete_recipe', recipe_id=recipe_id) }}" class="btn red darken-1">Delete Recipe<i class="fas fa-trash-alt left"></i></a>
+                        </div>
+                    </form>
+                {% endif %}
             </div>
-            <hr>
-            <!-- Ingredients -->
-            <div class="row recipe-row-imn">
-                <div class="col s12 m3">
-                    <h5 class="left-align">Ingredients</h5>
-                </div>
-                <div class="col s12 m9">
-                    <p class="left-align">{{ recipe.ingredients }}</p>
-                </div>
-            </div>
-            <hr>
-            <!-- Method -->
-            <div class="row recipe-row-imn">
-                <div class="col s12 m3">
-                    <h5 class="left-align">Method</h5>
-                </div>
-                <div class="col s12 m9">
-                    <p class="left-align">{{ recipe.method }}</p>
-                </div>
-            </div>
-            <hr>
-            <!-- Notes -->
-            <div class="row recipe-row-imn">
-                <div class="col s12 m3">
-                    <h5 class="left-align">Notes</h5>
-                </div>
-                <div class="col s12 m9">
-                    <p class="left-align">{{ recipe.note }}</p>
-                </div>
-            </div>
-            <!-- Buttons -->
-            {% if recipe.name == session["user"] %}
-            <form class="row recipe-row">
-                <div class="col s12 center-align">
-                    <!-- Submit the Changes -->
-                    <a href="{{ url_for('edit_recipe', recipe_id= recipe._id) }}"
-                        class="btn pink darken-4 text-center"><i class="fas fa-edit"></i> Edit Recipe</a>
-                    <!-- Delete the Recipe -->
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe_id) }}" class="btn red darken-1">Delete
-                        Recipe<i class="fas fa-trash-alt left"></i></a>
-                </div>
-            </form>
-            {% endif %}
         </div>
-    </div>
-</main>
+    </main>
 {% endblock %}

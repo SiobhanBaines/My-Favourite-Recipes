@@ -127,8 +127,6 @@ def add_recipe():
     # recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
 
     if request.method == "POST":
-        print(request.form.get("image_url"))
-        print(request.form.get("recipe_id"))
         recipe_id = request.form.get("recipe_id")
         submit_recipe = {
             "user": user_id,
@@ -162,9 +160,7 @@ def add_recipe():
 
     categories = list(mongo.db.categories.find().sort("category", 1))
     recipe = mongo.db.recipes.find().sort([('timestamp', -1)]).limit(1)
-    # print("135", cursor)
-    # recipe = mongo.db.recipes.find_one()
-    # print("135 ", recipe)
+
     return render_template(
         "add_recipe.html", recipe=recipe, categories=categories)
 
@@ -395,12 +391,12 @@ def upload_profile_image(username):
     print(user)
     if request.method == 'POST':
         for user_image in request.files.getlist("user_image"):
-
+            print("profile image upload line 398 ")
             # create file name for image prior to load in cloudinary
             filename = secure_filename(user_image.filename)
             filename, file_extension = os.path.splitext(filename)
             public_id_image = (username + '_' + filename)
-
+            print("profile image upload line 403 ")
             cloudinary.uploader.unsigned_upload(
                 user_image, "profile_images",
                 cloud_name='dyxuve4pr',
@@ -409,7 +405,7 @@ def upload_profile_image(username):
 
             image_url = (
                 "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/profile_images/" + public_id_image + file_extension)
-
+            print("update profile image upload line 412 ")
             mongo.db.users.update(
                 {"username": username},
                 {"$set": {"image": image_url}})
@@ -429,43 +425,26 @@ def upload_recipe_image(recipe_id):
             filename = secure_filename(recipe_image.filename)
             filename, file_extension = os.path.splitext(filename)
             public_id_image = (session["user"] + '_' + filename)
-
+            print("recipe image upload line 432 ")
             cloudinary.uploader.unsigned_upload(
                 recipe_image, "recipe_images",
                 cloud_name='dyxuve4pr',
                 folder='favourite_recipes/recipe_images/',
                 public_id=public_id_image)
-
+            print("recipe image upload line 438")
             image_url = (
                 "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/recipe_images/" + public_id_image + file_extension)
 
         recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
         categories = mongo.db.categories.find()
 
-        recipe_data = {
-            "title": request.form.get("title"),
-            "image": image_url,
-            "category": request.form.get("category"),
-            "servings": request.form.get("servings"),
-            "temperature": request.form.get("temperature"),
-            "temp_unit": request.form.get("temp_unit"),
-            "prep_time": request.form.get("prep_time"),
-            "cook_time": request.form.get("cook_time"),
-            "ingredients": request.form.get("ingredients"),
-            "method": request.form.get("method"),
-            "notes": request.form.get("notes")
-        }
-
-        print("line 438, recipe_data", recipe_data)
-        # recipe = mongo.db.recipes.update_one(
-        #     {"_id": ObjectId(recipe_id)},
-        #     {"$set": {"image": image_url}},
-        #     upsert=True
-        # )
-        # return redirect(
-        #     url_for('edit_recipe', recipe_id=recipe_id, recipe_data=recipe_data))
+        recipe = mongo.db.recipes.update_one(
+            {"_id": ObjectId(recipe_id)},
+            {"$set": {"image": image_url}},
+            upsert=True
+        )
         return redirect(
-            url_for('edit_recipe', recipe_data=recipe_data))
+            url_for('edit_recipe', recipe_id=recipe_id))
 
     categories = mongo.db.categories.find()
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -478,7 +457,7 @@ def upload_recipe_image(recipe_id):
 # Upload an image   Copied from Double Shamrock Hackathon and modified
 @app.route("/upload_new_recipe_image", methods=["GET", "POST"])
 def upload_new_recipe_image():
-    categories = list(mongo.db.categories.find().sort("category", 1))
+    # categories = list(mongo.db.categories.find().sort("category", 1))
     if request.method == 'POST':
         for recipe_image in request.files.getlist("recipe_image"):
             filename = secure_filename(recipe_image.filename)
@@ -494,19 +473,26 @@ def upload_new_recipe_image():
             image_url = (
                 "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/recipe_images/" + public_id_image + file_extension)
 
-        print("398", image_url)
-        categories = mongo.db.categories.find()
-        print("402", categories)
-        recipe_image = {"image": image_url}
-        print("404", recipe_image)
-        new_recipe = mongo.db.recipes.insert_one(recipe_image)
-        print("406", new_recipe)
-        recipe_id = mongo.db.recipes.find_one({"image": image_url})["_id"]
-        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-        print("400", recipe)
-
+            # recipe_id = request.form.get("recipe_id")
+            # title = request.form.get("title")
+            # print("line 490, recipe_id, title", recipe_id, title)
+            # recipe = {
+            #     "title": request.form.get("title"),
+            #     "image": image_url,
+            #     "category": request.form.get("category"),
+            #     "servings": request.form.get("servings"),
+            #     "temperature": request.form.get("temperature"),
+            #     "temp_unit": request.form.get("temp_unit"),
+            #     "prep_time": request.form.get("prep_time"),
+            #     "cook_time": request.form.get("cook_time"),
+            #     "ingredients": request.form.get("ingredients"),
+            #     "method": request.form.get("method"),
+            #     "notes": request.form.get("notes")
+            # }
+            # print("487 title", request.form.get("title")  )
+            # print("line 500, recipe 0", recipe)
     return render_template(
-        'add_recipe.html', recipe=recipe, categories=categories)
+        'add_recipe.html', recipe=recipe)
 
 
 @app.route("/get_categories")
