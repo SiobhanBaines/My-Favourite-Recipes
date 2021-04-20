@@ -150,7 +150,7 @@ Once the website user has an account they can log in and out whenever they need.
 #####   Log-in Page Small
  ![image](static/documentation_files/images/unit_testing_images/login_small.png)
 ####    Log-out
-
+![image]()
 ###     Profile Page
 Below is an image of the profile page for a new user which shows a message saying they have not added any recipes and has a place to upload an image of themselves if they want to.
 ![image](static/documentation_files/images/unit_testing_images/new_user_profile.png)
@@ -208,12 +208,13 @@ From this page a website user can change their password, delete their account (w
  ![image]()
 
 ####    Contact Us Page
-#####   Contact Us Page Large
- ![image]()
-#####   Contact Us Page Medium
- ![image]()
-#####   Contact Us Page Small
- ![image]()
+
+
+ ![image](static/documentation_files/images/unit_testing_images/test_contact_us.png)
+
+ ![image](static/documentation_files/images/unit_testing_images/email_received.png)
+
+ ![image](static/documentation_files/images/unit_testing_images/email_received.png)
 
 ## Lighthouse Testing
 

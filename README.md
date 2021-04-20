@@ -69,31 +69,102 @@ styling, balance, consistency
 ####    Header Navigation Bar
 The navigation bar changes dependant on whether the visitor is logged in or not.
 ######   Not logged In
-![image](static/documentation_files/images/unit_testing_images/nav_bar_large.png)
+![image](static/documentation_files/images/nav_bar_large.png)
 ######  Logged In
-![image](static/documentation_files/images/unit_testing_images/nav_bar_logged_in.png)
+![image](static/documentation_files/images/nav_bar_logged_in.png)
 On smaller devices the navigation changes from individual links to the standard hamburger symbol with a dropdown side bar menu
 ######  Hamburger Symbol and Side Bar Menu
-![image](static/documentation_files/images/unit_testing_images/nav_bar_small.png)
-![image](static/documentation_files/images/unit_testing_images/nav_side_bar_small.png)
+![image](static/documentation_files/images/nav_bar_small.png)
+![image](static/documentation_files/images/nav_side_bar_small.png)
 ####    Footer Area
 The footer area has active links to my personal social media site.
-![image](static/documentation_files/images/unit_testing_images/footer.png)
+![image](static/documentation_files/images/footer.png)
 ####    Landing Page
 The landing page is split into 3 separate areas.
 ######  Home Section
 This section has a carousel of all the recipes available on the site. If a visitor selects one of the images they will be taken to the recipe detail page.
-![image](static/documentation_files/images/unit_testing_images/home_carousel_styling.png)
+![image](static/documentation_files/images/home_carousel_styling.png)
 ######  About Section
 The about section gives some background to the reasons behind the site.
-![image](static/documentation_files/images/unit_testing_images/about_large_fixed.png)
+![image](static/documentation_files/images/about_large_fixed.png)
 ######  Getting Started Section
 On the getting started section a visitor is invited to join the site and start adding their own recipes.
-![image](static/documentation_files/images/unit_testing_images/getting_started_large.png)
+![image](static/documentation_files/images/getting_started_large.png)
 ####    Recipes Page
-The recipes page is a list of all the recipes, each displayed on their own card. 
+The recipes page is a list of all the recipes, each displayed on their own card. When the recipe card is clicked on the recipe detail page is loaded so the website user can start making the recipe.
+![image](static/documentation_files/images/recipes_page_large.png)
+####    Recipe Detail Page
+The recipe detail page has all the information needed to create the dish. The website user can like and/or dislike the recipe whether they have a profile or not. 
+![image](static/documentation_files/images/like_dislike.png) If the website user has already liked or disliked the recipe they cannot like or dislike it again and a flash messages appears.
+**liked**
+![image](static/documentation_files/images/already_like.png)
+**disliked**
+![image](static/documentation_files/images/already_disliked.png)
+If the website user has a profile and they orginally added the recipe edit and delete buttons will show at the bottom of the recipe on the recipe detail page which is a view only page. Clicking on the *edit* button will take the website user to the edit recipe page and clicking on the *delete* button will take them to the delete recipe confirmation page.
+![image](static/documentation_files/images/edit_delete_on recipe_page.PNG)
+####    Register Page
+![image](static/documentation_files/images/register_large.png)
+The website user needs to register to be able to add any new recipes or categories. Subsequently they will be able to perform full CRUD functionality on their profile and the recipes they ahve added. They will not be able to delete the categories because other website users may have used the category for their own recipes. Only "Admin" will be able to delete a category and only if there are no recipes allocated to that category.
 
+1. The individual needs to decide on a username and password. Both can consist of upper and lowercase letters and numbers and must be between 5 and 15 characters in length. 
+If the username is too short the entry line changes to red and when the cursor is hovered over the line the message "Please match the requested format." appears. 
+* Here the username is too short
+![image](static/documentation_files/images/name_too_short.png)
+* Here the user wanted to use special characters which are not allowed.
+![image](static/documentation_files/images/name_special_chars.png.jpg)
+* The user has entered a valid username and the HTML formating has stopped the user entering more than 15 characters.
+![image](static/documentation_files/images/valid_username.png)
+* If the user selects a username that already exists the receive a flash message
+![image](static/documentation_files/images/username_already_exists.png)
+2. Both passwords must be identical. 
+* Here the passwords do not match and a flash message is displayed.
+![image](static/documentation_files/images/passwords_do_no_match.png)
+3. If a user already has an account they can click the link to take them to the log-in page.
+![image](static/documentation_files/images/login_from_registration.png)
+4. When the website visitor creates a valid username and password, the password in encrypted using Flask Werkzeug security, a record is added to the user collection in MongoDB and the user is taken to their profile page.
+* MongoDB record
+![image](static/documentation_files/images/mongodb_user.png)
+* Profile page of a new account
+![image](static/documentation_files/images/valid_registration.png)
 
+####    Login Page
+![image](static/documentation_files/images/login_large.png)
+Once the website user has an account they can log in and out whenever they need.
+1. The username and password are validated against the user collection in MongoDB to confirm the username exists and its password is correct.
+* If the user enters either an invalid username or incorrect password a flash message is displayed. The same message is displayed for both errors to help prevent hacking.
+![image](static/documentation_files/images/invalid_login.png)
+3. If a user is not register there is a link to the registration page.
+![image](static/documentation_files/images/register_from_login.PNG)
+
+####    Logout Option
+![image](static/documentation_files/images/logout.png)
+When the website user clicks on the Logout option they are taken back to the Login page.
+
+####    Contact Us Page
+![image](static/documentation_files/images/contact_us.png)
+This contact page allows the website user to email the website owner with any questions, concerns or observations. When the website users clicks the button, it sends an email to the website owner and a reciept confirmation email to the email sender.
+
+####    Profile Page
+The profile page has two sections
+    **profile detail**
+     The individual can upload an image for their profile id, change their password or delete their account. 
+     If they choose to delete their account, they will be asked if they want to delete all their recipes. If the website user decides to leave their recipes the owner will be changed to "Admin". At the time of deleting the account any categories owned by the user will be change to be owned by "Admin".
+     **recipe and category**
+     The individual can create new categories and add recipes. They are only allowed to make changes to their own categories and recipes.
+![image](static/documentation_files/images/profile_large.PNG)
+Below is an image of the profile page for a new user which shows a message saying they have not added any recipes and has a place to upload an image of themselves if they want to.
+![image](static/documentation_files/images/unit_testing_images/new_user_profile.png)
+
+####    Add Recipe Page
+![image]()
+####    Edit Recipe Page
+![image]()
+####    Add Category Page
+![image]()
+####    Categories Page
+![image]()
+####    Edit Category Page
+![image]()
 
 
 
