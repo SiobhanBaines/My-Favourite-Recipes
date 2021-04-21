@@ -39,10 +39,18 @@ def home():
 
 @app.route("/get_recipes")
 def get_recipes():
-    categories = list(mongo.db.categories.find().sort("category", 1))
+    # categories = list(mongo.db.categories.find().sort("category", 1))
     recipes = mongo.db.recipes.find()
     return render_template(
-        "recipes.html", recipes=recipes, categories=categories)
+        "recipes.html", recipes=recipes)
+
+
+@app.route('/search', methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    return render_template(
+        "recipes.html", recipes=recipes)
 
 
 @app.route('/recipe_detail/<recipe_id>')
@@ -278,12 +286,17 @@ def profile(username):
     image = mongo.db.users.find_one(
         {"username": session["user"]})["image"]
     print(session["user"])
+
     if session["user"] == "admin":
         recipes = list(mongo.db.recipes.find().sort("recipe", 1))
+        print("line 283 admin ", recipes)
+        # print("line284 count", recipes.count())
     else:
         if session["user"]:
-            recipes = mongo.db.recipes.find({"user": ObjectId(user_id)})
+            recipes = list(mongo.db.recipes.find(
+                {"user": ObjectId(user_id)}).sort("category", 1))
             print("line 286 recipes", recipes)
+            # print(recipes.count())
         else:
             return redirect(url_for("login"))
 
@@ -475,7 +488,6 @@ def upload_new_recipe_image():
             image_url = (
                 "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/recipe_images/" + public_id_image + file_extension)
 
-            
     return render_template(
         'add_recipe.html', recipe=recipe)
 
@@ -495,15 +507,22 @@ def get_categories():
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
-        category = {
-            "category": request.form.get("category"),
-            "name": session["user"],
-            "date": datetime.now()
-        }
+        new_category = request.form.get("category")
+        exists = mongo.db.categories.find_one({"category" : new_category})
 
-        mongo.db.categories.insert_one(category)
-        flash("New Category Added")
-        return redirect(url_for("get_categories"))
+        if exists:
+            flash("Category Already Exists")
+            return redirect(url_for("add_category"))
+        else:
+            category = {
+                "category": request.form.get("category"),
+                "name": session["user"],
+                "date": datetime.now()
+            }
+
+            mongo.db.categories.insert_one(category)
+            flash("New Category Added")
+            return redirect(url_for("get_categories"))
 
     return render_template("add_category.html")
 
@@ -526,13 +545,29 @@ def edit_category(category_id):
     return render_template("update_category.html", category=category)
 
 
-@app.route("/delete_category/<category_id>")
-def delete_category(category_id):
+@app.route("/delete_category/<category_id>/<category>")
+def delete_category(category_id, category):
+    if session["user"] != "admin":
+        flash( "You are not authorised to delete categories. The categories may be used by other peoples recipes. Please contact us using the link at the bottom.")
+        return redirect(url_for("get_categories"))
+    else:
+        recipes = mongo.db.recipes.find_one({"category" : category})
+        print("line 548 recipes", recipes, category)
+        if recipes:
+            flash("You cannot delete this category because it is allocated to existing recipes")
+            return redirect(url_for("get_categories"))
+        else:
+            print("line 553 user", session["user"])
+            print("line 554 recipes with no cats", recipes, category)
+            mongo.db.categories.remove({"_id": ObjectId(category_id)})
+            flash("Category Successfully Deleted")
+            return redirect(url_for("get_categories"))
 
-    mongo.db.categories.remove({"_id": ObjectId(category_id)})
-    flash("Category Successfully Deleted")
-    return redirect(url_for("get_categories"))
+        print("line 558 user", session["user"]) 
+        print("line 554 recipes with no cats", recipes, category)
 
+    print("line 560 user", session["user"]) 
+    print("line 554 recipes with no cats", recipes, category)
 
 @app.route("/contact")
 def contact():

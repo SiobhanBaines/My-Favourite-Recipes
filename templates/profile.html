@@ -2,7 +2,7 @@
 {% block title %}Recipes{% endblock %}
 {% block content %}
 
-<!-- Flash messages code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
+    <!-- Flash messages code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
     <section>
         <!-- flash messages  -->
         {% with messages = get_flashed_messages() %}
@@ -15,6 +15,7 @@
             {% endif %}
         {% endwith %}
     </section>
+    
     <div class="profile container">
         <div class="row center-align ">
             <div class="col s12 m6">
@@ -58,7 +59,7 @@
                 </div>
             </div>
             <div class="col s12 m6">
-                {% if recipes.count() != 0 %}
+                {% if recipes %}
 
                 <!-- Recipes Added by User -->
                     <div class="card">

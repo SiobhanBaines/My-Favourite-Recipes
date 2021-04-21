@@ -291,6 +291,9 @@ img.recipes-image{
     margin-bottom: 0.5rem;
 }
 /* --- Categories --- */
+.category-card {
+    max-width: 900px;
+}
 .category-table {
     margin-left: 10%;
     font-size: 24px;

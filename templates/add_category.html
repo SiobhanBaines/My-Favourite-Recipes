@@ -1,8 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
+    
 
     <main class="parallax-container home">
         <div class="parallax "><img src="../static/images/background.jpeg"></div>
+        <!-- Flash messages code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
+        <section>
+            <!-- flash messages  -->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="row flashes">
+                            <h4 class="pink-text text-darken-4">{{ message }}</h4>
+                        </div>
+                    {% endfor%}
+                {% endif %}
+            {% endwith %}
+        </section>
+
         <div class="container">
             <h3>Add Category</h3>
             <!-- Code taken from Code Institute Flask Task Manager Project and altered to fit this website -->

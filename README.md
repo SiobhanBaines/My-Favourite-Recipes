@@ -234,7 +234,6 @@ In the end it was a rookie mistake. I had copied some JavaScript code from Mater
 * When a user registers or logs in better messages could be created allowing the user to know the format required for the username and password.
 * Only allowing 3 attempts to log in before requesting the user to change their password
 * Forgotten username and password facilities would be useful for users who have not been on the site for a while and have forgotten their credentials
-* A filter on category on the recipes page could help to find a specific type of recipe.
 * On the Add Recipe Page it would be better if there was a way to save the information on the page when the website user clicks on the upload image button. I don't really want it to create a full record of the recipe before the author is happy. That said when an image is uploaded a record is created in the recipe collection in MongoDB.
 
 ## Code Verification
