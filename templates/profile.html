@@ -58,19 +58,11 @@
                 </div>
             </div>
             <div class="col s12 m6">
-                {% if recipes.count() == 0 %}
-                    <div class="norecipes">
-                        <h5 class="brown-text text-darken-3">My Recipes</h5>
-                        <!-- Display messages when user has no recipes -->
-                        <div class="norecipes-card">
-                            <h5>You currently have no recipes.</h5>
-                            <h5>To add your first recipe, please click the add recipe button below.</h5>
-                        </div>
-                    </div>
-                {% else %}
+                {% if recipes.count() != 0 %}
+
                 <!-- Recipes Added by User -->
                     <div class="card">
-                    <table class="highlight responsive-table profile-recipes">
+                    <table class="highlight responsive-table striped profile-recipes">
                         <thead>
                             <h5 class="brown-text text-darken-3 center-align">My Recipes</h5>
                             <tr>
@@ -83,7 +75,7 @@
                             {% for recipe in recipes %}
                                 <tr>
                                     <!-- Recipe Name -->
-                                    <td><a class="brown-text text-darken-3 profile-recipe" href="{{ url_for('recipe_detail', recipe_id= recipe._id) }}">{{ recipe.title }}</a>
+                                    <td class="left-align"><a class="brown-text text-darken-3 profile-recipe" href="{{ url_for('recipe_detail', recipe_id= recipe._id) }}">{{ recipe.title }}</a>
                                     </td>
                                     <!-- Change recipe  -->
                                     <td>
@@ -93,7 +85,18 @@
                             {% endfor %}
                         </tbody>
                     </table>
+
                     </div>
+                    {% else %}
+                    <div class="norecipes">
+                        <h5 class="brown-text text-darken-3">My Recipes</h5>
+                        <!-- Display messages when user has no recipes -->
+                        <div class="norecipes-card">
+                            <h5>You currently have no recipes.</h5>
+                            <h5>To add your first recipe, please click the add recipe button below.</h5>
+                        </div>
+                    </div>
+
                 {% endif %}
                 <!-- </div> -->
                 <!-- Category and Recipe Maintenance -->

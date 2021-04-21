@@ -223,11 +223,11 @@ label.category {
 }
 /* --- card format --- */
 .card {
-    border-radius: 2.5%;
+    border-radius: 5px;
     box-shadow: 0 4px 8px 0 var(--image-shadow), 0 6px 20px 0 var(--card-shadow);
 }
 .card .card-image img {
-  border-radius: 2.5% 2.5% 0 0;
+  border-radius: 5px 5px 0 0;
   object-fit: cover;
 }
 img.circle {
@@ -292,16 +292,16 @@ img.recipes-image{
 }
 /* --- Categories --- */
 .category-table {
-    margin-left: 1%;
+    margin-left: 10%;
     font-size: 24px;
-    width: 98%;
+    width: 80%;
 }
 /* --- Recipe Details --- */
 .recipe-panel,
 .category-panel {
     margin-bottom: 20%;
     background-color: var(--main-cream);
-    border-radius: 2.5%;
+    border-radius: 5px;
 }
 .recipe_image {
     width: 300px;
@@ -465,6 +465,11 @@ input.image-selection {
     border-bottom: none;
     border-radius: 0;
     }
+    .category-table {
+        margin-left: 2%;
+        font-size: 24px;
+        width: 90%;
+    }
     .profile-recipes {
     margin: 0;
     font-size: 22px;
@@ -491,6 +496,11 @@ input.image-selection {
         /* height: 500px;
         overflow: hidden; */
     }
+    .category-table {
+        margin: 5%;
+        font-size: 24px;
+        width: 80%;
+    }
 }
 @media (max-width: 992px){
     .responsive-table {
@@ -505,4 +515,5 @@ input.image-selection {
     .profile-card{
         max-width: 100%;
     }
+
 }

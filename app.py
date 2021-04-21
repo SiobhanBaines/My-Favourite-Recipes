@@ -273,22 +273,24 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
-    # username = mongo.db.users.find_one(
-    #     {"username": session["user"]})["username"]
     user_id = mongo.db.users.find_one(
         {"username": session["user"]})["_id"]
     image = mongo.db.users.find_one(
         {"username": session["user"]})["image"]
+    print(session["user"])
+    if session["user"] == "admin":
+        recipes = list(mongo.db.recipes.find().sort("recipe", 1))
+    else:
+        if session["user"]:
+            recipes = mongo.db.recipes.find({"user": ObjectId(user_id)})
+            print("line 286 recipes", recipes)
+        else:
+            return redirect(url_for("login"))
 
-    if session["user"]:
-        recipes = mongo.db.recipes.find({"user": ObjectId(user_id)})
-        categories = mongo.db.categories.find()
-
-        return render_template(
-            "profile.html", username=session["user"],
-            image=image, recipes=recipes, categories=categories)
-
-    return redirect(url_for("login"))
+    categories = mongo.db.categories.find()
+    return render_template(
+        "profile.html", username=session["user"],
+        image=image, recipes=recipes, categories=categories)
 
 
 @app.route("/delete_account/<username>", methods=['GET', 'POST'])
@@ -473,31 +475,20 @@ def upload_new_recipe_image():
             image_url = (
                 "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/recipe_images/" + public_id_image + file_extension)
 
-            # recipe_id = request.form.get("recipe_id")
-            # title = request.form.get("title")
-            # print("line 490, recipe_id, title", recipe_id, title)
-            # recipe = {
-            #     "title": request.form.get("title"),
-            #     "image": image_url,
-            #     "category": request.form.get("category"),
-            #     "servings": request.form.get("servings"),
-            #     "temperature": request.form.get("temperature"),
-            #     "temp_unit": request.form.get("temp_unit"),
-            #     "prep_time": request.form.get("prep_time"),
-            #     "cook_time": request.form.get("cook_time"),
-            #     "ingredients": request.form.get("ingredients"),
-            #     "method": request.form.get("method"),
-            #     "notes": request.form.get("notes")
-            # }
-            # print("487 title", request.form.get("title")  )
-            # print("line 500, recipe 0", recipe)
+            
     return render_template(
         'add_recipe.html', recipe=recipe)
 
 
 @app.route("/get_categories")
 def get_categories():
-    categories = list(mongo.db.categories.find().sort("category", 1))
+    print(session["user"])
+    if session["user"] == "admin":
+        categories = list(mongo.db.categories.find().sort("category", 1))
+    else:
+        categories = list(mongo.db.categories.find({"name": session["user"]}).sort("category", 1))
+        print("line 504 cats", categories)
+        # categories = list(mongo.db.categories.find().sort("category", 1))
     return render_template("categories.html", categories=categories)
 
 
