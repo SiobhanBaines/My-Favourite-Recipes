@@ -147,27 +147,41 @@ This contact page allows the website user to email the website owner with any qu
 ####    Profile Page
 The profile page has two sections
     **profile detail**
-     The individual can upload an image for their profile id, change their password or delete their account. 
+     The website user can upload an image for their profile id, change their password or delete their account. 
      If they choose to delete their account, they will be asked if they want to delete all their recipes. If the website user decides to leave their recipes the owner will be changed to "Admin". At the time of deleting the account any categories owned by the user will be change to be owned by "Admin".
      **recipe and category**
-     The individual can create new categories and add recipes. They are only allowed to make changes to their own categories and recipes.
+     The website user can create new categories and add recipes. They are only allowed to make changes to their own categories and recipes. If a website user clicks on the recipe name they will be taken to the recipe detail page where they will be able to choose to edit or delete the recipe.
 ![image](static/documentation_files/images/profile_large.PNG)
 Below is an image of the profile page for a new user which shows a message saying they have not added any recipes and has a place to upload an image of themselves if they want to.
 ![image](static/documentation_files/images/unit_testing_images/new_user_profile.png)
 
 ####    Add Recipe Page
-![image]()
-####    Edit Recipe Page
-![image]()
+As the name suggests this is the page where the website user can add a recipe. 
+**N.B.** If the website user wants to add an image they should do this before entering all the other details for the recipe. If they do this after the recipe details disappear. I have added this to future improvements. 
+![image](static/documentation_files/images/add_recipe.png)
+
+####    Change Recipe Page
+For UX I have kept the format of the Change Recipe page the same as the Add Recipe page. This page allows the website user/recipe authoer to change or delete the recipe, or to cancel the action. All actions return the website user to the Profile Page and a flash message appears if they have changed or deleted the recipe.
+![image](static/documentation_files/images/edit_recipe.png)
+
 ####    Add Category Page
-![image]()
+To reach the Add Category Page the website user needs to select the Maintain Categories from the Profile Page. At the top of the screen is an Add Category button.
+![image](static/documentation_files/images/add_cat_button.png)
+The Add Category page is very simple. It just allows the addition of a text format category. With more time I wanted to add a search/filter feature to the recipes page.
+![image](static/documentation_files/images/add_category.png)
+
 ####    Categories Page
-![image]()
+This screen allows the website user to add or change categories they own. Only "Admin" can delete the categories. A category cannot be deleted if it is attached to a recipe. 
+![image](static/documentation_files/images/categories_admin.png)
+![image](static/documentation_files/images/categories_admin.png)
+
 ####    Edit Category Page
-![image]()
+The website user can only change the category or cancel the action
+![image](static/documentation_files/images/edit_category.png)
 
-
-
+####    404 Page
+If at any point the links break a 404 page will appear directing the website user back to the home page.
+![image](static/documentation_files/images/404_error.png)
 
 ### Media
 
@@ -221,7 +235,7 @@ In the end it was a rookie mistake. I had copied some JavaScript code from Mater
 * Only allowing 3 attempts to log in before requesting the user to change their password
 * Forgotten username and password facilities would be useful for users who have not been on the site for a while and have forgotten their credentials
 * A filter on category on the recipes page could help to find a specific type of recipe.
-
+* On the Add Recipe Page it would be better if there was a way to save the information on the page when the website user clicks on the upload image button. I don't really want it to create a full record of the recipe before the author is happy. That said when an image is uploaded a record is created in the recipe collection in MongoDB.
 
 ## Code Verification
 
