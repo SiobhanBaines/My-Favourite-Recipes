@@ -11,8 +11,8 @@
                 </h5>
                 <br>
                 <p class="text-grey text-lighten-2 ">
-                    <span class="font-weight-bold">Note:</span>
-                    Please note deleting your account will delete all your recipes.
+                    <span class="font-weight-bold">Note: You will delete all you recipes if you delete your
+                        account</span>
                 </p>
             </div>
             <form action="{{ url_for('delete_account', username=username) }}" method="POST">
@@ -23,7 +23,8 @@
                     <label for="confirm_password_to_delete" clasee="confirm_password_to_delete">Confirm password</label>
                 </div>
                 <div class="modal-footer">
-                    <a href="#!" class="modal-close teal lighten-4 btn-flat">Close<i class="fas fa-times left"></i></a>
+                    <a href="#!" class="modal-close btn teal lighten-4">Close<i
+                            class="fas fa-times-circle left"></i></a>
                     <button type="submit" class="btn red darken-1  align-center">Delete Account<i
                             class="fas fa-trash-alt left"></i></button>
                 </div>

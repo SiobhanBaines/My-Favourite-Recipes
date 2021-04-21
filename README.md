@@ -104,7 +104,7 @@ If the website user has a profile and they orginally added the recipe edit and d
 ![image](static/documentation_files/images/edit_delete_on recipe_page.PNG)
 ####    Register Page
 ![image](static/documentation_files/images/register_large.png)
-The website user needs to register to be able to add any new recipes or categories. Subsequently they will be able to perform full CRUD functionality on their profile and the recipes they ahve added. They will not be able to delete the categories because other website users may have used the category for their own recipes. Only "Admin" will be able to delete a category and only if there are no recipes allocated to that category.
+The website user needs to register to be able to add any new recipes or categories. Subsequently they will be able to perform full CRUD functionality on their profile and the recipes they ahve added. They will not be able to delete the categories because other website users may have used the category for their own recipes. Only "admin" will be able to delete a category and only if there are no recipes allocated to that category.
 
 1. The individual needs to decide on a username and password. Both can consist of upper and lowercase letters and numbers and must be between 5 and 15 characters in length. 
 If the username is too short the entry line changes to red and when the cursor is hovered over the line the message "Please match the requested format." appears. 
@@ -148,7 +148,7 @@ This contact page allows the website user to email the website owner with any qu
 The profile page has two sections
     **profile detail**
      The website user can upload an image for their profile id, change their password or delete their account. 
-     If they choose to delete their account, they will be asked if they want to delete all their recipes. If the website user decides to leave their recipes the owner will be changed to "Admin". At the time of deleting the account any categories owned by the user will be change to be owned by "Admin".
+     If they choose to delete their account all the recipes they have added to the site will also be deleted.
      **recipe and category**
      The website user can create new categories and add recipes. They are only allowed to make changes to their own categories and recipes. If a website user clicks on the recipe name they will be taken to the recipe detail page where they will be able to choose to edit or delete the recipe.
 ![image](static/documentation_files/images/profile_large.PNG)

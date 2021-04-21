@@ -5,6 +5,19 @@
     <!-- Home page with carousel of currently loaded recipes -->
     <div class="home parallax-container">
         <div class="parallax "><img src="{{ url_for('static', filename='images/puratos_tropical_fruit_cake.jpg') }}">
+            <!-- Flash messages code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
+            <section>
+                <!-- flash messages  -->
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="row flashes">
+                                <h4 class="pink-text text-darken-4">{{ message }}</h4>
+                            </div>
+                        {% endfor%}
+                    {% endif %}
+                {% endwith %}
+            </section>
         </div>
 
         <h3 class="home">Family Favourite Recipes</h3>
