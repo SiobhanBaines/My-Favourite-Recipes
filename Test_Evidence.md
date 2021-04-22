@@ -2,19 +2,23 @@
 ## Unit and Functional Testing
 
 ####    Navigation
-The navigation bar needs to work consistently across all pages. It needs to take the website user to where they want to go and where the label says. The layout of the navigation bar needs to be clean, easily understood and consistant across the site. On medium and small devices the inital navigation bar appears as the 'hamburger' icon which, when clicked produces the navigation down the side of the screen. When the side navigation is clicked again it will disappear.
-#####   Nav Bar on Large Devices
- ![image](static/documentation_files/images/unit_testing_images/nav_bar_large.png)
-#####   Nav Bar on Medium Devices
+The navigation bar is consistent across all pages and device sizes.
+#####   Main Nav Bar before logged in
+ ![image](static/documentation_files/images/nav_bar_large.png)
+#####   Main Nav Bar after logged in
+ ![image](static/documentation_files/images/nav_bar_logged_in.png)
+#####   Hamburger Nav Bar on smaller devices
  ![image](static/documentation_files/images/unit_testing_images/nav_bar_medium.png)
-#####   Nav Bar on Small Devices
- ![image](static/documentation_files/images/unit_testing_images/nav_bar_small.png)
-#####   Nav Sidebar on Medium Devices
- ![image](static/documentation_files/images/unit_testing_images/nav_side_bar_meduim.png)
-#####   Nav Sidebar on Small Devices
- ![image](static/documentation_files/images/unit_testing_images/nav_side_bar_small.png)
+#####   Side Nav Bar on smaller devices
+ ![image](static/documentation_files/images/nav_side_bar_meduim.png)
 
 Each of the navigation links takes the webiste user to the relavent pages.
+
+
+
+
+
+
 
 ####    Footer
 The footer allows for the addition of information and links to sites that are not directly part of this site. The website user can find information about the creator of this site. In the real world these links would be for other company information. The website user has access to be able to contact the owner of the site. The link for the weights and measure takes the website user to the BBC Good Food unit conversion page. For a corporate site it would be preferable to completely recreat this information and not link to outside the site.
@@ -220,58 +224,58 @@ From this page a website user can change their password, delete their account (w
 
 ## User Story Testing
 ### User Experience
-######  Recipe Details
+######  User Story 1:   Recipe Details
 **As a** visitor, 
 **I want** to find some tasty and fun recipes
 **So that** I can quickly and easily bake something tasty for family and friends
-**Given** a visitory is interested in baking,
+**Given** a visitor is interested in baking,
 **When** they visit the site and open a recipe,
 **Then** the recipe should have all the information needed to create the dish and be clear and easy to follow.
-######  Favourites
+######  User Story 2:   Favourites
 **As a** visitor, 
 **I want** to know if other people like the recipe
 **So that** I am confident I will enjoy it too
-**Given** people have different likes and disklikes,
+**Given** people have different likes and dislikes,
 **When** eating food,
 **Then** the site needs to have the ability to like or dislike the recipes and this information needs to be displayed clearly.
-######  Contact
+######  User Story 3:   Contact
 **As a** visitor, 
 **I want** to be able to contact the organisation
 **So that** when I have a question or something is wrong
 **When** using the site,
 **Then** a confirmation email should be sent to the visitor.
-######  Registration/Login
+######  User Story 4:   Registration/Login
 **As a** visitor, 
 **I want** to know my account is secure to me
 **So that** I am confident noone else will be able to access my recipes
 **Given** that passwords need to be create,
 **When** a new account is registered,
 **Then** the new password needs to be confirmed and encrypted to reduce the risk of hacking.
-######  Upload Profile
+######  User Story 5:   Upload Profile
 **As a** visitor with an account, 
 **I want** to be able to add an avitar or image of myself or change my password
 **So that** I know I am on my own profile and I can keep it more secure
 **Given** it will make the account more personal,
 **When** on the profile page
 **Then** there needs to be an upload image and change password facility on the profile page.
-######  Add Recipes/Categories
+######  User Story 6:   Add Recipes/Categories
 **As a** visitor, 
 **I want** to be able to add my own recipes and categories
 **So that** I can share them with family and friends
-**Given** the visitor has registed, creating a profile,
-**When** login,
+**Given** the visitor has registered, creating a profile,
+**When** logged in,
 **Then** the visitor can create, read, update and delete recipes from a single location as well as having the ability to create, read and update categories if none of the current categories meet their requirements.
-######  Upload Images
+######  User Story 7:   Upload Images
 **As a** visitor, 
 **I want** to be able to upload an image of my recipes
 **So that** other people and I can see the product without having to read
 **Given** it is easier to scan images than words,
 **When** looking for a recipe,
 **Then** the add and edit recipe pages need to have an upload image fascility.
-######  Delete Account
+######  User Story 8:   Delete Account
 **As a** visitor, 
 **I want** to have the ability to delete my account and my recipes from the site
-**So that** I know the site is complient with GDPR
+**So that** I know the site is compliant with GDPR
 **Given** the recipes belong to each visitor when they are loaded onto the site,
 **When** they wish to close their account,
-**Then** the recipes must also be delete because they could be classified as personal information.https://www.pcrm.org/good-nutrition/plant-based-diets/recipes/banana-bread
+**Then** the recipes must also be deleted because they could be classified as personal information.

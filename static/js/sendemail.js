@@ -12,7 +12,7 @@ function sendMail(contactForm) {
             document.getElementById('contact').reset();
         },
         function(error) {
-            console.log("FAILED", error)
+            console.log("FAILED", error);
         });
 
 

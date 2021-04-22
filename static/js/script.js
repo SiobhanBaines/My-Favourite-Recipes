@@ -4,5 +4,4 @@ $(document).ready(function () {
     $('.carousel').carousel();
     $('.modal').modal();
     $('select').formSelect();
-
 });
