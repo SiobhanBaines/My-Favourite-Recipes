@@ -274,4 +274,4 @@ From this page a website user can change their password, delete their account (w
 **So that** I know the site is complient with GDPR
 **Given** the recipes belong to each visitor when they are loaded onto the site,
 **When** they wish to close their account,
-**Then** the recipes must also be delete because they could be classified as personal information.
+**Then** the recipes must also be delete because they could be classified as personal information.https://www.pcrm.org/good-nutrition/plant-based-diets/recipes/banana-bread

@@ -370,11 +370,9 @@ img.recipes-image{
     margin: 3%;
     font-size: 22px;
 }
-.norecipes {
-    margin: 5rem 0 5rem 0;
-}
 .norecipes-card {
     background-color: rgb(230, 230, 230);
+    margin-top: 4rem;
     max-width: 80%;
     justify-self: center;
     margin-left: 10%;

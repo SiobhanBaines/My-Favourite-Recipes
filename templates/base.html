@@ -15,9 +15,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.jpg') }}" type="image/x-icon" />
     {% endblock %}
-
-    <!-- Email Script through EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     
     <title>{% block title %}Our Favourite Recipes{% endblock %}</title>
 </head>
@@ -27,8 +24,7 @@
         <!-- Main Nav Bar-->
         <nav class="nav-extended">
             <div class="nav-wrapper">
-                <a href="" class="brand-logo"><img class="image-circle"
-                        src="{{ url_for('static', filename='images/icon.jpg') }}" alt=""></a>
+                <a href="" class="brand-logo"><img class="image-circle" src="{{ url_for('static', filename='images/icon.jpg') }}" alt=""></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home')  }}">Home</a></li>
@@ -66,16 +62,16 @@
                 <div class="col s12 m6">
                     <h5 class="footer">Our Family Favourites</h5>
                     <ul class="social-media align-right">
-                        <li class=" inline-block"><a href="https://github.com/SiobhanBaines" target="_blank"><i
-                                    class="fab fa-github"></i></a></li>
-                        <li class="inline-block"><a href="https://www.linkedin.com/in/siobhan-baines-9b296a22/"
-                                target="_blank"><i class="fab fa-linkedin "></i></a></li>
-                        <li class="inline-block"><a href="https://www.facebook.com/siobhan.baines/" target="_blank"><i
-                                    class="fab fa-facebook"></i></a></li>
-                        <li class="inline-block"><a href="https://www.instagram.com/siobhan.baines/" target="_blank"><i
-                                    class="fab fa-instagram"></i></a></li>
-                        <li class="inline-block"><a href="https://twitter.com/BainesSiobhan" target="_blank"><i
-                                    class="fab fa-twitter"></i></a></li>
+                        <li class=" inline-block"><a href="https://github.com/SiobhanBaines" target="_blank">
+                            <i class="fab fa-github"></i></a></li>
+                        <li class="inline-block"><a href="https://www.linkedin.com/in/siobhan-baines-9b296a22/" target="_blank">
+                            <i class="fab fa-linkedin "></i></a></li>
+                        <li class="inline-block"><a href="https://www.facebook.com/siobhan.baines/" target="_blank">
+                            <i class="fab fa-facebook"></i></a></li>
+                        <li class="inline-block"><a href="https://www.instagram.com/siobhan.baines/" target="_blank">
+                            <i class="fab fa-instagram"></i></a></li>
+                        <li class="inline-block"><a href="https://twitter.com/BainesSiobhan" target="_blank">
+                            <i class="fab fa-twitter"></i></a></li>
                     </ul>
                 </div>
                 <div class="col s12 m6">

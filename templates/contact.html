@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Recipes{% endblock %}
 {% block content %}
+
     <!-- Flash messages code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
     <section>
         <!-- flash messages  -->
@@ -33,7 +34,8 @@
                             </div>
                             <div class="input-field col s12">
                                 <input id="email" type="email" name="email" class="validate">
-                                <label for="email"><i class="login fas fa-envelope"></i>Email</label><span class="helper-text" data-error="wrong" data-success="right"></span>
+                                <label for="email"><i class="login fas fa-envelope"></i>Email</label>
+                                <span class="helper-text" data-error="wrong" data-success="right"></span>
                             </div>
                             <div class="input-field col s12">
                                 <textarea id="enquiry" name="enquiry" class="materialize-textarea"></textarea>
@@ -50,3 +52,8 @@
     </main>
 
 {% endblock %}
+
+{% block scripts %}
+    <!-- Email Script through EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+{% endblock %}

@@ -233,31 +233,42 @@ The website user can only change the category or cancel the action
 If at any point the links break a 404 page will appear directing the website user back to the home page.
 ![image](static/documentation_files/images/404_error.png)
 
-### Media
+###     Media
 
-### Technologies Used
+####    Technologies Used
+![image](static/documentation_files/images/technologies.png)
+MongoDB was used as the database for the recipes and accounts. ![image](static/documentation_files/images/mongodb_files.png)
+Heroku was used for deployment and version control ![image](static/documentation_files/images/heroku.png)
 
-### Credits
+####    Credits 
+*Where an image is not listed it is my own.*
 **icon**
-![image](https://stock.adobe.com/uk/search/free?load_type=search&native_visual_search=&similar_content_id=&is_recent_search=&search_type=autosuggest&k=baking&acp=0&aco=baking&asset_id=273670969&content_id=273670969) Let's Bake motivational slogan or phrase handwritten with calligraphic font or script and decorated by mixer
-By Good Studio 
+![image](https://stock.adobe.com/uk/search/free?load_type=search&native_visual_search=&similar_content_id=&is_recent_search=&search_type=autosuggest&k=baking&acp=0&aco=baking&asset_id=273670969&content_id=273670969) Let's Bake motivational slogan or phrase handwritten with calligraphic font or script and decorated by mixer By Good Studio 
 **background for static pages**
-![image](https://stock.adobe.com/uk/search/free?load_type=search&native_visual_search=&similar_content_id=&is_recent_search=&search_type=autosuggest&k=baking&acp=0&aco=baking&asset_id=178084081)baking ingredients
-By Rawpixel.com
+![image](https://stock.adobe.com/uk/search/free?load_type=search&native_visual_search=&similar_content_id=&is_recent_search=&search_type=autosuggest&k=baking&acp=0&aco=baking&asset_id=178084081)baking ingredients By Rawpixel.com
 **background for weights & measures page**
-![image](https://stock.adobe.com/uk/search/free?filters%5Bcontent_type%3Aphoto%5D=1&filters%5Bcontent_type%3Aillustration%5D=1&filters%5Bcontent_type%3Azip_vector%5D=1&filters%5Bfree_collection%5D=1&filters%5Bcontent_type%3Aimage%5D=1&filters%5Borientation%5D=vertical&k=baking&order=relevance&safe_search=1&search_type=filter-select&get_facets=1&asset_id=247706319) Rolling pin and a weighing scale
-By Rawpixel.com
-** Default Profile Image **
-![image](https://www.vectorstock.com/royalty-free-vector/abstract-chef-cooky-food-bakery-logo-design-icon-vector-24016199) Image Id 24016199
-ARTIST [adhevaart](https://www.vectorstock.com/royalty-free-vectors/vectors-by_adhevaart) 
-*** Recipe Images ***
-Although I may have some photographs of the cakes and bakes created by the recipes I decided it would be more time efficient to use some that are available on the internet. None of the images loaded are my own but I have often baked all the recipes.
-*** Chocolate Chip Cookies ***
+![image](https://stock.adobe.com/uk/search/free?filters%5Bcontent_type%3Aphoto%5D=1&filters%5Bcontent_type%3Aillustration%5D=1&filters%5Bcontent_type%3Azip_vector%5D=1&filters%5Bfree_collection%5D=1&filters%5Bcontent_type%3Aimage%5D=1&filters%5Borientation%5D=vertical&k=baking&order=relevance&safe_search=1&search_type=filter-select&get_facets=1&asset_id=247706319) Rolling pin and a weighing scale By Rawpixel.com
+**Default Profile Image**
+![image](https://www.vectorstock.com/royalty-free-vector/abstract-chef-cooky-food-bakery-logo-design-icon-vector-24016199) Image Id 24016199 ARTIST [adhevaart](https://www.vectorstock.com/royalty-free-vectors/vectors-by_adhevaart) 
+**Landing Page Image**
+![image](https://www.bakemag.com/articles/14570-spring-on-the-wild-side-with-cakes) Image courtesy of Puratos By [John Unrein](https://www.bakemag.com/authors/2-john-unrein) 04/07/2021
+
+######  Recipe Images
+Although I may have some photographs of the cakes and bakes created by the recipes I decided it would be more time efficient to images that are available on the internet. 
+**Chocolate Chip Cookies**
 ![image](https://www.google.com/search?q=chocolate-chip+cookies&rlz=1C1CHBF_en-GBGB927GB927&sxsrf=ALeKk00CvGruX48K4p1I096wLH3I9PnZvA:1616684868489&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjPxbK63MvvAhUOQxUIHYBSCmYQ_AUoAXoECAEQAw&biw=1280&bih=554&dpr=1.25#imgrc=RCL0CE6FPWbCyM)
 (c)Handle the Heat with Tessa Arias. 
+**Lemon Drizzle**
+![image](https://100cookbooks.wordpress.com/2012/08/18/lemon-drizzle-traybake-mary-berrys-baking-bible/)
+**Banana Bread**
+![image](https://www.pcrm.org/good-nutrition/plant-based-diets/recipes/banana-bread) (c)The Vegan Starter Kit by Neal Barnard, M.D.
+**Chocolate Cornflake Buns**
+![image](https://i.pinimg.com/originals/6c/6e/1f/6c6e1f6f9c81bb8ddc90484a3db683f2.jpg) (c)netmums.com via pinterest.co.uk
+**Upside Down Berry Cake**
+![image](https://images.immediate.co.uk/production/volatile/sites/2/2014/12/1654.jpg?quality=90&crop=1px%2C353px%2C597px%2C254px&resize=597%2C254) (c)Olive Magazine
+
 ### Profile card
 My mentor, Arnold Keyza, suggested looking at the profile cards on [codepen](https://codepen.io/). I copied the code for [Randome Doodle2](https://codepen.io/thefeldkircher/pen/mdReELp) by [thefeldkircher](https://codepen.io/thefeldkircher) and modified it to be how I wanted it to look. 
-
 
 ## Development Phase
 ### Logo image in Navbar

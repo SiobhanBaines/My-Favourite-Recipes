@@ -3,7 +3,7 @@
 
     <main class="parallax-container home">
         <div class="parallax "><img src="{{ url_for('static', filename='images/background.jpeg') }}"></div>
-            <!-- Flash messages code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
+        <!-- Flash messages code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
         <section>
             <!-- flash messages  -->
             {% with messages = get_flashed_messages() %}
@@ -19,8 +19,6 @@
     
         <div class="container">
             <h3>Update Category</h3>
-            <!-- Code taken from Code Institute Flask Task Manager 
-                Project and altered to fit this website -->
             <div class="row card-panel grey lighten-5">
                 <form class="col s8 offset-s2" method="POST" action="{{ url_for('edit_category', category_id=category._id) }}">
                     <!-- Category Name -->
