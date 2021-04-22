@@ -8,11 +8,61 @@ The purpose of this project is to build a full-stack site that allows users to m
 [View the live project here](https://our-family-favourites.herokuapp.com/)
 ## Design Phase
 ### User Experience
-1. **A new visitor to the site**
-As a new visitor to the site I want to find some new recipes that other people love. I want the site to be easy to navigate, information to be easy to find and the site to be intuative. I would like to be able to create my own profile so that I can share my favourite recipes and store them in a convenient location.
-
-2. **A regular visitor to the site**
-I want to be able to see all recipes on the site, be able to add new recipes and potentially download a recipe or share it with a friend. If I decide to close my account I want the option to be able to delete the recipes I have contributed to the site.
+######  Recipe Details
+**As a** visitor, 
+**I want** to find some tasty and fun recipes
+**So that** I can quickly and easily bake something tasty for family and friends
+**Given** a visitory is interested in baking,
+**When** they visit the site and open a recipe,
+**Then** the recipe should have all the information needed to create the dish and be clear and easy to follow.
+######  Favourites
+**As a** visitor, 
+**I want** to know if other people like the recipe
+**So that** I am confident I will enjoy it too
+**Given** people have different likes and disklikes,
+**When** eating food,
+**Then** the site needs to have the ability to like or dislike the recipes and this information needs to be displayed clearly.
+######  Contact
+**As a** visitor, 
+**I want** to be able to contact the organisation
+**So that** when I have a question or something is wrong
+**When** using the site,
+**Then** a confirmation email should be sent to the visitor.
+######  Registration/Login
+**As a** visitor, 
+**I want** to know my account is secure to me
+**So that** I am confident noone else will be able to access my recipes
+**Given** that passwords need to be create,
+**When** a new account is registered,
+**Then** the new password needs to be confirmed and encrypted to reduce the risk of hacking.
+######  Upload Profile
+**As a** visitor with an account, 
+**I want** to be able to add an avitar or image of myself or change my password
+**So that** I know I am on my own profile and I can keep it more secure
+**Given** it will make the account more personal,
+**When** on the profile page
+**Then** there needs to be an upload image and change password facility on the profile page.
+######  Add Recipes/Categories
+**As a** visitor, 
+**I want** to be able to add my own recipes and categories
+**So that** I can share them with family and friends
+**Given** the visitor has registed, creating a profile,
+**When** login,
+**Then** the visitor can create, read, update and delete recipes from a single location as well as having the ability to create, read and update categories if none of the current categories meet their requirements.
+######  Upload Images
+**As a** visitor, 
+**I want** to be able to upload an image of my recipes
+**So that** other people and I can see the product without having to read
+**Given** it is easier to scan images than words,
+**When** looking for a recipe,
+**Then** the add and edit recipe pages need to have an upload image fascility.
+######  Delete Account
+**As a** visitor, 
+**I want** to have the ability to delete my account and my recipes from the site
+**So that** I know the site is complient with GDPR
+**Given** the recipes belong to each visitor when they are loaded onto the site,
+**When** they wish to close their account,
+**Then** the recipes must also be delete because they could be classified as personal information.
 
 ### *Strategy*
 A site where recipes can be loaded and shared by individuals creating a central repository where anyone can try something new or bake something that brings back child hood memories of being in Grandma's kitchen. The site will help remove the need for a book shelf full of cookery books. Thereby saving space, reducing clutter and creating a quick easy way to find something tastey to bake.
