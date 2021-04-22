@@ -12,14 +12,14 @@ The purpose of this project is to build a full-stack site that allows users to m
 **As a** visitor, 
 **I want** to find some tasty and fun recipes
 **So that** I can quickly and easily bake something tasty for family and friends
-**Given** a visitory is interested in baking,
+**Given** a visitor is interested in baking,
 **When** they visit the site and open a recipe,
 **Then** the recipe should have all the information needed to create the dish and be clear and easy to follow.
 ######  Favourites
 **As a** visitor, 
 **I want** to know if other people like the recipe
 **So that** I am confident I will enjoy it too
-**Given** people have different likes and disklikes,
+**Given** people have different likes and dislikes,
 **When** eating food,
 **Then** the site needs to have the ability to like or dislike the recipes and this information needs to be displayed clearly.
 ######  Contact
@@ -46,8 +46,8 @@ The purpose of this project is to build a full-stack site that allows users to m
 **As a** visitor, 
 **I want** to be able to add my own recipes and categories
 **So that** I can share them with family and friends
-**Given** the visitor has registed, creating a profile,
-**When** login,
+**Given** the visitor has registered, creating a profile,
+**When** logged in,
 **Then** the visitor can create, read, update and delete recipes from a single location as well as having the ability to create, read and update categories if none of the current categories meet their requirements.
 ######  Upload Images
 **As a** visitor, 
@@ -59,10 +59,10 @@ The purpose of this project is to build a full-stack site that allows users to m
 ######  Delete Account
 **As a** visitor, 
 **I want** to have the ability to delete my account and my recipes from the site
-**So that** I know the site is complient with GDPR
+**So that** I know the site is compliant with GDPR
 **Given** the recipes belong to each visitor when they are loaded onto the site,
 **When** they wish to close their account,
-**Then** the recipes must also be delete because they could be classified as personal information.
+**Then** the recipes must also be deleted because they could be classified as personal information.
 
 ### *Strategy*
 A site where recipes can be loaded and shared by individuals creating a central repository where anyone can try something new or bake something that brings back child hood memories of being in Grandma's kitchen. The site will help remove the need for a book shelf full of cookery books. Thereby saving space, reducing clutter and creating a quick easy way to find something tastey to bake.
@@ -77,7 +77,7 @@ The features to be included are
 * If a user with a profile wishes to delete their account, the ability to decide if they want to delete their contribution
 
 #### Weights and Measures
-As the site developed I decided to not create my own weights and measures page. The idea was to allow the website user to convert ounces to grams or celsius to gas marks etc,  without having to search around the internet separately. I realised what I wanted to do would be a website in it's own right and the BBC Good Food website already has a very comprehensive area for many different types of conversions so I created a link in the footer to access this information. I personally like pounds and ounces, my daughters like grams and the American cup measurements. 
+As the site developed I decided to not create my own weights and measures page. The idea was to allow the website user to convert ounces to grams or celsius to gas marks etc,  without having to search around the internet separately. I realised what I wanted to do would be a whole website in its own right when I looked at the BBC Good Food website's very comprehensive area for many different types of conversions. Since this site should represent a corporate site I decided leaving the link in the footer was not appropriate. I personally like pounds and ounces, my daughters like grams and the American cup measurements. 
 
 ### *Structure*
 How is the information structured, and is it logically grouped?
@@ -85,8 +85,8 @@ The navigation bar will change depending on the type of user visiting the site.
 Someone who does not have a profile will only be able to view the recipes and have the ability to register and login.
 Someone who is already registered will 
 * have the ability to see all the recipes they have created on a profile page
-* have the abiltiy to add, change or delete any of the recipes they have contributed 
-* have the abiltiy to delete their account 
+* have the ability to add, change or delete any of the recipes they have contributed 
+* have the ability to delete their account 
 * be able to print and/or email any of the recipes on the site
 
 There will be the ability to select the recipes by category or for all categories. 
@@ -192,7 +192,7 @@ When the website user clicks on the Logout option they are taken back to the Log
 
 ####    Contact Us Page
 ![image](static/documentation_files/images/contact_us.png)
-This contact page allows the website user to email the website owner with any questions, concerns or observations. When the website users clicks the button, it sends an email to the website owner and a reciept confirmation email to the email sender.
+This contact page allows the website user to email the website owner with any questions, concerns or observations. When the website user clicks the button, it sends an email to the website owner and a reciept confirmation email to the email sender.
 
 ####    Profile Page
 The profile page has two sections
@@ -251,7 +251,7 @@ Heroku was used for deployment and version control ![image](static/documentation
 **Default Profile Image**
 ![image](https://www.vectorstock.com/royalty-free-vector/abstract-chef-cooky-food-bakery-logo-design-icon-vector-24016199) Image Id 24016199 ARTIST [adhevaart](https://www.vectorstock.com/royalty-free-vectors/vectors-by_adhevaart) 
 **Landing Page Image**
-![image](https://www.bakemag.com/articles/14570-spring-on-the-wild-side-with-cakes) Image courtesy of Puratos By [John Unrein](https://www.bakemag.com/authors/2-john-unrein) 04/07/2021
+![image](https://www.bakemag.com/articles/14570-spring-on-the-wild-side-with-cakes) Image courtesy of Puratos by [John Unrein](https://www.bakemag.com/authors/2-john-unrein) 04/07/2021
 
 ######  Recipe Images
 Although I may have some photographs of the cakes and bakes created by the recipes I decided it would be more time efficient to images that are available on the internet. 
@@ -290,7 +290,7 @@ These 3 fields load fine on the recipe detail page but do not appear on the upda
 I checked the HTML and changed these fields to a materialize textarea. No change. I then checked the rows and column divs lined up properly. I checked the database to make sure there was nothing odd about the collection elements.
 ![image](https://github.com/SiobhanBaines/MS3-My-Favourite-Recipes/blob/8a7e1778d122da5366b4b7accee10d803b75ed10/documentation_files/images/recipe_in_mongodb.png)
 I asked for help on Slack and acted on the advice given. Eventually I gave up for the night. The next day I contacted tutor support and had another dig around Slack to see if there was anything that might point me in the right direction. This made me review the code I had copied from Materialize
-In the end it was a rookie mistake. I had copied some JavaScript code from Materializecss and initialised the value with blanks. When I commented out the JavaScript the ingredients, method and notes all reappeared. At this time regression testing has not brought up an related issues.
+In the end it was a rookie mistake. I had copied some JavaScript code from Materializecss and initialised the value with blanks. When I commented out the JavaScript the ingredients, method and notes all reappeared. At this time regression testing has not brought up any related issues.
 ##  Future Improvements
 * When a user registers or logs in better messages could be created allowing the user to know the format required for the username and password.
 * Only allowing 3 attempts to log in before requesting the user to change their password
@@ -298,6 +298,18 @@ In the end it was a rookie mistake. I had copied some JavaScript code from Mater
 * On the Add Recipe Page it would be better if there was a way to save the information on the page when the website user clicks on the upload image button. I don't really want it to create a full record of the recipe before the author is happy. That said when an image is uploaded a record is created in the recipe collection in MongoDB.
 
 ## Code Verification
+[W3C validator](https://validator.w3.org/) is used to validate the HTML5 for all templates which brings up various errors because the HTML in base.html is imported into the other HTML templates at run time. This validator also does not like the jinja commands in the HTML templates
+####    delete_account.html
+Below shows the issues. Errors 1 to 3 all exist in base.html. Error 4 is because it is a jinja command
+![image](static/documentation_files/images/w3c_validator_base_errors.png)
+####    add_recipe.html
+I put the *pattern* attribute into textarea because I have it for input text elements to stop hackers being able to enter code into the website. This is not valid so I will remove it from ALL textarea elements.
+![image](static/documentation_files/images/textarea.png)
+
+[CSS validator](https://jigsaw.w3.org/css-validator/validator)
+This tool was used to validate the CSS script. 
+
+[Autoprefixer](https://autoprefixer.github.io) which adds in any webkit or other extenders needed for different browsers
 
 ## Testing and Deployment Phase
 

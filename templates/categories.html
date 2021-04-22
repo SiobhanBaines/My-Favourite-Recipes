@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
-
     <main class="parallax-container home">
-        <div class="parallax "><img src="{{ url_for('static', filename='images/background.jpeg') }}"></div>
+        <div class="parallax "><img src="{{ url_for('static', filename='images/background.jpeg') }}" alt="background"></div>
         <!-- Flash messages code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
         <section>
             <!-- flash messages  -->
@@ -26,16 +25,16 @@
                         <i class="fas fa-plus-square right"></i></a>
                 </div>
             </div>
-            <div class="col s12 center-align">
-                <!-- Category Table --responsive-table-->
+            <div class="row">
+                            <div class="col s12 m10 offset-m1">
+                <!-- Category Table responsive-table -->
                 {% if categories %}
-                    <div class="card category-card">
+                    <div class="card">
                         <table class="highlight center-align responsive-table striped category-table">
                             <thead>
                                 <tr>
                                     <!-- Category Name -->
                                     <th>Category</th>
-                                    <h5 class="brown-text text-darken-3">My Categories</h5>
                                     <th class="center-align" colspan="2">Action</th>
                                 </tr>
                             </thead>
@@ -71,6 +70,7 @@
                         </div>
                     </div>
                 {% endif %}
+            </div>
             </div>
         </div>
     </main>

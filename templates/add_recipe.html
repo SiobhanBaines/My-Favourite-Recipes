@@ -2,7 +2,7 @@
 {% block content %}
 
     <main class="parallax-container">
-        <div class="parallax "><img src="{{ url_for('static', filename='images/scales.jpeg') }}"></div>
+        <div class="parallax "><img src="{{ url_for('static', filename='images/scales.jpeg') }}" alt="scales"></div>
         <div class="container">
             <h3>Please Add A Recipe</h3>
             <div class="row card-panel recipe-panel maintain-recipe">
@@ -16,8 +16,7 @@
                                     <input type="hidden" id="image_url" name="image_url" value="{{ recipe.image }}">
                                     <input type="hidden" id="recipe_id" name="recipe_id" value="{{ recipe._id }}">
                                 {% else %}
-                                    <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image"
-                                        class="circle responsive-img">
+                                    <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image" class="circle responsive-img">
                                 {% endif %}
                                 <a class="waves-effect waves-light btn modal-trigger" href="#uploadNewRecipeImageModal"><i class="fas fa-edit"></i> Upload image</a>
                             </div>
@@ -88,21 +87,21 @@
                     <!-- Ingredients -->
                     <div class="row recipe-row-imn">
                         <div class="input-field col s12">
-                            <textarea id="ingredients" name="ingredients" minlength="5" maxlength="1000" pattern="([^\s;,.][A-z0-9À-ž&\s]+)" class="materialize-textarea active" required></textarea>
+                            <textarea id="ingredients" name="ingredients" minlength="5" maxlength="1000" class="materialize-textarea active" required></textarea>
                             <label for="ingredients">Ingredients</label>
                         </div>
                     </div>
                     <!-- Method -->
                     <div class="row recipe-row-imn">
                         <div class="input-field active col s12">
-                            <textarea id="method" name="method" minlength="5" maxlength="1000" pattern="([^\s;,.][A-z0-9À-ž&\s]+)" class="materialize-textarea active" required></textarea>
+                            <textarea id="method" name="method" minlength="5" maxlength="1000" class="materialize-textarea active" required></textarea>
                             <label for="method">Method</label>
                         </div>
                     </div>
                     <!-- Notes -->
                     <div class="row recipe-row-imn">
                         <div class="input-field col s12">
-                            <textarea id="notes" name="notes" minlength="5" maxlength="300" pattern="([^\s;,.][A-z0-9À-ž&\s]+)" class="materialize-textarea active"></textarea>
+                            <textarea id="notes" name="notes" minlength="5" maxlength="300" class="materialize-textarea active"></textarea>
                             <label for="notes">Notes</label>
                         </div>
                     </div>

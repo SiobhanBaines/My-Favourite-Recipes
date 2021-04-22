@@ -2,26 +2,28 @@
 {% block title %}Recipes{% endblock %}
 {% block content %}
 
-    <!-- Flash messages code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
-    <section>
-        <!-- flash messages  -->
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="pink-text text-darken-4">{{ message }}</h4>
-                    </div>
-                {% endfor%}
-            {% endif %}
-        {% endwith %}
-    </section>
     <!-- A page to enable the user to contact me -->
     <main class="home parallax-container">
-        <div class="parallax"><img src="{{ url_for('static', filename='images/background.jpeg') }}"></div>
+        <div class="parallax"><img src="{{ url_for('static', filename='images/background.jpeg') }}" alt="background"></div>
+        
+        <!-- Flash messages code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
+        <section>
+            <!-- flash messages  -->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="row flashes">
+                            <h4 class="pink-text text-darken-4">{{ message }}</h4>
+                        </div>
+                    {% endfor%}
+                {% endif %}
+            {% endwith %}
+        </section>
+        
         <div class="container">
             <h3>Contact Form</h3>
             <div class="row">
-                <form id="contact" class="col s12 m8 offset-m2" onsubmit="return sendMail(this);">
+                <form id="contact" class="col s12 m8 offset-m2" onsubmit="return sendMail(this)">
                     <div class="card-panel brown-text text-darken-3"> 
                         <div class="row">
                             <div class="input-field col s12">
@@ -55,5 +57,5 @@
 
 {% block scripts %}
     <!-- Email Script through EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 {% endblock %}

@@ -4,7 +4,7 @@
 
     <!-- Home page with carousel of currently loaded recipes -->
     <div class="home parallax-container">
-        <div class="parallax "><img src="{{ url_for('static', filename='images/puratos_tropical_fruit_cake.jpg') }}"></div>
+        <div class="parallax "><img src="{{ url_for('static', filename='images/puratos_tropical_fruit_cake.jpg') }}" alt="fruit cake"></div>
         <!-- Flash messages code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
         <section>
             <!-- flash messages  -->
@@ -22,7 +22,7 @@
         <h3 class="home">Family Favourite Recipes</h3>
         <div class="carousel">
             {% for recipe in recipes %}
-                <a class="carousel-item" href="{{ url_for('recipe_detail', recipe_id=recipe._id) }}"><img src="{{ recipe.image }}" height="200px"></a>
+                <a class="carousel-item" href="{{ url_for('recipe_detail', recipe_id=recipe._id) }}"><img src="{{ recipe.image }}" alt="recipe" height="200px"></a>
             {% endfor %}
         </div>
     </div>

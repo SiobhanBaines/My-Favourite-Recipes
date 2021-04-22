@@ -25,12 +25,12 @@
                         <div class="col s12">
                             <section>
                                 {% if image %}
-                                    <img src="{{ image }}" alt="">
+                                    <img src="{{ image }}" alt="profile image">
                                     <div class="row">
                                         <a class="pink darken-4 btn modal-trigger" href="#uploadProfileImageModal"><i class="fas fa-edit"></i> Edit image</a>
                                     </div>
                                 {% else %}
-                                    <img src="../static/images/profile_image.jpg" alt="">
+                                    <img src="../static/images/profile_image.jpg" alt="default progile image">
                                     <div class="row">
                                         <a class="waves-effect waves-light btn modal-trigger" href="#uploadProfileImageModal"><i class="fas fa-edit"></i> Upload an image</a>
                                     </div>
@@ -61,31 +61,30 @@
             <div class="col s12 m6">
                 {% if recipes %}
                     <!-- Recipes Added by User -->
-                    <div class="card">
-                    <table class="highlight responsive-table striped profile-recipes">
-                        <thead>
-                            <h5 class="brown-text text-darken-3 center-align">My Recipes</h5>
-                            <tr>
-                                <!-- Recipe Name -->
-                                <th>Recipe Name</th>
-                                <th class="center-align">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody class="profile-recipes">
-                            {% for recipe in recipes %}
+                    <div class="card">    
+                        <h5 class="brown-text text-darken-3 center-align">My Recipes</h5>
+                        <table class="highlight responsive-table striped profile-recipes">
+                            <thead>
                                 <tr>
                                     <!-- Recipe Name -->
-                                    <td class="left-align"><a class="brown-text text-darken-3 profile-recipe" href="{{ url_for('recipe_detail', recipe_id= recipe._id) }}">{{ recipe.title }}</a>
-                                    </td>
-                                    <!-- Change recipe  -->
-                                    <td>
-                                        <a href="{{ url_for('edit_recipe', recipe_id= recipe._id) }}" class="btn green darken-3 text-center"><i class="fas fa-edit"></i> Maintain Recipe</a>
-                                    </td>
+                                    <th>Recipe Name</th>
+                                    <th class="center-align">Action</th>
                                 </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-
+                            </thead>
+                            <tbody class="profile-recipes">
+                                {% for recipe in recipes %}
+                                    <tr>
+                                        <!-- Recipe Name -->
+                                        <td class="left-align"><a class="brown-text text-darken-3 profile-recipe" href="{{ url_for('recipe_detail', recipe_id= recipe._id) }}">{{ recipe.title }}</a>
+                                        </td>
+                                        <!-- Change recipe  -->
+                                        <td>
+                                            <a href="{{ url_for('edit_recipe', recipe_id= recipe._id) }}" class="btn green darken-3 text-center"><i class="fas fa-edit"></i> Maintain Recipe</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                 {% else %}
                     <div class="norecipes">

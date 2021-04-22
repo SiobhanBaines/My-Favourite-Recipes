@@ -39,7 +39,6 @@ def home():
 
 @app.route("/get_recipes")
 def get_recipes():
-    # categories = list(mongo.db.categories.find().sort("category", 1))
     recipes = mongo.db.recipes.find()
     return render_template(
         "recipes.html", recipes=recipes)
@@ -67,12 +66,9 @@ def recipe_detail(recipe_id):
 
 @app.route('/like/<recipe_id>', methods=["GET", "POST"])
 def like(recipe_id):
-    print("line 60 recipe_id", recipe_id)
-    print(request.method)
     if request.method == "POST":
         liked = mongo.db.likedRecipes.find_one(
             {"recipe_id": ObjectId(recipe_id), "username": session["user"]})
-        print("line 64 liked", liked)
         if liked:
             flash("Sorry, you have already liked this recipe.")
             return redirect(url_for("recipe_detail", recipe_id=recipe_id))
@@ -132,7 +128,6 @@ def dislike(recipe_id):
 @app.route("/add_recipe/", methods=["GET", "POST"])
 def add_recipe():
     user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
-    # recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
 
     if request.method == "POST":
         recipe_id = request.form.get("recipe_id")
@@ -178,7 +173,6 @@ def edit_recipe(recipe_id):
 
     if request.method == "POST":
         user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
-        print(user_id)
         submit_recipe = {
             "user": user_id,
             "category": request.form.get("category"),
@@ -214,7 +208,6 @@ def edit_recipe(recipe_id):
 def delete_recipe(recipe_id):
     username = mongo.db.recipes.find_one(
         {"_id": ObjectId(recipe_id)}, {"name"})
-    print("line 217, username", username, "session, ", session['user'])
     if {session["user"] == username}:
         mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
         flash("Recipe Successfully Deleted")
@@ -291,18 +284,13 @@ def profile(username):
         {"username": session["user"]})["_id"]
     image = mongo.db.users.find_one(
         {"username": session["user"]})["image"]
-    print(session["user"])
 
     if session["user"] == "admin":
         recipes = list(mongo.db.recipes.find().sort("recipe", 1))
-        print("line 283 admin ", recipes)
-        # print("line284 count", recipes.count())
     else:
         if session["user"]:
             recipes = list(mongo.db.recipes.find(
                 {"user": ObjectId(user_id)}).sort("category", 1))
-            print("line 286 recipes", recipes)
-            # print(recipes.count())
         else:
             return redirect(url_for("login"))
 
@@ -314,12 +302,10 @@ def profile(username):
 
 @app.route("/delete_account/<username>", methods=['GET', 'POST'])
 def delete_account(username):
-    print("line 317 username", username, "session", session['user'])
     if request.method == 'POST':
         # prevents guest users from viewing the form
         if username == session["user"]:
             user = mongo.db.users.find_one({"username": username})
-            print("line 318 user", user)
             # checks if password matches existing password in database
             if check_password_hash(
                 user["password"], request.form.get(
@@ -340,8 +326,6 @@ def delete_account(username):
 
 @app.route("/change_password/<username>", methods=['GET', 'POST'])
 def change_password(username):
-    print("line 330 username ", username)
-    print("request.method ", request.method)
     if request.method == 'POST':
         # prevents guest users from viewing the form
         if username == session["user"]:
@@ -352,28 +336,16 @@ def change_password(username):
                     "old_password")):
                 request.form.get("old_password")
 
-                print(
-                    "line 340 request.form.get(old_password) ",
-                    request.form.get("old_password"))
-
-                print("line 342 user-password ", user["password"])
-
                 if {request.form.get(
                     "old_password").lower()} != {request.form.get(
                         "new_password").lower()}:
-
-                    print("line 347 ne-passwords", request.form.get("new_password"))
-                    print("line 347 ne-passwords", request.form.get("confirm_new_password"))
 
                     if {request.form.get(
                         "new_password").lower()} == {request.form.get(
                             "confirm_new_password").lower()}:
 
-                        new_password = request.form.get("new_password")
-                        print("line 354 password update", new_password)
                         file_password = generate_password_hash(
                             request.form.get("new_password"))
-                        print("line 354 password update", file_password)
                         mongo.db.users.update_one(
                             {"username": username},
                             {"$set": {"password": file_password}},
@@ -389,10 +361,6 @@ def change_password(username):
                                 "change_password", username=session["user"]))
                 else:
                     flash("Your new password cannot match your old password!")
-
-                    print("username", username)
-                    print("session user ", session["user"])
-                    # return render_template("includes/change_password.html", username=session["user"])
                     redirect(
                         url_for("change_password", username=session["user"]))
             else:
@@ -401,24 +369,18 @@ def change_password(username):
         else:
             flash("You need to be logged in to delete your account!")
             return redirect(url_for("login"))
-
-    print("nothing caught")
     return render_template("change_password.html", username=session["user"])
 
 
 # Upload an image   Copied from Double Shamrock Hackathon and modified
 @app.route("/upload_profile_image/<username>", methods=["GET", "POST"])
 def upload_profile_image(username):
-    user = mongo.db.users.find_one({"username": username})
-    print(user)
     if request.method == 'POST':
         for user_image in request.files.getlist("user_image"):
-            print("profile image upload line 398 ")
             # create file name for image prior to load in cloudinary
             filename = secure_filename(user_image.filename)
             filename, file_extension = os.path.splitext(filename)
             public_id_image = (username + '_' + filename)
-            print("profile image upload line 403 ")
             cloudinary.uploader.unsigned_upload(
                 user_image, "profile_images",
                 cloud_name='dyxuve4pr',
@@ -428,7 +390,6 @@ def upload_profile_image(username):
             image_url = (
                 "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/profile_images/"
                 + public_id_image + file_extension)
-            print("update profile image upload line 412 ")
             mongo.db.users.update(
                 {"username": username},
                 {"$set": {"image": image_url}})
@@ -448,15 +409,14 @@ def upload_recipe_image(recipe_id):
             filename = secure_filename(recipe_image.filename)
             filename, file_extension = os.path.splitext(filename)
             public_id_image = (session["user"] + '_' + filename)
-            print("recipe image upload line 432 ")
             cloudinary.uploader.unsigned_upload(
                 recipe_image, "recipe_images",
                 cloud_name='dyxuve4pr',
                 folder='favourite_recipes/recipe_images/',
                 public_id=public_id_image)
-            print("recipe image upload line 438")
             image_url = (
-                "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/recipe_images/" + public_id_image + file_extension)
+                "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/recipe_images/"
+                + public_id_image + file_extension)
 
         recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
         categories = mongo.db.categories.find()
@@ -494,18 +454,11 @@ def upload_new_recipe_image():
                 public_id=public_id_image)
 
             image_url = (
-                "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/recipe_images/" + public_id_image + file_extension)
+                "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/recipe_images/"
+                + public_id_image + file_extension)
 
-        # print("398", image_url)
-        # categories = mongo.db.categories.find()
-        # print("402", categories)
         recipe_image = {"image": image_url}
-        # print("404", recipe_image)
         recipe = mongo.db.recipes.insert_one(recipe_image)
-        # print("406", new_recipe)
-        # recipe_id = mongo.db.recipes.find_one({"image": image_url})["_id"]
-        # recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-        # print("400", recipe)
 
     return render_template(
         'add_recipe.html', recipe=recipe)
@@ -513,13 +466,12 @@ def upload_new_recipe_image():
 
 @app.route("/get_categories")
 def get_categories():
-    print(session["user"])
     if session["user"] == "admin":
         categories = list(mongo.db.categories.find().sort("category", 1))
     else:
-        categories = list(mongo.db.categories.find({"name": session["user"]}).sort("category", 1))
-        print("line 504 cats", categories)
-        # categories = list(mongo.db.categories.find().sort("category", 1))
+        categories = list(
+            mongo.db.categories.find(
+                {"name": session["user"]}).sort("category", 1))
     return render_template("categories.html", categories=categories)
 
 
@@ -567,26 +519,19 @@ def edit_category(category_id):
 @app.route("/delete_category/<category_id>/<category>")
 def delete_category(category_id, category):
     if session["user"] != "admin":
-        flash("You are not authorised to delete categories. The categories may be used by other peoples recipes. Please contact us using the link at the bottom.")
+        flash(
+            "You are not authorised to delete categories. The categories may be used by other peoples recipes. Please contact us using the link at the bottom.")
         return redirect(url_for("get_categories"))
     else:
         recipes = mongo.db.recipes.find_one({"category": category})
-        print("line 548 recipes", recipes, category)
         if recipes:
-            flash("You cannot delete this category because it is allocated to existing recipes")
+            flash(
+                "You cannot delete this category because it is allocated to existing recipes")
             return redirect(url_for("get_categories"))
         else:
-            print("line 553 user", session["user"])
-            print("line 554 recipes with no cats", recipes, category)
             mongo.db.categories.remove({"_id": ObjectId(category_id)})
             flash("Category Successfully Deleted")
             return redirect(url_for("get_categories"))
-
-        print("line 558 user", session["user"])
-        print("line 554 recipes with no cats", recipes, category)
-
-    print("line 560 user", session["user"])
-    print("line 554 recipes with no cats", recipes, category)
 
 
 @app.route("/contact")
