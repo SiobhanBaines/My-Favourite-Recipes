@@ -114,9 +114,13 @@ button.btn.recipe {
   font-size: 12px;
   width: 14rem;
 }
-button.btn.score {
+button.btn.score,
+a.btn.score       {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row-reverse wrap-reverse;
   color: var(--main-brown);
-  display: inline-block;
   font-size: 20px;
   width: 100%;
   height: 30%;
@@ -150,33 +154,17 @@ i.fas {
   padding: 0 0.5rem 0 0.5rem;
   margin: 0;
 }
-i.rating,
 .rating {
   font-size: 20px;
-  padding: 2% 0 0 5%;
   margin: 4%;
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   width: 50%;
 }
-p.rating-count {
-  margin-left: 2%;
-}
-i.recipe-rating {
-  font-size: 16px;
-  padding: 0;
-  display: inline-block;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-a.score,
-.ratings {
-  margin-top: 5%;
-  color: var(--main-brown);
-}
+
 /* --- Navbar --- */
 nav,
 nav ul a {

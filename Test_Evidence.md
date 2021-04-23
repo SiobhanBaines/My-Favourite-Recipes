@@ -14,14 +14,8 @@ The navigation bar is consistent across all pages and device sizes.
 
 Each of the navigation links takes the webiste user to the relavent pages.
 
-
-
-
-
-
-
 ####    Footer
-The footer allows for the addition of information and links to sites that are not directly part of this site. The website user can find information about the creator of this site. In the real world these links would be for other company information. The website user has access to be able to contact the owner of the site. The link for the weights and measure takes the website user to the BBC Good Food unit conversion page. For a corporate site it would be preferable to completely recreat this information and not link to outside the site.
+The footer allows for the addition of information and links to sites that are not directly part of this site. The website user can find information about the creator of this site. In the real world these links would be for other company information including corporate social media. The website user has access to be able to contact the owner of the site via the **contact us** link.
 
 #####   Footer on Large Devices
  ![image](static/documentation_files/images/unit_testing_images/footer_larger.png)
@@ -44,140 +38,106 @@ The link to Instagram opens in a seperate window.
 ####    Twitter
 The link to Twitter opens in a seperate window.
  ![image](static/documentation_files/images/unit_testing_images/twitter.png)
-#####   Weights and Measures link
-This links to an external website [BBC Good Food](https://www.bbcgoodfood.com/conversion-guides). To create this within my site would have been creating a full website so I decided to simply create the link.
-######  Large Devices
- ![image](static/documentation_files/images/unit_testing_images/w&m_large.png)
-######  Medium Devices
- ![image](static/documentation_files/images/unit_testing_images/w&m_medium.png)
-######  Small Devices
- ![image](static/documentation_files/images/unit_testing_images/w&m_small.png)
 
-####    Home Page
-#####   Home Page Large
-There is a strange issue with the home page where by when the site is opened on a desktop and all navigation is done on that resolution the navigation bar fits the whole window and there is no horizontal scroll bar.
- ![image](static/documentation_files/images/unit_testing_images/home_large.png)
-If the same page is inspected using DevTools and then DevTools is closed a horizontall scroll bar appears.
- ![image](static/documentation_files/images/unit_testing_images/home_large_issue.png)
-To fix the issue I had to ass some styling for the .nav-extended class to force the bar to being the full width and then had to add some padding to the right of the ul element so that all them navigation options were still visible.
 
-#####   Home Page Medium
- ![image](static/documentation_files/images/unit_testing_images/home_medium.png)
-#####   Home Page Small
+#####   Materialize Parallax Image
+**Issues**
 There is an issue when moving between device sizes where the home page, parallax image does not cover the whole of the container.
+
  ![image](static/documentation_files/images/unit_testing_images/home_small_issue.png)
+
 I tried to fix this by removing some of the CSS styling for the .parallax-container class so that it only contained the overlay to lighten the image which enabled the materialize CSS. Although this looked like it worked initially, when I reloaded and ran some more tests the issue stayed the same
-######  Parallax Materialize Issue
+**Resolutions**
 After much investigation I have come to the conclusion this is an intermittent issue with the materializecss styling for the parallax class. I thought it was related to the carousel I have on top of the background image but found I have the same issue on other pages where there is no background image. something happens to change the element.style but I have not been able to uncover the exact issue.
+
  ![image](static/documentation_files/images/unit_testing_images/home_parallax_image_styling.png)
  ![image](static/documentation_files/images/unit_testing_images/parallax_issue_after_refresh.png)
  ![image](static/documentation_files/images/unit_testing_images/parallax_issue.png)
- ![image](static/documentation_files/images/unit_testing_images/home_carousel_styling.png)
  ![image](static/documentation_files/images/unit_testing_images/add_category_parallax_styling.png)
+
+####    Home Page
+**Issues**
+There is a strange issue with the home page where by when the site is opened on a desktop and all navigation is done on that resolution the navigation bar fits the whole window and there is no horizontal scroll bar.
+ ![image](static/documentation_files/images/unit_testing_images/home_large.png)
+If the same page is inspected using DevTools and then DevTools is closed a horizontall scroll bar appears.
+**Resolutions**
+ ![image](static/documentation_files/images/unit_testing_images/home_large_issue.png)
+To fix the issue I had to add some styling for the `.nav-extended` class to force the bar to being the full width and then had to add some padding to the right of the ul element so that all them navigation options were still visible.
 
 ####    About Page
 The about page has no functionality to test but the format for UX needs to be validated across all device sizes.
+**Issues**
 There is an issue with white space on either side of the about container.
  ![image](static/documentation_files/images/unit_testing_images/about_large_issue.png) 
+ **Resolutions**
 This issue occured because the class container is a materialize class which has a set width that is smaller than the full view width of a screen. By changing the classes from .container .about to .container-about in both the HTML and CSS the issue is resolved.
-#####   About Page Large
  ![image](static/documentation_files/images/unit_testing_images/about_large_fixed.png)
-#####   About Page Medium
- ![image](static/documentation_files/images/unit_testing_images/about_medium.png)
-#####   About Page Small
- ![image](static/documentation_files/images/unit_testing_images/about_small.png)
 
 ####    Getting Started Page
 The getting started page has one button which allows the website user to register with the site to allow them to add their own recipes. This button works.
-#####   Getting Started Large
- ![image](static/documentation_files/images/unit_testing_images/getting_started_large.png)
-#####   Getting Started Medium
- ![image](static/documentation_files/images/unit_testing_images/getting_started_medium.png)
-#####   Getting Started Small
- ![image](static/documentation_files/images/unit_testing_images/getting_started_small.png)
+
+ ![image](static/documentation_files/images/getting_started_large.png)
 
 ####    Recipes Page
 The recipe page will grow in length as more recipes are added. Clicking on one of the recipe cards will take the website user to the recipe detail page. Each recipe shows how many people have liked or disliked each recipe. 
 #####   Recipes Page Large
- ![image](static/documentation_files/images/unit_testing_images/recipes_page_large.png)
+ ![image](static/documentation_files/images/recipes_page_large.png)
 #####   Recipes Page Medium
  ![image](static/documentation_files/images/unit_testing_images/recipes_page_medium.png)
 #####   Recipes Page Small
  ![image](static/documentation_files/images/unit_testing_images/recipes_page_small.png)
+The recipe card page allows the website user to search recipes for specific categories. Here I used the word fun ![image](static/documentation_files/images/unit_testing_images/fun_filter.png) which brought back only one recipe ![image](static/documentation_files/images/unit_testing_images/recipe_card_filter.png)
+
+If a recipe is loaded without an image, the site provides a default image.
+![image](static/documentation_files/images/unit_testing_images/recipe_card_default_image.png)
 **Issues**
 1. When an image is uploaded it will need to be resized so that when it is displayed the image does not pull out of shape.
 2. If there is no image a default image is needed and the recipe title font colour will need to darken.
 **Resolutions**
 1. Using google to search for resizing of images using Python I found [auth0.com](https://auth0.com/blog/image-processing-in-python-with-pillow/#Resizing-Images)
 2. Added default image code to HTML and added a new class with CSS to change the recipe title from white to brown so that it can be read.
- ![image](static/documentation_files/images/unit_testing_images/recipe_card_default_image.png)
+ ![image](static/documentation_files/images/unit_testing_images/recipe_cards.png)
 ####    Register Page
-The website user needs to register to be able to add any new recipes or categories which they will subsequently be able to read, change or delete later. (investigate - being able to stop user deleting categories used by other recipes) 
-1. The individual needs to decide on a username and password. Both can consist of upper and lowercase letters and numbers and must be between 5 and 15 characters in length. 
-If the username is too short the entry line changes to red and when the cursor is hovered over the line the message "Please match the requested format." appears. 
-* Here the username is too short
-![image](static/documentation_files/images/unit_testing_images/name_too_short.png)
-* Here the user wanted to use special characters which are not allowed.
-![image](static/documentation_files/images/unit_testing_images/name_special_chars.png.jpg)
-* The user has entered a valid username and the HTML formating has stopped the user entering more than 15 characters.
-![image](static/documentation_files/images/unit_testing_images/valid_username.png)
-* If the user selects a username that already exists the receive a flash message
-![image](static/documentation_files/images/unit_testing_images/username_already_exists.png)
-2. Both passwords must be identical. 
-* Here the passwords do not match and a flash message is displayed.
-![image](static/documentation_files/images/unit_testing_images/passwords_do_no_match.png)
-3. If a user already has an account they can click the link to take them to the log-in page.
-![image](static/documentation_files/images/unit_testing_images/login_from_registration.png)
-4. When the website visitor creates a valid username and password, the password in encrypted using Flask Werkzeug security, a record is added to the user collection in MongoDB and the user is taken to their profile page.
-* MongoDB record
-![image](static/documentation_files/images/unit_testing_images/mongodb_user.png)
-* Profile page of a new account
-![image](static/documentation_files/images/unit_testing_images/valid_registration.png)
-#####   Register Page Large
- ![image](static/documentation_files/images/unit_testing_images/register_large.png)
-#####   Register Page Medium
- ![image](static/documentation_files/images/unit_testing_images/register_medium.png)
-#####   Register Page Small
- ![image](static/documentation_files/images/unit_testing_images/register_small.png)
+The website user needs to register to be able to add any new recipes or categories which they will subsequently be able to read, change or delete later.
 
+ ![image](static/documentation_files/images/register_large.png)
 ####    Log-in Page
-Once the website user has an account they can log in and out whenever they need.
-1. The username and password are validated against the user collection in MongoDB to confirm the username exists and its password is correct.
-* If the user enters either an invalid username or incorrect password a flash message is displayed. The same message is displayed for both errors to help prevent hacking.
-![image](static/documentation_files/images/unit_testing_images/invalid_login.png)
-3. If a user is not register there is a link to the registration page.
-![image](static/documentation_files/images/unit_testing_images/register_from_login.PNG)
-#####   Log-in Page Large
- ![image](static/documentation_files/images/unit_testing_images/login_large.png)
-#####   Log-in Page Medium
- ![image](static/documentation_files/images/unit_testing_images/login_medium.png)
-#####   Log-in Page Small
- ![image](static/documentation_files/images/unit_testing_images/login_small.png)
+Once the website user has an account they can log in and will then have access to add, change, delete recipes and add, change categories.
+
+ ![image](static/documentation_files/images/login_large.png)
 ####    Log-out
-![image]()
+Logging out take the website user back to the login page.
 ###     Profile Page
-Below is an image of the profile page for a new user which shows a message saying they have not added any recipes and has a place to upload an image of themselves if they want to.
-![image](static/documentation_files/images/unit_testing_images/new_user_profile.png)
+When a website user has created an account and/or logged in they are taken to the profile page where they have full access to their account and recipes with only add and change access to their categories.
+ ![image](static/documentation_files/images/unit_testing_images/profile_large.PNG)
 **Issues**
 The text on the buttons on the profile card are truncated.
 **Resolution**
 I increased the button width from 12rem to 14rem.
 From this page a website user can change their password, delete their account (which will delete all the recipes they have created), add a new recipe, maintain categories. When the website user has added some recipes a table is displayed detailing the recipes they have added. Clicking on the recipe name will take them to a read-only view of the recipe or they can click on the maintain recipe button to change or delete the recipe.
 
-#####   Profile Page Large
- ![image](static/documentation_files/images/unit_testing_images/profile_large.PNG)
-#####   Profile Page Medium
- ![image](static/documentation_files/images/unit_testing_images/profile_large.PNG)
-#####   Profile Page Small
- ![image](static/documentation_files/images/unit_testing_images/profile_small.png)
+#####   Recipe Table
+The recipes table scrolls horizontally on medium and small devices and vertically on large devices.
+######  large
+![image](static/documentation_files/images/profile_large.PNG)
+######  small
+ ![image](static/documentation_files/images/unit_testing_images/profile_scroll_small.png)
 
 ####    Display Recipe Page
-#####   Display Recipe Page Large
- ![image]()
-#####   Display Recipe Page Medium
- ![image]()
-#####   Display Recipe Page Small
- ![image]()
+This page shows all the details of the recipe so that the website user can cook it easily. The website user can also like or dislike the recipe.
+![image](static/documentation_files/images/unit_testing_images/recipe_details.png)
+If the website user has already liked or disliked the recipe, a flash message is displayed and they cannot like/dislike it again.
+![image](static/documentation_files/images/unit_testing_images/already_liked.png)
+**Issues**
+1. The the liked button was clicked but the website user was not logged-in the site crashed. This is because session does not have a user element unless a visitor is logged in. 
+![image](static/documentation_files/images/like_issue_no_account.png)
+**Resolution**
+I changed the code to include a test to check session for a user element. This has the effect of not allowing anyone who does not have an account from liking or disliking the recipes.
+![image](static/documentation_files/images/like_issue_fix.png)
+After some thought I decided the site would be more efficient if I made the change in the HTML. This would reduce the processing time of reloading the page. I changed the HTML to display two different types of buttons depending on whether the website visitor was logged-in or not. 
+![image](static/documentation_files/images/unit_testing_images/recipe_html.png) 
+I also changed the CSS to fix the alignment using flex-box on both the recipe detail and the recipe card pages.
+ ![image](static/documentation_files/images/unit_testing_images/flex_rating.png) ![image](static/documentation_files/images/unit_testing_images/recipe_ratings.png) ![image](static/documentation_files/images/unit_testing_images/flex_score.png) ![image](static/documentation_files/images/unit_testing_images/recipe_buttons.png)
 
 ####    Add Recipe Page
 #####   Add Recipe Page Large

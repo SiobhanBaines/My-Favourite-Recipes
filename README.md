@@ -68,7 +68,7 @@ The purpose of this project is to build a full-stack site that allows users to m
 A site where recipes can be loaded and shared by individuals creating a central repository where anyone can try something new or bake something that brings back child hood memories of being in Grandma's kitchen. The site will help remove the need for a book shelf full of cookery books. Thereby saving space, reducing clutter and creating a quick easy way to find something tastey to bake.
 
 ### *Scope*
-[Project Design Mind Map](static/documentation_files/recipes_mindmap.jpg)
+[Project Design Mind Map](static/documentation_files/images/recipes_mindmap.jpg)
 
 The features to be included are
 * The ability to select recipes by category
@@ -130,14 +130,17 @@ On smaller devices the navigation changes from individual links to the standard 
 ####    Footer Area
 The footer area has active links to my personal social media site.
 ![image](static/documentation_files/images/footer.png)
+
 ####    Landing Page
 The landing page is split into 3 separate areas.
 ######  Home Section
+![image](static/documentation_files/images/unit_testing_images/home_large.png)
+
 This section has a carousel of all the recipes available on the site. If a visitor selects one of the images they will be taken to the recipe detail page.
 ![image](static/documentation_files/images/home_carousel_styling.png)
 ######  About Section
 The about section gives some background to the reasons behind the site.
-![image](static/documentation_files/images/about_large_fixed.png)
+![image](static/documentation_files/images/unit_testing_images/about_medium.png)
 ######  Getting Started Section
 On the getting started section a visitor is invited to join the site and start adding their own recipes.
 ![image](static/documentation_files/images/getting_started_large.png)

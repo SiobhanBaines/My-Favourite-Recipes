@@ -66,6 +66,8 @@ def recipe_detail(recipe_id):
 
 @app.route('/like/<recipe_id>', methods=["GET", "POST"])
 def like(recipe_id):
+    # if session.get('user'):
+    #     if session['user']:
     if request.method == "POST":
         liked = mongo.db.likedRecipes.find_one(
             {"recipe_id": ObjectId(recipe_id), "username": session["user"]})
@@ -82,7 +84,7 @@ def like(recipe_id):
             likedRecipe = {
                 "recipe_id": ObjectId(recipe_id),
                 "username": session["user"]
-            }
+                }
             mongo.db.likedRecipes.insert_one(likedRecipe)
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -97,23 +99,27 @@ def like(recipe_id):
 
 @app.route('/dislike/<recipe_id>', methods=["GET", "POST"])
 def dislike(recipe_id):
-    if request.method == "POST":
-        disliked = mongo.db.dislikedRecipes.find_one(
-            {"recipe_id": ObjectId(recipe_id), "username": session["user"]})
-        if disliked:
-            flash("Sorry, you have already disliked this recipe.")
-            return redirect(url_for("recipe_detail", recipe_id=recipe_id))
-        else:
-            recipe = mongo.db.recipes.update_one(
-                {"_id": ObjectId(recipe_id)},
-                {'$inc': {'dislikes': 1}},
-                upsert=True
-            )
-            dislikedRecipe = {
-                "recipe_id": ObjectId(recipe_id),
-                "username": session["user"]
-            }
-            mongo.db.dislikedRecipes.insert_one(dislikedRecipe)
+    if session.get('user'):
+        if session['user']:
+            if request.method == "POST":
+                disliked = mongo.db.dislikedRecipes.find_one(
+                    {"recipe_id": ObjectId(recipe_id),
+                        "username": session["user"]})
+                if disliked:
+                    flash("Sorry, you have already disliked this recipe.")
+                    return redirect(url_for("recipe_detail",
+                                    recipe_id=recipe_id))
+                else:
+                    recipe = mongo.db.recipes.update_one(
+                        {"_id": ObjectId(recipe_id)},
+                        {'$inc': {'dislikes': 1}},
+                        upsert=True
+                    )
+                    dislikedRecipe = {
+                        "recipe_id": ObjectId(recipe_id),
+                        "username": session["user"]
+                    }
+                    mongo.db.dislikedRecipes.insert_one(dislikedRecipe)
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     ingredients = mongo.db.recipes.find_one(
