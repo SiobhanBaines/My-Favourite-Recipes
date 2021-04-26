@@ -464,10 +464,15 @@ def upload_new_recipe_image():
                 + public_id_image + file_extension)
 
         recipe_image = {"image": image_url}
-        recipe = mongo.db.recipes.insert_one(recipe_image)
-
+        new_recipe = mongo.db.recipes.insert_one(recipe_image)
+        print(new_recipe)
+        categories = mongo.db.categories.find()
+        recipe_id = mongo.db.recipes.find_one({"image": image_url})["_id"]
+        print(recipe_id)
+        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        print("400", recipe)
     return render_template(
-        'add_recipe.html', recipe=recipe)
+        'add_recipe.html', recipe=recipe, categories=categories)
 
 
 @app.route("/get_categories")

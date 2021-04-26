@@ -140,12 +140,24 @@ I also changed the CSS to fix the alignment using flex-box on both the recipe de
  ![image](static/documentation_files/images/unit_testing_images/flex_rating.png) ![image](static/documentation_files/images/unit_testing_images/recipe_ratings.png) ![image](static/documentation_files/images/unit_testing_images/flex_score.png) ![image](static/documentation_files/images/unit_testing_images/recipe_buttons.png)
 
 ####    Add Recipe Page
-#####   Add Recipe Page Large
- ![image]()
-#####   Add Recipe Page Medium
- ![image]()
-#####   Add Recipe Page Small
- ![image]()
+![image](static/documentation_files/images/add_recipe.png)
+If the website user wants to load an image, this needs to be done before the recipe details are filled in because the site currently loses all the other information when the upload button is pressed. The website use can change the recipe and upload an image then.
+#####   Upload image
+![image](static/documentation_files/images/unit_testing_images/upload_image.png)
+When the website user has chosen the image they want to use from the personal collection of images (or one they have downloaded) and clicked the upload button, an image is loaded to cloudinary and a new recipe record with the url is created in the recipe collection in MongoDB.
+![image](static/documentation_files/images/unit_testing_images/upload_banana.png)
+![image](static/documentation_files/images/unit_testing_images/cloudinary.png)
+![image](static/documentation_files/images/unit_testing_images/mongobd_image.png)
+**Issues**
+1. When entering the title of the recipe it did not allow an apostrophe.
+![image](static/documentation_files/images/unit_testing_images/add_recipe_issue.png)
+2. The 3 larger fields are `<textareaa>` elements which do not have the `pattern` attribute and will therefore allow any character. This is a risk because a hacker could easily enter lines of code that could cause serious damage to the database.
+![image](static/documentation_files/images/unit_testing_images/textarea.png) 
+**Resolution**
+1. I modified the pattern on the input element `pattern="([^\s][A-z0-9À-ž&;,.'\s]+)" `
+![image](static/documentation_files/images/unit_testing_images/add_recipe_fix.png)
+2. Although `<textarea>` feels like the correct type of element, to keep the database secure using the minimum amount of code I changed the elements `<input type="text"` and applied the above pattern. With more time I could potentially use some javascript keystroke listeners to test each character entered but I beleive that may impact response time.
+![image](static/documentation_files/images/unit_testing_images/text_input.png)
 
 ####    Edit Recipe Page
 #####   Edit Recipe Page Large

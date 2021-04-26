@@ -25,7 +25,7 @@
                             <!-- Title -->
                             <div class="row recipe-row recipe-title">
                                 <div class="input-field col s12">
-                                    <input id="title" name="title" minlength="3" maxlength="25" type="text" pattern="([^\s][A-z0-9À-ž&\s]+)" class="validate" required>
+                                    <input id="title" name="title" minlength="3" maxlength="25" type="text" pattern="([^\s][A-z0-9À-ž&;,.'\s]+)" class="validate" required>
                                     <label for="title">Title</label>
                                 </div>
                             </div>
@@ -87,21 +87,21 @@
                     <!-- Ingredients -->
                     <div class="row recipe-row-imn">
                         <div class="input-field col s12">
-                            <textarea id="ingredients" name="ingredients" minlength="5" maxlength="1000" class="materialize-textarea active" required></textarea>
+                            <input type="text" id="ingredients" name="ingredients" minlength="5" maxlength="1000" pattern="([^\s][A-z0-9À-ž&;,.'\s]+)" class="validate" required>
                             <label for="ingredients">Ingredients</label>
                         </div>
-                    </div>
+                    </div>      
                     <!-- Method -->
                     <div class="row recipe-row-imn">
                         <div class="input-field active col s12">
-                            <textarea id="method" name="method" minlength="5" maxlength="1000" class="materialize-textarea active" required></textarea>
+                            <input type="text" id="method" name="method" minlength="5" maxlength="1000" pattern="([^\s][A-z0-9À-ž&;,.'\s]+)" class="validate" required>
                             <label for="method">Method</label>
                         </div>
                     </div>
                     <!-- Notes -->
                     <div class="row recipe-row-imn">
                         <div class="input-field col s12">
-                            <textarea id="notes" name="notes" minlength="5" maxlength="300" class="materialize-textarea active"></textarea>
+                            <input id="notes" name="notes" minlength="5" maxlength="1000" type="text" pattern="([^\s][A-z0-9À-ž&;,.'\s]+)" class="validate" required>
                             <label for="notes">Notes</label>
                         </div>
                     </div>
