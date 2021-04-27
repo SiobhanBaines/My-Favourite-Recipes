@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Siobhan Baines | Software Developer | Leeds, UK"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocumentMy Favourite Cakes and Bakes</title>
@@ -25,7 +26,7 @@
         <!-- Main Nav Bar-->
         <nav class="nav-extended">
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo"><img class="image-circle" src="{{ url_for('static', filename='images/icon.jpg') }}" alt=""></a>
+                Brand<a href="#" class="brand-logo">logo<img class="image-circle" src="{{ url_for('static', filename='images/icon.jpg') }}" alt="lets bake"></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home')  }}">Home</a></li>
@@ -64,23 +65,23 @@
                     <h5 class="footer">Our Family Favourites</h5>
                     <ul class="social-media align-right">
                         <li class=" inline-block">
-                            <a href="https://github.com/SiobhanBaines" target="_blank" rel="noreferrer">
+                            <a href="https://github.com/SiobhanBaines" target="_blank" rel="noopener">github
                                 <i class="fab fa-github"></i></a>
                         </li>
                         <li class="inline-block">
-                            <a href="https://www.linkedin.com/in/siobhan-baines-9b296a22/" rel="noopener" target="_blank">
+                            <a href="https://www.linkedin.com/in/siobhan-baines-9b296a22/" rel="noopener" target="_blank">linkedin
                             <i class="fab fa-linkedin "></i></a>
                         </li>
                         <li class="inline-block">
-                            <a href="https://www.facebook.com/siobhan.baines/" rel="noopener" target="_blank">
+                            <a href="https://www.facebook.com/siobhan.baines/" rel="noopener" target="_blank">facebook
                             <i class="fab fa-facebook"></i></a>
                         </li>
                         <li class="inline-block">
-                            <a href="https://www.instagram.com/siobhan.baines/" rel="noopener" target="_blank">
+                            <a href="https://www.instagram.com/siobhan.baines/" rel="noopener" target="_blank">instagram
                             <i class="fab fa-instagram"></i></a>
                         </li>
                         <li class="inline-block">
-                            <a href="https://twitter.com/BainesSiobhan" rel="noopener" target="_blank">
+                            <a href="https://twitter.com/BainesSiobhan" rel="noopener" target="_blank">twitter
                             <i class="fab fa-twitter"></i></a>
                         </li>
                     </ul>
@@ -106,7 +107,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src="{{ url_for('static', filename='js/sendemail.js') }}"></script>
-
+   
     {% block scripts %}
     {% endblock %}
 

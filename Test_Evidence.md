@@ -213,6 +213,7 @@ I have added `rel="noopener"` which should avoid the issues.
 ![image](static/documentation_files/images/lighthouse_images/home_desk_SEO.png)
 1. There was no meta data wo I added.
 2. The `href` on the `a` tag for the brand logo was missing it's `#`
+![image](static/documentation_files/images/lighthouse_images/home_desk_after.png)
 #####   Final Test Results
 ####    Mobile
 ![image]()

@@ -87,21 +87,21 @@
                     <!-- Ingredients -->
                     <div class="row recipe-row-imn">
                         <div class="input-field col s12">
-                            <input type="text" id="ingredients" name="ingredients" minlength="5" maxlength="1000" pattern="([^\s][A-z0-9À-ž&;,./()'\s]+)" class="validate" value="{{ recipe.ingredients }}" required>
+                            <input type="text" id="ingredients" name="ingredients" minlength="5" maxlength="1000" pattern="([^\s][A-z0-9À-ž&;,./()-'\s]+)" class="validate" value="{{ recipe.ingredients }}" required>
                             <label for="ingredients">Ingredients</label>
                         </div>
                     </div>
                     <!-- Method -->
                     <div class="row recipe-row-imn">
                         <div class="input-field active col s12">
-                            <input type="text" id="method" name="method" minlength="5" maxlength="1000" pattern="([^\s][A-z0-9À-ž&;,./()'\s]+)" class="validate" value="{{ recipe.method }}" required>
+                            <input type="text" id="method" name="method" minlength="5" maxlength="1000" pattern="([^\s][A-z0-9À-ž&;,./()-'\s]+)" class="validate" value="{{ recipe.method }}" required>
                             <label for="method">Method</label>
                         </div>
                     </div>
                     <!-- Notes -->
                     <div class="row recipe-row-imn">
                         <div class="input-field col s12">
-                            <input type="text" id="notes" name="notes" minlength="5" maxlength="1000" pattern="([^\s][A-z0-9À-ž&;,./()'\s]+)" class="validate" value="{{ recipe.note }}" required>
+                            <input type="text" id="notes" name="notes" minlength="5" maxlength="1000" pattern="([^\s][A-z0-9À-ž&;,./()-'\s]+)" class="validate" value="{{ recipe.note }}">
                             <label for="notes">Notes</label>
                         </div>
                     </div>
