@@ -203,6 +203,19 @@ And a confirmation email being recieved by the email address on the above screen
 ![image](static/documentation_files/images/unit_testing_images/email_received.png)
 
 ## Lighthouse Testing
+### Home
+####    Desktop
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/home_desk.png)
+![image](static/documentation_files/images/lighthouse_images/home_desk_best_practice.png)
+The links to my social media pages on `base.html` have the attribute `target="_blank"` which lighthouse says can "expose your site to performance and security issues". 
+I have added `rel="noopener"` which should avoid the issues.
+![image](static/documentation_files/images/lighthouse_images/home_desk_SEO.png)
+#####   Final Test Results
+####    Mobile
+![image]()
+
+
 
 ## User Story Testing
 ### User Experience
