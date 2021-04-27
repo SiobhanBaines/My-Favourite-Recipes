@@ -10,7 +10,7 @@
                     <div class="row card-panel">
                         <!-- Image -->
                         <div class="col s12 m6">
-                            <div class="card card-panel image-panel grey lighten-5 z-depth-1 center-align">
+                            <div class="card card-panel grey lighten-5 z-depth-1 center-align">
                                 {% if recipe.image %}
                                     <img src="{{ recipe.image }}" alt="Recipe Image" class="circle responsive-img">
                                     <input type="hidden" id="image_url" name="image_url" value="{{ recipe.image }}">
@@ -51,7 +51,7 @@
                             <!-- Cooking Temperature -->
                             <div class="row recipe-row">
                                 <div class="input-field col s12 m6">
-                                    <input id="temperature" name="temperature" minlength="1" maxlength="3" value="{{ recipe.temperature }}" type="text" pattern="^[0-9]{0,5}$" class="validate" required>
+                                    <input id="temperature" name="temperature" minlength="1" maxlength="3" value="{{ recipe.temperature }}" type="text" pattern="^[0-9N/A]{0,5}$" class="validate" required>
                                     <label for="temperature">Temperature</label>
                                 </div>
                                 <div class="input-field col s12 m6">
@@ -67,7 +67,7 @@
                             <!-- Preparation Time -->
                             <div class="row recipe-row">
                                 <div class="input-field col s8 m4">
-                                    <input id="prep_time" name="prep_time" minlength="0" maxlength="5" value="{{ recipe.prep_time }}" type="text" pattern="^[0-9]{0,5}$" class="validate" required>
+                                    <input id="prep_time" name="prep_time" minlength="0" maxlength="5" value="{{ recipe.prep_time }}" type="text" pattern="^[0-9N/A]{0,5}$" class="validate" required>
                                     <label for="prep_time">Preparation_time</label>
                                 </div>
                                 <div class="input-field col s4 m2">
@@ -75,7 +75,7 @@
                                 </div>
                                 <!-- Cooking Time -->
                                 <div class="input-field col s8 m4">
-                                    <input id="cook_time" name="cook_time" minlength="0" maxlength="5" value="{{ recipe.cook_time }}" type="text" pattern="^[0-9]{0,5}$" class="validate" required>
+                                    <input id="cook_time" name="cook_time" minlength="0" maxlength="5" value="{{ recipe.cook_time }}" type="text" pattern="^[0-9N/A]{0,5}$" class="validate" required>
                                     <label for="cook_time">Cooking_time</label>
                                 </div>
                                 <div class="input-field col s4 m2">
@@ -87,21 +87,21 @@
                     <!-- Ingredients -->
                     <div class="row recipe-row-imn">
                         <div class="input-field col s12">
-                            <input type="text" id="ingredients" name="ingredients" minlength="5" maxlength="1000" pattern="([^\s][A-z0-9À-ž&;,.'\s]+)" class="validate" value="{{ recipe.ingredients }}" required>
+                            <input type="text" id="ingredients" name="ingredients" minlength="5" maxlength="1000" pattern="([^\s][A-z0-9À-ž&;,./()'\s]+)" class="validate" value="{{ recipe.ingredients }}" required>
                             <label for="ingredients">Ingredients</label>
                         </div>
                     </div>
                     <!-- Method -->
                     <div class="row recipe-row-imn">
                         <div class="input-field active col s12">
-                            <input type="text" id="method" name="method" minlength="5" maxlength="1000" pattern="([^\s][A-z0-9À-ž&;,.'\s]+)" class="validate" value="{{ recipe.method }}" required>
+                            <input type="text" id="method" name="method" minlength="5" maxlength="1000" pattern="([^\s][A-z0-9À-ž&;,./()'\s]+)" class="validate" value="{{ recipe.method }}" required>
                             <label for="method">Method</label>
                         </div>
                     </div>
                     <!-- Notes -->
                     <div class="row recipe-row-imn">
                         <div class="input-field col s12">
-                            <input type="text" id="notes" name="notes" minlength="5" maxlength="1000" pattern="([^\s][A-z0-9À-ž&;,.'\s]+)" class="validate" value="{{ recipe.note }}" required>
+                            <input type="text" id="notes" name="notes" minlength="5" maxlength="1000" pattern="([^\s][A-z0-9À-ž&;,./()'\s]+)" class="validate" value="{{ recipe.note }}" required>
                             <label for="notes">Notes</label>
                         </div>
                     </div>

@@ -235,8 +235,7 @@ The Add Category page is very simple. It just allows the addition of a text form
 ####    Categories Page
 This screen allows the website user to add or change categories they own. Only "Admin" can delete the categories. A category cannot be deleted if it is attached to a recipe. 
 ![image](static/documentation_files/images/categories_admin.png)
-![image](static/documentation_files/images/categories_admin.png)
-
+![image](static/documentation_files/images/categories_not_admin.png)
 ####    Edit Category Page
 The website user can only change the category or cancel the action
 ![image](static/documentation_files/images/edit_category.png)

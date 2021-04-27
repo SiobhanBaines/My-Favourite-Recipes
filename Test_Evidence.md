@@ -160,37 +160,47 @@ When the website user has chosen the image they want to use from the personal co
 ![image](static/documentation_files/images/unit_testing_images/text_input.png)
 
 ####    Edit Recipe Page
-#####   Edit Recipe Page Large
- ![image]()
-#####   Edit Recipe Page Medium
- ![image]()
-#####   Edit Recipe Page Small
- ![image]()
+This page looks almost identical to the Add Recipe page.
+![image](static/documentation_files/images/edit_recipe.png)
+**Issues**
+1. When entering the temperature, "N/A" is not allowed but if the recipe does not need cooking not applicible is more appropriate than zero.
+![image](static/documentation_files/images/unit_testing_images/pattern_na_issue.png)
+2. When adding the chocolate conflake buns recipe I wanted to put brackets around the "milk or dark chocolate" but this was not allowed with the pattern. The `Please match requested format` message appeared
+**Resolution**
+1. I modified the pattern on the input elements pattern to allow "N/A" for numbers`pattern="([^\s][0-9N/A]+)" `
+![image](static/documentation_files/images/unit_testing_images/pattern_na_fix.png)
+2.  I modified the pattern on the input elements pattern to allow brackets for the text type`pattern="([^\s][A-z0-9À-ž&;,./()'\s]+)" `
+
+####    Manage Categories Page
+The add category page is very simple and I could not find any issues.
+ ![image](static/documentation_files/images/categories_not_admin.png)
+#####   Delete Category
+Only "admin" has access to delete categories on the Manage Category Page. On the below image the category "Test Cat1" can be seen.
+![image](static/documentation_files/images/unit_testing_images/delete_cat_screen.png)
+This image shows a recipe with the category "Test Cat1" in MongoDB.
+![image](static/documentation_files/images/unit_testing_images/delete_cat_mongdb.png)
+If '"admin" tries to delete this message they recieve a flash message telling them a recipe is using that category and the category is not deleted.
+![image](static/documentation_files/images/unit_testing_images/delete_cat_no_message.png)
+When a category is not attached to a recipe "admin" can delete it an will recieve a confirmation message once it has been deleted from the database.
+![image](static/documentation_files/images/unit_testing_images/delete_cat_success_message.png) 
 
 ####    Add Category Page
-#####   Add Category Page Large
- ![image]()
-#####   Add Category Page Medium
- ![image]()
-#####   Add Category Page Small
- ![image]()
+The add category page is very simple and I could not find any issues.
+![image](static/documentation_files/images/add_category.png)
+If the website user tries to add a duplicate category they see a flash message and the systems stops them.
+![image](static/documentation_files/images/unit_testing_images/add_cat_message_exist.png)
 
 ####    Edit Category Page
-#####   Edit Category Page Large
- ![image]()
-#####   Edit Category Page Medium
- ![image]()
-#####   Edit Category Page Small
- ![image]()
+The update category page is very simple and I could not find any issues.
+ ![image](static/documentation_files/images/edit_category.png)
 
 ####    Contact Us Page
-
-
- ![image](static/documentation_files/images/unit_testing_images/test_contact_us.png)
-
- ![image](static/documentation_files/images/unit_testing_images/email_received.png)
-
- ![image](static/documentation_files/images/unit_testing_images/email_received.png)
+The below screen shots show the information pertaining to a message being created on the website via the contact us page.
+![image](static/documentation_files/images/unit_testing_images/test_contact_us.png)
+It arriving in the designated email folder
+![image](static/documentation_files/images/unit_testing_images/email_received.png)
+And a confirmation email being recieved by the email address on the above screen shot
+![image](static/documentation_files/images/unit_testing_images/email_received.png)
 
 ## Lighthouse Testing
 
