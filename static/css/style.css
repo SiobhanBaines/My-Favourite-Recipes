@@ -49,16 +49,16 @@ main {
 .inline-block {
   display: inline-block;
 }
-hr {
+/* hr {
   width: 100%;
-}
+} */
 /* --- text format --- */
-h2 {
+/* h2 {
   font-family: "Akaya Kanadaka", cursive;
   color: var(--main-brown);
   text-align: center;
   vertical-align: middle;
-}
+} */
 h1,
 h3,
 h4,
@@ -84,18 +84,18 @@ p {
   text-align: center;
   vertical-align: middle;
 }
-p.mins {
+/* p.mins {
   padding-top: 1rem;
-}
+} */
 p a {
   font-weight: bold;
 }
 p {
   font-size: larger;
 }
-p.brown-text.text-darken-3 {
+/* p.brown-text.text-darken-3 {
   margin: 0.5rem;
-}
+} */
 .row {
   margin-bottom: 10px;
 }
@@ -104,9 +104,9 @@ p.brown-text.text-darken-3 {
   z-index: 2;
 }
 /* ---  icons and button text --- */
-.btn.amber.accent-2 {
+/* .btn.amber.accent-2 {
   color: var(--main-brown);
-}
+} */
 a.maint-btn.btn {
   width: 18rem;
 }
@@ -115,7 +115,7 @@ button.btn.recipe {
   font-size: 12px;
   width: 14rem;
 }
-button.btn.score,
+/* button.btn.score,
 a.btn.score       {
   display: flex;
   align-items: center;
@@ -127,15 +127,15 @@ a.btn.score       {
   height: 30%;
   -webkit-box-shadow: 0 4px 8px 0 var(--image-shadow), 0 6px 20px 0 var(--card-shadow);
           box-shadow: 0 4px 8px 0 var(--image-shadow), 0 6px 20px 0 var(--card-shadow);
-}
-a.btn.get-temp {
+} */
+/* a.btn.get-temp {
   margin-top: 3.25rem;
   margin-left: -2rem;
-}
-.register-btn {
+} */
+/* .register-btn {
   -ms-flex-line-pack: center;
       align-content: center;
-}
+} */
 .maint-btn {
   width: 18rem;
   margin: 0 15px 0 15px;
@@ -148,7 +148,7 @@ li a {
   color: var(--main-cream);
 }
 i.login.fas {
-  color: #880e4f;
+  color: var(--main-pink);
 }
 i.fas {
   vertical-align: middle;
@@ -220,7 +220,7 @@ h5.footer {
 input#username,
 input#password,
 input#confirm-password,
-input#confirm_password_to_delete,
+input#confirm-password-to-delete,
 input#old-password,
 input#new-password,
 input#confirm-new-password,
@@ -230,16 +230,16 @@ input#category {
 label.username,
 label.password,
 label.confirm-password,
-label.confirm_password_to_delete,
-label.old_password,
-label.new_password,
-label.confirm_new_password,
+label.confirm_password-to-delete,
+label.old-password,
+label.new-password,
+label.confirm-new-password,
 label.category {
   padding-left: 1rem;
 }
-.input-field .prefix.active {
+/* .input-field .prefix.active {
   color: #8d8e90;
-}
+} */
 /* --- card format --- */
 .card {
   border-radius: 5px;
@@ -261,9 +261,9 @@ img.circle {
   -o-object-position: center;
      object-position: center;
 }
-.card .card-title .card .no-image {
+/* .card .card-title .card .no-image {
   font-weight: 500;
-}
+} */
 .no-image {
   color: var(--main-brown);
   position: absolute;
@@ -281,7 +281,7 @@ img.circle {
 .home.parallax-container {
   overflow: hidden;
 }
-h2.home {
+/* h2.home {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -292,7 +292,7 @@ h2.home {
   font-size: 60px;
   color: var(--main-cream);
   -webkit-text-stroke: 2px black;
-}
+} */
 .container-about {
   background-color: #e1bee7;
   width: 100vw;
@@ -335,14 +335,14 @@ img.recipes-image {
   background-color: var(--main-cream);
   border-radius: 5px;
 }
-.recipe_image {
+/* .recipe_image {
   width: 300px;
   height: auto;
 }
 
 .recipe_headline {
   margin-top: 5%;
-}
+} */
 .time-row {
   padding-left: 0.75rem;
 }
@@ -447,10 +447,10 @@ select {
   background-color: var(--main-cream);
   resize: vertical;
 }
-title {
+/* title {
   width: 100%;
   padding: 0;
-}
+} */
 .maintain-recipe label {
   font-size: 18px;
   font-weight: bold;
@@ -460,10 +460,10 @@ title {
 select {
   display: block;
 }
-#prep-time,
+/* #prep-time,
 #cook-time {
   margin-bottom: 2rem;
-}
+} */
 /* --- Modals --- */
 input.image-selection {
   border: 1px solid var(--main-brown);
