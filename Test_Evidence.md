@@ -213,10 +213,11 @@ I have added `rel="noopener"` which should avoid the issues.
 ![image](static/documentation_files/images/lighthouse_images/home_desk_SEO.png)
 1. There was no meta data wo I added.
 2. The `href` on the `a` tag for the brand logo was missing it's `#`
-![image](static/documentation_files/images/lighthouse_images/home_desk_after.png)
 #####   Final Test Results
+![image](static/documentation_files/images/lighthouse_images/home_desk_after.png)
 ####    Mobile
-![image]()
+![image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/lighthouse_images/home_mobile.png)
+I adjusted the size of the images 
 
 
 
