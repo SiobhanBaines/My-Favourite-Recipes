@@ -365,6 +365,16 @@ Chrome warning
 **Given** a visitor is interested in baking,
 **When** they visit the site and open a recipe,
 **Then** the recipe should have all the information needed to create the dish and be clear and easy to follow.
+######  Results
+As soon as a visitor opens the website images of available recipes are displayed in a carousel which they can scroll through to find something that looks tasty to bake or the second option on the navigation menu takes the visitor to a page containing all the recipes where they can reduce the number of recipes by entering a category or some word in the categories.
+*Click on the recipe image to be taken to the recipe detail*
+![image](static/documentation_files/images/user_story_images/us1_carousel.png)
+*Click on the menu option "Recipes" to be taken to the recipe card page*
+![image](static/documentation_files/images/user_story_images/us1_menu.png)
+*Click on the recipe card to be taken to the recipe detail*
+![image](static/documentation_files/images/user_story_images/us1_recipes.png)
+*The recipe detail has all the information need to cook the recipe*
+![image](static/documentation_files/images/user_story_images/us1_recipe_detail.png)
 ######  User Story 2:   Favourites
 **As a** visitor, 
 **I want** to know if other people like the recipe
@@ -372,12 +382,22 @@ Chrome warning
 **Given** people have different likes and dislikes,
 **When** eating food,
 **Then** the site needs to have the ability to like or dislike the recipes and this information needs to be displayed clearly.
+######  Results
+*On the recipe card page there are thumbs up and thumbs down icons. When a recipe has been liked or disliked a number is displayed beside the icon*
+![image](static/documentation_files/images/user_story_images/us2_likes.png)
+*The icons also appear on buttons on the recipe detail page but the button can only be clicked if the visitor is logged in*
+![image](static/documentation_files/images/user_story_images/us2_loggedin.png)
+*If a logged in visitor clicks on the button a number will appear*
+![image](static/documentation_files/images/user_story_images/us2_liked.png)
+*If the logged in visitor clicks on the button a second time a flash message will appear*
+![image](static/documentation_files/images/user_story_images/us2_sorry.png)
 ######  User Story 3:   Contact
 **As a** visitor, 
 **I want** to be able to contact the organisation
 **So that** when I have a question or something is wrong
 **When** using the site,
 **Then** a confirmation email should be sent to the visitor.
+######  Results
 ######  User Story 4:   Registration/Login
 **As a** visitor, 
 **I want** to know my account is secure to me
@@ -385,6 +405,7 @@ Chrome warning
 **Given** that passwords need to be create,
 **When** a new account is registered,
 **Then** the new password needs to be confirmed and encrypted to reduce the risk of hacking.
+######  Results
 ######  User Story 5:   Upload Profile
 **As a** visitor with an account, 
 **I want** to be able to add an avitar or image of myself or change my password
@@ -392,6 +413,7 @@ Chrome warning
 **Given** it will make the account more personal,
 **When** on the profile page
 **Then** there needs to be an upload image and change password facility on the profile page.
+######  Results
 ######  User Story 6:   Add Recipes/Categories
 **As a** visitor, 
 **I want** to be able to add my own recipes and categories
@@ -399,6 +421,7 @@ Chrome warning
 **Given** the visitor has registered, creating a profile,
 **When** logged in,
 **Then** the visitor can create, read, update and delete recipes from a single location as well as having the ability to create, read and update categories if none of the current categories meet their requirements.
+######  Results
 ######  User Story 7:   Upload Images
 **As a** visitor, 
 **I want** to be able to upload an image of my recipes
@@ -406,6 +429,7 @@ Chrome warning
 **Given** it is easier to scan images than words,
 **When** looking for a recipe,
 **Then** the add and edit recipe pages need to have an upload image fascility.
+######  Results
 ######  User Story 8:   Delete Account
 **As a** visitor, 
 **I want** to have the ability to delete my account and my recipes from the site
@@ -413,3 +437,4 @@ Chrome warning
 **Given** the recipes belong to each visitor when they are loaded onto the site,
 **When** they wish to close their account,
 **Then** the recipes must also be deleted because they could be classified as personal information.
+######  Results
