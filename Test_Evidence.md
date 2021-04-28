@@ -266,6 +266,8 @@ Chrome warning
 ![image](static/documentation_files/images/lighthouse_images/chrome.png)
 #####   Final Test Results
 ![image](static/documentation_files/images/lighthouse_images/profile_mobile_after.png)
+Testing the site under incognito did make some improvements but the security highlighted by lighthouse is directly related to Heroku. The site is accessed using HTTP instead of HTTPS, the more modern and more secure version of HTTP.
+![image](static/documentation_files/images/lighthouse_images/profile_incog.png)
 ###     Change Password
 ####    Desktop
 #####   Initial Test Results
@@ -277,7 +279,8 @@ This test gave all green lights and while improvements could be made, they are n
 Chrome warning 
 ![image](static/documentation_files/images/lighthouse_images/chrome.png)
 #####   Final Test Results
-![image]()
+Testing this page in incoginito improved the performance but failed on security of the site being hosted viar Heroku on HTTP.
+![image](static/documentation_files/images/lighthouse_images/change_password_incog.png)
 ###     Recipe Detail
 ####    Desktop
 #####   Initial Test Results
@@ -297,9 +300,10 @@ Before running the test I removed the background image
 ####    Mobile
 #####   Initial Test Results
 ![image](static/documentation_files/images/lighthouse_images/add_recipe_mobile.png)
-The issues are mostly related to the imported styling and scripts. chrome?
+The issues are mostly related to the imported styling and scripts. 
 #####   Final Test Results
-![image]()
+Testing in incognito mode improved the performance of the site
+![image](static/documentation_files/images/lighthouse_images/add_recipe_incog.png)
 ###     Edit Recipe
 ####    Desktop
 #####   Initial Test Results
@@ -333,7 +337,8 @@ This test gave all green lights and while improvements could be made, they are n
 Chrome warning 
 ![image](static/documentation_files/images/lighthouse_images/chrome.png)
 #####   Final Test Results
-![image]()
+Testing this page in incoginito improved the performance but failed on security of the site being hosted viar Heroku on HTTP.
+![image](static/documentation_files/images/lighthouse_images/add_cat_incog.png)
 ###     Edit Category
 ####    Desktop
 #####   Initial Test Results
@@ -347,7 +352,8 @@ This test gave all green lights and while improvements could be made, they are n
 Chrome warning 
 ![image](static/documentation_files/images/lighthouse_images/chrome.png)
 #####   Final Test Results
-![image]()
+![image](Testing this page in incoginito improved the performance but failed on security of the site being hosted viar Heroku on HTTP.
+![image](static/documentation_files/images/lighthouse_images/edit_cat_incog.png))
 
 
 ## User Story Testing
