@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <main class="parallax-container">
-        <div class="parallax "><img src="{{ url_for('static', filename='images/scales.jpeg') }}" alt="scales"></div>
         <div class="container">
             <h3>Please Add A Recipe</h3>
             <div class="row card-panel recipe-panel maintain-recipe">
@@ -116,7 +114,6 @@
                 </form>
             </div>
         </div>
-    </main>
 
 <!-- Copied this idea from the Double Shamrocks-->
 {% include "includes/upload_new_recipe_image.html" %}

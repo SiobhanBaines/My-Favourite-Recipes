@@ -216,9 +216,138 @@ I have added `rel="noopener"` which should avoid the issues.
 #####   Final Test Results
 ![image](static/documentation_files/images/lighthouse_images/home_desk_after.png)
 ####    Mobile
-![image](/workspace/MS3-My-Favourite-Recipes/static/documentation_files/images/lighthouse_images/home_mobile.png)
-I adjusted the size of the images 
-
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/home_mobile.png)
+I adjusted the size of the images which improved the scores a bit. I also tried various "lazy load" API's namely AMP and Magneto as suggested by Chrome but they made the stats worse so I have decided to leave the images as they are.
+#####   Final Test Results
+![image](static/documentation_files/images/lighthouse_images/home_mobile_after.png)
+###     Recipes
+####    Desktop
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/recipes_desk.png)
+There were some minor changes made such as the colour of the font on the reset button, adding a label with a visible font colour to the search bar and changing the Category on the cards from`<h5>` to `<span>` elements.
+#####   Final Test Results
+![image](static/documentation_files/images/lighthouse_images/recipes_desk_after.png)
+####    Mobile
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/recipes_mobile.png)
+The changes made to the desktop version improved the mobile version
+#####   Final Test Results
+![image](static/documentation_files/images/lighthouse_images/recipes_mobile_after.png)
+###     Register
+####    Desktop
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/register_desk.png)
+This test gave all green lights and while improvements could be made, they are not necessary.
+####    Mobile
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/register_mobile.png)
+This test gave all green lights and while improvements could be made, they are not necessary.
+###     Login
+####    Desktop
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/login_desk.png)
+This test gave all green lights and while improvements could be made, they are not necessary.
+####    Mobile
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/login_mobile.png)
+This test gave all green lights and while improvements could be made, they are not necessary.
+###     Profile
+####    Desktop
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/profile_desk.png)
+I tried to improve the 'Best practice' test by modifying some of the image sizes and played with the aspect ratio. In the end I added a `profile-image`class and didn't use any of the aspect suggestions because I wanted the profile image to be a circle and everything I tried made it an oval which altered the rest of the layout of the card.
+#####   Final Test Results
+![image](static/documentation_files/images/lighthouse_images/profile_desk_after.png)
+####    Mobile
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/profile_mobile.png)
+Chrome warning 
+![image](static/documentation_files/images/lighthouse_images/chrome.png)
+#####   Final Test Results
+![image](static/documentation_files/images/lighthouse_images/profile_mobile_after.png)
+###     Change Password
+####    Desktop
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/change_password_desk.png)
+This test gave all green lights and while improvements could be made, they are not necessary.
+####    Mobile
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/change_password_mobile.png)
+Chrome warning 
+![image](static/documentation_files/images/lighthouse_images/chrome.png)
+#####   Final Test Results
+![image]()
+###     Recipe Detail
+####    Desktop
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/recipe_detail_desk.png)
+I removed the parallax background image and changed it to the colour "whitesmoke"
+#####   Final Test Results
+![image](static/documentation_files/images/lighthouse_images/recipe_detail_desk-after.png)
+####    Mobile
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/recipe_detail_mobile.png)
+The issues are mostly related to the imported styling and scripts with the exception of the image imported from Cloudingary. 
+###     Add Recipe
+####    Desktop
+#####   Initial Test Results
+Before running the test I removed the background image
+![image](static/documentation_files/images/lighthouse_images/add_recipe_desk.png)
+####    Mobile
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/add_recipe_mobile.png)
+The issues are mostly related to the imported styling and scripts. chrome?
+#####   Final Test Results
+![image]()
+###     Edit Recipe
+####    Desktop
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/edit_recipe_desk.png)
+I removed the parallax background image and changed it to the colour "whitesmoke"
+#####   Final Test Results
+![image](static/documentation_files/images/lighthouse_images/edit_recipe_desk_after.png)
+####    Mobile
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/edit_recipe_mobile.png)
+The issues are mostly related to the imported styling and scripts with the exception of the image imported from Cloudingary. 
+#####   Final Test Results
+![image](static/documentation_files/images/lighthouse_images/edit_recipe_mobile_after.png)
+###     Manage Categories
+####    Desktop
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/manage_cats_desk.png)
+This test gave all green lights and while improvements could be made, they are not necessary.
+####    Mobile
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/manage_cats_mobile.png)
+The issues are mostly related to the imported styling and scripts
+###     Add Category
+####    Desktop
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/add_cat_desk.png)
+This test gave all green lights and while improvements could be made, they are not necessary.
+####    Mobile
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/add_cat_mobile.png)
+Chrome warning 
+![image](static/documentation_files/images/lighthouse_images/chrome.png)
+#####   Final Test Results
+![image]()
+###     Edit Category
+####    Desktop
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/edit_cat_desk.png)
+This test gave all green lights and while improvements could be made, they are not necessary.
+#####   Final Test Results
+![image]()
+####    Mobile
+#####   Initial Test Results
+![image](static/documentation_files/images/lighthouse_images/edit_cat_mobile.png)
+Chrome warning 
+![image](static/documentation_files/images/lighthouse_images/chrome.png)
+#####   Final Test Results
+![image]()
 
 
 ## User Story Testing

@@ -30,7 +30,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: var(--main-cream);
+  background-color: whitesmoke;
   font-family: "Lato", sans-serif;
   color: var(--main-brown);
   overflow-y: auto;
@@ -115,7 +115,7 @@ button.btn.recipe {
   font-size: 12px;
   width: 14rem;
 }
-/* button.btn.score,
+button.btn.score,
 a.btn.score       {
   display: flex;
   align-items: center;
@@ -127,7 +127,7 @@ a.btn.score       {
   height: 30%;
   -webkit-box-shadow: 0 4px 8px 0 var(--image-shadow), 0 6px 20px 0 var(--card-shadow);
           box-shadow: 0 4px 8px 0 var(--image-shadow), 0 6px 20px 0 var(--card-shadow);
-} */
+}
 /* a.btn.get-temp {
   margin-top: 3.25rem;
   margin-left: -2rem;
@@ -224,7 +224,8 @@ input#confirm-password-to-delete,
 input#old-password,
 input#new-password,
 input#confirm-new-password,
-input#category {
+input#category,
+input#query {
   margin-left: 3.5rem;
 }
 label.username,
@@ -234,8 +235,10 @@ label.confirm-password-to-delete,
 label.old-password,
 label.new-password,
 label.confirm-new-password,
-label.category {
+label.category,
+label.query {
   padding-left: 1rem;
+  color: var(--main-pink);
 }
 /* .input-field .prefix.active {
   color: #8d8e90;
@@ -367,18 +370,18 @@ img.recipes-image {
   border: 1px solid #d4d4d4;
 }
 .profile-card section {
-  background-image: url("../images/cake.jpg");
+  background-image: url("../images/victoria_sponge.jpg");
   background-size: cover;
   border-radius: 2.5% 2.5% 0 0;
   height: 175px;
   width: auto;
   margin-bottom: 140px;
 }
-.profile-card section img {
-  margin: 90px 40px 0px 40px;
+.profile-image {
+  margin: 2rem;
   border-radius: 50%;
-  height: 180px;
-  width: 180px;
+  height: 12.5rem;
+  width: 12.5rem;
   border: 6px solid white;
 }
 .profile-card section p {
@@ -547,5 +550,8 @@ input.image-selection {
   }
   .profile-card {
     max-width: 100%;
+  }
+  .close-btn {
+    margin-left: 10%;
   }
 }

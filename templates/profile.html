@@ -23,13 +23,13 @@
                         <div class="col s12">
                             <section>
                                 {% if image %}
-                                    <img src="{{ image }}" alt="profile image">
+                                    <img src="{{ image }}" class="profile-image" alt="profile image">
                                     <div class="row">
                                         <a class="pink darken-4 btn modal-trigger" href="#uploadProfileImageModal"><i
                                                 class="fas fa-edit"></i> Edit image</a>
                                     </div>
                                 {% else %}
-                                    <img src="../static/images/profile_image.jpg" alt="default progile image">
+                                    <img src="../static/images/profile_image.jpg" class="profile-image" alt="default progile image">
                                     <div class="row">
                                         <a class="waves-effect waves-light btn modal-trigger" href="#uploadProfileImageModal"><i
                                                 class="fas fa-edit"></i> Upload an image</a>
