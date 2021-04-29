@@ -398,30 +398,119 @@ As soon as a visitor opens the website images of available recipes are displayed
 **When** using the site,
 **Then** a confirmation email should be sent to the visitor.
 ######  Results
+*There is a link in the footer of the website which allows a visitor to contact me*
+![image](static/documentation_files/images/user_story_images/us3_contact_link.png)
+*The visitor fills in this form and clicks the `send request` button*
+![image](static/documentation_files/images/user_story_images/us3_contact.png)
+*A Flash message appears letting the visitor know the email has been sent*
+![image](static/documentation_files/images/user_story_images/us3_sent_confirm.png)
+*The request is sent via email to my email address*
+![image](static/documentation_files/images/user_story_images/us3_email_from_visitor.png)
+*An automatic response is sent to the visitor on the email address they provided to confirm we have received their request*
+![image](static/documentation_files/images/user_story_images/us3_email_response.png)
 ######  User Story 4:   Registration/Login
 **As a** visitor, 
 **I want** to know my account is secure to me
-**So that** I am confident noone else will be able to access my recipes
+**So that** I am confident no one else will be able to access my recipes
 **Given** that passwords need to be create,
 **When** a new account is registered,
-**Then** the new password needs to be confirmed and encrypted to reduce the risk of hacking.
+**Then** the new password needs to be confirmed and encrypted to reduce the risk of hacking and this password is then used to log into the account.
 ######  Results
+The visitor needs to select the register menu option to be taken to the registration screen where they can create a username and password.
+*The register option*
+![image](static/documentation_files/images/user_story_images/us4_register_option.png)
+*The visitor enters a unique username and a personal password twice to confirm the password is correct*
+![image](static/documentation_files/images/user_story_images/us4_registration.png)
+*On valid registration the visitor is take to their new profile page*
+![image](static/documentation_files/images/user_story_images/us4_new_registration.png)
+If the visitor makes any mistakes when registering they will recieve messages.
+![image](static/documentation_files/images/username_already_exists.png)
+![image](static/documentation_files/images/passwords_do_no_match.png)
+*The password is encrypted before creating the user in MongoDB*
+![image](static/documentation_files/images/user_story_images/us4_mongodb_user.png)
+On subsequent visits the visitor can login via the login menu option.
+*The login option*
+![image](static/documentation_files/images/user_story_images/us4_login.png)
+*The visitor is asked to enter their username and password*
+![image](static/documentation_files/images/user_story_images/us4_login_page.png)
+*On valid login the visitor is taken to their profile page*
+![image](static/documentation_files/images/user_story_images/us4_profile_login.png)
+If the visitor makes a mistake when trying to login they recieve a message.
+![image](static/documentation_files/images/invalid_login.png)
 ######  User Story 5:   Upload Profile
 **As a** visitor with an account, 
 **I want** to be able to add an avitar or image of myself or change my password
-**So that** I know I am on my own profile and I can keep it more secure
-**Given** it will make the account more personal,
+**So that** I know I am on my own profile at a glance,
+**Given** images are easier to register and password choices change,
 **When** on the profile page
 **Then** there needs to be an upload image and change password facility on the profile page.
 ######  Results
+Upload an image
+*On the profile page there is an upload image button*
+![image](static/documentation_files/images/user_story_images/us5_newuser_profile.png)
+*Clicking on the upload image button opens the upload profile image modal*
+![image](static/documentation_files/images/user_story_images/us5_upload_modal.png)
+*The visitor can then choose an image from their own file*
+![image](static/documentation_files/images/user_story_images/us5_choose_image.png)
+*The upload image modal will show the chosen image name*
+![image](static/documentation_files/images/user_story_images/us5_upload_image.png)
+*Clicking the upload button will attach the image to the user file in mongdb and display it on the profile page*
+![image](static/documentation_files/images/user_story_images/us5_image_loaded.png)
+Change Password
+*Change password button*
+![image](static/documentation_files/images/user_story_images/us5_change_password_button.png)
+*Clicking on the change password button opens the change password page where the visitor can change their password*
+![image](static/documentation_files/images/user_story_images/us5_change_password.png)
+*When the password is successfully changed the visitor recieves a message*
+![image](static/documentation_files/images/user_story_images/us5_change_success.png)
+*The user file in mongodb is changed to reflect the new password*
+![image](static/documentation_files/images/user_story_images/us5_newuser_mongodb.png)
+If the visitor makes any mistakes when changing the password they will recieve some messages*
+![image](static/documentation_files/images/user_story_images/us5_old_password_error.png)
+![image](static/documentation_files/images/user_story_images/us5_new_password_same.png)
+![image](static/documentation_files/images/user_story_images/us5_passwords_different.png)
 ######  User Story 6:   Add Recipes/Categories
 **As a** visitor, 
 **I want** to be able to add my own recipes and categories
 **So that** I can share them with family and friends
 **Given** the visitor has registered, creating a profile,
 **When** logged in,
-**Then** the visitor can create, read, update and delete recipes from a single location as well as having the ability to create, read and update categories if none of the current categories meet their requirements.
+**Then** the visitor can create, read, update and delete recipes from a single location as well as having the ability to create, read and update categories. The visitor cannot delete the categories unless they are logged in as admin and only then if there are no recipes associated with that category.
 ######  Results
+The profile page is the main area and CRUD can be performed although, if a logged in visitor selects a recipe they have created via the home page or recipe cards there is the facility to change and delete that recipe.
+
+**Standard Visitor**
+A standard visitor can only perform CRUD on their own recipes. They do not have access to perform CRUD on any other recipes
+A standard visitor can only perform CRU on their own categories. They cannot delete any categories because that category may be used by a recipe owned by someone else.
+*CRUD Recipe*
+*Add a new recipe from the profile page by clicking on the `Add a new recipe` button*
+![image](static/documentation_files/images/user_story_images/us6_new_recipe_btn.png) 
+*This will open an empty recipe card where the visitor can create an new recipe including uploading an image of that recipe*
+![image](static/documentation_files/images/user_story_images/us6_empty_recipe_card.png)
+*The upload image button opens the upload new recipe image modal which works in the same way as the upload image modal for the profile page*
+![image](static/documentation_files/images/user_story_images/us6_upload_new_image.png)
+*Once an image has been chosen it is displayed on the page and a new recipe record exists in the recipes file in mongodb*
+![image](static/documentation_files/images/user_story_images/us6_image_uploaded.png)
+![image](static/documentation_files/images/user_story_images/us6_new_recipe_image_mongodb.png)
+*The rest of the details can be added. It is possible to also create a recipe without an image. The image can be added later in the edit process*
+![image](static/documentation_files/images/user_story_images/us6_new_recipe.png)
+*The recipe is then displayed on the profile page along with a success message*
+![image](static/documentation_files/images/user_story_images/us6_added_to_profile.png)
+*The visitor can now maintain the recipe by using the `maintain recipe` button in the `My Recipes` table or by opening the recipe by clicking on it's name. This will open the Change Rcipe Page*
+![image](static/documentation_files/images/user_story_images/us6_change_recipe.png)
+*The upload image button allows the visitor to change the image*
+![image](static/documentation_files/images/user_story_images/us6_new_image.png)
+*Changing any other details will not change the recipe until the `Edit Recipe` button is clicked*
+![image](static/documentation_files/images/user_story_images/us6_edit_button.png)
+*With the exception of the image, the `Cancel` button will ignore any changes and take the visitor back to the profile page*
+![image](static/documentation_files/images/user_story_images/us6_cancel_btn.png)
+*The `Delete Recipe` button will delete the recipe*
+![image](static/documentation_files/images/user_story_images/us6_cancel_btn.png)
+*CRUD Category*
+**Admin**
+Admin can perform CRUD on all recipes but should get permission from the recipe owner.
+CRUD Recipe
+CRUD Category
 ######  User Story 7:   Upload Images
 **As a** visitor, 
 **I want** to be able to upload an image of my recipes

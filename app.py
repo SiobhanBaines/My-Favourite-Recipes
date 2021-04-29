@@ -339,19 +339,19 @@ def change_password(username):
             # Valid old password
             if check_password_hash(
                 user["password"], request.form.get(
-                    "old_password")):
-                request.form.get("old_password")
+                    "old-password")):
+                request.form.get("old-password")
 
                 if {request.form.get(
-                    "old_password").lower()} != {request.form.get(
-                        "new_password").lower()}:
+                    "old-password").lower()} != {request.form.get(
+                        "new-password").lower()}:
 
                     if {request.form.get(
-                        "new_password").lower()} == {request.form.get(
-                            "confirm_new_password").lower()}:
+                        "new-password").lower()} == {request.form.get(
+                            "confirm-new-password").lower()}:
 
                         file_password = generate_password_hash(
-                            request.form.get("new_password"))
+                            request.form.get("new-password"))
                         mongo.db.users.update_one(
                             {"username": username},
                             {"$set": {"password": file_password}},
@@ -371,7 +371,7 @@ def change_password(username):
                         url_for("change_password", username=session["user"]))
             else:
                 flash("Password is incorrect! Please try again")
-                return redirect(url_for("profile", username=session["user"]))
+                return redirect(url_for("change_password", username=session["user"]))
         else:
             flash("You need to be logged in to delete your account!")
             return redirect(url_for("login"))
@@ -479,6 +479,7 @@ def upload_new_recipe_image():
 def get_categories():
     if session["user"] == "admin":
         categories = list(mongo.db.categories.find().sort("category", 1))
+        print("482 cats", categories)
     else:
         categories = list(
             mongo.db.categories.find(
@@ -527,26 +528,52 @@ def edit_category(category_id):
     return render_template("update_category.html", category=category)
 
 
-@app.route("/delete_category/<category_id>/<category>")
-def delete_category(category_id, category):
-    if session["user"] != "admin":
-        flash(
-            "You are not authorised to delete categories. The categories may be used by other peoples recipes. Please contact us using the link at the bottom.")
-        return redirect(url_for("get_categories"))
-    else:
-        recipes = mongo.db.recipes.find_one({"category": category})
-        if recipes:
+@app.route("/delete_category/<category_id>", methods=["GET", "POST"])
+def delete_category(category_id):
+    print("line 532, request meth", request.method)
+    if request.method == 'POST':
+        print("line 534, cat id", category_id)
+        category = mongo.db.categories.find_one(
+            {"_id": ObjectId(category_id)}, {"category"})
+        print("line 537, category", category)
+        if session["user"] != "admin":
+            print("line 539, user", session["user"])
             flash(
-                "You cannot delete this category because it is allocated to existing recipes")
+                "You are not authorised to delete categories. The categories may be used by other peoples recipes. Please contact us using the link at the bottom.")
             return redirect(url_for("get_categories"))
         else:
-            mongo.db.categories.remove({"_id": ObjectId(category_id)})
-            flash("Category Successfully Deleted")
-            return redirect(url_for("get_categories"))
+            print("line 544, user id", session["user"])
+            user = mongo.db.users.find_one({"username": session["user"]})
+            print("line 546, user ", user)
+            # checks if password matches existing password in database
+            if check_password_hash(
+                user["password"], request.form.get(
+                    "confirm_password_to_delete")):
+                recipes = mongo.db.recipes.find_one({"category": category})
+                print("line 552 recipes, ", recipes)
+                if recipes:
+                    flash(
+                        "You cannot delete this category because it is allocated to existing recipes")
+                    return redirect(url_for("get_categories"))
+                else:
+                    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+                    flash("Category Successfully Deleted")
+                    return redirect(url_for("get_categories"))
+            else:
+                flash("Password is incorrect! Please try again")
+                return redirect(url_for("includes/delete_category"))
+            print("line 564")
+        print("line 565")
+    print("line 566")
+    # return redirect(url_for("delete_category"))
 
+    return render_template("delete_category.html", category_id=category_id)
 
-@app.route("/contact")
+@app.route("/contact", methods=['GET', 'POST'])
 def contact():
+    if request.method == 'POST':
+        flash("Your request has been sent")
+        return redirect(url_for("contact"))
     return render_template("contact.html")
 
 
@@ -558,10 +585,10 @@ def logout():
     return redirect(url_for("home"))
 
 
-@app.errorhandler(404)
-def page_not_found(e):
-    # note that we set the 404 status explicitly
-    return render_template('404.html'), 404
+# @app.errorhandler(404)
+# def page_not_found(e):
+#     # note that we set the 404 status explicitly
+#     return render_template('404.html'), 404
 
 
 if __name__ == "__main__":

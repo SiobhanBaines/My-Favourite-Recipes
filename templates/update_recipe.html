@@ -107,7 +107,7 @@
                     <div class="row recipe-row">
                         <div class="col s12 center-align">
                             <!-- Cancel Any Changes -->
-                            <a href="{{ url_for('profile', username=session['user']) }}" class="btn teal lighten-4"> Cancel<i class="fas fa-times-circle left"></i></a>
+                            <a href="{{ url_for('profile', username=session['user']) }}" class="btn teal lighten-4 btn-flat"> Cancel<i class="fas fa-times left"></i></a>
                             <!-- Submit the Changes -->
                             <button type="submit" class="btn recipe pink darken-4">Edit Recipe <i class="fas fa-edit left"></i></button>
                             <!-- Delete the Recipe -->
@@ -117,8 +117,9 @@
                 </form>
             </div>
         </div>
-
+                
 <!-- Copied this idea from the Double Shamrocks-->
 {% include "includes/upload_recipe_image.html" %}
+{% include "includes/delete_recipe.html" %}
 
 {% endblock %}

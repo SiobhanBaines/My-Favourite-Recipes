@@ -34,7 +34,7 @@ The purpose of this project is to build a full-stack site that allows users to m
 **So that** I am confident noone else will be able to access my recipes
 **Given** that passwords need to be create,
 **When** a new account is registered,
-**Then** the new password needs to be confirmed and encrypted to reduce the risk of hacking.
+**Then** the new password needs to be confirmed and encrypted to reduce the risk of hacking and this password is then used to log into the account.
 ######  User Story 5:   Upload Profile
 **As a** visitor with an account, 
 **I want** to be able to add an avitar or image of myself or change my password
