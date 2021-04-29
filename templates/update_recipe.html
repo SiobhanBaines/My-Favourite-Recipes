@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!-- Code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
+<section>
+    <!-- flash messages  -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="row flashes">
+                    <h4 class="pink-text text-darken-4">{{ message }}</h4>
+                </div>
+            {% endfor%}
+        {% endif %}
+    {% endwith %}
+</section>
         <div class="container">
             <h3>Change Recipe</h3>
             <div class="row card-panel recipe-panel maintain-recipe">
@@ -111,7 +123,7 @@
                             <!-- Submit the Changes -->
                             <button type="submit" class="btn recipe pink darken-4">Edit Recipe <i class="fas fa-edit left"></i></button>
                             <!-- Delete the Recipe -->
-                            <a href="#delete-recipe" class="btn red darken-1">Delete Recipe<i class="fas fa-trash-alt left"></i></a>
+                            <a href="#delete-recipe" class="btn red darken-1  modal-trigger">Delete Recipe<i class="fas fa-trash-alt left"></i></a>
                         </div>
                     </div>
                 </form>

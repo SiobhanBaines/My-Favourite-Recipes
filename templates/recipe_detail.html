@@ -159,7 +159,7 @@
                             <!-- Submit the Changes -->
                             <a href="{{ url_for('edit_recipe', recipe_id= recipe._id) }}" class="btn pink darken-4 text-center"><i class="fas fa-edit"></i> Edit Recipe</a>
                             <!-- Delete the Recipe -->
-                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn red darken-1">Delete Recipe<i class="fas fa-trash-alt left"></i></a>
+                            <a href="#delete-recipe" class="btn red darken-1  modal-trigger">Delete Recipe<i class="fas fa-trash-alt left"></i></a>
                         </div>
                     </form>
                 {% endif %}

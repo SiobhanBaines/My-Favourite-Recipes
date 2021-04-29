@@ -327,7 +327,7 @@ img.recipes-image {
 }
 /* --- Categories --- */
 .category-table {
-  margin: 5%;
+  padding: 5%;
   font-size: 24px;
   width: 95%;
 }

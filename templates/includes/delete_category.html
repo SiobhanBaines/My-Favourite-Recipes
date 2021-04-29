@@ -1,9 +1,9 @@
-<!-- Delete Category Modal Structure -->
+<!-- Delete recipe Modal Structure -->
 
 <div class="modal" id="delete-category">
     <div class="modal-content">
         <div class="container delete-category">
-            <h4 class="pink-text text-darken-4"> Delete Category {{ category }}</h4>
+            <h4 class="pink-text text-darken-4">Delete Category</h4>
             <div class="modal-body  align-center">
                 <h5 class="red-text text-darken-1">
                     <i class="fas fa-exclamation-circle red-text text-darken-1"></i>
@@ -14,6 +14,7 @@
                     <span class="font-weight-bold">Note: You will delete all you recipes if you delete your account</span>
                 </p> -->
             </div>
+            <!-- <form action="{{ url_for('delete_account', username=username) }}" method="POST"> -->
             <form action="{{ url_for('delete_category', category_id=category_id) }}" method="POST">
                 <div class="input-field col s8 offset-s2">
                     <i class="login fas fa-user-lock prefix"></i>
@@ -23,7 +24,7 @@
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-close btn teal lighten-4 btn-flat">Close<i class="fas fa-times left"></i></a>
-                    <button type="submit" class="btn red darken-1 align-center">Delete Category<i class="fas fa-trash-alt left"></i></button>
+                    <button type="submit" class="btn red darken-1  align-center">Delete Category<i class="fas fa-trash-alt left"></i></button>
                 </div>
             </form>
         </div>

@@ -482,6 +482,7 @@ The profile page is the main area and CRUD can be performed although, if a logge
 **Standard Visitor**
 A standard visitor can only perform CRUD on their own recipes. They do not have access to perform CRUD on any other recipes
 A standard visitor can only perform CRU on their own categories. They cannot delete any categories because that category may be used by a recipe owned by someone else.
+
 *CRUD Recipe*
 *Add a new recipe from the profile page by clicking on the `Add a new recipe` button*
 ![image](static/documentation_files/images/user_story_images/us6_new_recipe_btn.png) 
@@ -504,8 +505,13 @@ A standard visitor can only perform CRU on their own categories. They cannot del
 ![image](static/documentation_files/images/user_story_images/us6_edit_button.png)
 *With the exception of the image, the `Cancel` button will ignore any changes and take the visitor back to the profile page*
 ![image](static/documentation_files/images/user_story_images/us6_cancel_btn.png)
-*The `Delete Recipe` button will delete the recipe*
-![image](static/documentation_files/images/user_story_images/us6_cancel_btn.png)
+*The `Delete Recipe` button will take the visitor to a confirmation screen where they need to enter their password to be able to delete the recipe*
+![image](static/documentation_files/images/user_story_images/us6_delete_btn.png)
+*If they type the wrong password they will get a message to the recipe page*
+![image](static/documentation_files/images/user_story_images/us6_recipe_deleted.png)
+*If the recipe is deleted they will get a message and return to their profile page*
+![image](static/documentation_files/images/user_story_images/us6_delete_recipe_confirm.png)
+
 *CRUD Category*
 **Admin**
 Admin can perform CRUD on all recipes but should get permission from the recipe owner.
