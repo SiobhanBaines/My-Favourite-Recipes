@@ -210,15 +210,28 @@ def edit_recipe(recipe_id):
         categories=categories)
 
 
-@app.route("/delete_recipe/<recipe_id>")
+@app.route("/delete_recipe/<recipe_id>", methods=['GET', 'POST'])
 def delete_recipe(recipe_id):
     username = mongo.db.recipes.find_one(
         {"_id": ObjectId(recipe_id)}, {"name"})
-    if {session["user"] == username}:
-        mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
-        flash("Recipe Successfully Deleted")
-    else:
-        flash("You are not authorised to delete this reciple")
+    title = mongo.db.recipes.find_one(
+        {"_id": ObjectId(recipe_id)}, {"title"})
+    if request.method == 'POST':
+        # prevents guest users from viewing the form
+        if username == session["user"]:
+            user = mongo.db.users.find_one({"username": username})
+            # checks if password matches existing password in database
+            if check_password_hash(
+                user["password"], request.form.get(
+                    "confirm_password_to_delete")):
+                # delete recipe created by user
+                mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
+                flash("Recipe Successfully Deleted")
+            else:
+                flash("Password is incorrect! Please try again")
+                return redirect(url_for('delete_recipe', recipe_id=recipe_id))
+        else:
+            flash("You are not authorised to delete this reciple")
 
     return redirect(url_for('profile', username=session['user']))
 
@@ -568,6 +581,7 @@ def delete_category(category_id):
     # return redirect(url_for("delete_category"))
 
     return render_template("delete_category.html", category_id=category_id)
+
 
 @app.route("/contact", methods=['GET', 'POST'])
 def contact():
