@@ -48,13 +48,10 @@
                                             <a href="{{ url_for('edit_category', category_id=category._id) }}" class="btn green darken-3 text-center">
                                                 <i class="fas fa-edit left"></i>Change</a>
                                         </td>
-                                        <!-- Delete Category  -->
-                                        {% if session["user"] == "admin" %}
-                                            <td class="category-table">
-                                                <a  href="#delete-category" class="btn red darken-1 text-center modal-trigger">
-                                                    <i class="fas fa-trash-alt left"></i>Delete</a>
-                                            </td>
-                                        {% endif %} 
+                                        <td class="category-table">
+                                        <!-- Delete the Recipe -->
+                            <a href="#delete-category" class="btn red darken-1  modal-trigger">Delete Recipe<i class="fas fa-trash-alt left"></i></a>
+                        </td>
                                     </tr>
                                 {% endfor %}
                             </tbody>

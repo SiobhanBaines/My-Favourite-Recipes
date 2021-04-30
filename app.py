@@ -490,11 +490,12 @@ def upload_new_recipe_image():
 def get_categories():
     if session["user"] == "admin":
         categories = list(mongo.db.categories.find().sort("category", 1))
-        print("482 cats", categories)
+        print("line 493 cats", categories)
     else:
         categories = list(
             mongo.db.categories.find(
                 {"name": session["user"]}).sort("category", 1))
+    print("line 498, display categories,html")
     return render_template("categories.html", categories=categories)
 
 
@@ -538,6 +539,7 @@ def edit_category(category_id):
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     return render_template("update_category.html", category=category)
 
+
 @app.route("/delete_category/<category_id>", methods=['GET', 'POST'])
 def delete_category(category_id):
     # username = mongo.db.recipes.find_one(
@@ -547,19 +549,33 @@ def delete_category(category_id):
         if session["user"] == "admin":
             user = mongo.db.users.find_one({"username": session["user"]})
             # checks if password matches existing password in database
+            print("line 550 user ", user)
+            print("line 550 hash pass  ", user["password"])
+            print("line 552 screen pass ", request.form.get(
+                    "confirm-password-to-delete"))
             if check_password_hash(
                 user["password"], request.form.get(
                     "confirm-password-to-delete")):
                 # delete recipe created by user
+                print("line 558 hash pass  ", check_password_hash(
+                    user["password"], request.form.get("confirm-password-to-delete")))
                 mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
+                print("line 562 delete cat ")
                 flash("Category Successfully Deleted")
+                print("line 564 success message ")
             else:
+                print("line 566 hash pass  ", check_password_hash(
+                    user["password"], request.form.get(
+                        "confirm-password-to-delete")))
+
                 flash("Password is incorrect! Please try again")
-                return redirect(url_for("get_categories"))
+                print("line 570 wrong pass ", user)
+                return redirect(url_for("categories"))
         else:
+            print("line 574 not admin ", user)
             flash("You are not authorised to delete this category")
 
-    return redirect(url_for("get_categories"))
+    return redirect(url_for("categories"))
 
 
 @app.route("/contact", methods=['GET', 'POST'])
