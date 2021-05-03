@@ -73,7 +73,10 @@ def like(recipe_id):
             {"recipe_id": ObjectId(recipe_id), "username": session["user"]})
         if liked:
             flash("Sorry, you have already liked this recipe.")
-            return redirect(url_for("recipe_detail", recipe_id=recipe_id, _external=True, _scheme='https'))
+            return redirect(
+                url_for(
+                    "recipe_detail", recipe_id=recipe_id,
+                    _external=True, _scheme='https'))
         else:
             recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
             recipe = mongo.db.recipes.update_one(
@@ -107,8 +110,11 @@ def dislike(recipe_id):
                         "username": session["user"]})
                 if disliked:
                     flash("Sorry, you have already disliked this recipe.")
-                    return redirect(url_for("recipe_detail",
-                                    recipe_id=recipe_id, _external=True, _scheme='https'))
+                    return redirect(
+                        url_for(
+                            "recipe_detail",
+                            recipe_id=recipe_id,
+                            _external=True, _scheme='https'))
                 else:
                     recipe = mongo.db.recipes.update_one(
                         {"_id": ObjectId(recipe_id)},
@@ -165,7 +171,10 @@ def add_recipe():
 
         flash("Recipe Successfully Added")
 
-        return redirect(url_for("profile", username=session["user"], _external=True, _scheme='https'))
+        return redirect(
+            url_for(
+                "profile", username=session["user"],
+                _external=True, _scheme='https'))
 
     categories = list(mongo.db.categories.find().sort("category", 1))
     recipe = mongo.db.recipes.find().sort([('timestamp', -1)]).limit(1)
@@ -200,7 +209,10 @@ def edit_recipe(recipe_id):
             {"_id": ObjectId(recipe_id)}, submit_recipe, upsert=True)
 
         flash("Recipe Successfully Updated")
-        return redirect(url_for("profile", username=session["user"], _external=True, _scheme='https'))
+        return redirect(
+            url_for(
+                "profile", username=session["user"],
+                _external=True, _scheme='https'))
 
     recipe = (mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)}))
     categories = mongo.db.categories.find()
@@ -227,11 +239,17 @@ def delete_recipe(recipe_id):
                 flash("Recipe Successfully Deleted")
             else:
                 flash("Password is incorrect! Please try again")
-                return redirect(url_for('edit_recipe', recipe_id=recipe_id, _external=True, _scheme='https'))
+                return redirect(
+                    url_for(
+                        'edit_recipe', recipe_id=recipe_id,
+                        _external=True, _scheme='https'))
         else:
-            flash("You are not authorised to delete this reciple")
+            flash("You are not authorised to delete this recipe")
 
-    return redirect(url_for('profile', username=session['user'], _external=True, _scheme='https'))
+    return redirect(
+        url_for(
+            'profile', username=session['user'],
+            _external=True, _scheme='https'))
 
 
 @app.route('/register', methods=["GET", "POST"])
@@ -243,14 +261,16 @@ def register():
 
         if user_exists:
             flash("Username Already Exists")
-            return redirect(url_for("register", _external=True, _scheme='https'))
+            return redirect(
+                url_for("register", _external=True, _scheme='https'))
 
         # check passwords match
         if {request.form.get(
                 "password").lower()} != {request.form.get(
                 "confirm-password").lower()}:
             flash("Passwords Do Not Match")
-            return redirect(url_for("register", _external=True, _scheme='https'))
+            return redirect(
+                url_for("register", _external=True, _scheme='https'))
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
@@ -261,7 +281,10 @@ def register():
         # put new user into 'session cookie
         session["user"] = request.form.get("username").lower()
         flash("Successful Registration. You can now add your own recipes")
-        return redirect(url_for("profile", username=session["user"], _external=True, _scheme='https'))
+        return redirect(
+            url_for(
+                "profile", username=session["user"],
+                _external=True, _scheme='https'))
     return render_template("register.html")
 
 
@@ -279,17 +302,21 @@ def login():
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
                     request.form.get("username")))
-                return redirect(url_for(
-                    "profile", username=session["user"], _external=True, _scheme='https'))
+                return redirect(
+                    url_for(
+                        "profile", username=session["user"],
+                        _external=True, _scheme='https'))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
-                return redirect(url_for("login", _external=True, _scheme='https'))
+                return redirect(
+                    url_for("login", _external=True, _scheme='https'))
 
         else:
             # username doesn't exist
             flash("Incorrect Username and/or Password")
-            return redirect(url_for("login", _external=True, _scheme='https'))
+            return redirect(
+                url_for("login", _external=True, _scheme='https'))
 
     return render_template("login.html")
 
@@ -332,10 +359,14 @@ def delete_account(username):
                 # remove user from database and redirect to the home page
                 mongo.db.users.delete_one({"username": session["user"]})
                 flash("Your account has been deleted.")
-                return redirect(url_for('logout', _external=True, _scheme='https'))
+                return redirect(
+                    url_for('logout', _external=True, _scheme='https'))
             else:
                 flash("Password is incorrect! Please try again")
-                return redirect(url_for("profile", username=session["user"], _external=True, _scheme='https'))
+                return redirect(
+                    url_for(
+                        "profile", username=session["user"],
+                        _external=True, _scheme='https'))
         else:
             flash("You need to be logged in to delete your account!")
             return redirect(url_for("login", _external=True, _scheme='https'))
@@ -370,23 +401,37 @@ def change_password(username):
                         )
                         flash("Your password has been succesfully changed!")
                         return redirect(
-                            url_for("profile", username=session["user"], _external=True, _scheme='https'))
+                            url_for(
+                                "profile",
+                                username=session["user"],
+                                _external=True, _scheme='https'))
                     else:
                         flash("Passwords Do Not Match! Please try again")
                         return redirect(
                             url_for(
-                                "change_password", username=session["user"], _external=True, _scheme='https'))
+                                "change_password",
+                                username=session["user"],
+                                _external=True, _scheme='https'))
                 else:
                     flash("Your new password cannot match your old password!")
                     redirect(
-                        url_for("change_password", username=session["user"], _external=True, _scheme='https'))
+                        url_for(
+                            "change_password",
+                            username=session["user"],
+                            _external=True, _scheme='https'))
             else:
                 flash("Password is incorrect! Please try again")
-                return redirect(url_for("change_password", username=session["user"], _external=True, _scheme='https'))
+                return redirect(
+                    url_for(
+                        "change_password",
+                        username=session["user"],
+                        _external=True, _scheme='https'))
         else:
             flash("You need to be logged in to delete your account!")
             return redirect(url_for("login"))
-    return render_template("change_password.html", username=session["user"], _external=True, _scheme='https')
+    return render_template(
+        "change_password.html", username=session["user"],
+        _external=True, _scheme='https')
 
 
 # Upload an image   Copied from Double Shamrock Hackathon and modified
@@ -410,8 +455,10 @@ def upload_profile_image(username):
             mongo.db.users.update(
                 {"username": username},
                 {"$set": {"image": image_url}})
-
-        return redirect(url_for('profile', username=session["user"]), _external=True, _scheme='https')
+        return redirect(
+            url_for(
+                'profile', username=session["user"],
+                _external=True, _scheme='https'))
     return render_template("profile.html", username=session["user"])
 
 
@@ -444,7 +491,9 @@ def upload_recipe_image(recipe_id):
             upsert=True
         )
         return redirect(
-            url_for('edit_recipe', recipe_id=recipe_id, _external=True, _scheme='https'))
+            url_for(
+                'edit_recipe', recipe_id=recipe_id,
+                _external=True, _scheme='https'))
 
     categories = mongo.db.categories.find()
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -507,7 +556,8 @@ def add_category():
 
         if exists:
             flash("Category Already Exists")
-            return redirect(url_for("add_category", _external=True, _scheme='https'))
+            return redirect(
+                url_for("add_category", _external=True, _scheme='https'))
         else:
             category = {
                 "category": request.form.get("category"),
@@ -517,7 +567,8 @@ def add_category():
 
             mongo.db.categories.insert_one(category)
             flash("New Category Added")
-            return redirect(url_for("get_categories", _external=True, _scheme='https'))
+            return redirect(
+                url_for("get_categories", _external=True, _scheme='https'))
 
     return render_template("add_category.html")
 
@@ -535,20 +586,19 @@ def edit_category(category_id):
 
         mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
         flash("Category Successfully Updated")
-        return redirect(url_for("get_categories", _external=True, _scheme='https'))
+        return redirect(
+            url_for("get_categories", _external=True, _scheme='https'))
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    return render_template("update_category.html", category=category, category_id=category_id)
+    return render_template(
+        "update_category.html",
+        category=category, category_id=category_id)
 
 
-@app.route("/delete_category/<category_id>", methods=['GET', 'POST'])
-def delete_category(category_id):
-    print("line 545 cat id", category_id)
+@app.route("/delete_category/<category_id>/<category>", methods=['GET', 'POST'])
+def delete_category(category_id, category):
+    print("line 545 cat id", category_id, category)
 
-    # print(category._id)
-    # print(category.category)
-    # _id= mongo.db.categories.find_one({"category": category})["_id"]
-    # print("line 549 cat record", category)
     if request.method == 'POST':
         # prevents guest users from viewing the form
         if session["user"] == "admin":
@@ -558,38 +608,30 @@ def delete_category(category_id):
                 user["password"], request.form.get(
                     "confirm-password-to-delete")):
                 # delete recipe created by user
-                print("line 556, category", category_id)
-                mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
-                flash("Recipe Successfully Deleted")
+                print("line 611, category", category_id)
+                # category = mongo.db.categories.find_one(
+                    # {"_id": ObjectId(category_id)}, {"category"})
+                print("line 613, category", category)
+                recipes = mongo.db.recipes.find_one({"category": category})
+                print("line 615 recipes ", recipes)
+                if recipes:
+                    flash(
+                        "You cannot delete this category because it is allocated to existing recipes")
+                    return redirect(url_for("get_categories", _external=True, _scheme='https'))
+                else:
+                    mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
+                    flash("Category Successfully Deleted")
             else:
                 flash("Password is incorrect! Please try again")
-                category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+                # category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
                 return redirect(
                     url_for(
                         'edit_category', category_id=category_id,
                         _external=True, _scheme='https'))
         else:
-            flash("You are not authorised to delete this reciple")
+            flash("You are not authorised to delete this category")
 
     return redirect(url_for('get_categories', _external=True, _scheme='https'))
-
-
-# @app.route("/delete_category/<category_id>/<category>")
-# def delete_category(category_id, category):
-#     if session["user"] != "admin":
-#         flash(
-#             "You are not authorised to delete categories. The categories may be used by other peoples recipes. Please contact us using the link at the bottom.")
-#         return redirect(url_for("get_categories", _external=True, _scheme='https'))
-#     else:
-#         recipes = mongo.db.recipes.find_one({"category": category})
-#         if recipes:
-#             flash(
-#                 "You cannot delete this category because it is allocated to existing recipes")
-#             return redirect(url_for("get_categories", _external=True, _scheme='https'))
-#         else:
-#             mongo.db.categories.remove({"_id": ObjectId(category_id)})
-#             flash("Category Successfully Deleted")
-#             return redirect(url_for("get_categories", _external=True, _scheme='https'))
 
 
 @app.route("/contact", methods=['GET', 'POST'])
