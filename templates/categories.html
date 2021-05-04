@@ -26,46 +26,45 @@
                 </div>
             </div>
             <div class="row">
-                            <div class="col s12 m10 offset-m1">
-                <!-- Category Table responsive-table -->
-                {% if categories %}
-                    <div class="card">
-                        <table class="highlight center-align responsive-table striped category-table">
-                            <thead>
-                                <tr>
-                                    <!-- Category Name -->
-                                    <th>Category</th>
-                                    <th class="center-align" colspan="2">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody class="category-table">
-                                {% for category in categories %}
+                <div class="col s12 m10 offset-m1">
+                    <!-- Category Table responsive-table -->
+                    {% if categories %}
+                        <div class="card">
+                            <table class="highlight center-align responsive-table striped category-table">
+                                <thead>
                                     <tr>
-                                        <!-- Category -->
-                                        <td class="category-table left-align">{{ category.category }}</td>
-                                        <!-- Change Category  -->
-                                        <td class="category-table">
-                                            <a href="{{ url_for('edit_category', category_id=category._id) }}" class="btn green darken-3 text-center"><i class="fas fa-edit"></i>Change</a>
-                                        </td>
+                                        <!-- Category Name -->
+                                        <th>Category</th>
+                                        <th class="center-align" colspan="2">Action</th>
                                     </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                {% else %}
-                    <div class="row valign-wrapper">
-                        <div class="col s12 m8 offset-m2">
-                            <div class="norecipes-card">
-                            <h5>You have not created any categories.</h5>
-                                <h5>To add your first category, please click the add category button above.</h5>
+                                </thead>
+                                <tbody class="category-table">
+                                    {% for category in categories %}
+                                        <tr>
+                                            <!-- Category -->
+                                            <td class="category-table left-align">{{ category.category }}</td>
+                                            <!-- Change Category  -->
+                                            <td class="category-table">
+                                                <a href="{{ url_for('edit_category', category_id=category._id) }}" class="btn green darken-3 text-center"><i class="fas fa-edit"></i>Change</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="row valign-wrapper">
+                            <div class="col s12 m8 offset-m2">
+                                <div class="norecipes-card">
+                                <h5>You have not created any categories.</h5>
+                                    <h5>To add your first category, please click the add category button above.</h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endif %}
-            </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </main>
-
 
 {% endblock %}

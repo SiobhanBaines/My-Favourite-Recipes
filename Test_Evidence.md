@@ -24,23 +24,23 @@ The footer allows for the addition of information and links to sites that are no
 #####   Footer on Small Devices
  ![image](static/documentation_files/images/unit_testing_images/footer_small.png)
 ####    Github
-The link to Github opens in a seperate window.
+The link to Github opens in a separate window.
 
  ![image](static/documentation_files/images/unit_testing_images/github.png)
 ####    LinkedIn
-The link to LinkedIn opens in a seperate window.
+The link to LinkedIn opens in a separate window.
 
  ![image](static/documentation_files/images/unit_testing_images/linkedin.png)
 ####    Facebook
-The link to Facebook opens in a seperate window.
+The link to Facebook opens in a separate window.
 
  ![image](static/documentation_files/images/unit_testing_images/facebook.png)
 ####    Instagram
-The link to Instagram opens in a seperate window.
+The link to Instagram opens in a separate window.
 
  ![image](static/documentation_files/images/unit_testing_images/instagram.png)
 ####    Twitter
-The link to Twitter opens in a seperate window.
+The link to Twitter opens in a separate window.
 
  ![image](static/documentation_files/images/unit_testing_images/twitter.png)
 
@@ -125,7 +125,7 @@ When a website user has created an account and/or logged in they are taken to th
 The text on the buttons on the profile card are truncated.
 ######    Resolutions
 I increased the button width from 12rem to 14rem.
-From this page a website user can change their password, delete their account (which will delete all the recipes they have created), add a new recipe, maintain categories. When the website user has added some recipes a table is displayed detailing the recipes they have added. Clicking on the recipe name will take them to a read-only view of the recipe or they can click on the maintain recipe button to change or delete the recipe.
+From this page a website user can change their password, delete their account (which will delete all the recipes they have created), add a new recipe, maintain categories. When the website user has added some recipes, a table is displayed detailing the recipes they have added. Clicking on the recipe name will take them to a read-only view of the recipe or they can click on the maintain recipe button to change or delete the recipe.
 
 #####   Recipe Table
 The recipes table scrolls horizontally on medium and small devices and vertically on large devices.
@@ -165,7 +165,7 @@ I also changed the CSS to fix the alignment using flex-box on both the recipe de
 If the website user wants to load an image, this needs to be done before the recipe details are filled in because the site currently loses all the other information when the upload button is pressed. The website use can change the recipe and upload an image then.
 #####   Upload image
 ![image](static/documentation_files/images/unit_testing_images/upload_image.png)
-When the website user has chosen the image they want to use from the personal collection of images (or one they have downloaded) and clicked the upload button, an image is loaded to cloudinary and a new recipe record with the url is created in the recipe collection in MongoDB.
+When the website user has chosen the image, they want to use from the personal collection of images (or one they have downloaded) and clicked the upload button, an image is loaded to cloudinary and a new recipe record with the url is created in the recipe collection in MongoDB.
 ![image](static/documentation_files/images/unit_testing_images/upload_banana.png)
 ![image](static/documentation_files/images/unit_testing_images/cloudinary.png)
 ![image](static/documentation_files/images/unit_testing_images/mongobd_image.png)
@@ -206,7 +206,7 @@ This image shows a recipe with the category "Test Cat1" in MongoDB.
 
 If '"admin" tries to delete this message they recieve a flash message telling them a recipe is using that category and the category is not deleted.
 ![image](static/documentation_files/images/unit_testing_images/delete_cat_no_message.png)
-When a category is not attached to a recipe "admin" can delete it an will recieve a confirmation message once it has been deleted from the database.
+When a category is not attached to a recipe "admin" can delete it and a confirmation message will be displayed.
 ![image](static/documentation_files/images/unit_testing_images/delete_cat_success_message.png) 
 
 ####    Add Category Page
@@ -322,7 +322,7 @@ The issues are mostly related to the imported styling and scripts with the excep
 ###     Add Recipe
 ####    Desktop
 #####   Initial Test Results
-Before running the test I removed the background image
+Before running the test, I removed the background image
 ![image](static/documentation_files/images/lighthouse_images/add_recipe_desk.png)
 ####    Mobile
 #####   Initial Test Results
@@ -550,7 +550,7 @@ Change Password
 
 ![image](static/documentation_files/images/user_story_images/us5_newuser_mongodb.png)
 
-If the visitor makes any mistakes when changing the password they will recieve some messages
+If the visitor makes any mistakes when changing the password, they will receive some messages
 
 ![image](static/documentation_files/images/user_story_images/us5_old_password_error.png)
 ![image](static/documentation_files/images/user_story_images/us5_new_password_same.png)
@@ -574,7 +574,7 @@ A standard visitor can only perform CRUD on their own recipes. They do not have 
 
 ![image](static/documentation_files/images/user_story_images/us6_new_recipe_btn.png) 
 
-*This will open an empty recipe card where the visitor can create an new recipe including uploading an image of that recipe*
+*This will open an empty recipe card where the visitor can create a new recipe including uploading an image of that recipe*
 
 ![image](static/documentation_files/images/user_story_images/us6_empty_recipe_card.png)
 
@@ -595,7 +595,7 @@ A standard visitor can only perform CRUD on their own recipes. They do not have 
 
 ![image](static/documentation_files/images/user_story_images/us6_added_to_profile.png)
 
-*The visitor can now maintain the recipe by using the `maintain recipe` button in the `My Recipes` table or by opening the recipe by clicking on it's name. This will open the Change Rcipe Page*
+*The visitor can now maintain the recipe by using the `maintain recipe` button in the `My Recipes` table or by opening the recipe by clicking on its name. This will open the Change Recipe Page*
 
 ![image](static/documentation_files/images/user_story_images/us6_change_recipe.png)
 
@@ -688,20 +688,3 @@ A standard visitor can only perform CRU on their own categories. They cannot del
 
 *When a category is successfully deleted `admin` is taken back to the `Manage Category`page where a flash message is displayed and the category has been deleted.*
 ![image](static/documentation_files/images/user_story_images/us6_delete_cat_success.png)
-
-######  User Story 7:   Upload Images
-**As a** visitor, 
-**I want** to be able to upload an image of my recipes
-**So that** other people and I can see the product without having to read
-**Given** it is easier to scan images than words,
-**When** looking for a recipe,
-**Then** the add and edit recipe pages need to have an upload image fascility.
-######  Results
-######  User Story 8:   Delete Account
-**As a** visitor, 
-**I want** to have the ability to delete my account and my recipes from the site
-**So that** I know the site is compliant with GDPR
-**Given** the recipes belong to each visitor when they are loaded onto the site,
-**When** they wish to close their account,
-**Then** the recipes must also be deleted because they could be classified as personal information.
-######  Results

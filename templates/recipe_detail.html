@@ -1,55 +1,53 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <!-- <main class="parallax-container">
-        <div class="parallax"><img src="{{ url_for('static', filename='images/scales.jpeg') }}" alt="scales"></div> -->
-        <!-- Flash messages code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
-        <section>
-            <!-- flash messages  -->
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="row flashes">
-                            <h4 class="pink-text text-darken-4">{{ message }}</h4>
-                        </div>
-                    {% endfor%}
-                {% endif %}
-            {% endwith %}
-        </section>
-        <div class="container">
-            <div class="row card-panel recipe-panel maintain-recipe">
-                <div class="row card-panel">
-                    <!-- Image -->
-                    <div class="col m6 s12">
-                        <div class="card card-panel grey lighten-5 z-depth-1 center-align">
-                            {% if recipe.image %}
-                                <img src="{{ recipe.image }}" alt="Recipe Image" width="255" height="144" class="circle responsive-img">
-                            {% else %}
-                                <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image" width="255" height="144" class="circle responsive-img">
-                            {% endif %}
-                        </div>
+    <!-- Flash messages code taken from Code Institute Flask Task Manager Project and altered to fit this website -->
+    <section>
+        <!-- flash messages  -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flashes">
+                        <h4 class="pink-text text-darken-4">{{ message }}</h4>
                     </div>
+                {% endfor%}
+            {% endif %}
+        {% endwith %}
+    </section>
+    <div class="container">
+        <div class="row card-panel recipe-panel maintain-recipe">
+            <div class="row card-panel">
+                <!-- Image -->
+                <div class="col m6 s12">
+                    <div class="card card-panel grey lighten-5 z-depth-1 center-align">
+                        {% if recipe.image %}
+                            <img src="{{ recipe.image }}" alt="Recipe Image" width="255" height="144" class="circle responsive-img">
+                        {% else %}
+                            <img src="{{ url_for('static', filename='images/profile_image.jpg') }}" alt="Recipe Image" width="255" height="144" class="circle responsive-img">
+                        {% endif %}
+                    </div>
+                </div>
                     {% if recipe.name == session["user"] %}
-                    <div class="col s12 m6">
-                        <h3>{{ recipe.title }}</h3>
-                        <!-- Likes and Dislikes Scores -->
-                        <div class="row">
-                            <div class="col s12 center-align">
-                                <!-- Likes -->
-                                <div class="col s6">
-                                    <form action="{{ url_for('like', recipe_id=recipe._id) }}" method="POST">
-                                        <button type="submit" class="btn score text-brown grey lighten-5" aria-label="like">{{ recipe.likes }}<i class="rating fas fa-thumbs-up  left"></i></button>
-                                    </form>
-                                </div>
-                                <!-- Dislikes -->
-                                <div class="col s6">
-                                    <form action="{{ url_for('dislike', recipe_id=recipe._id) }}" method="POST">
-                                        <button type="submit" class="btn score text-brown grey lighten-5" aria-label="dislike">{{ recipe.dislikes }}<i class="rating fas fa-thumbs-down  left"></i></button>
-                                    </form>
+                        <div class="col s12 m6">
+                            <h3>{{ recipe.title }}</h3>
+                            <!-- Likes and Dislikes Scores -->
+                            <div class="row">
+                                <div class="col s12 center-align">
+                                    <!-- Likes -->
+                                    <div class="col s6">
+                                        <form action="{{ url_for('like', recipe_id=recipe._id) }}" method="POST">
+                                            <button type="submit" class="btn score text-brown grey lighten-5" aria-label="like">{{ recipe.likes }}<i class="rating fas fa-thumbs-up  left"></i></button>
+                                        </form>
+                                    </div>
+                                    <!-- Dislikes -->
+                                    <div class="col s6">
+                                        <form action="{{ url_for('dislike', recipe_id=recipe._id) }}" method="POST">
+                                            <button type="submit" class="btn score text-brown grey lighten-5" aria-label="dislike">{{ recipe.dislikes }}<i class="rating fas fa-thumbs-down  left"></i></button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     {% else %}
                         <div class="col s12 m6">
                             <h3>{{ recipe.title }}</h3>
@@ -68,7 +66,6 @@
                             </div>
                         </div>
                     {% endif %}
-                    
                     <div class="row">
                         <div class="col s12">
                             <!-- Category -->
@@ -165,5 +162,5 @@
                 {% endif %}
             </div>
         </div>
-    <!-- </main> -->
+
 {% endblock %}

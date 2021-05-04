@@ -49,20 +49,6 @@ The purpose of this project is to build a full-stack site that allows users to m
 **Given** the visitor has registered, creating a profile,
 **When** logged in,
 **Then** the visitor can create, read, update and delete recipes from a single location as well as having the ability to create, read and update categories if none of the current categories meet their requirements.
-######  User Story 7:   Upload Images
-**As a** visitor, 
-**I want** to be able to upload an image of my recipes
-**So that** other people and I can see the product without having to read
-**Given** it is easier to scan images than words,
-**When** looking for a recipe,
-**Then** the add and edit recipe pages need to have an upload image fascility.
-######  User Story 8:   Delete Account
-**As a** visitor, 
-**I want** to have the ability to delete my account and my recipes from the site
-**So that** I know the site is compliant with GDPR
-**Given** the recipes belong to each visitor when they are loaded onto the site,
-**When** they wish to close their account,
-**Then** the recipes must also be deleted because they could be classified as personal information.
 
 ### *Strategy*
 A site where recipes can be loaded and shared by individuals creating a central repository where anyone can try something new or bake something that brings back child hood memories of being in Grandma's kitchen. The site will help remove the need for a book shelf full of cookery books. Thereby saving space, reducing clutter and creating a quick easy way to find something tastey to bake.
@@ -100,9 +86,9 @@ Recipes will be displayed in a card with an image of the final product. Clicking
 
 ### *Skeleton*
 #### Wireframes
-[Mobile Wireframs](static/documentation_files/mobile.pdf)
+[Mobile Wireframes](static/documentation_files/mobile.pdf)
 
-[Tablet Wireframs](static/documentation_files/tablet.pdf)
+[Tablet Wireframes](static/documentation_files/tablet.pdf)
 
 [Desktop Wireframes](static/documentation_files/desktop.pdf)
 

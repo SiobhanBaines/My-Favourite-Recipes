@@ -25,14 +25,12 @@
                                 {% if image %}
                                     <img src="{{ image }}" class="profile-image" alt="profile image">
                                     <div class="row">
-                                        <a class="pink darken-4 btn modal-trigger" href="#uploadProfileImageModal"><i
-                                                class="fas fa-edit"></i> Edit image</a>
+                                        <a class="pink darken-4 btn modal-trigger" href="#uploadProfileImageModal"><i class="fas fa-edit"></i> Edit image</a>
                                     </div>
                                 {% else %}
                                     <img src="../static/images/profile_image.jpg" class="profile-image" alt="default progile image">
                                     <div class="row">
-                                        <a class="waves-effect waves-light btn modal-trigger" href="#uploadProfileImageModal"><i
-                                                class="fas fa-edit"></i> Upload an image</a>
+                                        <a class="waves-effect waves-light btn modal-trigger" href="#uploadProfileImageModal"><i class="fas fa-edit"></i> Upload an image</a>
                                     </div>
                                 {% endif %}
                                 <div class="row">
@@ -77,14 +75,11 @@
                                 {% for recipe in recipes %}
                                     <tr>
                                         <!-- Recipe Name -->
-                                        <td class="left-align"><a class="brown-text text-darken-3 profile-recipe"
-                                                href="{{ url_for('recipe_detail', recipe_id= recipe._id) }}">{{ recipe.title }}</a>
+                                        <td class="left-align"><a class="brown-text text-darken-3 profile-recipe" href="{{ url_for('recipe_detail', recipe_id= recipe._id) }}">{{ recipe.title }}</a>
                                         </td>
                                         <!-- Change recipe  -->
                                         <td>
-                                            <a href="{{ url_for('edit_recipe', recipe_id= recipe._id) }}"
-                                                class="btn green darken-3 text-center"><i class="fas fa-edit"></i> Maintain
-                                                Recipe</a>
+                                            <a href="{{ url_for('edit_recipe', recipe_id= recipe._id) }}" class="btn green darken-3 text-center"><i class="fas fa-edit"></i> Maintain Recipe</a>
                                         </td>
                                     </tr>
                                 {% endfor %}

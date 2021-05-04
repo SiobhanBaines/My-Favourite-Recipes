@@ -49,16 +49,7 @@ main {
 .inline-block {
   display: inline-block;
 }
-/* hr {
-  width: 100%;
-} */
-/* --- text format --- */
-/* h2 {
-  font-family: "Akaya Kanadaka", cursive;
-  color: var(--main-brown);
-  text-align: center;
-  vertical-align: middle;
-} */
+/* --- text format --- *//
 h1,
 h3,
 h4,
@@ -84,18 +75,12 @@ p {
   text-align: center;
   vertical-align: middle;
 }
-/* p.mins {
-  padding-top: 1rem;
-} */
 p a {
   font-weight: bold;
 }
 p {
   font-size: larger;
 }
-/* p.brown-text.text-darken-3 {
-  margin: 0.5rem;
-} */
 .row {
   margin-bottom: 10px;
 }
@@ -104,9 +89,6 @@ p {
   z-index: 2;
 }
 /* ---  icons and button text --- */
-/* .btn.amber.accent-2 {
-  color: var(--main-brown);
-} */
 a.maint-btn.btn {
   width: 18rem;
 }
@@ -128,14 +110,6 @@ a.btn.score       {
   -webkit-box-shadow: 0 4px 8px 0 var(--image-shadow), 0 6px 20px 0 var(--card-shadow);
           box-shadow: 0 4px 8px 0 var(--image-shadow), 0 6px 20px 0 var(--card-shadow);
 }
-/* a.btn.get-temp {
-  margin-top: 3.25rem;
-  margin-left: -2rem;
-} */
-/* .register-btn {
-  -ms-flex-line-pack: center;
-      align-content: center;
-} */
 .maint-btn {
   width: 18rem;
   margin: 0 15px 0 15px;
@@ -240,9 +214,6 @@ label.query {
   padding-left: 1rem;
   color: var(--main-pink);
 }
-/* .input-field .prefix.active {
-  color: #8d8e90;
-} */
 /* --- card format --- */
 .card {
   border-radius: 5px;
@@ -257,16 +228,12 @@ label.query {
 img.circle {
   -o-object-fit: fill;
      object-fit: fill;
-  /* width: 100%; */
   width: 12rem;
   height: 10rem;
   object-fit: cover;
   -o-object-position: center;
      object-position: center;
 }
-/* .card .card-title .card .no-image {
-  font-weight: 500;
-} */
 .no-image {
   color: var(--main-brown);
   position: absolute;
@@ -284,18 +251,6 @@ img.circle {
 .home.parallax-container {
   overflow: hidden;
 }
-/* h2.home {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 10%;
-  font-size: 60px;
-  color: var(--main-cream);
-  -webkit-text-stroke: 2px black;
-} */
 .container-about {
   background-color: #e1bee7;
   width: 100vw;
@@ -338,14 +293,6 @@ img.recipes-image {
   background-color: var(--main-cream);
   border-radius: 5px;
 }
-/* .recipe_image {
-  width: 300px;
-  height: auto;
-}
-
-.recipe_headline {
-  margin-top: 5%;
-} */
 .time-row {
   padding-left: 0.75rem;
 }
@@ -450,10 +397,6 @@ select {
   background-color: var(--main-cream);
   resize: vertical;
 }
-/* title {
-  width: 100%;
-  padding: 0;
-} */
 .maintain-recipe label {
   font-size: 18px;
   font-weight: bold;
@@ -463,10 +406,6 @@ select {
 select {
   display: block;
 }
-/* #prep-time,
-#cook-time {
-  margin-bottom: 2rem;
-} */
 /* --- Modals --- */
 input.image-selection {
   border: 1px solid var(--main-brown);

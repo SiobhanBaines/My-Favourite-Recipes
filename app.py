@@ -66,8 +66,6 @@ def recipe_detail(recipe_id):
 
 @app.route('/like/<recipe_id>', methods=["GET", "POST"])
 def like(recipe_id):
-    # if session.get('user'):
-    #     if session['user']:
     if request.method == "POST":
         liked = mongo.db.likedRecipes.find_one(
             {"recipe_id": ObjectId(recipe_id), "username": session["user"]})
@@ -89,7 +87,6 @@ def like(recipe_id):
                 "username": session["user"]
                 }
             mongo.db.likedRecipes.insert_one(likedRecipe)
-
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     ingredients = mongo.db.recipes.find_one(
         {"_id": ObjectId(recipe_id)}, {"ingredients"})
@@ -126,7 +123,6 @@ def dislike(recipe_id):
                         "username": session["user"]
                     }
                     mongo.db.dislikedRecipes.insert_one(dislikedRecipe)
-
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     ingredients = mongo.db.recipes.find_one(
         {"_id": ObjectId(recipe_id)}, {"ingredients"})
@@ -140,7 +136,6 @@ def dislike(recipe_id):
 @app.route("/add_recipe/", methods=["GET", "POST"])
 def add_recipe():
     user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
-
     if request.method == "POST":
         recipe_id = request.form.get("recipe_id")
         submit_recipe = {
@@ -162,30 +157,24 @@ def add_recipe():
             "date": datetime.now()
         }
         recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-
         if recipe:
             mongo.db.recipes.update(
                 {"_id": ObjectId(recipe_id)}, submit_recipe, upsert=True)
         else:
             mongo.db.recipes.insert_one(submit_recipe)
-
         flash("Recipe Successfully Added")
-
         return redirect(
             url_for(
                 "profile", username=session["user"],
                 _external=True, _scheme='https'))
-
     categories = list(mongo.db.categories.find().sort("category", 1))
     recipe = mongo.db.recipes.find().sort([('timestamp', -1)]).limit(1)
-
     return render_template(
         "add_recipe.html", recipe=recipe, categories=categories)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
-
     if request.method == "POST":
         user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
         submit_recipe = {
@@ -204,19 +193,15 @@ def edit_recipe(recipe_id):
             "name": session["user"],
             "date": datetime.now()
         }
-
         mongo.db.recipes.update(
             {"_id": ObjectId(recipe_id)}, submit_recipe, upsert=True)
-
         flash("Recipe Successfully Updated")
         return redirect(
             url_for(
                 "profile", username=session["user"],
                 _external=True, _scheme='https'))
-
     recipe = (mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)}))
     categories = mongo.db.categories.find()
-
     return render_template(
         "update_recipe.html", recipe_id=recipe_id, recipe=recipe,
         categories=categories)
@@ -245,7 +230,6 @@ def delete_recipe(recipe_id):
                         _external=True, _scheme='https'))
         else:
             flash("You are not authorised to delete this recipe")
-
     return redirect(
         url_for(
             'profile', username=session['user'],
@@ -258,12 +242,10 @@ def register():
         # check user already exists
         user_exists = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-
         if user_exists:
             flash("Username Already Exists")
             return redirect(
                 url_for("register", _external=True, _scheme='https'))
-
         # check passwords match
         if {request.form.get(
                 "password").lower()} != {request.form.get(
@@ -277,7 +259,6 @@ def register():
             "image": ""
         }
         mongo.db.users.insert_one(register)
-
         # put new user into 'session cookie
         session["user"] = request.form.get("username").lower()
         flash("Successful Registration. You can now add your own recipes")
@@ -294,7 +275,6 @@ def login():
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
@@ -311,13 +291,11 @@ def login():
                 flash("Incorrect Username and/or Password")
                 return redirect(
                     url_for("login", _external=True, _scheme='https'))
-
         else:
             # username doesn't exist
             flash("Incorrect Username and/or Password")
             return redirect(
                 url_for("login", _external=True, _scheme='https'))
-
     return render_template("login.html")
 
 
@@ -328,7 +306,6 @@ def profile(username):
         {"username": session["user"]})["_id"]
     image = mongo.db.users.find_one(
         {"username": session["user"]})["image"]
-
     if session["user"] == "admin":
         recipes = list(mongo.db.recipes.find().sort("recipe", 1))
     else:
@@ -337,7 +314,6 @@ def profile(username):
                 {"user": ObjectId(user_id)}).sort("category", 1))
         else:
             return redirect(url_for("login", _external=True, _scheme='https'))
-
     categories = mongo.db.categories.find()
     return render_template(
         "profile.html", username=session["user"],
@@ -383,15 +359,12 @@ def change_password(username):
                 user["password"], request.form.get(
                     "old-password")):
                 request.form.get("old-password")
-
                 if {request.form.get(
                     "old-password").lower()} != {request.form.get(
                         "new-password").lower()}:
-
                     if {request.form.get(
                         "new-password").lower()} == {request.form.get(
                             "confirm-new-password").lower()}:
-
                         file_password = generate_password_hash(
                             request.form.get("new-password"))
                         mongo.db.users.update_one(
@@ -465,10 +438,8 @@ def upload_profile_image(username):
 # Upload an image   Copied from Double Shamrock Hackathon and modified
 @app.route("/upload_recipe_image/<recipe_id>", methods=["GET", "POST"])
 def upload_recipe_image(recipe_id):
-
     if request.method == 'POST':
         for recipe_image in request.files.getlist("recipe_image"):
-
             # create file name for image prior to load in cloudinary
             filename = secure_filename(recipe_image.filename)
             filename, file_extension = os.path.splitext(filename)
@@ -481,10 +452,8 @@ def upload_recipe_image(recipe_id):
             image_url = (
                 "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/recipe_images/"
                 + public_id_image + file_extension)
-
         recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
         categories = mongo.db.categories.find()
-
         recipe = mongo.db.recipes.update_one(
             {"_id": ObjectId(recipe_id)},
             {"$set": {"image": image_url}},
@@ -494,10 +463,8 @@ def upload_recipe_image(recipe_id):
             url_for(
                 'edit_recipe', recipe_id=recipe_id,
                 _external=True, _scheme='https'))
-
     categories = mongo.db.categories.find()
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-
     return render_template(
         'update_recipe.html', recipe_id=recipe_id,
         recipe=recipe, categories=categories)
@@ -506,31 +473,25 @@ def upload_recipe_image(recipe_id):
 # Upload an image   Copied from Double Shamrock Hackathon and modified
 @app.route("/upload_new_recipe_image", methods=["GET", "POST"])
 def upload_new_recipe_image():
-    # categories = list(mongo.db.categories.find().sort("category", 1))
     if request.method == 'POST':
         for recipe_image in request.files.getlist("recipe_image"):
+            # create file name for image prior to load in cloudinary
             filename = secure_filename(recipe_image.filename)
             filename, file_extension = os.path.splitext(filename)
             public_id_image = (session["user"] + '_' + filename)
-
             cloudinary.uploader.unsigned_upload(
                 recipe_image, "recipe_images",
                 cloud_name='dyxuve4pr',
                 folder='favourite_recipes/recipe_images/',
                 public_id=public_id_image)
-
             image_url = (
                 "https://res.cloudinary.com/dyxuve4pr/image/upload/v1617292557/favourite_recipes/recipe_images/"
                 + public_id_image + file_extension)
-
         recipe_image = {"image": image_url}
-        new_recipe = mongo.db.recipes.insert_one(recipe_image)
-        print(new_recipe)
+        mongo.db.recipes.insert_one(recipe_image)
         categories = mongo.db.categories.find()
         recipe_id = mongo.db.recipes.find_one({"image": image_url})["_id"]
-        print(recipe_id)
         recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-        print("400", recipe)
     return render_template(
         'add_recipe.html', recipe=recipe, categories=categories)
 
@@ -539,12 +500,10 @@ def upload_new_recipe_image():
 def get_categories():
     if session["user"] == "admin":
         categories = list(mongo.db.categories.find().sort("category", 1))
-        print("line 493 cats", categories)
     else:
         categories = list(
             mongo.db.categories.find(
                 {"name": session["user"]}).sort("category", 1))
-    print("line 498, display categories,html")
     return render_template("categories.html", categories=categories)
 
 
@@ -553,7 +512,6 @@ def add_category():
     if request.method == "POST":
         new_category = request.form.get("category")
         exists = mongo.db.categories.find_one({"category": new_category})
-
         if exists:
             flash("Category Already Exists")
             return redirect(
@@ -564,31 +522,25 @@ def add_category():
                 "name": session["user"],
                 "date": datetime.now()
             }
-
             mongo.db.categories.insert_one(category)
             flash("New Category Added")
             return redirect(
                 url_for("get_categories", _external=True, _scheme='https'))
-
     return render_template("add_category.html")
 
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
-    print(category_id)
     if request.method == "POST":
-
         submit = {
             "category": request.form.get("category"),
             "name": session["user"],
             "date": datetime.now()
         }
-
         mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
         flash("Category Successfully Updated")
         return redirect(
             url_for("get_categories", _external=True, _scheme='https'))
-
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     return render_template(
         "update_category.html",
@@ -597,8 +549,6 @@ def edit_category(category_id):
 
 @app.route("/delete_category/<category_id>/<category>", methods=['GET', 'POST'])
 def delete_category(category_id, category):
-    print("line 545 cat id", category_id, category)
-
     if request.method == 'POST':
         # prevents guest users from viewing the form
         if session["user"] == "admin":
@@ -608,12 +558,7 @@ def delete_category(category_id, category):
                 user["password"], request.form.get(
                     "confirm-password-to-delete")):
                 # delete recipe created by user
-                print("line 611, category", category_id)
-                # category = mongo.db.categories.find_one(
-                    # {"_id": ObjectId(category_id)}, {"category"})
-                print("line 613, category", category)
                 recipes = mongo.db.recipes.find_one({"category": category})
-                print("line 615 recipes ", recipes)
                 if recipes:
                     flash(
                         "You cannot delete this category because it is allocated to existing recipes")
@@ -623,14 +568,12 @@ def delete_category(category_id, category):
                     flash("Category Successfully Deleted")
             else:
                 flash("Password is incorrect! Please try again")
-                # category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
                 return redirect(
                     url_for(
                         'edit_category', category_id=category_id,
                         _external=True, _scheme='https'))
         else:
             flash("You are not authorised to delete this category")
-
     return redirect(url_for('get_categories', _external=True, _scheme='https'))
 
 
@@ -650,13 +593,13 @@ def logout():
     return redirect(url_for("home", _external=True, _scheme='https'))
 
 
-# @app.errorhandler(404)
-# def page_not_found(e):
-#     # note that we set the 404 status explicitly
-#     return render_template('404.html'), 404
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
