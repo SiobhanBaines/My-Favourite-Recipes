@@ -293,7 +293,7 @@ Although I may have some photographs of the cakes and bakes created by the recip
 
 [Chocolate Cornflake Buns](https://i.pinimg.com/originals/6c/6e/1f/6c6e1f6f9c81bb8ddc90484a3db683f2.jpg) (c)netmums.com via pinterest.co.uk
 
-*[Upside Down Berry Cake](https://images.immediate.co.uk/production/volatile/sites/2/2014/12/1654.jpg?quality=90&crop=1px%2C353px%2C597px%2C254px&resize=597%2C254) (c)Olive Magazine
+[Upside Down Berry Cake](https://images.immediate.co.uk/production/volatile/sites/2/2014/12/1654.jpg?quality=90&crop=1px%2C353px%2C597px%2C254px&resize=597%2C254) (c)Olive Magazine
 
 ### Profile card
 My mentor, Arnold Keyza, suggested looking at the profile cards on [codepen](https://codepen.io/). I copied the code for [Randome Doodle2](https://codepen.io/thefeldkircher/pen/mdReELp) by [thefeldkircher](https://codepen.io/thefeldkircher) and modified it to be how I wanted it to look. 
