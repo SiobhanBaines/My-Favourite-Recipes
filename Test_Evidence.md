@@ -76,7 +76,7 @@ There is an issue with white space on either side of the about container.
  ![image](static/documentation_files/images/unit_testing_images/about_large_issue.png)
 ######    Resolutions
 This issue occured because the class container is a materialize class which has a set width that is smaller than the full view width of a screen. By changing the classes from .container .about to .container-about in both the HTML and CSS the issue is resolved.
- ![image](static/documentation_files/images/unit_testing_images/about_large_fixed.png)
+ ![image](static/documentation_files/images/about_large_fixed.png)
 
 ####    Getting Started Page
 The getting started page has one button which allows the website user to register with the site to allow them to add their own recipes. This button works.
@@ -649,7 +649,8 @@ A standard visitor can only perform CRU on their own categories. They cannot del
 
 ![image](static/documentation_files/images/user_story_images/us6_cat_exists.png)
 
-*When a new category is successfully added, the visitor is taken back to the `Manage Categories`page and a flash message is displayed. The new category  *
+*When a new category is successfully added, the visitor is taken back to the `Manage Categories`page and a flash message is displayed.*
+
 ![image](static/documentation_files/images/user_story_images/us6_new_cat_msg.png)
 ![image](static/documentation_files/images/user_story_images/us6_new_cat_after.png)
 
@@ -661,7 +662,7 @@ A standard visitor can only perform CRU on their own categories. They cannot del
 
 ![image](static/documentation_files/images/user_story_images/us6_change_cat.png)
 
-*Once the change is accepted, the visitor is taken back to the `manage categories`page, a confirmation message is display and the changed category can be seen in the table.
+*Once the change is accepted, the visitor is taken back to the `manage categories`page, a confirmation message is display and the changed category can be seen in the table.*
 
 ![image](static/documentation_files/images/user_story_images/us6_changed_cat.png)
 

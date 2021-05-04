@@ -139,9 +139,13 @@ The recipe detail page has all the information needed to create the dish. The we
 ![image](static/documentation_files/images/like_dislike.png) 
 
 If the website user has already liked or disliked the recipe they cannot like or dislike it again and a flash messages appears.
+
 **liked**
+
 ![image](static/documentation_files/images/already_like.png)
+
 **disliked**
+
 ![image](static/documentation_files/images/already_disliked.png)
 
 If the website user has a profile and they orginally added the recipe edit and delete buttons will show at the bottom of the recipe on the recipe detail page which is a view only page. Clicking on the *edit* button will take the website user to the edit recipe page and clicking on the *delete* button will take them to the delete recipe confirmation page.
@@ -191,43 +195,59 @@ This contact page allows the website user to email the website owner with any qu
 
 ####    Profile Page
 The profile page has two sections
+
     **profile detail**
+
      The website user can upload an image for their profile id, change their password or delete their account. 
      If they choose to delete their account all the recipes they have added to the site will also be deleted.
+
      **recipe and category**
+
      The website user can create new categories and add recipes. They are only allowed to make changes to their own categories and recipes. If a website user clicks on the recipe name they will be taken to the recipe detail page where they will be able to choose to edit or delete the recipe.
+
 ![image](static/documentation_files/images/profile_large.PNG)
+
 Below is an image of the profile page for a new user which shows a message saying they have not added any recipes and has a place to upload an image of themselves if they want to.
+
 ![image](static/documentation_files/images/new_user_profile.png)
 
 ####    Add Recipe Page
 As the name suggests this is the page where the website user can add a recipe. 
-**N.B.** If the website user wants to add an image they should do this before entering all the other details for the recipe. If they do this after the recipe details disappear. I have added this to future improvements. 
+
+**N.B.** 
+
+If the website user wants to add an image they should do this before entering all the other details for the recipe. If they do this after the recipe details disappear. I have added this to future improvements. 
 
 ![image](static/documentation_files/images/add_recipe.png)
 
 ####    Change Recipe Page
 For UX I have kept the format of the Change Recipe page the same as the Add Recipe page. This page allows the website user/recipe authoer to change or delete the recipe, or to cancel the action. All actions return the website user to the Profile Page and a flash message appears if they have changed or deleted the recipe.
+
 ![image](static/documentation_files/images/edit_recipe.png)
 
 ####    Add Category Page
 To reach the Add Category Page the website user needs to select the Maintain Categories from the Profile Page. At the top of the screen is an Add Category button.
 
 ![image](static/documentation_files/images/add_cat_button.png)
+
 The Add Category page is very simple. It just allows the addition of a text format category. With more time I wanted to add a search/filter feature to the recipes page.
 
 ![image](static/documentation_files/images/add_category.png)
 
 ####    Categories Page
 This screen allows the website user to add or change categories they own. Only "Admin" can delete the categories. A category cannot be deleted if it is attached to a recipe. 
+
 ![image](static/documentation_files/images/categories_admin.png)
 ![image](static/documentation_files/images/categories_not_admin.png)
+
 ####    Edit Category Page
-The website user can only change the category or cancel the action
+The website user can only change the category or cancel the action.
+
 ![image](static/documentation_files/images/edit_category.png)
 
 ####    404 Page
 If at any point the links break a 404 page will appear directing the website user back to the home page.
+
 ![image](static/documentation_files/images/404_error.png)
 
 ###     Media
@@ -236,31 +256,43 @@ If at any point the links break a 404 page will appear directing the website use
 ![image](static/documentation_files/images/technologies.png)
 
 MongoDB was used as the database for the recipes and accounts. 
+
 ![image](static/documentation_files/images/mongodb_files.png)
 
-Heroku was used for deployment and version control 
+Heroku was used for deployment and version control.
+
 ![image](static/documentation_files/images/heroku.png)
 
 ####    Credits 
 *Where an image is not listed it is my own.*
+
 **icon**
 [icon](https://stock.adobe.com/uk/search/free?load_type=search&native_visual_search=&similar_content_id=&is_recent_search=&search_type=autosuggest&k=baking&acp=0&aco=baking&asset_id=273670969&content_id=273670969) Let's Bake motivational slogan or phrase handwritten with calligraphic font or script and decorated by mixer By Good Studio 
+
 **background for static pages**
 [background flour](https://stock.adobe.com/uk/search/free?load_type=search&native_visual_search=&similar_content_id=&is_recent_search=&search_type=autosuggest&k=baking&acp=0&aco=baking&asset_id=178084081)baking ingredients By Rawpixel.com
+
 **background for weights & measures page**
 [background scales ](https://stock.adobe.com/uk/search/free?filters%5Bcontent_type%3Aphoto%5D=1&filters%5Bcontent_type%3Aillustration%5D=1&filters%5Bcontent_type%3Azip_vector%5D=1&filters%5Bfree_collection%5D=1&filters%5Bcontent_type%3Aimage%5D=1&filters%5Borientation%5D=vertical&k=baking&order=relevance&safe_search=1&search_type=filter-select&get_facets=1&asset_id=247706319) Rolling pin and a weighing scale By Rawpixel.com
+
 **Default Profile Image**
 [chef](https://www.vectorstock.com/royalty-free-vector/abstract-chef-cooky-food-bakery-logo-design-icon-vector-24016199) Image Id 24016199 ARTIST [adhevaart](https://www.vectorstock.com/royalty-free-vectors/vectors-by_adhevaart) 
+
 **Landing Page Image**
 [home](https://www.bakemag.com/articles/14570-spring-on-the-wild-side-with-cakes) Image courtesy of Puratos by [John Unrein](https://www.bakemag.com/authors/2-john-unrein) 04/07/2021
 
 ######  Recipe Images
 Although I may have some photographs of the cakes and bakes created by the recipes I decided it would be more time efficient to images that are available on the internet. 
-*[Chocolate Chip Cookies](https://www.google.com/search?q=chocolate-chip+cookies&rlz=1C1CHBF_en-GBGB927GB927&sxsrf=ALeKk00CvGruX48K4p1I096wLH3I9PnZvA:1616684868489&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjPxbK63MvvAhUOQxUIHYBSCmYQ_AUoAXoECAEQAw&biw=1280&bih=554&dpr=1.25#imgrc=RCL0CE6FPWbCyM)
+
+[Chocolate Chip Cookies](https://www.google.com/search?q=chocolate-chip+cookies&rlz=1C1CHBF_en-GBGB927GB927&sxsrf=ALeKk00CvGruX48K4p1I096wLH3I9PnZvA:1616684868489&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjPxbK63MvvAhUOQxUIHYBSCmYQ_AUoAXoECAEQAw&biw=1280&bih=554&dpr=1.25#imgrc=RCL0CE6FPWbCyM)
 (c)Handle the Heat with Tessa Arias. 
-*[Lemon Drizzle](https://100cookbooks.wordpress.com/2012/08/18/lemon-drizzle-traybake-mary-berrys-baking-bible/)
-*[Banana Bread](https://www.pcrm.org/good-nutrition/plant-based-diets/recipes/banana-bread) (c)The Vegan Starter Kit by Neal Barnard, M.D.
-*[Chocolate Cornflake Buns](https://i.pinimg.com/originals/6c/6e/1f/6c6e1f6f9c81bb8ddc90484a3db683f2.jpg) (c)netmums.com via pinterest.co.uk
+
+[Lemon Drizzle](https://100cookbooks.wordpress.com/2012/08/18/lemon-drizzle-traybake-mary-berrys-baking-bible/)
+
+[Banana Bread](https://www.pcrm.org/good-nutrition/plant-based-diets/recipes/banana-bread) (c)The Vegan Starter Kit by Neal Barnard, M.D.
+
+[Chocolate Cornflake Buns](https://i.pinimg.com/originals/6c/6e/1f/6c6e1f6f9c81bb8ddc90484a3db683f2.jpg) (c)netmums.com via pinterest.co.uk
+
 *[Upside Down Berry Cake](https://images.immediate.co.uk/production/volatile/sites/2/2014/12/1654.jpg?quality=90&crop=1px%2C353px%2C597px%2C254px&resize=597%2C254) (c)Olive Magazine
 
 ### Profile card
@@ -276,6 +308,8 @@ I had a look on Google for the error code but found nothing. I then looked on Sl
 
 ### Recipe would not Add when Add button clicked
 ![image](static/documentation_files/images/recipe_not_loading_into_mongodb_collection.png)
+
+
 When I created the Add Recipe page I based it on the Recipe Details page for the layout and copied the functionality from the Add Category page. After some digging I decided to put the code through the HTML validator [http://validator.w3.org/](http://validator.w3.org/) I had checked all my opening and closing tags so was surprised by the ![image](static/documentation_files/images/form_tag.png) The words **Ignoring the tag.** made me realise I cannot have forms within a form. I had used the Materialzecss TextArea code for 3 of the elements that needed to be entered. I changed the TextArea's to standart input elements of the type text. This time the recipe was added to the recipes collection in Mongodb.
 ![image](static/documentation_files/images/recipe_added.png)
 ![image](static/documentation_files/images/recipe_in_mongodb.png)
@@ -322,16 +356,25 @@ Once the application has been opened in a GidPod workspace there are a couple of
 ### How to deploy to Heroku
 1. create the requirements.txt document in GitPod using the command `pip3 freeze --local > requirements.txt`
 2. create the *Procfile* which Heroku needs to know which file runs the app and how to run it using the command `echo web: python app.py > Procfile"`. Remember to open the Procfile and remove the blank line at the bottom if one exists because it can interfere with Heroku running the app.
+
 ![image](static/documentation_files/images/blank_line.png)
 3. In Heroku, 
     1. click on **New** and **Create new app**. 
+
     ![image](static/documentation_files/images/create_new_app.png)
+
     2. Create the app using lowercase letters, numbers and hyphans instead of spaces (NO special characters). Select the nearest region and click **Create app**
+
     ![image](static/documentation_files/images/create_new_app_details.png)
+
     3. Go to the **Deploy** tab to link Heroku to the correct GitHub repository
+
     ![image](static/documentation_files/images/link_heroku_to_github_repo.png) and click **connect**
+
 4. Set up the configuration variables that exist in `env.py` by clicking on the **settings** tab, scroll down to **Config vars** and click on the button.
+
 ![image](static/documentation_files/images/config_vars.png).
+
 5. Before clicking the deploy button make sure the `Procfile` and the `requirements.txt` files are deployed to Github
 6. In Heroku click on **deploy** tab and click on **Enabled Automatic Deployment** and **Deploy**. 
 7. Once it has deployed use the standard method of deploying to GitHub and this will be automatically replicated through to Heroku. 
